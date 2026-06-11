@@ -1,0 +1,27 @@
+<Project>
+
+  <!--
+    Central Package Management. Dependabot's `nuget` ecosystem bumps these versions.
+
+    Grpc.Tools is build-time only (PrivateAssets=all in the projects). It bundles the
+    `protoc` + `grpc_csharp_plugin` used to (re)generate the committed source via the
+    MSBuild <Protobuf> integration.
+
+    Coupling: keep Google.Protobuf's version >= the protobuf runtime that ships in the
+    pinned Grpc.Tools. Grpc.Tools 2.81.x bundles protoc 3.x compatible with
+    Google.Protobuf 3.35.0; Grpc.Core.Api is the gRPC abstractions (no transport).
+
+    SourceLink for the GitHub provider is included in the .NET SDK (8.0.100+), so no
+    Microsoft.SourceLink.GitHub package is referenced here.
+  -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="Grpc.Tools" Version="2.81.0" />
+    <PackageVersion Include="Google.Protobuf" Version="3.35.0" />
+    <PackageVersion Include="Grpc.Core.Api" Version="2.80.0" />
+  </ItemGroup>
+
+</Project>

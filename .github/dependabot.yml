@@ -1,0 +1,20 @@
+version: 2
+updates:
+  # Bumps Grpc.Tools / Google.Protobuf / Grpc.Core.Api in Directory.Packages.props.
+  # A merged bump touches Directory.Packages.props, which triggers release.yml to
+  # rebuild the latest spec with a new 4th-field version (X.Y.Z.N).
+  - package-ecosystem: nuget
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore
+
+  # Keeps the GitHub Actions used by the workflows current.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci

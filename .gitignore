@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+
+# IDE
+.vs/
+.idea/
+*.user
+
+# NuGet output
+*.nupkg
+*.snupkg
+
+# NOTE: src/**/Generated/ is intentionally COMMITTED (source-bearing mirror) and
+# must NOT be ignored. It is regenerated in-place by `dotnet build` (Grpc.Tools).

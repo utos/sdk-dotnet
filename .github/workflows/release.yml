@@ -1,0 +1,178 @@
+name: Release
+
+# Pull/subscribe model: this repo watches utos/api's tags and publishes when it
+# sees a spec version it hasn't built yet. utos/api knows nothing about this repo.
+#
+# Triggers:
+#   - schedule: poll utos/api for new vX.Y.Z tags.
+#   - workflow_dispatch: build a specific api tag now (or the latest).
+#   - push to main touching Directory.Packages.props: a tooling bump (e.g. Dependabot
+#     raising Grpc.Tools / Google.Protobuf) -> rebuild the latest spec with a new
+#     4th-field version (X.Y.Z.N).
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      api_ref:
+        description: 'utos/api tag to build, e.g. v0.0.7 (empty = latest released tag)'
+        required: false
+        default: ''
+  push:
+    branches: [main]
+    paths:
+      - 'Directory.Packages.props'
+
+permissions:
+  contents: write   # commit regenerated source + push tags to this repo
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+env:
+  API_REPO: utos/api
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # need all tags to derive the version
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      # --- Decide what (if anything) to build, and the resulting version ----------
+      - name: Resolve target spec + SDK version
+        id: r
+        run: |
+          set -euo pipefail
+          API_URL="https://github.com/${API_REPO}.git"
+
+          # Mode: 'rebuild' for a tooling bump (push), else 'spec'.
+          if [ "${{ github.event_name }}" = "push" ]; then MODE=rebuild; else MODE=spec; fi
+
+          # Target spec tag: explicit input, else the highest vX.Y.Z on utos/api.
+          REF_INPUT="${{ github.event.inputs.api_ref }}"
+          if [ -n "$REF_INPUT" ]; then
+            SPEC_TAG="$REF_INPUT"
+          else
+            SPEC_TAG=$(git ls-remote --tags --refs "$API_URL" 'v[0-9]*.[0-9]*.[0-9]*' \
+              | awk -F/ '{print $NF}' | sort -V | tail -1)
+          fi
+          if [ -z "$SPEC_TAG" ]; then echo "::error::No spec tag found on ${API_REPO}"; exit 1; fi
+          SPEC_VER="${SPEC_TAG#v}"
+          SPEC_SHA=$(git ls-remote "$API_URL" "refs/tags/${SPEC_TAG}" | cut -f1)
+
+          # Fall back to a base (spec) build if a tooling bump arrives before the
+          # spec has ever been released.
+          if [ "$MODE" = "rebuild" ] && ! git rev-parse "refs/tags/v${SPEC_VER}" >/dev/null 2>&1; then
+            MODE=spec
+          fi
+
+          SHOULD_BUILD=true
+          if [ "$MODE" = "spec" ]; then
+            if git rev-parse "refs/tags/v${SPEC_VER}" >/dev/null 2>&1; then
+              SHOULD_BUILD=false            # this spec is already published
+              SDK_VERSION="$SPEC_VER"
+            else
+              SDK_VERSION="$SPEC_VER"       # first build of this spec
+            fi
+          else
+            # rebuild: increment the 4th field for this spec version
+            LAST=$(git tag --list "v${SPEC_VER}.*" | sed "s/^v${SPEC_VER}\.//" | sort -n | tail -1 || true)
+            NEXT=$(( ${LAST:-0} + 1 ))
+            SDK_VERSION="${SPEC_VER}.${NEXT}"
+          fi
+
+          echo "mode=$MODE"                 >> "$GITHUB_OUTPUT"
+          echo "spec_tag=$SPEC_TAG"         >> "$GITHUB_OUTPUT"
+          echo "spec_ver=$SPEC_VER"         >> "$GITHUB_OUTPUT"
+          echo "spec_sha=$SPEC_SHA"         >> "$GITHUB_OUTPUT"
+          echo "sdk_version=$SDK_VERSION"   >> "$GITHUB_OUTPUT"
+          echo "should_build=$SHOULD_BUILD" >> "$GITHUB_OUTPUT"
+          echo "::notice::mode=$MODE spec=$SPEC_TAG sdk=$SDK_VERSION build=$SHOULD_BUILD"
+
+      # --- Everything below is gated on should_build == true -----------------------
+      - name: Check out utos/api at the spec tag
+        if: steps.r.outputs.should_build == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.API_REPO }}
+          ref: ${{ steps.r.outputs.spec_tag }}
+          path: _api
+
+      - name: Vendor proto + regenerate (dotnet build)
+        if: steps.r.outputs.should_build == 'true'
+        run: |
+          set -euo pipefail
+          rm -rf proto && mkdir proto
+          cp -r _api/workflow _api/daemon proto/
+          rm -rf _api
+          dotnet build Utos.slnx -c Release
+
+      - name: Update CHANGELOG
+        if: steps.r.outputs.should_build == 'true'
+        env:
+          MODE: ${{ steps.r.outputs.mode }}
+          SDK_VERSION: ${{ steps.r.outputs.sdk_version }}
+          SPEC_TAG: ${{ steps.r.outputs.spec_tag }}
+          SPEC_SHA: ${{ steps.r.outputs.spec_sha }}
+        run: |
+          set -euo pipefail
+          DATE=$(date -u +%Y-%m-%d)
+          API_LINK="https://github.com/${API_REPO}/releases/tag/${SPEC_TAG}"
+          if [ "$MODE" = "spec" ]; then
+            BODY="Generated from [\`${SPEC_TAG}\`](${API_LINK}) (\`${SPEC_SHA}\`). See the [spec changelog](https://github.com/${API_REPO}/blob/${SPEC_TAG}/CHANGELOG.md)."
+          else
+            BODY="SDK-only rebuild against [\`${SPEC_TAG}\`](${API_LINK}) (\`${SPEC_SHA}\`): codegen/runtime tooling bump, no spec change."
+          fi
+          # Real newlines, then insert the section above the first existing release
+          # heading (newest-first), or append if this is the first release.
+          SECTION=$(printf '## [%s] - %s\n\n%s\n' "$SDK_VERSION" "$DATE" "$BODY")
+          awk -v sec="$SECTION" '
+            /^## \[/ && $0 !~ /^## \[Unreleased\]/ && !ins { print sec "\n"; ins=1 }
+            { print }
+            END { if (!ins) print "\n" sec }
+          ' CHANGELOG.md > CHANGELOG.tmp && mv CHANGELOG.tmp CHANGELOG.md
+
+      - name: Commit, tag
+        if: steps.r.outputs.should_build == 'true'
+        env:
+          SDK_VERSION: ${{ steps.r.outputs.sdk_version }}
+          SPEC_TAG: ${{ steps.r.outputs.spec_tag }}
+          SPEC_SHA: ${{ steps.r.outputs.spec_sha }}
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add proto src/**/Generated CHANGELOG.md
+          if git diff --cached --quiet; then
+            echo "::notice::No content changes; tagging existing tree."
+          fi
+          git commit --allow-empty -m "release: ${SDK_VERSION}
+
+          Generated from ${API_REPO}@${SPEC_TAG}
+          Utos-api-sha: ${SPEC_SHA}"
+          git tag "v${SDK_VERSION}"
+          git push origin HEAD:main
+          git push origin "v${SDK_VERSION}"
+
+      - name: Pack
+        if: steps.r.outputs.should_build == 'true'
+        run: dotnet pack Utos.slnx -c Release -p:Version=${{ steps.r.outputs.sdk_version }} -o artifacts
+
+      - name: Push to nuget.org
+        if: steps.r.outputs.should_build == 'true'
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          set -euo pipefail
+          dotnet nuget push 'artifacts/*.nupkg' \
+            --api-key "$NUGET_API_KEY" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate

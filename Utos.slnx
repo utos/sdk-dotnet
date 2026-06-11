@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Utos.Daemon.Client/Utos.Daemon.Client.csproj" />
+    <Project Path="src/Utos.Daemon.Server/Utos.Daemon.Server.csproj" />
+    <Project Path="src/Utos.Workflow/Utos.Workflow.csproj" />
+  </Folder>
+</Solution>

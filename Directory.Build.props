@@ -1,0 +1,48 @@
+<Project>
+
+  <!-- Shared settings for all SDK packages. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+
+    <!--
+      Generated code lives in a committed Generated/ folder inside each project.
+      Grpc.Tools adds the generated .cs to @(Compile) itself, so the default
+      **/*.cs glob is disabled to avoid compiling them twice. There is no
+      hand-written .cs in these packages.
+    -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+
+    <!-- Deterministic, source-navigable builds. -->
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <!-- Symbol package (.snupkg) so consumers can step into generated source. -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <!-- Shared package metadata. Version is supplied by the release pipeline (-p:Version=). -->
+    <Authors>Utos</Authors>
+    <Company>Utos</Company>
+    <Product>Utos</Product>
+    <Copyright>Copyright (c) Utos</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/utos/sdk-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/utos/sdk-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Generated protobuf code has no XML doc comments; don't fail/spam on that. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <!-- README + LICENSE packed into every package. -->
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+</Project>

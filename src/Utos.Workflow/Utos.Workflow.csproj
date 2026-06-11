@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Utos.Workflow</PackageId>
+    <RootNamespace>Utos.Workflow</RootNamespace>
+    <Description>Utos workflow format types (utos.workflow.v1): Workflow, WorkflowBundle, activities and related messages. Generated from the Utos API specification. Shared by daemon implementers and callers.</Description>
+    <PackageTags>utos;workflow;protobuf;grpc</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" />
+    <PackageReference Include="Grpc.Tools" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Messages only (no services in utos.workflow.v1). Regenerated in-place into the committed Generated/ folder. -->
+  <ItemGroup>
+    <Protobuf Include="..\..\proto\workflow\v1\*.proto"
+              ProtoRoot="..\..\proto"
+              GrpcServices="None"
+              OutputDir="Generated"
+              CompileOutputs="true" />
+  </ItemGroup>
+
+  <!-- Ship the proto + changelog as inert reference content (NOT contentFiles). -->
+  <ItemGroup>
+    <None Include="..\..\proto\workflow\**\*.proto" Pack="true" PackagePath="proto\workflow\" Visible="false" />
+    <None Include="..\..\CHANGELOG.md" Pack="true" PackagePath="docs\" Visible="false" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Utos.Daemon.Client</PackageId>
+    <RootNamespace>Utos.Daemon</RootNamespace>
+    <Description>Utos daemon gRPC CLIENT stubs (utos.daemon.v1): use this to call any spec-compatible Utos daemon. Contains the daemon message types and client stubs only (no server base). Generated from the Utos API specification.</Description>
+    <PackageTags>utos;daemon;grpc;client;protobuf</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.Core.Api" />
+    <PackageReference Include="Grpc.Tools" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Workflow message types resolve from this reference (NOT regenerated here). -->
+  <ItemGroup>
+    <ProjectReference Include="..\Utos.Workflow\Utos.Workflow.csproj" />
+  </ItemGroup>
+
+  <!--
+    Daemon DTOs + CLIENT stubs (GrpcServices="Client" => no_server).
+    ProtoRoot points at proto/ so the daemon protos' import of workflow/v1/bundle.proto
+    resolves as an import only; the workflow protos are NOT added as <Protobuf> items here,
+    so workflow types are not regenerated and bind to the Utos.Workflow assembly.
+  -->
+  <ItemGroup>
+    <Protobuf Include="..\..\proto\daemon\v1\*.proto"
+              ProtoRoot="..\..\proto"
+              GrpcServices="Client"
+              OutputDir="Generated"
+              CompileOutputs="true" />
+    <!-- shared.proto declares no service, so it emits no *Grpc.cs. -->
+    <Protobuf Update="..\..\proto\daemon\v1\shared.proto" GrpcServices="None" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\proto\daemon\**\*.proto" Pack="true" PackagePath="proto\daemon\" Visible="false" />
+    <None Include="..\..\CHANGELOG.md" Pack="true" PackagePath="docs\" Visible="false" />
+  </ItemGroup>
+
+</Project>

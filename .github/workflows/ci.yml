@@ -1,0 +1,35 @@
+name: CI
+
+# Builds the SDK and verifies the committed generated source is in sync with the
+# vendored proto under the pinned Grpc.Tools (the "drift" safety net). Runs on PRs
+# and pushes; does not publish.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build & drift check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Build (regenerates Generated/ in-place)
+        run: dotnet build Utos.slnx -c Release
+
+      - name: Verify committed generated source matches proto + pinned tooling
+        run: |
+          if ! git diff --exit-code -- 'src/**/Generated/**/*.cs'; then
+            echo "::error::Committed generated source is out of date. Run 'dotnet build' and commit the changes under src/**/Generated/."
+            exit 1
+          fi
+
+      - name: Pack (validate packaging)
+        run: dotnet pack Utos.slnx -c Release -p:Version=0.0.0-ci
