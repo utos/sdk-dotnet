@@ -27,6 +27,7 @@ on:
 
 permissions:
   contents: write   # commit regenerated source + push tags to this repo
+  id-token: write   # OIDC token for nuget.org Trusted Publishing
 
 concurrency:
   group: release
@@ -176,13 +177,21 @@ jobs:
         if: steps.r.outputs.should_build == 'true'
         run: dotnet pack Utos.slnx -c Release -p:Version=${{ steps.r.outputs.sdk_version }} -o artifacts
 
+      # Trusted Publishing: exchange the GitHub OIDC token for a short-lived nuget.org
+      # API key (no stored secret). Requires a trusted-publishing policy on nuget.org
+      # bound to repo utos/sdk-dotnet + workflow release.yml, owner = Utos.
+      - name: Authenticate to nuget.org (Trusted Publishing)
+        if: steps.r.outputs.should_build == 'true'
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ vars.NUGET_USER }}
+
       - name: Push to nuget.org
         if: steps.r.outputs.should_build == 'true'
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
           set -euo pipefail
           dotnet nuget push 'artifacts/*.nupkg' \
-            --api-key "$NUGET_API_KEY" \
+            --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
