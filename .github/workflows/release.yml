@@ -40,7 +40,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0   # need all tags to derive the version
 
@@ -111,7 +111,7 @@ jobs:
       # --- Everything below is gated on should_build == true -----------------------
       - name: Check out utos/api at the spec tag
         if: steps.r.outputs.should_build == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ env.API_REPO }}
           ref: ${{ steps.r.outputs.spec_tag }}
