@@ -25,29 +25,31 @@ namespace Utos.Workflow.V1 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Chp3b3JrZmxvdy92MS93b3JrZmxvdy5wcm90bxIQdXRvcy53b3JrZmxvdy52",
-            "MRoad29ya2Zsb3cvdjEvYWN0aXZpdHkucHJvdG8iWwoQV29ya2Zsb3dNZXRh",
-            "ZGF0YRIMCgRuYW1lGAEgASgJEg8KB3ZlcnNpb24YAiABKAkSGAoLZGVzY3Jp",
-            "cHRpb24YAyABKAlIAIgBAUIOCgxfZGVzY3JpcHRpb24i1wEKCFdvcmtmbG93",
-            "EjkKC2FwaV92ZXJzaW9uGAEgASgOMiQudXRvcy53b3JrZmxvdy52MS5Xb3Jr",
-            "Zmxvd0FwaVZlcnNpb24SLAoEa2luZBgCIAEoDjIeLnV0b3Mud29ya2Zsb3cu",
-            "djEuV29ya2Zsb3dLaW5kEjQKCG1ldGFkYXRhGAMgASgLMiIudXRvcy53b3Jr",
-            "Zmxvdy52MS5Xb3JrZmxvd01ldGFkYXRhEiwKBHNwZWMYBCABKAsyHi51dG9z",
-            "LndvcmtmbG93LnYxLldvcmtmbG93U3BlYyKmAgoMV29ya2Zsb3dTcGVjEkYK",
-            "DGRlcGVuZGVuY2llcxgBIAMoCzIwLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zs",
-            "b3dTcGVjLkRlcGVuZGVuY2llc0VudHJ5EkIKCmFjdGl2aXRpZXMYAiADKAsy",
-            "Li51dG9zLndvcmtmbG93LnYxLldvcmtmbG93U3BlYy5BY3Rpdml0aWVzRW50",
-            "cnkaMwoRRGVwZW5kZW5jaWVzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVl",
-            "GAIgASgJOgI4ARpVCg9BY3Rpdml0aWVzRW50cnkSCwoDa2V5GAEgASgJEjEK",
-            "BXZhbHVlGAIgASgLMiIudXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0FjdGl2",
-            "aXR5OgI4ASpbChJXb3JrZmxvd0FwaVZlcnNpb24SJAogV09SS0ZMT1dfQVBJ",
-            "X1ZFUlNJT05fVU5TUEVDSUZJRUQQABIfChtXT1JLRkxPV19BUElfVkVSU0lP",
-            "Tl9WMV8wXzAQASpOCgxXb3JrZmxvd0tpbmQSHQoZV09SS0ZMT1dfS0lORF9V",
-            "TlNQRUNJRklFRBAAEh8KG1dPUktGTE9XX0tJTkRfV09SS0ZMT1dfVVRPUxAB",
-            "QhOqAhBVdG9zLldvcmtmbG93LlYxYgZwcm90bzM="));
+            "MRoad29ya2Zsb3cvdjEvYWN0aXZpdHkucHJvdG8ipQEKEFdvcmtmbG93TWV0",
+            "YWRhdGESDAoEbmFtZRgBIAEoCRIPCgd2ZXJzaW9uGAIgASgJEhgKC2Rlc2Ny",
+            "aXB0aW9uGAMgASgJSACIAQESFgoJbmFtZXNwYWNlGAQgASgJSAGIAQESFQoI",
+            "cmVnaXN0cnkYBSABKAlIAogBAUIOCgxfZGVzY3JpcHRpb25CDAoKX25hbWVz",
+            "cGFjZUILCglfcmVnaXN0cnki1wEKCFdvcmtmbG93EjkKC2FwaV92ZXJzaW9u",
+            "GAEgASgOMiQudXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0FwaVZlcnNpb24S",
+            "LAoEa2luZBgCIAEoDjIeLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dLaW5k",
+            "EjQKCG1ldGFkYXRhGAMgASgLMiIudXRvcy53b3JrZmxvdy52MS5Xb3JrZmxv",
+            "d01ldGFkYXRhEiwKBHNwZWMYBCABKAsyHi51dG9zLndvcmtmbG93LnYxLldv",
+            "cmtmbG93U3BlYyKmAgoMV29ya2Zsb3dTcGVjEkYKDGRlcGVuZGVuY2llcxgB",
+            "IAMoCzIwLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dTcGVjLkRlcGVuZGVu",
+            "Y2llc0VudHJ5EkIKCmFjdGl2aXRpZXMYAiADKAsyLi51dG9zLndvcmtmbG93",
+            "LnYxLldvcmtmbG93U3BlYy5BY3Rpdml0aWVzRW50cnkaMwoRRGVwZW5kZW5j",
+            "aWVzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARpVCg9B",
+            "Y3Rpdml0aWVzRW50cnkSCwoDa2V5GAEgASgJEjEKBXZhbHVlGAIgASgLMiIu",
+            "dXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0FjdGl2aXR5OgI4ASpbChJXb3Jr",
+            "Zmxvd0FwaVZlcnNpb24SJAogV09SS0ZMT1dfQVBJX1ZFUlNJT05fVU5TUEVD",
+            "SUZJRUQQABIfChtXT1JLRkxPV19BUElfVkVSU0lPTl9WMV8wXzAQASpOCgxX",
+            "b3JrZmxvd0tpbmQSHQoZV09SS0ZMT1dfS0lORF9VTlNQRUNJRklFRBAAEh8K",
+            "G1dPUktGTE9XX0tJTkRfV09SS0ZMT1dfVVRPUxABQhOqAhBVdG9zLldvcmtm",
+            "bG93LlYxYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Utos.Workflow.V1.ActivityReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Utos.Workflow.V1.WorkflowApiVersion), typeof(global::Utos.Workflow.V1.WorkflowKind), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowMetadata), global::Utos.Workflow.V1.WorkflowMetadata.Parser, new[]{ "Name", "Version", "Description" }, new[]{ "Description" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowMetadata), global::Utos.Workflow.V1.WorkflowMetadata.Parser, new[]{ "Name", "Version", "Description", "Namespace", "Registry" }, new[]{ "Description", "Namespace", "Registry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.Workflow), global::Utos.Workflow.V1.Workflow.Parser, new[]{ "ApiVersion", "Kind", "Metadata", "Spec" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowSpec), global::Utos.Workflow.V1.WorkflowSpec.Parser, new[]{ "Dependencies", "Activities" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
           }));
@@ -71,6 +73,11 @@ namespace Utos.Workflow.V1 {
   #region Messages
   /// <summary>
   /// Workflow metadata and versioning information
+  ///
+  /// Together these fields form the workflow's identity, Docker-style:
+  /// "[registry/][namespace/]name:version". A locally-authored workflow is just
+  /// "name:version"; it gains "namespace/" and "registry/" prefixes only once it
+  /// has a registry home. Both prefixes are optional and independent.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WorkflowMetadata : pb::IMessage<WorkflowMetadata>
@@ -110,6 +117,8 @@ namespace Utos.Workflow.V1 {
       name_ = other.name_;
       version_ = other.version_;
       description_ = other.description_;
+      namespace_ = other.namespace_;
+      registry_ = other.registry_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -179,6 +188,66 @@ namespace Utos.Workflow.V1 {
       description_ = null;
     }
 
+    /// <summary>Field number for the "namespace" field.</summary>
+    public const int NamespaceFieldNumber = 4;
+    private readonly static string NamespaceDefaultValue = "";
+
+    private string namespace_;
+    /// <summary>
+    /// Namespace qualifier (e.g., "google" in "google/gmail:v1.0.0"). Omitted for
+    /// local/unpublished workflows.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Namespace {
+      get { return namespace_ ?? NamespaceDefaultValue; }
+      set {
+        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "namespace" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasNamespace {
+      get { return namespace_ != null; }
+    }
+    /// <summary>Clears the value of the "namespace" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearNamespace() {
+      namespace_ = null;
+    }
+
+    /// <summary>Field number for the "registry" field.</summary>
+    public const int RegistryFieldNumber = 5;
+    private readonly static string RegistryDefaultValue = "";
+
+    private string registry_;
+    /// <summary>
+    /// Registry the workflow is published to (e.g., "registry.utos.dev"). Omitted
+    /// for local/unpublished workflows.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Registry {
+      get { return registry_ ?? RegistryDefaultValue; }
+      set {
+        registry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "registry" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRegistry {
+      get { return registry_ != null; }
+    }
+    /// <summary>Clears the value of the "registry" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRegistry() {
+      registry_ = null;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -197,6 +266,8 @@ namespace Utos.Workflow.V1 {
       if (Name != other.Name) return false;
       if (Version != other.Version) return false;
       if (Description != other.Description) return false;
+      if (Namespace != other.Namespace) return false;
+      if (Registry != other.Registry) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -207,6 +278,8 @@ namespace Utos.Workflow.V1 {
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Version.Length != 0) hash ^= Version.GetHashCode();
       if (HasDescription) hash ^= Description.GetHashCode();
+      if (HasNamespace) hash ^= Namespace.GetHashCode();
+      if (HasRegistry) hash ^= Registry.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -237,6 +310,14 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(26);
         output.WriteString(Description);
       }
+      if (HasNamespace) {
+        output.WriteRawTag(34);
+        output.WriteString(Namespace);
+      }
+      if (HasRegistry) {
+        output.WriteRawTag(42);
+        output.WriteString(Registry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -259,6 +340,14 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(26);
         output.WriteString(Description);
       }
+      if (HasNamespace) {
+        output.WriteRawTag(34);
+        output.WriteString(Namespace);
+      }
+      if (HasRegistry) {
+        output.WriteRawTag(42);
+        output.WriteString(Registry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -277,6 +366,12 @@ namespace Utos.Workflow.V1 {
       }
       if (HasDescription) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Description);
+      }
+      if (HasNamespace) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      }
+      if (HasRegistry) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Registry);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -298,6 +393,12 @@ namespace Utos.Workflow.V1 {
       }
       if (other.HasDescription) {
         Description = other.Description;
+      }
+      if (other.HasNamespace) {
+        Namespace = other.Namespace;
+      }
+      if (other.HasRegistry) {
+        Registry = other.Registry;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -330,6 +431,14 @@ namespace Utos.Workflow.V1 {
             Description = input.ReadString();
             break;
           }
+          case 34: {
+            Namespace = input.ReadString();
+            break;
+          }
+          case 42: {
+            Registry = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -359,6 +468,14 @@ namespace Utos.Workflow.V1 {
           }
           case 26: {
             Description = input.ReadString();
+            break;
+          }
+          case 34: {
+            Namespace = input.ReadString();
+            break;
+          }
+          case 42: {
+            Registry = input.ReadString();
             break;
           }
         }

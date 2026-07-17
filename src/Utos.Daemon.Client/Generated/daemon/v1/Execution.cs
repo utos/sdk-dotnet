@@ -26,45 +26,54 @@ namespace Utos.Daemon.V1 {
           string.Concat(
             "ChlkYWVtb24vdjEvZXhlY3V0aW9uLnByb3RvEg51dG9zLmRhZW1vbi52MRoW",
             "ZGFlbW9uL3YxL3NoYXJlZC5wcm90bxoYd29ya2Zsb3cvdjEvYnVuZGxlLnBy",
-            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIpUBChhTY2hl",
-            "ZHVsZUV4ZWN1dGlvblJlcXVlc3QSMAoGYnVuZGxlGAEgASgLMiAudXRvcy53",
-            "b3JrZmxvdy52MS5Xb3JrZmxvd0J1bmRsZRIvCgVpbnB1dBgCIAEoCzIgLnV0",
-            "b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblBheWxvYWQSFgoOc3RhcnRfYWN0aXZp",
-            "dHkYAyABKAkiWAoZU2NoZWR1bGVFeGVjdXRpb25SZXNwb25zZRIKCgJpZBgB",
-            "IAEoCRIvCgZzdGF0dXMYAiABKA4yHy51dG9zLmRhZW1vbi52MS5FeGVjdXRp",
-            "b25TdGF0dXMiKwoTR2V0RXhlY3V0aW9uUmVxdWVzdBIUCgxleGVjdXRpb25f",
-            "aWQYASABKAki6gQKFEdldEV4ZWN1dGlvblJlc3BvbnNlEgoKAmlkGAEgASgJ",
-            "Ei8KBnN0YXR1cxgCIAEoDjIfLnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblN0",
-            "YXR1cxIVCg13b3JrZmxvd19uYW1lGAMgASgJEhgKEHdvcmtmbG93X3ZlcnNp",
-            "b24YBCABKAkSMAoGYnVuZGxlGAUgASgLMiAudXRvcy53b3JrZmxvdy52MS5X",
-            "b3JrZmxvd0J1bmRsZRI0CgVpbnB1dBgGIAEoCzIgLnV0b3MuZGFlbW9uLnYx",
-            "LkV4ZWN1dGlvblBheWxvYWRIAIgBARIuCgpjcmVhdGVkX2F0GAcgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI1CgxzY2hlZHVsZWRfYXQYCCAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wSAGIAQESMwoKc3RhcnRl",
-            "ZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAogBARI1",
-            "Cgxjb21wbGV0ZWRfYXQYCiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
-            "YW1wSAOIAQESMgoJZmFpbGVkX2F0GAsgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcEgEiAEBEhoKDWVycm9yX21lc3NhZ2UYDCABKAlIBYgBAUII",
-            "CgZfaW5wdXRCDwoNX3NjaGVkdWxlZF9hdEINCgtfc3RhcnRlZF9hdEIPCg1f",
-            "Y29tcGxldGVkX2F0QgwKCl9mYWlsZWRfYXRCEAoOX2Vycm9yX21lc3NhZ2Ui",
-            "FwoVTGlzdEV4ZWN1dGlvbnNSZXF1ZXN0Ik4KFkxpc3RFeGVjdXRpb25zUmVz",
-            "cG9uc2USNAoKZXhlY3V0aW9ucxgBIAMoCzIgLnV0b3MuZGFlbW9uLnYxLkV4",
-            "ZWN1dGlvblN1bW1hcnkyuAIKEEV4ZWN1dGlvblNlcnZpY2USaAoRU2NoZWR1",
-            "bGVFeGVjdXRpb24SKC51dG9zLmRhZW1vbi52MS5TY2hlZHVsZUV4ZWN1dGlv",
-            "blJlcXVlc3QaKS51dG9zLmRhZW1vbi52MS5TY2hlZHVsZUV4ZWN1dGlvblJl",
-            "c3BvbnNlElkKDEdldEV4ZWN1dGlvbhIjLnV0b3MuZGFlbW9uLnYxLkdldEV4",
-            "ZWN1dGlvblJlcXVlc3QaJC51dG9zLmRhZW1vbi52MS5HZXRFeGVjdXRpb25S",
-            "ZXNwb25zZRJfCg5MaXN0RXhlY3V0aW9ucxIlLnV0b3MuZGFlbW9uLnYxLkxp",
-            "c3RFeGVjdXRpb25zUmVxdWVzdBomLnV0b3MuZGFlbW9uLnYxLkxpc3RFeGVj",
-            "dXRpb25zUmVzcG9uc2VCEaoCDlV0b3MuRGFlbW9uLlYxYgZwcm90bzM="));
+            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIoQCChhTY2hl",
+            "ZHVsZUV4ZWN1dGlvblJlcXVlc3QSMwoId29ya2Zsb3cYASABKAsyIS51dG9z",
+            "LmRhZW1vbi52MS5Xb3JrZmxvd1JlZmVyZW5jZRIvCgVpbnB1dBgCIAEoCzIg",
+            "LnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblBheWxvYWQSFgoOc3RhcnRfYWN0",
+            "aXZpdHkYAyABKAkSPgoDZW52GAQgAygLMjEudXRvcy5kYWVtb24udjEuU2No",
+            "ZWR1bGVFeGVjdXRpb25SZXF1ZXN0LkVudkVudHJ5GioKCEVudkVudHJ5EgsK",
+            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiWAoZU2NoZWR1bGVFeGVj",
+            "dXRpb25SZXNwb25zZRIKCgJpZBgBIAEoCRIvCgZzdGF0dXMYAiABKA4yHy51",
+            "dG9zLmRhZW1vbi52MS5FeGVjdXRpb25TdGF0dXMiKwoTR2V0RXhlY3V0aW9u",
+            "UmVxdWVzdBIUCgxleGVjdXRpb25faWQYASABKAkioQYKFEdldEV4ZWN1dGlv",
+            "blJlc3BvbnNlEgoKAmlkGAEgASgJEi8KBnN0YXR1cxgCIAEoDjIfLnV0b3Mu",
+            "ZGFlbW9uLnYxLkV4ZWN1dGlvblN0YXR1cxIzCgh3b3JrZmxvdxgDIAEoCzIh",
+            "LnV0b3MuZGFlbW9uLnYxLldvcmtmbG93UmVmZXJlbmNlEjAKBmJ1bmRsZRgF",
+            "IAEoCzIgLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dCdW5kbGUSNAoFaW5w",
+            "dXQYBiABKAsyIC51dG9zLmRhZW1vbi52MS5FeGVjdXRpb25QYXlsb2FkSACI",
+            "AQESOgoDZW52GA8gAygLMi0udXRvcy5kYWVtb24udjEuR2V0RXhlY3V0aW9u",
+            "UmVzcG9uc2UuRW52RW50cnkSLgoKY3JlYXRlZF9hdBgHIAEoCzIaLmdvb2ds",
+            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASNQoMc2NoZWR1bGVkX2F0GAggASgLMhou",
+            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgBiAEBEjMKCnN0YXJ0ZWRfYXQY",
+            "CSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wSAKIAQESNQoMY29t",
+            "cGxldGVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgD",
+            "iAEBEjIKCWZhaWxlZF9hdBgLIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXBIBIgBARIaCg1lcnJvcl9tZXNzYWdlGAwgASgJSAWIAQEaKgoIRW52",
+            "RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4AUIICgZfaW5w",
+            "dXRCDwoNX3NjaGVkdWxlZF9hdEINCgtfc3RhcnRlZF9hdEIPCg1fY29tcGxl",
+            "dGVkX2F0QgwKCl9mYWlsZWRfYXRCEAoOX2Vycm9yX21lc3NhZ2VKBAgEEAVK",
+            "BAgNEA5KBAgOEA9SEHdvcmtmbG93X3ZlcnNpb25SEndvcmtmbG93X25hbWVz",
+            "cGFjZVIRd29ya2Zsb3dfcmVnaXN0cnkiXgoVTGlzdEV4ZWN1dGlvbnNSZXF1",
+            "ZXN0EjgKCHdvcmtmbG93GAEgASgLMiEudXRvcy5kYWVtb24udjEuV29ya2Zs",
+            "b3dSZWZlcmVuY2VIAIgBAUILCglfd29ya2Zsb3ciTgoWTGlzdEV4ZWN1dGlv",
+            "bnNSZXNwb25zZRI0CgpleGVjdXRpb25zGAEgAygLMiAudXRvcy5kYWVtb24u",
+            "djEuRXhlY3V0aW9uU3VtbWFyeTK4AgoQRXhlY3V0aW9uU2VydmljZRJoChFT",
+            "Y2hlZHVsZUV4ZWN1dGlvbhIoLnV0b3MuZGFlbW9uLnYxLlNjaGVkdWxlRXhl",
+            "Y3V0aW9uUmVxdWVzdBopLnV0b3MuZGFlbW9uLnYxLlNjaGVkdWxlRXhlY3V0",
+            "aW9uUmVzcG9uc2USWQoMR2V0RXhlY3V0aW9uEiMudXRvcy5kYWVtb24udjEu",
+            "R2V0RXhlY3V0aW9uUmVxdWVzdBokLnV0b3MuZGFlbW9uLnYxLkdldEV4ZWN1",
+            "dGlvblJlc3BvbnNlEl8KDkxpc3RFeGVjdXRpb25zEiUudXRvcy5kYWVtb24u",
+            "djEuTGlzdEV4ZWN1dGlvbnNSZXF1ZXN0GiYudXRvcy5kYWVtb24udjEuTGlz",
+            "dEV4ZWN1dGlvbnNSZXNwb25zZUIRqgIOVXRvcy5EYWVtb24uVjFiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Utos.Workflow.V1.BundleReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ScheduleExecutionRequest), global::Utos.Daemon.V1.ScheduleExecutionRequest.Parser, new[]{ "Bundle", "Input", "StartActivity" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ScheduleExecutionRequest), global::Utos.Daemon.V1.ScheduleExecutionRequest.Parser, new[]{ "Workflow", "Input", "StartActivity", "Env" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ScheduleExecutionResponse), global::Utos.Daemon.V1.ScheduleExecutionResponse.Parser, new[]{ "Id", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.GetExecutionRequest), global::Utos.Daemon.V1.GetExecutionRequest.Parser, new[]{ "ExecutionId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.GetExecutionResponse), global::Utos.Daemon.V1.GetExecutionResponse.Parser, new[]{ "Id", "Status", "WorkflowName", "WorkflowVersion", "Bundle", "Input", "CreatedAt", "ScheduledAt", "StartedAt", "CompletedAt", "FailedAt", "ErrorMessage" }, new[]{ "Input", "ScheduledAt", "StartedAt", "CompletedAt", "FailedAt", "ErrorMessage" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ListExecutionsRequest), global::Utos.Daemon.V1.ListExecutionsRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.GetExecutionResponse), global::Utos.Daemon.V1.GetExecutionResponse.Parser, new[]{ "Id", "Status", "Workflow", "Bundle", "Input", "Env", "CreatedAt", "ScheduledAt", "StartedAt", "CompletedAt", "FailedAt", "ErrorMessage" }, new[]{ "Input", "ScheduledAt", "StartedAt", "CompletedAt", "FailedAt", "ErrorMessage" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ListExecutionsRequest), global::Utos.Daemon.V1.ListExecutionsRequest.Parser, new[]{ "Workflow" }, new[]{ "Workflow" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ListExecutionsResponse), global::Utos.Daemon.V1.ListExecutionsResponse.Parser, new[]{ "Executions" }, null, null, null, null)
           }));
     }
@@ -107,9 +116,10 @@ namespace Utos.Daemon.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ScheduleExecutionRequest(ScheduleExecutionRequest other) : this() {
-      bundle_ = other.bundle_ != null ? other.bundle_.Clone() : null;
+      workflow_ = other.workflow_ != null ? other.workflow_.Clone() : null;
       input_ = other.input_ != null ? other.input_.Clone() : null;
       startActivity_ = other.startActivity_;
+      env_ = other.env_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -119,18 +129,19 @@ namespace Utos.Daemon.V1 {
       return new ScheduleExecutionRequest(this);
     }
 
-    /// <summary>Field number for the "bundle" field.</summary>
-    public const int BundleFieldNumber = 1;
-    private global::Utos.Workflow.V1.WorkflowBundle bundle_;
+    /// <summary>Field number for the "workflow" field.</summary>
+    public const int WorkflowFieldNumber = 1;
+    private global::Utos.Daemon.V1.WorkflowReference workflow_;
     /// <summary>
-    /// Workflow specification to execute
+    /// Reference to a workflow previously loaded via DefinitionService.LoadWorkflow.
+    /// name is required; version omitted means "latest loaded".
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowBundle Bundle {
-      get { return bundle_; }
+    public global::Utos.Daemon.V1.WorkflowReference Workflow {
+      get { return workflow_; }
       set {
-        bundle_ = value;
+        workflow_ = value;
       }
     }
 
@@ -165,6 +176,24 @@ namespace Utos.Daemon.V1 {
       }
     }
 
+    /// <summary>Field number for the "env" field.</summary>
+    public const int EnvFieldNumber = 4;
+    private static readonly pbc::MapField<string, string>.Codec _map_env_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 34);
+    private readonly pbc::MapField<string, string> env_ = new pbc::MapField<string, string>();
+    /// <summary>
+    /// Ambient environment for this run: config available to ALL activities via
+    /// {{ env.x }} template expressions (e.g. API base URLs, region, feature
+    /// flags), as opposed to `input`, which reaches only the start activity.
+    /// Non-secret only — secrets are resolved outside the daemon from a 3rd-party
+    /// provider, never passed here.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, string> Env {
+      get { return env_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -180,9 +209,10 @@ namespace Utos.Daemon.V1 {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Bundle, other.Bundle)) return false;
+      if (!object.Equals(Workflow, other.Workflow)) return false;
       if (!object.Equals(Input, other.Input)) return false;
       if (StartActivity != other.StartActivity) return false;
+      if (!Env.Equals(other.Env)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -190,9 +220,10 @@ namespace Utos.Daemon.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (bundle_ != null) hash ^= Bundle.GetHashCode();
+      if (workflow_ != null) hash ^= Workflow.GetHashCode();
       if (input_ != null) hash ^= Input.GetHashCode();
       if (StartActivity.Length != 0) hash ^= StartActivity.GetHashCode();
+      hash ^= Env.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -211,9 +242,9 @@ namespace Utos.Daemon.V1 {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (bundle_ != null) {
+      if (workflow_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(Bundle);
+        output.WriteMessage(Workflow);
       }
       if (input_ != null) {
         output.WriteRawTag(18);
@@ -223,6 +254,7 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(26);
         output.WriteString(StartActivity);
       }
+      env_.WriteTo(output, _map_env_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -233,9 +265,9 @@ namespace Utos.Daemon.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (bundle_ != null) {
+      if (workflow_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(Bundle);
+        output.WriteMessage(Workflow);
       }
       if (input_ != null) {
         output.WriteRawTag(18);
@@ -245,6 +277,7 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(26);
         output.WriteString(StartActivity);
       }
+      env_.WriteTo(ref output, _map_env_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -255,8 +288,8 @@ namespace Utos.Daemon.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (bundle_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bundle);
+      if (workflow_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Workflow);
       }
       if (input_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Input);
@@ -264,6 +297,7 @@ namespace Utos.Daemon.V1 {
       if (StartActivity.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(StartActivity);
       }
+      size += env_.CalculateSize(_map_env_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -276,11 +310,11 @@ namespace Utos.Daemon.V1 {
       if (other == null) {
         return;
       }
-      if (other.bundle_ != null) {
-        if (bundle_ == null) {
-          Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
+      if (other.workflow_ != null) {
+        if (workflow_ == null) {
+          Workflow = new global::Utos.Daemon.V1.WorkflowReference();
         }
-        Bundle.MergeFrom(other.Bundle);
+        Workflow.MergeFrom(other.Workflow);
       }
       if (other.input_ != null) {
         if (input_ == null) {
@@ -291,6 +325,7 @@ namespace Utos.Daemon.V1 {
       if (other.StartActivity.Length != 0) {
         StartActivity = other.StartActivity;
       }
+      env_.MergeFrom(other.env_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -311,10 +346,10 @@ namespace Utos.Daemon.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (bundle_ == null) {
-              Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
+            if (workflow_ == null) {
+              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
             }
-            input.ReadMessage(Bundle);
+            input.ReadMessage(Workflow);
             break;
           }
           case 18: {
@@ -326,6 +361,10 @@ namespace Utos.Daemon.V1 {
           }
           case 26: {
             StartActivity = input.ReadString();
+            break;
+          }
+          case 34: {
+            env_.AddEntriesFrom(input, _map_env_codec);
             break;
           }
         }
@@ -348,10 +387,10 @@ namespace Utos.Daemon.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            if (bundle_ == null) {
-              Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
+            if (workflow_ == null) {
+              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
             }
-            input.ReadMessage(Bundle);
+            input.ReadMessage(Workflow);
             break;
           }
           case 18: {
@@ -363,6 +402,10 @@ namespace Utos.Daemon.V1 {
           }
           case 26: {
             StartActivity = input.ReadString();
+            break;
+          }
+          case 34: {
+            env_.AddEntriesFrom(ref input, _map_env_codec);
             break;
           }
         }
@@ -851,10 +894,10 @@ namespace Utos.Daemon.V1 {
     public GetExecutionResponse(GetExecutionResponse other) : this() {
       id_ = other.id_;
       status_ = other.status_;
-      workflowName_ = other.workflowName_;
-      workflowVersion_ = other.workflowVersion_;
+      workflow_ = other.workflow_ != null ? other.workflow_.Clone() : null;
       bundle_ = other.bundle_ != null ? other.bundle_.Clone() : null;
       input_ = other.input_ != null ? other.input_.Clone() : null;
+      env_ = other.env_.Clone();
       createdAt_ = other.createdAt_ != null ? other.createdAt_.Clone() : null;
       scheduledAt_ = other.scheduledAt_ != null ? other.scheduledAt_.Clone() : null;
       startedAt_ = other.startedAt_ != null ? other.startedAt_.Clone() : null;
@@ -900,33 +943,19 @@ namespace Utos.Daemon.V1 {
       }
     }
 
-    /// <summary>Field number for the "workflow_name" field.</summary>
-    public const int WorkflowNameFieldNumber = 3;
-    private string workflowName_ = "";
+    /// <summary>Field number for the "workflow" field.</summary>
+    public const int WorkflowFieldNumber = 3;
+    private global::Utos.Daemon.V1.WorkflowReference workflow_;
     /// <summary>
-    /// Workflow name from metadata
+    /// Identity of the workflow this execution ran, as resolved at schedule time
+    /// (version always populated).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string WorkflowName {
-      get { return workflowName_; }
+    public global::Utos.Daemon.V1.WorkflowReference Workflow {
+      get { return workflow_; }
       set {
-        workflowName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "workflow_version" field.</summary>
-    public const int WorkflowVersionFieldNumber = 4;
-    private string workflowVersion_ = "";
-    /// <summary>
-    /// Workflow version from metadata
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string WorkflowVersion {
-      get { return workflowVersion_; }
-      set {
-        workflowVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        workflow_ = value;
       }
     }
 
@@ -934,7 +963,7 @@ namespace Utos.Daemon.V1 {
     public const int BundleFieldNumber = 5;
     private global::Utos.Workflow.V1.WorkflowBundle bundle_;
     /// <summary>
-    /// Full workflow bundle
+    /// Full workflow bundle (snapshotted at schedule time — unaffected by later unload)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -958,6 +987,21 @@ namespace Utos.Daemon.V1 {
       set {
         input_ = value;
       }
+    }
+
+    /// <summary>Field number for the "env" field.</summary>
+    public const int EnvFieldNumber = 15;
+    private static readonly pbc::MapField<string, string>.Codec _map_env_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 122);
+    private readonly pbc::MapField<string, string> env_ = new pbc::MapField<string, string>();
+    /// <summary>
+    /// Ambient environment this execution ran with (echoed back like `input`;
+    /// non-secret only). Empty if none was provided.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, string> Env {
+      get { return env_; }
     }
 
     /// <summary>Field number for the "created_at" field.</summary>
@@ -1081,10 +1125,10 @@ namespace Utos.Daemon.V1 {
       }
       if (Id != other.Id) return false;
       if (Status != other.Status) return false;
-      if (WorkflowName != other.WorkflowName) return false;
-      if (WorkflowVersion != other.WorkflowVersion) return false;
+      if (!object.Equals(Workflow, other.Workflow)) return false;
       if (!object.Equals(Bundle, other.Bundle)) return false;
       if (!object.Equals(Input, other.Input)) return false;
+      if (!Env.Equals(other.Env)) return false;
       if (!object.Equals(CreatedAt, other.CreatedAt)) return false;
       if (!object.Equals(ScheduledAt, other.ScheduledAt)) return false;
       if (!object.Equals(StartedAt, other.StartedAt)) return false;
@@ -1100,10 +1144,10 @@ namespace Utos.Daemon.V1 {
       int hash = 1;
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) hash ^= Status.GetHashCode();
-      if (WorkflowName.Length != 0) hash ^= WorkflowName.GetHashCode();
-      if (WorkflowVersion.Length != 0) hash ^= WorkflowVersion.GetHashCode();
+      if (workflow_ != null) hash ^= Workflow.GetHashCode();
       if (bundle_ != null) hash ^= Bundle.GetHashCode();
       if (input_ != null) hash ^= Input.GetHashCode();
+      hash ^= Env.GetHashCode();
       if (createdAt_ != null) hash ^= CreatedAt.GetHashCode();
       if (scheduledAt_ != null) hash ^= ScheduledAt.GetHashCode();
       if (startedAt_ != null) hash ^= StartedAt.GetHashCode();
@@ -1136,13 +1180,9 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(16);
         output.WriteEnum((int) Status);
       }
-      if (WorkflowName.Length != 0) {
+      if (workflow_ != null) {
         output.WriteRawTag(26);
-        output.WriteString(WorkflowName);
-      }
-      if (WorkflowVersion.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(WorkflowVersion);
+        output.WriteMessage(Workflow);
       }
       if (bundle_ != null) {
         output.WriteRawTag(42);
@@ -1176,6 +1216,7 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(98);
         output.WriteString(ErrorMessage);
       }
+      env_.WriteTo(output, _map_env_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1194,13 +1235,9 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(16);
         output.WriteEnum((int) Status);
       }
-      if (WorkflowName.Length != 0) {
+      if (workflow_ != null) {
         output.WriteRawTag(26);
-        output.WriteString(WorkflowName);
-      }
-      if (WorkflowVersion.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(WorkflowVersion);
+        output.WriteMessage(Workflow);
       }
       if (bundle_ != null) {
         output.WriteRawTag(42);
@@ -1234,6 +1271,7 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(98);
         output.WriteString(ErrorMessage);
       }
+      env_.WriteTo(ref output, _map_env_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1250,11 +1288,8 @@ namespace Utos.Daemon.V1 {
       if (Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
-      if (WorkflowName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(WorkflowName);
-      }
-      if (WorkflowVersion.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(WorkflowVersion);
+      if (workflow_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Workflow);
       }
       if (bundle_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bundle);
@@ -1262,6 +1297,7 @@ namespace Utos.Daemon.V1 {
       if (input_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Input);
       }
+      size += env_.CalculateSize(_map_env_codec);
       if (createdAt_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(CreatedAt);
       }
@@ -1298,11 +1334,11 @@ namespace Utos.Daemon.V1 {
       if (other.Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) {
         Status = other.Status;
       }
-      if (other.WorkflowName.Length != 0) {
-        WorkflowName = other.WorkflowName;
-      }
-      if (other.WorkflowVersion.Length != 0) {
-        WorkflowVersion = other.WorkflowVersion;
+      if (other.workflow_ != null) {
+        if (workflow_ == null) {
+          Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+        }
+        Workflow.MergeFrom(other.Workflow);
       }
       if (other.bundle_ != null) {
         if (bundle_ == null) {
@@ -1316,6 +1352,7 @@ namespace Utos.Daemon.V1 {
         }
         Input.MergeFrom(other.Input);
       }
+      env_.MergeFrom(other.env_);
       if (other.createdAt_ != null) {
         if (createdAt_ == null) {
           CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
@@ -1377,11 +1414,10 @@ namespace Utos.Daemon.V1 {
             break;
           }
           case 26: {
-            WorkflowName = input.ReadString();
-            break;
-          }
-          case 34: {
-            WorkflowVersion = input.ReadString();
+            if (workflow_ == null) {
+              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+            }
+            input.ReadMessage(Workflow);
             break;
           }
           case 42: {
@@ -1435,6 +1471,10 @@ namespace Utos.Daemon.V1 {
           }
           case 98: {
             ErrorMessage = input.ReadString();
+            break;
+          }
+          case 122: {
+            env_.AddEntriesFrom(input, _map_env_codec);
             break;
           }
         }
@@ -1465,11 +1505,10 @@ namespace Utos.Daemon.V1 {
             break;
           }
           case 26: {
-            WorkflowName = input.ReadString();
-            break;
-          }
-          case 34: {
-            WorkflowVersion = input.ReadString();
+            if (workflow_ == null) {
+              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+            }
+            input.ReadMessage(Workflow);
             break;
           }
           case 42: {
@@ -1525,6 +1564,10 @@ namespace Utos.Daemon.V1 {
             ErrorMessage = input.ReadString();
             break;
           }
+          case 122: {
+            env_.AddEntriesFrom(ref input, _map_env_codec);
+            break;
+          }
         }
       }
     }
@@ -1532,9 +1575,6 @@ namespace Utos.Daemon.V1 {
 
   }
 
-  /// <summary>
-  /// Future: Add filtering, pagination
-  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListExecutionsRequest : pb::IMessage<ListExecutionsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1570,6 +1610,7 @@ namespace Utos.Daemon.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ListExecutionsRequest(ListExecutionsRequest other) : this() {
+      workflow_ = other.workflow_ != null ? other.workflow_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1577,6 +1618,23 @@ namespace Utos.Daemon.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ListExecutionsRequest Clone() {
       return new ListExecutionsRequest(this);
+    }
+
+    /// <summary>Field number for the "workflow" field.</summary>
+    public const int WorkflowFieldNumber = 1;
+    private global::Utos.Daemon.V1.WorkflowReference workflow_;
+    /// <summary>
+    /// Filter to executions of a single workflow. When set, name selects the
+    /// workflow; version omitted matches all loaded versions.
+    /// Future: Add pagination.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Daemon.V1.WorkflowReference Workflow {
+      get { return workflow_; }
+      set {
+        workflow_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1594,6 +1652,7 @@ namespace Utos.Daemon.V1 {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(Workflow, other.Workflow)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1601,6 +1660,7 @@ namespace Utos.Daemon.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (workflow_ != null) hash ^= Workflow.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1619,6 +1679,10 @@ namespace Utos.Daemon.V1 {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (workflow_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Workflow);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1629,6 +1693,10 @@ namespace Utos.Daemon.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (workflow_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Workflow);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1639,6 +1707,9 @@ namespace Utos.Daemon.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (workflow_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Workflow);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1650,6 +1721,12 @@ namespace Utos.Daemon.V1 {
     public void MergeFrom(ListExecutionsRequest other) {
       if (other == null) {
         return;
+      }
+      if (other.workflow_ != null) {
+        if (workflow_ == null) {
+          Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+        }
+        Workflow.MergeFrom(other.Workflow);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1670,6 +1747,13 @@ namespace Utos.Daemon.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 10: {
+            if (workflow_ == null) {
+              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+            }
+            input.ReadMessage(Workflow);
+            break;
+          }
         }
       }
     #endif
@@ -1689,6 +1773,13 @@ namespace Utos.Daemon.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 10: {
+            if (workflow_ == null) {
+              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+            }
+            input.ReadMessage(Workflow);
+            break;
+          }
         }
       }
     }

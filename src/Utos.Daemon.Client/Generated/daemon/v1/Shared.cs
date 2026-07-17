@@ -26,29 +26,35 @@ namespace Utos.Daemon.V1 {
           string.Concat(
             "ChZkYWVtb24vdjEvc2hhcmVkLnByb3RvEg51dG9zLmRhZW1vbi52MRocZ29v",
             "Z2xlL3Byb3RvYnVmL3N0cnVjdC5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3Rp",
-            "bWVzdGFtcC5wcm90byKRAQoQRXhlY3V0aW9uUGF5bG9hZBI4CgRkYXRhGAEg",
-            "AygLMioudXRvcy5kYWVtb24udjEuRXhlY3V0aW9uUGF5bG9hZC5EYXRhRW50",
-            "cnkaQwoJRGF0YUVudHJ5EgsKA2tleRgBIAEoCRIlCgV2YWx1ZRgCIAEoCzIW",
-            "Lmdvb2dsZS5wcm90b2J1Zi5WYWx1ZToCOAEisAMKEEV4ZWN1dGlvblN1bW1h",
-            "cnkSCgoCaWQYASABKAkSLwoGc3RhdHVzGAIgASgOMh8udXRvcy5kYWVtb24u",
-            "djEuRXhlY3V0aW9uU3RhdHVzEhUKDXdvcmtmbG93X25hbWUYAyABKAkSGAoQ",
-            "d29ya2Zsb3dfdmVyc2lvbhgEIAEoCRIuCgpjcmVhdGVkX2F0GAUgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI1CgxzY2hlZHVsZWRfYXQYBiAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wSACIAQESMwoKc3RhcnRl",
-            "ZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAYgBARI0",
-            "CgtmaW5pc2hlZF9hdBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
-            "bXBIAogBARIaCg1lcnJvcl9tZXNzYWdlGAkgASgJSAOIAQFCDwoNX3NjaGVk",
-            "dWxlZF9hdEINCgtfc3RhcnRlZF9hdEIOCgxfZmluaXNoZWRfYXRCEAoOX2Vy",
-            "cm9yX21lc3NhZ2UqrQEKD0V4ZWN1dGlvblN0YXR1cxIgChxFWEVDVVRJT05f",
-            "U1RBVFVTX1VOU1BFQ0lGSUVEEAASHgoaRVhFQ1VUSU9OX1NUQVRVU19TQ0hF",
-            "RFVMRUQQARIbChdFWEVDVVRJT05fU1RBVFVTX0FDVElWRRACEh4KGkVYRUNV",
-            "VElPTl9TVEFUVVNfQ09NUExFVEVEEAoSGwoXRVhFQ1VUSU9OX1NUQVRVU19G",
-            "QUlMRUQQC0IRqgIOVXRvcy5EYWVtb24uVjFiBnByb3RvMw=="));
+            "bWVzdGFtcC5wcm90byKNAQoRV29ya2Zsb3dSZWZlcmVuY2USFQoIcmVnaXN0",
+            "cnkYASABKAlIAIgBARIWCgluYW1lc3BhY2UYAiABKAlIAYgBARIMCgRuYW1l",
+            "GAMgASgJEhQKB3ZlcnNpb24YBCABKAlIAogBAUILCglfcmVnaXN0cnlCDAoK",
+            "X25hbWVzcGFjZUIKCghfdmVyc2lvbiKRAQoQRXhlY3V0aW9uUGF5bG9hZBI4",
+            "CgRkYXRhGAEgAygLMioudXRvcy5kYWVtb24udjEuRXhlY3V0aW9uUGF5bG9h",
+            "ZC5EYXRhRW50cnkaQwoJRGF0YUVudHJ5EgsKA2tleRgBIAEoCRIlCgV2YWx1",
+            "ZRgCIAEoCzIWLmdvb2dsZS5wcm90b2J1Zi5WYWx1ZToCOAEi/wMKEEV4ZWN1",
+            "dGlvblN1bW1hcnkSCgoCaWQYASABKAkSLwoGc3RhdHVzGAIgASgOMh8udXRv",
+            "cy5kYWVtb24udjEuRXhlY3V0aW9uU3RhdHVzEjMKCHdvcmtmbG93GAMgASgL",
+            "MiEudXRvcy5kYWVtb24udjEuV29ya2Zsb3dSZWZlcmVuY2USLgoKY3JlYXRl",
+            "ZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASNQoMc2No",
+            "ZWR1bGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgA",
+            "iAEBEjMKCnN0YXJ0ZWRfYXQYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+            "ZXN0YW1wSAGIAQESNAoLZmluaXNoZWRfYXQYCCABKAsyGi5nb29nbGUucHJv",
+            "dG9idWYuVGltZXN0YW1wSAKIAQESGgoNZXJyb3JfbWVzc2FnZRgJIAEoCUgD",
+            "iAEBQg8KDV9zY2hlZHVsZWRfYXRCDQoLX3N0YXJ0ZWRfYXRCDgoMX2Zpbmlz",
+            "aGVkX2F0QhAKDl9lcnJvcl9tZXNzYWdlSgQIBBAFSgQIChALSgQICxAMUhB3",
+            "b3JrZmxvd192ZXJzaW9uUhJ3b3JrZmxvd19uYW1lc3BhY2VSEXdvcmtmbG93",
+            "X3JlZ2lzdHJ5Kq0BCg9FeGVjdXRpb25TdGF0dXMSIAocRVhFQ1VUSU9OX1NU",
+            "QVRVU19VTlNQRUNJRklFRBAAEh4KGkVYRUNVVElPTl9TVEFUVVNfU0NIRURV",
+            "TEVEEAESGwoXRVhFQ1VUSU9OX1NUQVRVU19BQ1RJVkUQAhIeChpFWEVDVVRJ",
+            "T05fU1RBVFVTX0NPTVBMRVRFRBAKEhsKF0VYRUNVVElPTl9TVEFUVVNfRkFJ",
+            "TEVEEAtCEaoCDlV0b3MuRGFlbW9uLlYxYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Utos.Daemon.V1.ExecutionStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WorkflowReference), global::Utos.Daemon.V1.WorkflowReference.Parser, new[]{ "Registry", "Namespace", "Name", "Version" }, new[]{ "Registry", "Namespace", "Version" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionPayload), global::Utos.Daemon.V1.ExecutionPayload.Parser, new[]{ "Data" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionSummary), global::Utos.Daemon.V1.ExecutionSummary.Parser, new[]{ "Id", "Status", "WorkflowName", "WorkflowVersion", "CreatedAt", "ScheduledAt", "StartedAt", "FinishedAt", "ErrorMessage" }, new[]{ "ScheduledAt", "StartedAt", "FinishedAt", "ErrorMessage" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionSummary), global::Utos.Daemon.V1.ExecutionSummary.Parser, new[]{ "Id", "Status", "Workflow", "CreatedAt", "ScheduledAt", "StartedAt", "FinishedAt", "ErrorMessage" }, new[]{ "ScheduledAt", "StartedAt", "FinishedAt", "ErrorMessage" }, null, null, null)
           }));
     }
     #endregion
@@ -72,6 +78,377 @@ namespace Utos.Daemon.V1 {
   #endregion
 
   #region Messages
+  /// <summary>
+  /// Reference to a loaded workflow definition in the daemon's local store.
+  ///
+  /// Identity is "[registry/][namespace/]name:version". registry and namespace are
+  /// omitted for local/unpublished workflows. version is omitted to mean "latest
+  /// loaded" (the highest semver among loaded versions of that identity).
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class WorkflowReference : pb::IMessage<WorkflowReference>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<WorkflowReference> _parser = new pb::MessageParser<WorkflowReference>(() => new WorkflowReference());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<WorkflowReference> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Daemon.V1.SharedReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public WorkflowReference() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public WorkflowReference(WorkflowReference other) : this() {
+      registry_ = other.registry_;
+      namespace_ = other.namespace_;
+      name_ = other.name_;
+      version_ = other.version_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public WorkflowReference Clone() {
+      return new WorkflowReference(this);
+    }
+
+    /// <summary>Field number for the "registry" field.</summary>
+    public const int RegistryFieldNumber = 1;
+    private readonly static string RegistryDefaultValue = "";
+
+    private string registry_;
+    /// <summary>
+    /// Registry the workflow was published to (e.g., "registry.utos.dev").
+    /// Omitted for local/unpublished workflows.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Registry {
+      get { return registry_ ?? RegistryDefaultValue; }
+      set {
+        registry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "registry" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRegistry {
+      get { return registry_ != null; }
+    }
+    /// <summary>Clears the value of the "registry" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRegistry() {
+      registry_ = null;
+    }
+
+    /// <summary>Field number for the "namespace" field.</summary>
+    public const int NamespaceFieldNumber = 2;
+    private readonly static string NamespaceDefaultValue = "";
+
+    private string namespace_;
+    /// <summary>
+    /// Namespace qualifier (e.g., "google"). Omitted for local/unpublished workflows.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Namespace {
+      get { return namespace_ ?? NamespaceDefaultValue; }
+      set {
+        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "namespace" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasNamespace {
+      get { return namespace_ != null; }
+    }
+    /// <summary>Clears the value of the "namespace" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearNamespace() {
+      namespace_ = null;
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 3;
+    private string name_ = "";
+    /// <summary>
+    /// Workflow name (required)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 4;
+    private readonly static string VersionDefaultValue = "";
+
+    private string version_;
+    /// <summary>
+    /// Semantic version. Omitted means "latest loaded".
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Version {
+      get { return version_ ?? VersionDefaultValue; }
+      set {
+        version_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "version" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasVersion {
+      get { return version_ != null; }
+    }
+    /// <summary>Clears the value of the "version" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearVersion() {
+      version_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as WorkflowReference);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(WorkflowReference other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Registry != other.Registry) return false;
+      if (Namespace != other.Namespace) return false;
+      if (Name != other.Name) return false;
+      if (Version != other.Version) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasRegistry) hash ^= Registry.GetHashCode();
+      if (HasNamespace) hash ^= Namespace.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (HasVersion) hash ^= Version.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasRegistry) {
+        output.WriteRawTag(10);
+        output.WriteString(Registry);
+      }
+      if (HasNamespace) {
+        output.WriteRawTag(18);
+        output.WriteString(Namespace);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Name);
+      }
+      if (HasVersion) {
+        output.WriteRawTag(34);
+        output.WriteString(Version);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasRegistry) {
+        output.WriteRawTag(10);
+        output.WriteString(Registry);
+      }
+      if (HasNamespace) {
+        output.WriteRawTag(18);
+        output.WriteString(Namespace);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Name);
+      }
+      if (HasVersion) {
+        output.WriteRawTag(34);
+        output.WriteString(Version);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasRegistry) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Registry);
+      }
+      if (HasNamespace) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (HasVersion) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Version);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(WorkflowReference other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasRegistry) {
+        Registry = other.Registry;
+      }
+      if (other.HasNamespace) {
+        Namespace = other.Namespace;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.HasVersion) {
+        Version = other.Version;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Registry = input.ReadString();
+            break;
+          }
+          case 18: {
+            Namespace = input.ReadString();
+            break;
+          }
+          case 26: {
+            Name = input.ReadString();
+            break;
+          }
+          case 34: {
+            Version = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Registry = input.ReadString();
+            break;
+          }
+          case 18: {
+            Namespace = input.ReadString();
+            break;
+          }
+          case 26: {
+            Name = input.ReadString();
+            break;
+          }
+          case 34: {
+            Version = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExecutionPayload : pb::IMessage<ExecutionPayload>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -87,7 +464,7 @@ namespace Utos.Daemon.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Daemon.V1.SharedReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Utos.Daemon.V1.SharedReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -278,7 +655,7 @@ namespace Utos.Daemon.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Daemon.V1.SharedReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Utos.Daemon.V1.SharedReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -300,8 +677,7 @@ namespace Utos.Daemon.V1 {
     public ExecutionSummary(ExecutionSummary other) : this() {
       id_ = other.id_;
       status_ = other.status_;
-      workflowName_ = other.workflowName_;
-      workflowVersion_ = other.workflowVersion_;
+      workflow_ = other.workflow_ != null ? other.workflow_.Clone() : null;
       createdAt_ = other.createdAt_ != null ? other.createdAt_.Clone() : null;
       scheduledAt_ = other.scheduledAt_ != null ? other.scheduledAt_.Clone() : null;
       startedAt_ = other.startedAt_ != null ? other.startedAt_.Clone() : null;
@@ -346,33 +722,19 @@ namespace Utos.Daemon.V1 {
       }
     }
 
-    /// <summary>Field number for the "workflow_name" field.</summary>
-    public const int WorkflowNameFieldNumber = 3;
-    private string workflowName_ = "";
+    /// <summary>Field number for the "workflow" field.</summary>
+    public const int WorkflowFieldNumber = 3;
+    private global::Utos.Daemon.V1.WorkflowReference workflow_;
     /// <summary>
-    /// Workflow name from metadata
+    /// Identity of the workflow this execution ran, as resolved at schedule time
+    /// (version always populated).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string WorkflowName {
-      get { return workflowName_; }
+    public global::Utos.Daemon.V1.WorkflowReference Workflow {
+      get { return workflow_; }
       set {
-        workflowName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "workflow_version" field.</summary>
-    public const int WorkflowVersionFieldNumber = 4;
-    private string workflowVersion_ = "";
-    /// <summary>
-    /// Workflow version from metadata
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string WorkflowVersion {
-      get { return workflowVersion_; }
-      set {
-        workflowVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        workflow_ = value;
       }
     }
 
@@ -482,8 +844,7 @@ namespace Utos.Daemon.V1 {
       }
       if (Id != other.Id) return false;
       if (Status != other.Status) return false;
-      if (WorkflowName != other.WorkflowName) return false;
-      if (WorkflowVersion != other.WorkflowVersion) return false;
+      if (!object.Equals(Workflow, other.Workflow)) return false;
       if (!object.Equals(CreatedAt, other.CreatedAt)) return false;
       if (!object.Equals(ScheduledAt, other.ScheduledAt)) return false;
       if (!object.Equals(StartedAt, other.StartedAt)) return false;
@@ -498,8 +859,7 @@ namespace Utos.Daemon.V1 {
       int hash = 1;
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) hash ^= Status.GetHashCode();
-      if (WorkflowName.Length != 0) hash ^= WorkflowName.GetHashCode();
-      if (WorkflowVersion.Length != 0) hash ^= WorkflowVersion.GetHashCode();
+      if (workflow_ != null) hash ^= Workflow.GetHashCode();
       if (createdAt_ != null) hash ^= CreatedAt.GetHashCode();
       if (scheduledAt_ != null) hash ^= ScheduledAt.GetHashCode();
       if (startedAt_ != null) hash ^= StartedAt.GetHashCode();
@@ -531,13 +891,9 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(16);
         output.WriteEnum((int) Status);
       }
-      if (WorkflowName.Length != 0) {
+      if (workflow_ != null) {
         output.WriteRawTag(26);
-        output.WriteString(WorkflowName);
-      }
-      if (WorkflowVersion.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(WorkflowVersion);
+        output.WriteMessage(Workflow);
       }
       if (createdAt_ != null) {
         output.WriteRawTag(42);
@@ -577,13 +933,9 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(16);
         output.WriteEnum((int) Status);
       }
-      if (WorkflowName.Length != 0) {
+      if (workflow_ != null) {
         output.WriteRawTag(26);
-        output.WriteString(WorkflowName);
-      }
-      if (WorkflowVersion.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(WorkflowVersion);
+        output.WriteMessage(Workflow);
       }
       if (createdAt_ != null) {
         output.WriteRawTag(42);
@@ -621,11 +973,8 @@ namespace Utos.Daemon.V1 {
       if (Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
-      if (WorkflowName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(WorkflowName);
-      }
-      if (WorkflowVersion.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(WorkflowVersion);
+      if (workflow_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Workflow);
       }
       if (createdAt_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(CreatedAt);
@@ -660,11 +1009,11 @@ namespace Utos.Daemon.V1 {
       if (other.Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) {
         Status = other.Status;
       }
-      if (other.WorkflowName.Length != 0) {
-        WorkflowName = other.WorkflowName;
-      }
-      if (other.WorkflowVersion.Length != 0) {
-        WorkflowVersion = other.WorkflowVersion;
+      if (other.workflow_ != null) {
+        if (workflow_ == null) {
+          Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+        }
+        Workflow.MergeFrom(other.Workflow);
       }
       if (other.createdAt_ != null) {
         if (createdAt_ == null) {
@@ -721,11 +1070,10 @@ namespace Utos.Daemon.V1 {
             break;
           }
           case 26: {
-            WorkflowName = input.ReadString();
-            break;
-          }
-          case 34: {
-            WorkflowVersion = input.ReadString();
+            if (workflow_ == null) {
+              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+            }
+            input.ReadMessage(Workflow);
             break;
           }
           case 42: {
@@ -788,11 +1136,10 @@ namespace Utos.Daemon.V1 {
             break;
           }
           case 26: {
-            WorkflowName = input.ReadString();
-            break;
-          }
-          case 34: {
-            WorkflowVersion = input.ReadString();
+            if (workflow_ == null) {
+              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+            }
+            input.ReadMessage(Workflow);
             break;
           }
           case 42: {

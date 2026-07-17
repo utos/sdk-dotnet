@@ -25,43 +25,48 @@ namespace Utos.Workflow.V1 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Chp3b3JrZmxvdy92MS9hY3Rpdml0eS5wcm90bxIQdXRvcy53b3JrZmxvdy52",
-            "MRocZ29vZ2xlL3Byb3RvYnVmL3N0cnVjdC5wcm90byK4AgoQV29ya2Zsb3dB",
-            "Y3Rpdml0eRI0Cgpvbl9zdWNjZXNzGAEgAygLMiAudXRvcy53b3JrZmxvdy52",
-            "MS5UcmFuc2l0aW9uUnVsZRI0Cgpvbl9mYWlsdXJlGAIgAygLMiAudXRvcy53",
-            "b3JrZmxvdy52MS5UcmFuc2l0aW9uUnVsZRI0CgRodHRwGAogASgLMiQudXRv",
-            "cy53b3JrZmxvdy52MS5IdHRwQWN0aXZpdHlDb25maWdIABI8Cgh3b3JrZmxv",
-            "dxgLIAEoCzIoLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dBY3Rpdml0eUNv",
-            "bmZpZ0gAEjoKB3Byb21pc2UYDCABKAsyJy51dG9zLndvcmtmbG93LnYxLlBy",
-            "b21pc2VBY3Rpdml0eUNvbmZpZ0gAQggKBmNvbmZpZyKlAQoOVHJhbnNpdGlv",
-            "blJ1bGUSFgoJY29uZGl0aW9uGAEgASgJSAGIAQESOAoKdHJhbnNpdGlvbhgC",
-            "IAEoCzIiLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblRhcmdldEgAEikK",
-            "BnJldHVybhgDIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIAEIICgZh",
-            "Y3Rpb25CDAoKX2NvbmRpdGlvbiJXChBUcmFuc2l0aW9uVGFyZ2V0EgwKBG5h",
-            "bWUYASABKAkSKwoFaW5wdXQYAiABKAsyFy5nb29nbGUucHJvdG9idWYuU3Ry",
-            "dWN0SACIAQFCCAoGX2lucHV0IsEBChJIdHRwQWN0aXZpdHlDb25maWcSDgoG",
-            "bWV0aG9kGAEgASgJEgsKA3VybBgCIAEoCRJCCgdoZWFkZXJzGAMgAygLMjEu",
-            "dXRvcy53b3JrZmxvdy52MS5IdHRwQWN0aXZpdHlDb25maWcuSGVhZGVyc0Vu",
-            "dHJ5EhEKBGJvZHkYBCABKAlIAIgBARouCgxIZWFkZXJzRW50cnkSCwoDa2V5",
-            "GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4AUIHCgVfYm9keSJqChZXb3JrZmxv",
-            "d0FjdGl2aXR5Q29uZmlnEhAKCHdvcmtmbG93GAEgASgJEhYKDnN0YXJ0X2Fj",
-            "dGl2aXR5GAIgASgJEiYKBWlucHV0GAMgASgLMhcuZ29vZ2xlLnByb3RvYnVm",
-            "LlN0cnVjdCJwChVQcm9taXNlQWN0aXZpdHlDb25maWcSDAoEbW9kZRgBIAEo",
-            "CRIWCg5yZXF1aXJlZF9jb3VudBgCIAEoBRIxCghicmFuY2hlcxgDIAMoCzIf",
-            "LnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZUJyYW5jaCK8AQoNUHJvbWlzZUJy",
-            "YW5jaBIMCgRuYW1lGAEgASgJEjYKCGZvcl9lYWNoGAIgASgLMh8udXRvcy53",
-            "b3JrZmxvdy52MS5Gb3JFYWNoQ29uZmlnSACIAQESFgoJY29uZGl0aW9uGAMg",
-            "ASgJSAGIAQESMgoGdGFyZ2V0GAQgASgLMiIudXRvcy53b3JrZmxvdy52MS5U",
-            "cmFuc2l0aW9uVGFyZ2V0QgsKCV9mb3JfZWFjaEIMCgpfY29uZGl0aW9uIjIK",
-            "DUZvckVhY2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVhbGlhcxgC",
-            "IAEoCUITqgIQVXRvcy5Xb3JrZmxvdy5WMWIGcHJvdG8z"));
+            "MRoeZ29vZ2xlL3Byb3RvYnVmL2R1cmF0aW9uLnByb3RvGhxnb29nbGUvcHJv",
+            "dG9idWYvc3RydWN0LnByb3RvIvACChBXb3JrZmxvd0FjdGl2aXR5EjQKCm9u",
+            "X3N1Y2Nlc3MYASADKAsyIC51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25S",
+            "dWxlEjQKCm9uX2ZhaWx1cmUYAiADKAsyIC51dG9zLndvcmtmbG93LnYxLlRy",
+            "YW5zaXRpb25SdWxlEjQKBGh0dHAYCiABKAsyJC51dG9zLndvcmtmbG93LnYx",
+            "Lkh0dHBBY3Rpdml0eUNvbmZpZ0gAEjwKCHdvcmtmbG93GAsgASgLMigudXRv",
+            "cy53b3JrZmxvdy52MS5Xb3JrZmxvd0FjdGl2aXR5Q29uZmlnSAASOgoHcHJv",
+            "bWlzZRgMIAEoCzInLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZUFjdGl2aXR5",
+            "Q29uZmlnSAASNgoFdGltZXIYDSABKAsyJS51dG9zLndvcmtmbG93LnYxLlRp",
+            "bWVyQWN0aXZpdHlDb25maWdIAEIICgZjb25maWcipQEKDlRyYW5zaXRpb25S",
+            "dWxlEhYKCWNvbmRpdGlvbhgBIAEoCUgBiAEBEjgKCnRyYW5zaXRpb24YAiAB",
+            "KAsyIi51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJnZXRIABIpCgZy",
+            "ZXR1cm4YAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SABCCAoGYWN0",
+            "aW9uQgwKCl9jb25kaXRpb24iVwoQVHJhbnNpdGlvblRhcmdldBIMCgRuYW1l",
+            "GAEgASgJEisKBWlucHV0GAIgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVj",
+            "dEgAiAEBQggKBl9pbnB1dCLBAQoSSHR0cEFjdGl2aXR5Q29uZmlnEg4KBm1l",
+            "dGhvZBgBIAEoCRILCgN1cmwYAiABKAkSQgoHaGVhZGVycxgDIAMoCzIxLnV0",
+            "b3Mud29ya2Zsb3cudjEuSHR0cEFjdGl2aXR5Q29uZmlnLkhlYWRlcnNFbnRy",
+            "eRIRCgRib2R5GAQgASgJSACIAQEaLgoMSGVhZGVyc0VudHJ5EgsKA2tleRgB",
+            "IAEoCRINCgV2YWx1ZRgCIAEoCToCOAFCBwoFX2JvZHkiQgoTVGltZXJBY3Rp",
+            "dml0eUNvbmZpZxIrCghkdXJhdGlvbhgBIAEoCzIZLmdvb2dsZS5wcm90b2J1",
+            "Zi5EdXJhdGlvbiJ8ChZXb3JrZmxvd0FjdGl2aXR5Q29uZmlnEhAKCHdvcmtm",
+            "bG93GAEgASgJEhYKDnN0YXJ0X2FjdGl2aXR5GAIgASgJEiYKBWlucHV0GAMg",
+            "ASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdBIQCghkZXRhY2hlZBgEIAEo",
+            "CCJwChVQcm9taXNlQWN0aXZpdHlDb25maWcSDAoEbW9kZRgBIAEoCRIWCg5y",
+            "ZXF1aXJlZF9jb3VudBgCIAEoBRIxCghicmFuY2hlcxgDIAMoCzIfLnV0b3Mu",
+            "d29ya2Zsb3cudjEuUHJvbWlzZUJyYW5jaCK8AQoNUHJvbWlzZUJyYW5jaBIM",
+            "CgRuYW1lGAEgASgJEjYKCGZvcl9lYWNoGAIgASgLMh8udXRvcy53b3JrZmxv",
+            "dy52MS5Gb3JFYWNoQ29uZmlnSACIAQESFgoJY29uZGl0aW9uGAMgASgJSAGI",
+            "AQESMgoGdGFyZ2V0GAQgASgLMiIudXRvcy53b3JrZmxvdy52MS5UcmFuc2l0",
+            "aW9uVGFyZ2V0QgsKCV9mb3JfZWFjaEIMCgpfY29uZGl0aW9uIjIKDUZvckVh",
+            "Y2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVhbGlhcxgCIAEoCUIT",
+            "qgIQVXRvcy5Xb3JrZmxvdy5WMWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowActivity), global::Utos.Workflow.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Http", "Workflow", "Promise" }, new[]{ "Config" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowActivity), global::Utos.Workflow.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Http", "Workflow", "Promise", "Timer" }, new[]{ "Config" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TransitionRule), global::Utos.Workflow.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Return" }, new[]{ "Action", "Condition" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TransitionTarget), global::Utos.Workflow.V1.TransitionTarget.Parser, new[]{ "Name", "Input" }, new[]{ "Input" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.HttpActivityConfig), global::Utos.Workflow.V1.HttpActivityConfig.Parser, new[]{ "Method", "Url", "Headers", "Body" }, new[]{ "Body" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowActivityConfig), global::Utos.Workflow.V1.WorkflowActivityConfig.Parser, new[]{ "Workflow", "StartActivity", "Input" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TimerActivityConfig), global::Utos.Workflow.V1.TimerActivityConfig.Parser, new[]{ "Duration" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowActivityConfig), global::Utos.Workflow.V1.WorkflowActivityConfig.Parser, new[]{ "Workflow", "StartActivity", "Input", "Detached" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.PromiseActivityConfig), global::Utos.Workflow.V1.PromiseActivityConfig.Parser, new[]{ "Mode", "RequiredCount", "Branches" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.PromiseBranch), global::Utos.Workflow.V1.PromiseBranch.Parser, new[]{ "Name", "ForEach", "Condition", "Target" }, new[]{ "ForEach", "Condition" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.ForEachConfig), global::Utos.Workflow.V1.ForEachConfig.Parser, new[]{ "Collection", "Alias" }, null, null, null, null)
@@ -120,6 +125,9 @@ namespace Utos.Workflow.V1 {
           break;
         case ConfigOneofCase.Promise:
           Promise = other.Promise.Clone();
+          break;
+        case ConfigOneofCase.Timer:
+          Timer = other.Timer.Clone();
           break;
       }
 
@@ -200,6 +208,18 @@ namespace Utos.Workflow.V1 {
       }
     }
 
+    /// <summary>Field number for the "timer" field.</summary>
+    public const int TimerFieldNumber = 13;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflow.V1.TimerActivityConfig Timer {
+      get { return configCase_ == ConfigOneofCase.Timer ? (global::Utos.Workflow.V1.TimerActivityConfig) config_ : null; }
+      set {
+        config_ = value;
+        configCase_ = value == null ? ConfigOneofCase.None : ConfigOneofCase.Timer;
+      }
+    }
+
     private object config_;
     /// <summary>Enum of possible cases for the "config" oneof.</summary>
     public enum ConfigOneofCase {
@@ -207,6 +227,7 @@ namespace Utos.Workflow.V1 {
       Http = 10,
       Workflow = 11,
       Promise = 12,
+      Timer = 13,
     }
     private ConfigOneofCase configCase_ = ConfigOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -242,6 +263,7 @@ namespace Utos.Workflow.V1 {
       if (!object.Equals(Http, other.Http)) return false;
       if (!object.Equals(Workflow, other.Workflow)) return false;
       if (!object.Equals(Promise, other.Promise)) return false;
+      if (!object.Equals(Timer, other.Timer)) return false;
       if (ConfigCase != other.ConfigCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -255,6 +277,7 @@ namespace Utos.Workflow.V1 {
       if (configCase_ == ConfigOneofCase.Http) hash ^= Http.GetHashCode();
       if (configCase_ == ConfigOneofCase.Workflow) hash ^= Workflow.GetHashCode();
       if (configCase_ == ConfigOneofCase.Promise) hash ^= Promise.GetHashCode();
+      if (configCase_ == ConfigOneofCase.Timer) hash ^= Timer.GetHashCode();
       hash ^= (int) configCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -288,6 +311,10 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(98);
         output.WriteMessage(Promise);
       }
+      if (configCase_ == ConfigOneofCase.Timer) {
+        output.WriteRawTag(106);
+        output.WriteMessage(Timer);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -312,6 +339,10 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(98);
         output.WriteMessage(Promise);
       }
+      if (configCase_ == ConfigOneofCase.Timer) {
+        output.WriteRawTag(106);
+        output.WriteMessage(Timer);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -332,6 +363,9 @@ namespace Utos.Workflow.V1 {
       }
       if (configCase_ == ConfigOneofCase.Promise) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Promise);
+      }
+      if (configCase_ == ConfigOneofCase.Timer) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Timer);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -365,6 +399,12 @@ namespace Utos.Workflow.V1 {
             Promise = new global::Utos.Workflow.V1.PromiseActivityConfig();
           }
           Promise.MergeFrom(other.Promise);
+          break;
+        case ConfigOneofCase.Timer:
+          if (Timer == null) {
+            Timer = new global::Utos.Workflow.V1.TimerActivityConfig();
+          }
+          Timer.MergeFrom(other.Timer);
           break;
       }
 
@@ -422,6 +462,15 @@ namespace Utos.Workflow.V1 {
             Promise = subBuilder;
             break;
           }
+          case 106: {
+            global::Utos.Workflow.V1.TimerActivityConfig subBuilder = new global::Utos.Workflow.V1.TimerActivityConfig();
+            if (configCase_ == ConfigOneofCase.Timer) {
+              subBuilder.MergeFrom(Timer);
+            }
+            input.ReadMessage(subBuilder);
+            Timer = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -474,6 +523,15 @@ namespace Utos.Workflow.V1 {
             }
             input.ReadMessage(subBuilder);
             Promise = subBuilder;
+            break;
+          }
+          case 106: {
+            global::Utos.Workflow.V1.TimerActivityConfig subBuilder = new global::Utos.Workflow.V1.TimerActivityConfig();
+            if (configCase_ == ConfigOneofCase.Timer) {
+              subBuilder.MergeFrom(Timer);
+            }
+            input.ReadMessage(subBuilder);
+            Timer = subBuilder;
             break;
           }
         }
@@ -549,7 +607,8 @@ namespace Utos.Workflow.V1 {
     /// Template condition expression (e.g., "{{ output.count > 10 }}")
     /// If empty/omitted, rule always executes (default/fallback rule)
     /// Available context: `input` (data the source activity received),
-    /// `output` (raw output from the source activity's execution)
+    /// `output` (raw output from the source activity's execution),
+    /// `env` (the run's ambient environment map, available to every activity)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -896,7 +955,11 @@ namespace Utos.Workflow.V1 {
     public const int NameFieldNumber = 1;
     private string name_ = "";
     /// <summary>
-    /// Activity name or reserved keyword ("end", "error")
+    /// Activity name or reserved keyword ("end", "error").
+    /// The name may reference an already-visited activity — a back-edge — which
+    /// forms a loop (e.g. poll-inbox -> wait -> poll-inbox). A loop with no rule
+    /// transitioning to "end" (or a `return` action) runs until the execution is
+    /// cancelled, expressing an intentionally infinite loop such as a poller.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -914,7 +977,8 @@ namespace Utos.Workflow.V1 {
     /// Transform that produces the target activity's `input` context.
     /// Leaf string values may contain {{ }} template expressions.
     /// Available context: `input` (data the source activity received),
-    /// `output` (raw output from the source activity's execution).
+    /// `output` (raw output from the source activity's execution),
+    /// `env` (the run's ambient environment map, available to every activity).
     /// If omitted, the source activity's raw output passes through as-is.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1104,7 +1168,8 @@ namespace Utos.Workflow.V1 {
   /// Configuration for HTTP activities
   /// String fields support {{ input.x }} template expressions to reference
   /// the data this activity received (workflow input for the start activity,
-  /// or the preceding transition's transform result for subsequent activities).
+  /// or the preceding transition's transform result for subsequent activities),
+  /// and {{ env.x }} to reference the run's ambient environment (e.g. a base URL).
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class HttpActivityConfig : pb::IMessage<HttpActivityConfig>
@@ -1431,6 +1496,226 @@ namespace Utos.Workflow.V1 {
   }
 
   /// <summary>
+  /// Configuration for a timer (durable delay) activity.
+  /// Pauses this execution path for `duration`, then evaluates transitions
+  /// normally. The activity's `input` passes through unchanged as its `output`,
+  /// so a back-edge's TransitionTarget.input can keep threading accumulating loop
+  /// state across the wait.
+  ///
+  /// Combined with a back-edge transition this expresses a polling loop, e.g.
+  /// poll-inbox (http) -> wait (timer 60s) -> poll-inbox (back-edge).
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class TimerActivityConfig : pb::IMessage<TimerActivityConfig>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<TimerActivityConfig> _parser = new pb::MessageParser<TimerActivityConfig>(() => new TimerActivityConfig());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<TimerActivityConfig> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public TimerActivityConfig() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public TimerActivityConfig(TimerActivityConfig other) : this() {
+      duration_ = other.duration_ != null ? other.duration_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public TimerActivityConfig Clone() {
+      return new TimerActivityConfig(this);
+    }
+
+    /// <summary>Field number for the "duration" field.</summary>
+    public const int DurationFieldNumber = 1;
+    private global::Google.Protobuf.WellKnownTypes.Duration duration_;
+    /// <summary>
+    /// How long to pause before this activity's transitions are evaluated.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Duration Duration {
+      get { return duration_; }
+      set {
+        duration_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as TimerActivityConfig);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(TimerActivityConfig other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Duration, other.Duration)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (duration_ != null) hash ^= Duration.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (duration_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Duration);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (duration_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Duration);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (duration_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Duration);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(TimerActivityConfig other) {
+      if (other == null) {
+        return;
+      }
+      if (other.duration_ != null) {
+        if (duration_ == null) {
+          Duration = new global::Google.Protobuf.WellKnownTypes.Duration();
+        }
+        Duration.MergeFrom(other.Duration);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (duration_ == null) {
+              Duration = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(Duration);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (duration_ == null) {
+              Duration = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(Duration);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Configuration for sub-workflow invocation
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
@@ -1448,7 +1733,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1471,6 +1756,7 @@ namespace Utos.Workflow.V1 {
       workflow_ = other.workflow_;
       startActivity_ = other.startActivity_;
       input_ = other.input_ != null ? other.input_.Clone() : null;
+      detached_ = other.detached_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1515,7 +1801,8 @@ namespace Utos.Workflow.V1 {
     private global::Google.Protobuf.WellKnownTypes.Struct input_;
     /// <summary>
     /// Input data passed to the sub-workflow
-    /// Leaf string values may contain {{ input.x }} template expressions.
+    /// Leaf string values may contain {{ input.x }} and {{ env.x }} template
+    /// expressions. The sub-workflow execution inherits this run's ambient `env`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1523,6 +1810,32 @@ namespace Utos.Workflow.V1 {
       get { return input_; }
       set {
         input_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "detached" field.</summary>
+    public const int DetachedFieldNumber = 4;
+    private bool detached_;
+    /// <summary>
+    /// If true, start the sub-workflow but do NOT wait for it to finish
+    /// (fire-and-forget). The parent transitions immediately once the child is
+    /// started; the child runs as an independent execution with its own lifecycle
+    /// and may outlive the parent.
+    ///
+    /// When detached, the activity's `output` is a handle to the started run —
+    /// { "execution_id": "&lt;id>" } — not the child's result (there is no result to
+    /// wait for). `on_failure` only catches failures to *start* the child, not the
+    /// child's own runtime failures, which the parent never observes.
+    ///
+    /// Defaults to false: the sub-workflow is awaited and its result becomes this
+    /// activity's `output`.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Detached {
+      get { return detached_; }
+      set {
+        detached_ = value;
       }
     }
 
@@ -1544,6 +1857,7 @@ namespace Utos.Workflow.V1 {
       if (Workflow != other.Workflow) return false;
       if (StartActivity != other.StartActivity) return false;
       if (!object.Equals(Input, other.Input)) return false;
+      if (Detached != other.Detached) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1554,6 +1868,7 @@ namespace Utos.Workflow.V1 {
       if (Workflow.Length != 0) hash ^= Workflow.GetHashCode();
       if (StartActivity.Length != 0) hash ^= StartActivity.GetHashCode();
       if (input_ != null) hash ^= Input.GetHashCode();
+      if (Detached != false) hash ^= Detached.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1584,6 +1899,10 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(26);
         output.WriteMessage(Input);
       }
+      if (Detached != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(Detached);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1606,6 +1925,10 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(26);
         output.WriteMessage(Input);
       }
+      if (Detached != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(Detached);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1624,6 +1947,9 @@ namespace Utos.Workflow.V1 {
       }
       if (input_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Input);
+      }
+      if (Detached != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1648,6 +1974,9 @@ namespace Utos.Workflow.V1 {
           Input = new global::Google.Protobuf.WellKnownTypes.Struct();
         }
         Input.MergeFrom(other.Input);
+      }
+      if (other.Detached != false) {
+        Detached = other.Detached;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1681,6 +2010,10 @@ namespace Utos.Workflow.V1 {
               Input = new global::Google.Protobuf.WellKnownTypes.Struct();
             }
             input.ReadMessage(Input);
+            break;
+          }
+          case 32: {
+            Detached = input.ReadBool();
             break;
           }
         }
@@ -1717,6 +2050,10 @@ namespace Utos.Workflow.V1 {
             input.ReadMessage(Input);
             break;
           }
+          case 32: {
+            Detached = input.ReadBool();
+            break;
+          }
         }
       }
     }
@@ -1725,7 +2062,14 @@ namespace Utos.Workflow.V1 {
   }
 
   /// <summary>
-  /// Configuration for concurrent fan-out (promise) activities
+  /// Configuration for concurrent fan-out (promise) activities.
+  ///
+  /// Each promise activity execution is an independent concurrency scope: its
+  /// branch outputs do not leak across invocations. Branch targets may name a
+  /// promise or ancestor activity, so nested and looping fan-out (a branch
+  /// transitioning back into a parent that fans out again) is permitted. Bounding
+  /// total spawned work — concurrency, recursion depth, execution budget — is a
+  /// daemon responsibility, not a constraint of this spec.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PromiseActivityConfig : pb::IMessage<PromiseActivityConfig>
@@ -1742,7 +2086,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2020,7 +2364,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2092,6 +2436,7 @@ namespace Utos.Workflow.V1 {
     /// <summary>
     /// Optional; skip this branch if the condition evaluates to false
     /// Per-item evaluation when combined with for_each
+    /// May reference `env` (the run's ambient environment) alongside the branch context
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2378,7 +2723,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2414,6 +2759,7 @@ namespace Utos.Workflow.V1 {
     private string collection_ = "";
     /// <summary>
     /// Template expression that resolves to an array (e.g., "{{ input.addons }}")
+    /// May also reference `env` (the run's ambient environment)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
