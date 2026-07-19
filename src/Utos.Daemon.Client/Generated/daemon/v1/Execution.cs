@@ -26,55 +26,54 @@ namespace Utos.Daemon.V1 {
           string.Concat(
             "ChlkYWVtb24vdjEvZXhlY3V0aW9uLnByb3RvEg51dG9zLmRhZW1vbi52MRoW",
             "ZGFlbW9uL3YxL3NoYXJlZC5wcm90bxoYd29ya2Zsb3cvdjEvYnVuZGxlLnBy",
-            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIoQCChhTY2hl",
-            "ZHVsZUV4ZWN1dGlvblJlcXVlc3QSMwoId29ya2Zsb3cYASABKAsyIS51dG9z",
-            "LmRhZW1vbi52MS5Xb3JrZmxvd1JlZmVyZW5jZRIvCgVpbnB1dBgCIAEoCzIg",
-            "LnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblBheWxvYWQSFgoOc3RhcnRfYWN0",
-            "aXZpdHkYAyABKAkSPgoDZW52GAQgAygLMjEudXRvcy5kYWVtb24udjEuU2No",
-            "ZWR1bGVFeGVjdXRpb25SZXF1ZXN0LkVudkVudHJ5GioKCEVudkVudHJ5EgsK",
-            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiWAoZU2NoZWR1bGVFeGVj",
-            "dXRpb25SZXNwb25zZRIKCgJpZBgBIAEoCRIvCgZzdGF0dXMYAiABKA4yHy51",
-            "dG9zLmRhZW1vbi52MS5FeGVjdXRpb25TdGF0dXMiKwoTR2V0RXhlY3V0aW9u",
-            "UmVxdWVzdBIUCgxleGVjdXRpb25faWQYASABKAkioQYKFEdldEV4ZWN1dGlv",
-            "blJlc3BvbnNlEgoKAmlkGAEgASgJEi8KBnN0YXR1cxgCIAEoDjIfLnV0b3Mu",
-            "ZGFlbW9uLnYxLkV4ZWN1dGlvblN0YXR1cxIzCgh3b3JrZmxvdxgDIAEoCzIh",
-            "LnV0b3MuZGFlbW9uLnYxLldvcmtmbG93UmVmZXJlbmNlEjAKBmJ1bmRsZRgF",
-            "IAEoCzIgLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dCdW5kbGUSNAoFaW5w",
-            "dXQYBiABKAsyIC51dG9zLmRhZW1vbi52MS5FeGVjdXRpb25QYXlsb2FkSACI",
-            "AQESOgoDZW52GA8gAygLMi0udXRvcy5kYWVtb24udjEuR2V0RXhlY3V0aW9u",
-            "UmVzcG9uc2UuRW52RW50cnkSLgoKY3JlYXRlZF9hdBgHIAEoCzIaLmdvb2ds",
-            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASNQoMc2NoZWR1bGVkX2F0GAggASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgBiAEBEjMKCnN0YXJ0ZWRfYXQY",
-            "CSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wSAKIAQESNQoMY29t",
-            "cGxldGVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgD",
-            "iAEBEjIKCWZhaWxlZF9hdBgLIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
-            "c3RhbXBIBIgBARIaCg1lcnJvcl9tZXNzYWdlGAwgASgJSAWIAQEaKgoIRW52",
-            "RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4AUIICgZfaW5w",
-            "dXRCDwoNX3NjaGVkdWxlZF9hdEINCgtfc3RhcnRlZF9hdEIPCg1fY29tcGxl",
-            "dGVkX2F0QgwKCl9mYWlsZWRfYXRCEAoOX2Vycm9yX21lc3NhZ2VKBAgEEAVK",
-            "BAgNEA5KBAgOEA9SEHdvcmtmbG93X3ZlcnNpb25SEndvcmtmbG93X25hbWVz",
-            "cGFjZVIRd29ya2Zsb3dfcmVnaXN0cnkiXgoVTGlzdEV4ZWN1dGlvbnNSZXF1",
-            "ZXN0EjgKCHdvcmtmbG93GAEgASgLMiEudXRvcy5kYWVtb24udjEuV29ya2Zs",
-            "b3dSZWZlcmVuY2VIAIgBAUILCglfd29ya2Zsb3ciTgoWTGlzdEV4ZWN1dGlv",
-            "bnNSZXNwb25zZRI0CgpleGVjdXRpb25zGAEgAygLMiAudXRvcy5kYWVtb24u",
-            "djEuRXhlY3V0aW9uU3VtbWFyeTK4AgoQRXhlY3V0aW9uU2VydmljZRJoChFT",
-            "Y2hlZHVsZUV4ZWN1dGlvbhIoLnV0b3MuZGFlbW9uLnYxLlNjaGVkdWxlRXhl",
-            "Y3V0aW9uUmVxdWVzdBopLnV0b3MuZGFlbW9uLnYxLlNjaGVkdWxlRXhlY3V0",
-            "aW9uUmVzcG9uc2USWQoMR2V0RXhlY3V0aW9uEiMudXRvcy5kYWVtb24udjEu",
-            "R2V0RXhlY3V0aW9uUmVxdWVzdBokLnV0b3MuZGFlbW9uLnYxLkdldEV4ZWN1",
-            "dGlvblJlc3BvbnNlEl8KDkxpc3RFeGVjdXRpb25zEiUudXRvcy5kYWVtb24u",
-            "djEuTGlzdEV4ZWN1dGlvbnNSZXF1ZXN0GiYudXRvcy5kYWVtb24udjEuTGlz",
-            "dEV4ZWN1dGlvbnNSZXNwb25zZUIRqgIOVXRvcy5EYWVtb24uVjFiBnByb3Rv",
-            "Mw=="));
+            "b3RvIoQCChhTY2hlZHVsZUV4ZWN1dGlvblJlcXVlc3QSMwoId29ya2Zsb3cY",
+            "ASABKAsyIS51dG9zLmRhZW1vbi52MS5Xb3JrZmxvd1JlZmVyZW5jZRIvCgVp",
+            "bnB1dBgCIAEoCzIgLnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblBheWxvYWQS",
+            "FgoOc3RhcnRfYWN0aXZpdHkYAyABKAkSPgoDZW52GAQgAygLMjEudXRvcy5k",
+            "YWVtb24udjEuU2NoZWR1bGVFeGVjdXRpb25SZXF1ZXN0LkVudkVudHJ5GioK",
+            "CEVudkVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiWAoZ",
+            "U2NoZWR1bGVFeGVjdXRpb25SZXNwb25zZRIKCgJpZBgBIAEoCRIvCgZzdGF0",
+            "dXMYAiABKA4yHy51dG9zLmRhZW1vbi52MS5FeGVjdXRpb25TdGF0dXMiKwoT",
+            "R2V0RXhlY3V0aW9uUmVxdWVzdBIUCgxleGVjdXRpb25faWQYASABKAkilQQK",
+            "FEdldEV4ZWN1dGlvblJlc3BvbnNlEjEKB3N1bW1hcnkYESABKAsyIC51dG9z",
+            "LmRhZW1vbi52MS5FeGVjdXRpb25TdW1tYXJ5EjAKBmJ1bmRsZRgFIAEoCzIg",
+            "LnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dCdW5kbGUSNAoFaW5wdXQYBiAB",
+            "KAsyIC51dG9zLmRhZW1vbi52MS5FeGVjdXRpb25QYXlsb2FkSACIAQESOgoD",
+            "ZW52GA8gAygLMi0udXRvcy5kYWVtb24udjEuR2V0RXhlY3V0aW9uUmVzcG9u",
+            "c2UuRW52RW50cnkaKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVl",
+            "GAIgASgJOgI4AUIICgZfaW5wdXRKBAgBEAJKBAgCEANKBAgDEARKBAgEEAVK",
+            "BAgHEAhKBAgIEAlKBAgJEApKBAgKEAtKBAgLEAxKBAgMEA1KBAgNEA5KBAgO",
+            "EA9KBAgQEBFSAmlkUgZzdGF0dXNSCHdvcmtmbG93UgpjcmVhdGVkX2F0Ugxz",
+            "Y2hlZHVsZWRfYXRSCnN0YXJ0ZWRfYXRSDGNvbXBsZXRlZF9hdFIJZmFpbGVk",
+            "X2F0UgVlcnJvclIQd29ya2Zsb3dfdmVyc2lvblISd29ya2Zsb3dfbmFtZXNw",
+            "YWNlUhF3b3JrZmxvd19yZWdpc3RyeVINZXJyb3JfbWVzc2FnZSJeChVMaXN0",
+            "RXhlY3V0aW9uc1JlcXVlc3QSOAoId29ya2Zsb3cYASABKAsyIS51dG9zLmRh",
+            "ZW1vbi52MS5Xb3JrZmxvd1JlZmVyZW5jZUgAiAEBQgsKCV93b3JrZmxvdyJO",
+            "ChZMaXN0RXhlY3V0aW9uc1Jlc3BvbnNlEjQKCmV4ZWN1dGlvbnMYASADKAsy",
+            "IC51dG9zLmRhZW1vbi52MS5FeGVjdXRpb25TdW1tYXJ5Ii4KFkRlbGV0ZUV4",
+            "ZWN1dGlvblJlcXVlc3QSFAoMZXhlY3V0aW9uX2lkGAEgASgJIhkKF0RlbGV0",
+            "ZUV4ZWN1dGlvblJlc3BvbnNlMpwDChBFeGVjdXRpb25TZXJ2aWNlEmgKEVNj",
+            "aGVkdWxlRXhlY3V0aW9uEigudXRvcy5kYWVtb24udjEuU2NoZWR1bGVFeGVj",
+            "dXRpb25SZXF1ZXN0GikudXRvcy5kYWVtb24udjEuU2NoZWR1bGVFeGVjdXRp",
+            "b25SZXNwb25zZRJZCgxHZXRFeGVjdXRpb24SIy51dG9zLmRhZW1vbi52MS5H",
+            "ZXRFeGVjdXRpb25SZXF1ZXN0GiQudXRvcy5kYWVtb24udjEuR2V0RXhlY3V0",
+            "aW9uUmVzcG9uc2USXwoOTGlzdEV4ZWN1dGlvbnMSJS51dG9zLmRhZW1vbi52",
+            "MS5MaXN0RXhlY3V0aW9uc1JlcXVlc3QaJi51dG9zLmRhZW1vbi52MS5MaXN0",
+            "RXhlY3V0aW9uc1Jlc3BvbnNlEmIKD0RlbGV0ZUV4ZWN1dGlvbhImLnV0b3Mu",
+            "ZGFlbW9uLnYxLkRlbGV0ZUV4ZWN1dGlvblJlcXVlc3QaJy51dG9zLmRhZW1v",
+            "bi52MS5EZWxldGVFeGVjdXRpb25SZXNwb25zZUIRqgIOVXRvcy5EYWVtb24u",
+            "VjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Utos.Workflow.V1.BundleReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Utos.Workflow.V1.BundleReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ScheduleExecutionRequest), global::Utos.Daemon.V1.ScheduleExecutionRequest.Parser, new[]{ "Workflow", "Input", "StartActivity", "Env" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ScheduleExecutionResponse), global::Utos.Daemon.V1.ScheduleExecutionResponse.Parser, new[]{ "Id", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.GetExecutionRequest), global::Utos.Daemon.V1.GetExecutionRequest.Parser, new[]{ "ExecutionId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.GetExecutionResponse), global::Utos.Daemon.V1.GetExecutionResponse.Parser, new[]{ "Id", "Status", "Workflow", "Bundle", "Input", "Env", "CreatedAt", "ScheduledAt", "StartedAt", "CompletedAt", "FailedAt", "ErrorMessage" }, new[]{ "Input", "ScheduledAt", "StartedAt", "CompletedAt", "FailedAt", "ErrorMessage" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.GetExecutionResponse), global::Utos.Daemon.V1.GetExecutionResponse.Parser, new[]{ "Summary", "Bundle", "Input", "Env" }, new[]{ "Input" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ListExecutionsRequest), global::Utos.Daemon.V1.ListExecutionsRequest.Parser, new[]{ "Workflow" }, new[]{ "Workflow" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ListExecutionsResponse), global::Utos.Daemon.V1.ListExecutionsResponse.Parser, new[]{ "Executions" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ListExecutionsResponse), global::Utos.Daemon.V1.ListExecutionsResponse.Parser, new[]{ "Executions" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.DeleteExecutionRequest), global::Utos.Daemon.V1.DeleteExecutionRequest.Parser, new[]{ "ExecutionId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.DeleteExecutionResponse), global::Utos.Daemon.V1.DeleteExecutionResponse.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -134,7 +133,11 @@ namespace Utos.Daemon.V1 {
     private global::Utos.Daemon.V1.WorkflowReference workflow_;
     /// <summary>
     /// Reference to a workflow previously loaded via DefinitionService.LoadWorkflow.
-    /// name is required; version omitted means "latest loaded".
+    /// name is required; version omitted means "latest loaded". Optional digest
+    /// pins the run to exact bundle content: the daemon resolves name(+version),
+    /// then requires the resolved digest to match, failing the schedule on
+    /// mismatch — so a caller can guarantee it scheduled the exact content it
+    /// intended even if the store was re-loaded.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -892,18 +895,10 @@ namespace Utos.Daemon.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetExecutionResponse(GetExecutionResponse other) : this() {
-      id_ = other.id_;
-      status_ = other.status_;
-      workflow_ = other.workflow_ != null ? other.workflow_.Clone() : null;
+      summary_ = other.summary_ != null ? other.summary_.Clone() : null;
       bundle_ = other.bundle_ != null ? other.bundle_.Clone() : null;
       input_ = other.input_ != null ? other.input_.Clone() : null;
       env_ = other.env_.Clone();
-      createdAt_ = other.createdAt_ != null ? other.createdAt_.Clone() : null;
-      scheduledAt_ = other.scheduledAt_ != null ? other.scheduledAt_.Clone() : null;
-      startedAt_ = other.startedAt_ != null ? other.startedAt_.Clone() : null;
-      completedAt_ = other.completedAt_ != null ? other.completedAt_.Clone() : null;
-      failedAt_ = other.failedAt_ != null ? other.failedAt_.Clone() : null;
-      errorMessage_ = other.errorMessage_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -913,49 +908,18 @@ namespace Utos.Daemon.V1 {
       return new GetExecutionResponse(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private string id_ = "";
+    /// <summary>Field number for the "summary" field.</summary>
+    public const int SummaryFieldNumber = 17;
+    private global::Utos.Daemon.V1.ExecutionSummary summary_;
     /// <summary>
-    /// Unique execution identifier
+    /// Summary view: identity, status, timing, and error for this execution.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Id {
-      get { return id_; }
+    public global::Utos.Daemon.V1.ExecutionSummary Summary {
+      get { return summary_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "status" field.</summary>
-    public const int StatusFieldNumber = 2;
-    private global::Utos.Daemon.V1.ExecutionStatus status_ = global::Utos.Daemon.V1.ExecutionStatus.Unspecified;
-    /// <summary>
-    /// Current execution status
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Daemon.V1.ExecutionStatus Status {
-      get { return status_; }
-      set {
-        status_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "workflow" field.</summary>
-    public const int WorkflowFieldNumber = 3;
-    private global::Utos.Daemon.V1.WorkflowReference workflow_;
-    /// <summary>
-    /// Identity of the workflow this execution ran, as resolved at schedule time
-    /// (version always populated).
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Daemon.V1.WorkflowReference Workflow {
-      get { return workflow_; }
-      set {
-        workflow_ = value;
+        summary_ = value;
       }
     }
 
@@ -963,7 +927,9 @@ namespace Utos.Daemon.V1 {
     public const int BundleFieldNumber = 5;
     private global::Utos.Workflow.V1.WorkflowBundle bundle_;
     /// <summary>
-    /// Full workflow bundle (snapshotted at schedule time — unaffected by later unload)
+    /// Full workflow bundle (snapshotted at schedule time — unaffected by later
+    /// unload). `summary.workflow.digest` is the content identity of this exact
+    /// bundle; the two are guaranteed consistent within a single response.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -978,7 +944,7 @@ namespace Utos.Daemon.V1 {
     public const int InputFieldNumber = 6;
     private global::Utos.Daemon.V1.ExecutionPayload input_;
     /// <summary>
-    /// Execution input (data passed to start activity)
+    /// Execution input (data passed to the start activity).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1004,110 +970,6 @@ namespace Utos.Daemon.V1 {
       get { return env_; }
     }
 
-    /// <summary>Field number for the "created_at" field.</summary>
-    public const int CreatedAtFieldNumber = 7;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp createdAt_;
-    /// <summary>
-    /// When the execution was created
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp CreatedAt {
-      get { return createdAt_; }
-      set {
-        createdAt_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "scheduled_at" field.</summary>
-    public const int ScheduledAtFieldNumber = 8;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp scheduledAt_;
-    /// <summary>
-    /// When the execution was scheduled
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp ScheduledAt {
-      get { return scheduledAt_; }
-      set {
-        scheduledAt_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "started_at" field.</summary>
-    public const int StartedAtFieldNumber = 9;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp startedAt_;
-    /// <summary>
-    /// When the execution started (became ACTIVE)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp StartedAt {
-      get { return startedAt_; }
-      set {
-        startedAt_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "completed_at" field.</summary>
-    public const int CompletedAtFieldNumber = 10;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp completedAt_;
-    /// <summary>
-    /// When the execution completed
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp CompletedAt {
-      get { return completedAt_; }
-      set {
-        completedAt_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "failed_at" field.</summary>
-    public const int FailedAtFieldNumber = 11;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp failedAt_;
-    /// <summary>
-    /// When the execution failed
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp FailedAt {
-      get { return failedAt_; }
-      set {
-        failedAt_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "error_message" field.</summary>
-    public const int ErrorMessageFieldNumber = 12;
-    private readonly static string ErrorMessageDefaultValue = "";
-
-    private string errorMessage_;
-    /// <summary>
-    /// Error message if execution failed
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ErrorMessage {
-      get { return errorMessage_ ?? ErrorMessageDefaultValue; }
-      set {
-        errorMessage_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "error_message" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasErrorMessage {
-      get { return errorMessage_ != null; }
-    }
-    /// <summary>Clears the value of the "error_message" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearErrorMessage() {
-      errorMessage_ = null;
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1123,18 +985,10 @@ namespace Utos.Daemon.V1 {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
-      if (Status != other.Status) return false;
-      if (!object.Equals(Workflow, other.Workflow)) return false;
+      if (!object.Equals(Summary, other.Summary)) return false;
       if (!object.Equals(Bundle, other.Bundle)) return false;
       if (!object.Equals(Input, other.Input)) return false;
       if (!Env.Equals(other.Env)) return false;
-      if (!object.Equals(CreatedAt, other.CreatedAt)) return false;
-      if (!object.Equals(ScheduledAt, other.ScheduledAt)) return false;
-      if (!object.Equals(StartedAt, other.StartedAt)) return false;
-      if (!object.Equals(CompletedAt, other.CompletedAt)) return false;
-      if (!object.Equals(FailedAt, other.FailedAt)) return false;
-      if (ErrorMessage != other.ErrorMessage) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1142,18 +996,10 @@ namespace Utos.Daemon.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
-      if (Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) hash ^= Status.GetHashCode();
-      if (workflow_ != null) hash ^= Workflow.GetHashCode();
+      if (summary_ != null) hash ^= Summary.GetHashCode();
       if (bundle_ != null) hash ^= Bundle.GetHashCode();
       if (input_ != null) hash ^= Input.GetHashCode();
       hash ^= Env.GetHashCode();
-      if (createdAt_ != null) hash ^= CreatedAt.GetHashCode();
-      if (scheduledAt_ != null) hash ^= ScheduledAt.GetHashCode();
-      if (startedAt_ != null) hash ^= StartedAt.GetHashCode();
-      if (completedAt_ != null) hash ^= CompletedAt.GetHashCode();
-      if (failedAt_ != null) hash ^= FailedAt.GetHashCode();
-      if (HasErrorMessage) hash ^= ErrorMessage.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1172,18 +1018,6 @@ namespace Utos.Daemon.V1 {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
-      }
-      if (Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) Status);
-      }
-      if (workflow_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Workflow);
-      }
       if (bundle_ != null) {
         output.WriteRawTag(42);
         output.WriteMessage(Bundle);
@@ -1192,31 +1026,11 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(50);
         output.WriteMessage(Input);
       }
-      if (createdAt_ != null) {
-        output.WriteRawTag(58);
-        output.WriteMessage(CreatedAt);
-      }
-      if (scheduledAt_ != null) {
-        output.WriteRawTag(66);
-        output.WriteMessage(ScheduledAt);
-      }
-      if (startedAt_ != null) {
-        output.WriteRawTag(74);
-        output.WriteMessage(StartedAt);
-      }
-      if (completedAt_ != null) {
-        output.WriteRawTag(82);
-        output.WriteMessage(CompletedAt);
-      }
-      if (failedAt_ != null) {
-        output.WriteRawTag(90);
-        output.WriteMessage(FailedAt);
-      }
-      if (HasErrorMessage) {
-        output.WriteRawTag(98);
-        output.WriteString(ErrorMessage);
-      }
       env_.WriteTo(output, _map_env_codec);
+      if (summary_ != null) {
+        output.WriteRawTag(138, 1);
+        output.WriteMessage(Summary);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1227,18 +1041,6 @@ namespace Utos.Daemon.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
-      }
-      if (Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) Status);
-      }
-      if (workflow_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Workflow);
-      }
       if (bundle_ != null) {
         output.WriteRawTag(42);
         output.WriteMessage(Bundle);
@@ -1247,31 +1049,11 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(50);
         output.WriteMessage(Input);
       }
-      if (createdAt_ != null) {
-        output.WriteRawTag(58);
-        output.WriteMessage(CreatedAt);
-      }
-      if (scheduledAt_ != null) {
-        output.WriteRawTag(66);
-        output.WriteMessage(ScheduledAt);
-      }
-      if (startedAt_ != null) {
-        output.WriteRawTag(74);
-        output.WriteMessage(StartedAt);
-      }
-      if (completedAt_ != null) {
-        output.WriteRawTag(82);
-        output.WriteMessage(CompletedAt);
-      }
-      if (failedAt_ != null) {
-        output.WriteRawTag(90);
-        output.WriteMessage(FailedAt);
-      }
-      if (HasErrorMessage) {
-        output.WriteRawTag(98);
-        output.WriteString(ErrorMessage);
-      }
       env_.WriteTo(ref output, _map_env_codec);
+      if (summary_ != null) {
+        output.WriteRawTag(138, 1);
+        output.WriteMessage(Summary);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1282,14 +1064,8 @@ namespace Utos.Daemon.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
-      }
-      if (Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
-      }
-      if (workflow_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Workflow);
+      if (summary_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Summary);
       }
       if (bundle_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bundle);
@@ -1298,24 +1074,6 @@ namespace Utos.Daemon.V1 {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Input);
       }
       size += env_.CalculateSize(_map_env_codec);
-      if (createdAt_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CreatedAt);
-      }
-      if (scheduledAt_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ScheduledAt);
-      }
-      if (startedAt_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartedAt);
-      }
-      if (completedAt_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CompletedAt);
-      }
-      if (failedAt_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FailedAt);
-      }
-      if (HasErrorMessage) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorMessage);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1328,17 +1086,11 @@ namespace Utos.Daemon.V1 {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
-      }
-      if (other.Status != global::Utos.Daemon.V1.ExecutionStatus.Unspecified) {
-        Status = other.Status;
-      }
-      if (other.workflow_ != null) {
-        if (workflow_ == null) {
-          Workflow = new global::Utos.Daemon.V1.WorkflowReference();
+      if (other.summary_ != null) {
+        if (summary_ == null) {
+          Summary = new global::Utos.Daemon.V1.ExecutionSummary();
         }
-        Workflow.MergeFrom(other.Workflow);
+        Summary.MergeFrom(other.Summary);
       }
       if (other.bundle_ != null) {
         if (bundle_ == null) {
@@ -1353,39 +1105,6 @@ namespace Utos.Daemon.V1 {
         Input.MergeFrom(other.Input);
       }
       env_.MergeFrom(other.env_);
-      if (other.createdAt_ != null) {
-        if (createdAt_ == null) {
-          CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        CreatedAt.MergeFrom(other.CreatedAt);
-      }
-      if (other.scheduledAt_ != null) {
-        if (scheduledAt_ == null) {
-          ScheduledAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        ScheduledAt.MergeFrom(other.ScheduledAt);
-      }
-      if (other.startedAt_ != null) {
-        if (startedAt_ == null) {
-          StartedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        StartedAt.MergeFrom(other.StartedAt);
-      }
-      if (other.completedAt_ != null) {
-        if (completedAt_ == null) {
-          CompletedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        CompletedAt.MergeFrom(other.CompletedAt);
-      }
-      if (other.failedAt_ != null) {
-        if (failedAt_ == null) {
-          FailedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        FailedAt.MergeFrom(other.FailedAt);
-      }
-      if (other.HasErrorMessage) {
-        ErrorMessage = other.ErrorMessage;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1405,21 +1124,6 @@ namespace Utos.Daemon.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Id = input.ReadString();
-            break;
-          }
-          case 16: {
-            Status = (global::Utos.Daemon.V1.ExecutionStatus) input.ReadEnum();
-            break;
-          }
-          case 26: {
-            if (workflow_ == null) {
-              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
-            }
-            input.ReadMessage(Workflow);
-            break;
-          }
           case 42: {
             if (bundle_ == null) {
               Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
@@ -1434,47 +1138,15 @@ namespace Utos.Daemon.V1 {
             input.ReadMessage(Input);
             break;
           }
-          case 58: {
-            if (createdAt_ == null) {
-              CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(CreatedAt);
-            break;
-          }
-          case 66: {
-            if (scheduledAt_ == null) {
-              ScheduledAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(ScheduledAt);
-            break;
-          }
-          case 74: {
-            if (startedAt_ == null) {
-              StartedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(StartedAt);
-            break;
-          }
-          case 82: {
-            if (completedAt_ == null) {
-              CompletedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(CompletedAt);
-            break;
-          }
-          case 90: {
-            if (failedAt_ == null) {
-              FailedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(FailedAt);
-            break;
-          }
-          case 98: {
-            ErrorMessage = input.ReadString();
-            break;
-          }
           case 122: {
             env_.AddEntriesFrom(input, _map_env_codec);
+            break;
+          }
+          case 138: {
+            if (summary_ == null) {
+              Summary = new global::Utos.Daemon.V1.ExecutionSummary();
+            }
+            input.ReadMessage(Summary);
             break;
           }
         }
@@ -1496,21 +1168,6 @@ namespace Utos.Daemon.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Id = input.ReadString();
-            break;
-          }
-          case 16: {
-            Status = (global::Utos.Daemon.V1.ExecutionStatus) input.ReadEnum();
-            break;
-          }
-          case 26: {
-            if (workflow_ == null) {
-              Workflow = new global::Utos.Daemon.V1.WorkflowReference();
-            }
-            input.ReadMessage(Workflow);
-            break;
-          }
           case 42: {
             if (bundle_ == null) {
               Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
@@ -1525,47 +1182,15 @@ namespace Utos.Daemon.V1 {
             input.ReadMessage(Input);
             break;
           }
-          case 58: {
-            if (createdAt_ == null) {
-              CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(CreatedAt);
-            break;
-          }
-          case 66: {
-            if (scheduledAt_ == null) {
-              ScheduledAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(ScheduledAt);
-            break;
-          }
-          case 74: {
-            if (startedAt_ == null) {
-              StartedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(StartedAt);
-            break;
-          }
-          case 82: {
-            if (completedAt_ == null) {
-              CompletedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(CompletedAt);
-            break;
-          }
-          case 90: {
-            if (failedAt_ == null) {
-              FailedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(FailedAt);
-            break;
-          }
-          case 98: {
-            ErrorMessage = input.ReadString();
-            break;
-          }
           case 122: {
             env_.AddEntriesFrom(ref input, _map_env_codec);
+            break;
+          }
+          case 138: {
+            if (summary_ == null) {
+              Summary = new global::Utos.Daemon.V1.ExecutionSummary();
+            }
+            input.ReadMessage(Summary);
             break;
           }
         }
@@ -1625,7 +1250,9 @@ namespace Utos.Daemon.V1 {
     private global::Utos.Daemon.V1.WorkflowReference workflow_;
     /// <summary>
     /// Filter to executions of a single workflow. When set, name selects the
-    /// workflow; version omitted matches all loaded versions.
+    /// workflow; version omitted matches all loaded versions. When digest is set,
+    /// filter to executions whose snapshotted content matches that exact digest —
+    /// more precise than the mutable version (e.g. every run of one specific build).
     /// Future: Add pagination.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1970,6 +1597,371 @@ namespace Utos.Daemon.V1 {
             executions_.AddEntriesFrom(ref input, _repeated_executions_codec);
             break;
           }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class DeleteExecutionRequest : pb::IMessage<DeleteExecutionRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<DeleteExecutionRequest> _parser = new pb::MessageParser<DeleteExecutionRequest>(() => new DeleteExecutionRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<DeleteExecutionRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Daemon.V1.ExecutionReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DeleteExecutionRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DeleteExecutionRequest(DeleteExecutionRequest other) : this() {
+      executionId_ = other.executionId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DeleteExecutionRequest Clone() {
+      return new DeleteExecutionRequest(this);
+    }
+
+    /// <summary>Field number for the "execution_id" field.</summary>
+    public const int ExecutionIdFieldNumber = 1;
+    private string executionId_ = "";
+    /// <summary>
+    /// Unique execution identifier
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ExecutionId {
+      get { return executionId_; }
+      set {
+        executionId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as DeleteExecutionRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(DeleteExecutionRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ExecutionId != other.ExecutionId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ExecutionId.Length != 0) hash ^= ExecutionId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ExecutionId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ExecutionId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ExecutionId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ExecutionId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ExecutionId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ExecutionId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(DeleteExecutionRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ExecutionId.Length != 0) {
+        ExecutionId = other.ExecutionId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ExecutionId = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            ExecutionId = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Empty; reserved for future fields.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class DeleteExecutionResponse : pb::IMessage<DeleteExecutionResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<DeleteExecutionResponse> _parser = new pb::MessageParser<DeleteExecutionResponse>(() => new DeleteExecutionResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<DeleteExecutionResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Daemon.V1.ExecutionReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DeleteExecutionResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DeleteExecutionResponse(DeleteExecutionResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DeleteExecutionResponse Clone() {
+      return new DeleteExecutionResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as DeleteExecutionResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(DeleteExecutionResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(DeleteExecutionResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
         }
       }
     }

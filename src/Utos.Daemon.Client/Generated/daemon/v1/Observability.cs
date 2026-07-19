@@ -25,37 +25,39 @@ namespace Utos.Daemon.V1 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch1kYWVtb24vdjEvb2JzZXJ2YWJpbGl0eS5wcm90bxIOdXRvcy5kYWVtb24u",
-            "djEaFmRhZW1vbi92MS9zaGFyZWQucHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90",
-            "aW1lc3RhbXAucHJvdG8i4wEKFVdhdGNoRXhlY3V0aW9uUmVxdWVzdBIUCgxl",
-            "eGVjdXRpb25faWQYASABKAkSEwoGc291cmNlGAIgASgJSACIAQESFQoIY2F0",
-            "ZWdvcnkYAyABKAlIAYgBARIsCgVsZXZlbBgEIAEoDjIYLnV0b3MuZGFlbW9u",
-            "LnYxLkxvZ0xldmVsSAKIAQESEQoEdGFpbBgFIAEoBUgDiAEBEhIKBWFmdGVy",
-            "GAYgASgFSASIAQFCCQoHX3NvdXJjZUILCglfY2F0ZWdvcnlCCAoGX2xldmVs",
-            "QgcKBV90YWlsQggKBl9hZnRlciL2AQoWV2F0Y2hFeGVjdXRpb25SZXNwb25z",
-            "ZRIOCgZzb3VyY2UYASABKAkSFQoIY2F0ZWdvcnkYAiABKAlIAIgBARInCgVs",
-            "ZXZlbBgDIAEoDjIYLnV0b3MuZGFlbW9uLnYxLkxvZ0xldmVsEg8KB21lc3Nh",
-            "Z2UYBCABKAkSLQoJdGltZXN0YW1wGAUgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcBI0CgZzdGF0dXMYBiABKA4yHy51dG9zLmRhZW1vbi52MS5F",
-            "eGVjdXRpb25TdGF0dXNIAYgBAUILCglfY2F0ZWdvcnlCCQoHX3N0YXR1cyIS",
-            "ChBHZXRIZWFsdGhSZXF1ZXN0IlIKEUdldEhlYWx0aFJlc3BvbnNlEiwKBnN0",
-            "YXR1cxgBIAEoDjIcLnV0b3MuZGFlbW9uLnYxLkhlYWx0aFN0YXR1cxIPCgd2",
-            "ZXJzaW9uGAIgASgJKqEBCghMb2dMZXZlbBIZChVMT0dfTEVWRUxfVU5TUEVD",
-            "SUZJRUQQABITCg9MT0dfTEVWRUxfVFJBQ0UQARITCg9MT0dfTEVWRUxfREVC",
-            "VUcQAhISCg5MT0dfTEVWRUxfSU5GTxADEhIKDkxPR19MRVZFTF9XQVJOEAQS",
-            "EwoPTE9HX0xFVkVMX0VSUk9SEAUSEwoPTE9HX0xFVkVMX0ZBVEFMEAYqZQoM",
-            "SGVhbHRoU3RhdHVzEh0KGUhFQUxUSF9TVEFUVVNfVU5TUEVDSUZJRUQQABIZ",
-            "ChVIRUFMVEhfU1RBVFVTX0hFQUxUSFkQARIbChdIRUFMVEhfU1RBVFVTX1VO",
-            "SEVBTFRIWRACMssBChRPYnNlcnZhYmlsaXR5U2VydmljZRJhCg5XYXRjaEV4",
-            "ZWN1dGlvbhIlLnV0b3MuZGFlbW9uLnYxLldhdGNoRXhlY3V0aW9uUmVxdWVz",
-            "dBomLnV0b3MuZGFlbW9uLnYxLldhdGNoRXhlY3V0aW9uUmVzcG9uc2UwARJQ",
-            "CglHZXRIZWFsdGgSIC51dG9zLmRhZW1vbi52MS5HZXRIZWFsdGhSZXF1ZXN0",
-            "GiEudXRvcy5kYWVtb24udjEuR2V0SGVhbHRoUmVzcG9uc2VCEaoCDlV0b3Mu",
-            "RGFlbW9uLlYxYgZwcm90bzM="));
+            "djEaFmRhZW1vbi92MS9zaGFyZWQucHJvdG8aGHdvcmtmbG93L3YxL2NvbW1v",
+            "bi5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLWAQoV",
+            "V2F0Y2hFeGVjdXRpb25SZXF1ZXN0EhQKDGV4ZWN1dGlvbl9pZBgBIAEoCRIT",
+            "CgZzb3VyY2UYAiABKAlIAYgBARIVCghjYXRlZ29yeRgDIAEoCUgCiAEBEiwK",
+            "BWxldmVsGAQgASgOMhgudXRvcy5kYWVtb24udjEuTG9nTGV2ZWxIA4gBARIO",
+            "CgR0YWlsGAUgASgFSAASDwoFYWZ0ZXIYBiABKAVIAEIKCghwb3NpdGlvbkIJ",
+            "Cgdfc291cmNlQgsKCV9jYXRlZ29yeUIICgZfbGV2ZWwitQIKFldhdGNoRXhl",
+            "Y3V0aW9uUmVzcG9uc2USDgoGc291cmNlGAEgASgJEhUKCGNhdGVnb3J5GAIg",
+            "ASgJSACIAQESJwoFbGV2ZWwYAyABKA4yGC51dG9zLmRhZW1vbi52MS5Mb2dM",
+            "ZXZlbBIPCgdtZXNzYWdlGAQgASgJEi0KCXRpbWVzdGFtcBgFIAEoCzIaLmdv",
+            "b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASNAoGc3RhdHVzGAYgASgOMh8udXRv",
+            "cy5kYWVtb24udjEuRXhlY3V0aW9uU3RhdHVzSAGIAQESMwoFZXJyb3IYByAB",
+            "KAsyHy51dG9zLndvcmtmbG93LnYxLldvcmtmbG93RXJyb3JIAogBAUILCglf",
+            "Y2F0ZWdvcnlCCQoHX3N0YXR1c0IICgZfZXJyb3IiEgoQR2V0SGVhbHRoUmVx",
+            "dWVzdCJSChFHZXRIZWFsdGhSZXNwb25zZRIsCgZzdGF0dXMYASABKA4yHC51",
+            "dG9zLmRhZW1vbi52MS5IZWFsdGhTdGF0dXMSDwoHdmVyc2lvbhgCIAEoCSqh",
+            "AQoITG9nTGV2ZWwSGQoVTE9HX0xFVkVMX1VOU1BFQ0lGSUVEEAASEwoPTE9H",
+            "X0xFVkVMX1RSQUNFEAESEwoPTE9HX0xFVkVMX0RFQlVHEAISEgoOTE9HX0xF",
+            "VkVMX0lORk8QAxISCg5MT0dfTEVWRUxfV0FSThAEEhMKD0xPR19MRVZFTF9F",
+            "UlJPUhAFEhMKD0xPR19MRVZFTF9GQVRBTBAGKmUKDEhlYWx0aFN0YXR1cxId",
+            "ChlIRUFMVEhfU1RBVFVTX1VOU1BFQ0lGSUVEEAASGQoVSEVBTFRIX1NUQVRV",
+            "U19IRUFMVEhZEAESGwoXSEVBTFRIX1NUQVRVU19VTkhFQUxUSFkQAjLLAQoU",
+            "T2JzZXJ2YWJpbGl0eVNlcnZpY2USYQoOV2F0Y2hFeGVjdXRpb24SJS51dG9z",
+            "LmRhZW1vbi52MS5XYXRjaEV4ZWN1dGlvblJlcXVlc3QaJi51dG9zLmRhZW1v",
+            "bi52MS5XYXRjaEV4ZWN1dGlvblJlc3BvbnNlMAESUAoJR2V0SGVhbHRoEiAu",
+            "dXRvcy5kYWVtb24udjEuR2V0SGVhbHRoUmVxdWVzdBohLnV0b3MuZGFlbW9u",
+            "LnYxLkdldEhlYWx0aFJlc3BvbnNlQhGqAg5VdG9zLkRhZW1vbi5WMWIGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Utos.Workflow.V1.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Utos.Daemon.V1.LogLevel), typeof(global::Utos.Daemon.V1.HealthStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WatchExecutionRequest), global::Utos.Daemon.V1.WatchExecutionRequest.Parser, new[]{ "ExecutionId", "Source", "Category", "Level", "Tail", "After" }, new[]{ "Source", "Category", "Level", "Tail", "After" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WatchExecutionResponse), global::Utos.Daemon.V1.WatchExecutionResponse.Parser, new[]{ "Source", "Category", "Level", "Message", "Timestamp", "Status" }, new[]{ "Category", "Status" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WatchExecutionRequest), global::Utos.Daemon.V1.WatchExecutionRequest.Parser, new[]{ "ExecutionId", "Source", "Category", "Level", "Tail", "After" }, new[]{ "Position", "Source", "Category", "Level" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WatchExecutionResponse), global::Utos.Daemon.V1.WatchExecutionResponse.Parser, new[]{ "Source", "Category", "Level", "Message", "Timestamp", "Status", "Error" }, new[]{ "Category", "Status", "Error" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.GetHealthRequest), global::Utos.Daemon.V1.GetHealthRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.GetHealthResponse), global::Utos.Daemon.V1.GetHealthResponse.Parser, new[]{ "Status", "Version" }, null, null, null, null)
           }));
@@ -124,8 +126,15 @@ namespace Utos.Daemon.V1 {
       source_ = other.source_;
       category_ = other.category_;
       level_ = other.level_;
-      tail_ = other.tail_;
-      after_ = other.after_;
+      switch (other.PositionCase) {
+        case PositionOneofCase.Tail:
+          Tail = other.Tail;
+          break;
+        case PositionOneofCase.After:
+          After = other.After;
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -240,62 +249,81 @@ namespace Utos.Daemon.V1 {
 
     /// <summary>Field number for the "tail" field.</summary>
     public const int TailFieldNumber = 5;
-    private readonly static int TailDefaultValue = 0;
-
-    private int tail_;
     /// <summary>
-    /// Last N events (mutually exclusive with 'after')
+    /// The last N events.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Tail {
-      get { if ((_hasBits0 & 2) != 0) { return tail_; } else { return TailDefaultValue; } }
+      get { return HasTail ? (int) position_ : 0; }
       set {
-        _hasBits0 |= 2;
-        tail_ = value;
+        position_ = value;
+        positionCase_ = PositionOneofCase.Tail;
       }
     }
     /// <summary>Gets whether the "tail" field is set</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasTail {
-      get { return (_hasBits0 & 2) != 0; }
+      get { return positionCase_ == PositionOneofCase.Tail; }
     }
-    /// <summary>Clears the value of the "tail" field</summary>
+    /// <summary> Clears the value of the oneof if it's currently set to "tail" </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearTail() {
-      _hasBits0 &= ~2;
+      if (HasTail) {
+        ClearPosition();
+      }
     }
 
     /// <summary>Field number for the "after" field.</summary>
     public const int AfterFieldNumber = 6;
-    private readonly static int AfterDefaultValue = 0;
-
-    private int after_;
     /// <summary>
-    /// Start after this event index (mutually exclusive with 'tail')
+    /// Events after this event index.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int After {
-      get { if ((_hasBits0 & 4) != 0) { return after_; } else { return AfterDefaultValue; } }
+      get { return HasAfter ? (int) position_ : 0; }
       set {
-        _hasBits0 |= 4;
-        after_ = value;
+        position_ = value;
+        positionCase_ = PositionOneofCase.After;
       }
     }
     /// <summary>Gets whether the "after" field is set</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasAfter {
-      get { return (_hasBits0 & 4) != 0; }
+      get { return positionCase_ == PositionOneofCase.After; }
     }
-    /// <summary>Clears the value of the "after" field</summary>
+    /// <summary> Clears the value of the oneof if it's currently set to "after" </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearAfter() {
-      _hasBits0 &= ~4;
+      if (HasAfter) {
+        ClearPosition();
+      }
+    }
+
+    private object position_;
+    /// <summary>Enum of possible cases for the "position" oneof.</summary>
+    public enum PositionOneofCase {
+      None = 0,
+      Tail = 5,
+      After = 6,
+    }
+    private PositionOneofCase positionCase_ = PositionOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PositionOneofCase PositionCase {
+      get { return positionCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPosition() {
+      positionCase_ = PositionOneofCase.None;
+      position_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -319,6 +347,7 @@ namespace Utos.Daemon.V1 {
       if (Level != other.Level) return false;
       if (Tail != other.Tail) return false;
       if (After != other.After) return false;
+      if (PositionCase != other.PositionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -332,6 +361,7 @@ namespace Utos.Daemon.V1 {
       if (HasLevel) hash ^= Level.GetHashCode();
       if (HasTail) hash ^= Tail.GetHashCode();
       if (HasAfter) hash ^= After.GetHashCode();
+      hash ^= (int) positionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -460,12 +490,15 @@ namespace Utos.Daemon.V1 {
       if (other.HasLevel) {
         Level = other.Level;
       }
-      if (other.HasTail) {
-        Tail = other.Tail;
+      switch (other.PositionCase) {
+        case PositionOneofCase.Tail:
+          Tail = other.Tail;
+          break;
+        case PositionOneofCase.After:
+          After = other.After;
+          break;
       }
-      if (other.HasAfter) {
-        After = other.After;
-      }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -602,6 +635,7 @@ namespace Utos.Daemon.V1 {
       message_ = other.message_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       status_ = other.status_;
+      error_ = other.error_ != null ? other.error_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -715,6 +749,21 @@ namespace Utos.Daemon.V1 {
       _hasBits0 &= ~1;
     }
 
+    /// <summary>Field number for the "error" field.</summary>
+    public const int ErrorFieldNumber = 7;
+    private global::Utos.Workflow.V1.WorkflowError error_;
+    /// <summary>
+    /// Structured failure details; set on the transition to FAILED.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflow.V1.WorkflowError Error {
+      get { return error_; }
+      set {
+        error_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -736,6 +785,7 @@ namespace Utos.Daemon.V1 {
       if (Message != other.Message) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       if (Status != other.Status) return false;
+      if (!object.Equals(Error, other.Error)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -749,6 +799,7 @@ namespace Utos.Daemon.V1 {
       if (Message.Length != 0) hash ^= Message.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (HasStatus) hash ^= Status.GetHashCode();
+      if (error_ != null) hash ^= Error.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -791,6 +842,10 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(48);
         output.WriteEnum((int) Status);
       }
+      if (error_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Error);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -825,6 +880,10 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(48);
         output.WriteEnum((int) Status);
       }
+      if (error_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Error);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -852,6 +911,9 @@ namespace Utos.Daemon.V1 {
       }
       if (HasStatus) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
+      }
+      if (error_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -885,6 +947,12 @@ namespace Utos.Daemon.V1 {
       }
       if (other.HasStatus) {
         Status = other.Status;
+      }
+      if (other.error_ != null) {
+        if (error_ == null) {
+          Error = new global::Utos.Workflow.V1.WorkflowError();
+        }
+        Error.MergeFrom(other.Error);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -932,6 +1000,13 @@ namespace Utos.Daemon.V1 {
             Status = (global::Utos.Daemon.V1.ExecutionStatus) input.ReadEnum();
             break;
           }
+          case 58: {
+            if (error_ == null) {
+              Error = new global::Utos.Workflow.V1.WorkflowError();
+            }
+            input.ReadMessage(Error);
+            break;
+          }
         }
       }
     #endif
@@ -976,6 +1051,13 @@ namespace Utos.Daemon.V1 {
           }
           case 48: {
             Status = (global::Utos.Daemon.V1.ExecutionStatus) input.ReadEnum();
+            break;
+          }
+          case 58: {
+            if (error_ == null) {
+              Error = new global::Utos.Workflow.V1.WorkflowError();
+            }
+            input.ReadMessage(Error);
             break;
           }
         }

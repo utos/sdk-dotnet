@@ -333,7 +333,8 @@ namespace Utos.Daemon.V1 {
     public const int ReferenceFieldNumber = 1;
     private global::Utos.Daemon.V1.WorkflowReference reference_;
     /// <summary>
-    /// The concrete identity the bundle was stored under (version always populated).
+    /// The concrete identity the bundle was stored under (version and digest always
+    /// populated; digest is the content identity of the loaded bundle).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -899,7 +900,8 @@ namespace Utos.Daemon.V1 {
     public const int ReferenceFieldNumber = 1;
     private global::Utos.Daemon.V1.WorkflowReference reference_;
     /// <summary>
-    /// Concrete identity of the loaded definition (version always populated).
+    /// Concrete identity of the loaded definition (version and digest always
+    /// populated; digest reveals when a name:version's content has changed).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1210,7 +1212,9 @@ namespace Utos.Daemon.V1 {
     public const int ReferenceFieldNumber = 1;
     private global::Utos.Daemon.V1.WorkflowReference reference_;
     /// <summary>
-    /// Definition to inspect. name is required; version omitted means "latest loaded".
+    /// Definition to inspect. name is required; version omitted means "latest
+    /// loaded". Optional digest asserts the resolved definition's content matches;
+    /// mismatch is an error.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1422,7 +1426,8 @@ namespace Utos.Daemon.V1 {
     public const int ReferenceFieldNumber = 1;
     private global::Utos.Daemon.V1.WorkflowReference reference_;
     /// <summary>
-    /// Concrete identity of the returned definition (version always populated).
+    /// Concrete identity of the returned definition (version and digest always
+    /// populated; digest is the content identity of the returned bundle).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1734,6 +1739,10 @@ namespace Utos.Daemon.V1 {
     /// an omitted version here removes ALL loaded versions of that
     /// [registry/][namespace/]name. Removing only the latest could leave an older,
     /// potentially broken version silently in place.
+    ///
+    /// If digest is set, removal is instead narrowed to the single loaded version
+    /// whose content matches that digest — even when version is omitted (a content
+    /// pin is unambiguous, so it overrides the omitted-version "remove ALL" rule).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

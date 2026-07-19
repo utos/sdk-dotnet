@@ -116,7 +116,10 @@ namespace Utos.Daemon.V1 {
       /// <summary>
       /// Load (push) a fully-resolved bundle into the daemon's local store.
       /// Identity is derived from the entry_point workflow's metadata.
-      /// Re-loading an existing [registry/][namespace/]name:version replaces it.
+      /// Re-loading an existing [registry/][namespace/]name:version replaces it
+      /// (generally with a different content digest); existing executions are
+      /// unaffected and their ExecutionSummary.workflow.digest keeps identifying the
+      /// pre-replacement content.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -152,8 +155,11 @@ namespace Utos.Daemon.V1 {
       }
 
       /// <summary>
-      /// Remove a loaded definition. Does not affect existing executions, which
-      /// snapshot their bundle at schedule time.
+      /// Remove a loaded definition. Safe against history: it only prevents NEW
+      /// schedules — running and finished executions are unaffected, since each
+      /// snapshots its own bundle at schedule time. Unlike Docker's refuse-in-use
+      /// `docker rmi`, no force flag is needed: executions share nothing with the
+      /// store, so removal can never corrupt an in-flight run.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>

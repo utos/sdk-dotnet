@@ -14,6 +14,10 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 Initial source-bearing SDK scaffold. The first published version will be generated
 from a `utos/api` `vX.Y.Z` tag and tracked here.
 
+## [0.0.10] - 2026-07-19
+
+Generated from [`v0.0.10`](https://github.com/utos/api/releases/tag/v0.0.10) (`949b56276cd87e2c2031469e0ecb2f32961a38a3`). See the [spec changelog](https://github.com/utos/api/blob/v0.0.10/CHANGELOG.md).
+
 ## [0.0.9] - 2026-07-17
 
 Generated from [`v0.0.9`](https://github.com/utos/api/releases/tag/v0.0.9) (`a7a94963b522059803df04516a4b3bec7e7e0b3b`). See the [spec changelog](https://github.com/utos/api/blob/v0.0.9/CHANGELOG.md).

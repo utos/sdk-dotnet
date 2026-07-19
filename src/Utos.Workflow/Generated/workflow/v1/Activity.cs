@@ -37,7 +37,7 @@ namespace Utos.Workflow.V1 {
             "bWVyQWN0aXZpdHlDb25maWdIAEIICgZjb25maWcipQEKDlRyYW5zaXRpb25S",
             "dWxlEhYKCWNvbmRpdGlvbhgBIAEoCUgBiAEBEjgKCnRyYW5zaXRpb24YAiAB",
             "KAsyIi51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJnZXRIABIpCgZy",
-            "ZXR1cm4YAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SABCCAoGYWN0",
+            "ZXN1bHQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SABCCAoGYWN0",
             "aW9uQgwKCl9jb25kaXRpb24iVwoQVHJhbnNpdGlvblRhcmdldBIMCgRuYW1l",
             "GAEgASgJEisKBWlucHV0GAIgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVj",
             "dEgAiAEBQggKBl9pbnB1dCLBAQoSSHR0cEFjdGl2aXR5Q29uZmlnEg4KBm1l",
@@ -62,7 +62,7 @@ namespace Utos.Workflow.V1 {
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowActivity), global::Utos.Workflow.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Http", "Workflow", "Promise", "Timer" }, new[]{ "Config" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TransitionRule), global::Utos.Workflow.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Return" }, new[]{ "Action", "Condition" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TransitionRule), global::Utos.Workflow.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Result" }, new[]{ "Action", "Condition" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TransitionTarget), global::Utos.Workflow.V1.TransitionTarget.Parser, new[]{ "Name", "Input" }, new[]{ "Input" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.HttpActivityConfig), global::Utos.Workflow.V1.HttpActivityConfig.Parser, new[]{ "Method", "Url", "Headers", "Body" }, new[]{ "Body" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TimerActivityConfig), global::Utos.Workflow.V1.TimerActivityConfig.Parser, new[]{ "Duration" }, null, null, null, null),
@@ -542,7 +542,7 @@ namespace Utos.Workflow.V1 {
   }
 
   /// <summary>
-  /// Defines a conditional transition rule with an action (transition or return)
+  /// Defines a conditional transition rule with an action (transition or result)
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class TransitionRule : pb::IMessage<TransitionRule>
@@ -584,8 +584,8 @@ namespace Utos.Workflow.V1 {
         case ActionOneofCase.Transition:
           Transition = other.Transition.Clone();
           break;
-        case ActionOneofCase.Return:
-          Return = other.Return.Clone();
+        case ActionOneofCase.Result:
+          Result = other.Result.Clone();
           break;
       }
 
@@ -646,18 +646,18 @@ namespace Utos.Workflow.V1 {
       }
     }
 
-    /// <summary>Field number for the "return" field.</summary>
-    public const int ReturnFieldNumber = 3;
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 3;
     /// <summary>
     /// Return data and end this execution path
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Struct Return {
-      get { return actionCase_ == ActionOneofCase.Return ? (global::Google.Protobuf.WellKnownTypes.Struct) action_ : null; }
+    public global::Google.Protobuf.WellKnownTypes.Struct Result {
+      get { return actionCase_ == ActionOneofCase.Result ? (global::Google.Protobuf.WellKnownTypes.Struct) action_ : null; }
       set {
         action_ = value;
-        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Return;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Result;
       }
     }
 
@@ -666,7 +666,7 @@ namespace Utos.Workflow.V1 {
     public enum ActionOneofCase {
       None = 0,
       Transition = 2,
-      Return = 3,
+      Result = 3,
     }
     private ActionOneofCase actionCase_ = ActionOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -699,7 +699,7 @@ namespace Utos.Workflow.V1 {
       }
       if (Condition != other.Condition) return false;
       if (!object.Equals(Transition, other.Transition)) return false;
-      if (!object.Equals(Return, other.Return)) return false;
+      if (!object.Equals(Result, other.Result)) return false;
       if (ActionCase != other.ActionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -710,7 +710,7 @@ namespace Utos.Workflow.V1 {
       int hash = 1;
       if (HasCondition) hash ^= Condition.GetHashCode();
       if (actionCase_ == ActionOneofCase.Transition) hash ^= Transition.GetHashCode();
-      if (actionCase_ == ActionOneofCase.Return) hash ^= Return.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Result) hash ^= Result.GetHashCode();
       hash ^= (int) actionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -738,9 +738,9 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(18);
         output.WriteMessage(Transition);
       }
-      if (actionCase_ == ActionOneofCase.Return) {
+      if (actionCase_ == ActionOneofCase.Result) {
         output.WriteRawTag(26);
-        output.WriteMessage(Return);
+        output.WriteMessage(Result);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -760,9 +760,9 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(18);
         output.WriteMessage(Transition);
       }
-      if (actionCase_ == ActionOneofCase.Return) {
+      if (actionCase_ == ActionOneofCase.Result) {
         output.WriteRawTag(26);
-        output.WriteMessage(Return);
+        output.WriteMessage(Result);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -780,8 +780,8 @@ namespace Utos.Workflow.V1 {
       if (actionCase_ == ActionOneofCase.Transition) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Transition);
       }
-      if (actionCase_ == ActionOneofCase.Return) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Return);
+      if (actionCase_ == ActionOneofCase.Result) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Result);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -805,11 +805,11 @@ namespace Utos.Workflow.V1 {
           }
           Transition.MergeFrom(other.Transition);
           break;
-        case ActionOneofCase.Return:
-          if (Return == null) {
-            Return = new global::Google.Protobuf.WellKnownTypes.Struct();
+        case ActionOneofCase.Result:
+          if (Result == null) {
+            Result = new global::Google.Protobuf.WellKnownTypes.Struct();
           }
-          Return.MergeFrom(other.Return);
+          Result.MergeFrom(other.Result);
           break;
       }
 
@@ -847,11 +847,11 @@ namespace Utos.Workflow.V1 {
           }
           case 26: {
             global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (actionCase_ == ActionOneofCase.Return) {
-              subBuilder.MergeFrom(Return);
+            if (actionCase_ == ActionOneofCase.Result) {
+              subBuilder.MergeFrom(Result);
             }
             input.ReadMessage(subBuilder);
-            Return = subBuilder;
+            Result = subBuilder;
             break;
           }
         }
@@ -888,11 +888,11 @@ namespace Utos.Workflow.V1 {
           }
           case 26: {
             global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (actionCase_ == ActionOneofCase.Return) {
-              subBuilder.MergeFrom(Return);
+            if (actionCase_ == ActionOneofCase.Result) {
+              subBuilder.MergeFrom(Result);
             }
             input.ReadMessage(subBuilder);
-            Return = subBuilder;
+            Result = subBuilder;
             break;
           }
         }
@@ -955,10 +955,13 @@ namespace Utos.Workflow.V1 {
     public const int NameFieldNumber = 1;
     private string name_ = "";
     /// <summary>
-    /// Activity name or reserved keyword ("end", "error").
+    /// Activity name, or a reserved terminal keyword: "end" (end this path
+    /// successfully) or "error" (end this path with an error). The keywords are
+    /// reserved — an activity in WorkflowSpec.activities may not be named "end" or
+    /// "error" — so a target name is never ambiguous.
     /// The name may reference an already-visited activity — a back-edge — which
     /// forms a loop (e.g. poll-inbox -> wait -> poll-inbox). A loop with no rule
-    /// transitioning to "end" (or a `return` action) runs until the execution is
+    /// transitioning to "end" (or a `result` action) runs until the execution is
     /// cancelled, expressing an intentionally infinite loop such as a poller.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1770,7 +1773,11 @@ namespace Utos.Workflow.V1 {
     public const int WorkflowFieldNumber = 1;
     private string workflow_ = "";
     /// <summary>
-    /// Workflow reference — dependency alias or inline identifier
+    /// Identifies the sub-workflow to invoke.
+    /// In the source format: a dependency alias — a key in this workflow's
+    /// WorkflowSpec.dependencies map (e.g. "emailer").
+    /// In the built bundle: the sub-workflow's canonical identity — a key in
+    /// WorkflowBundle.workflows (e.g. "registry.example.com/acme/send-email:v1.0.0").
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1826,6 +1833,11 @@ namespace Utos.Workflow.V1 {
     /// { "execution_id": "&lt;id>" } — not the child's result (there is no result to
     /// wait for). `on_failure` only catches failures to *start* the child, not the
     /// child's own runtime failures, which the parent never observes.
+    ///
+    /// A detached child runs the sub-workflow content snapshotted in the parent's
+    /// bundle (same content lineage / digest family), not a re-resolution against
+    /// the current store, so it is reproducible and its recorded workflow.digest
+    /// derives from the parent's snapshot.
     ///
     /// Defaults to false: the sub-workflow is awaited and its result becomes this
     /// activity's `output`.

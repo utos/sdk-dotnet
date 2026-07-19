@@ -24,12 +24,13 @@ namespace Utos.Workflow.V1 {
     static CommonReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Chh3b3JrZmxvdy92MS9jb21tb24ucHJvdG8SEHV0b3Mud29ya2Zsb3cudjEi",
-            "UAoNV29ya2Zsb3dFcnJvchIMCgRjb2RlGAEgASgJEg8KB21lc3NhZ2UYAiAB",
-            "KAkSFAoHZGV0YWlscxgDIAEoCUgAiAEBQgoKCF9kZXRhaWxzQhOqAhBVdG9z",
-            "LldvcmtmbG93LlYxYgZwcm90bzM="));
+            "Chh3b3JrZmxvdy92MS9jb21tb24ucHJvdG8SEHV0b3Mud29ya2Zsb3cudjEa",
+            "HGdvb2dsZS9wcm90b2J1Zi9zdHJ1Y3QucHJvdG8iaQoNV29ya2Zsb3dFcnJv",
+            "chIMCgRjb2RlGAEgASgJEg8KB21lc3NhZ2UYAiABKAkSLQoHZGV0YWlscxgD",
+            "IAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIAIgBAUIKCghfZGV0YWls",
+            "c0ITqgIQVXRvcy5Xb3JrZmxvdy5WMWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowError), global::Utos.Workflow.V1.WorkflowError.Parser, new[]{ "Code", "Message", "Details" }, new[]{ "Details" }, null, null, null)
           }));
@@ -78,7 +79,7 @@ namespace Utos.Workflow.V1 {
     public WorkflowError(WorkflowError other) : this() {
       code_ = other.code_;
       message_ = other.message_;
-      details_ = other.details_;
+      details_ = other.details_ != null ? other.details_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -120,31 +121,17 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "details" field.</summary>
     public const int DetailsFieldNumber = 3;
-    private readonly static string DetailsDefaultValue = "";
-
-    private string details_;
+    private global::Google.Protobuf.WellKnownTypes.Struct details_;
     /// <summary>
-    /// Additional error details as JSON string
+    /// Additional structured error details
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Details {
-      get { return details_ ?? DetailsDefaultValue; }
+    public global::Google.Protobuf.WellKnownTypes.Struct Details {
+      get { return details_; }
       set {
-        details_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        details_ = value;
       }
-    }
-    /// <summary>Gets whether the "details" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasDetails {
-      get { return details_ != null; }
-    }
-    /// <summary>Clears the value of the "details" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearDetails() {
-      details_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -164,7 +151,7 @@ namespace Utos.Workflow.V1 {
       }
       if (Code != other.Code) return false;
       if (Message != other.Message) return false;
-      if (Details != other.Details) return false;
+      if (!object.Equals(Details, other.Details)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -174,7 +161,7 @@ namespace Utos.Workflow.V1 {
       int hash = 1;
       if (Code.Length != 0) hash ^= Code.GetHashCode();
       if (Message.Length != 0) hash ^= Message.GetHashCode();
-      if (HasDetails) hash ^= Details.GetHashCode();
+      if (details_ != null) hash ^= Details.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -201,9 +188,9 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(18);
         output.WriteString(Message);
       }
-      if (HasDetails) {
+      if (details_ != null) {
         output.WriteRawTag(26);
-        output.WriteString(Details);
+        output.WriteMessage(Details);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -223,9 +210,9 @@ namespace Utos.Workflow.V1 {
         output.WriteRawTag(18);
         output.WriteString(Message);
       }
-      if (HasDetails) {
+      if (details_ != null) {
         output.WriteRawTag(26);
-        output.WriteString(Details);
+        output.WriteMessage(Details);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -243,8 +230,8 @@ namespace Utos.Workflow.V1 {
       if (Message.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
       }
-      if (HasDetails) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Details);
+      if (details_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Details);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -264,8 +251,11 @@ namespace Utos.Workflow.V1 {
       if (other.Message.Length != 0) {
         Message = other.Message;
       }
-      if (other.HasDetails) {
-        Details = other.Details;
+      if (other.details_ != null) {
+        if (details_ == null) {
+          Details = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Details.MergeFrom(other.Details);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -295,7 +285,10 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 26: {
-            Details = input.ReadString();
+            if (details_ == null) {
+              Details = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Details);
             break;
           }
         }
@@ -326,7 +319,10 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 26: {
-            Details = input.ReadString();
+            if (details_ == null) {
+              Details = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Details);
             break;
           }
         }

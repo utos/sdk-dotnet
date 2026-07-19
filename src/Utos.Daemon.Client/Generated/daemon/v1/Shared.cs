@@ -26,35 +26,39 @@ namespace Utos.Daemon.V1 {
           string.Concat(
             "ChZkYWVtb24vdjEvc2hhcmVkLnByb3RvEg51dG9zLmRhZW1vbi52MRocZ29v",
             "Z2xlL3Byb3RvYnVmL3N0cnVjdC5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3Rp",
-            "bWVzdGFtcC5wcm90byKNAQoRV29ya2Zsb3dSZWZlcmVuY2USFQoIcmVnaXN0",
-            "cnkYASABKAlIAIgBARIWCgluYW1lc3BhY2UYAiABKAlIAYgBARIMCgRuYW1l",
-            "GAMgASgJEhQKB3ZlcnNpb24YBCABKAlIAogBAUILCglfcmVnaXN0cnlCDAoK",
-            "X25hbWVzcGFjZUIKCghfdmVyc2lvbiKRAQoQRXhlY3V0aW9uUGF5bG9hZBI4",
-            "CgRkYXRhGAEgAygLMioudXRvcy5kYWVtb24udjEuRXhlY3V0aW9uUGF5bG9h",
-            "ZC5EYXRhRW50cnkaQwoJRGF0YUVudHJ5EgsKA2tleRgBIAEoCRIlCgV2YWx1",
-            "ZRgCIAEoCzIWLmdvb2dsZS5wcm90b2J1Zi5WYWx1ZToCOAEi/wMKEEV4ZWN1",
-            "dGlvblN1bW1hcnkSCgoCaWQYASABKAkSLwoGc3RhdHVzGAIgASgOMh8udXRv",
-            "cy5kYWVtb24udjEuRXhlY3V0aW9uU3RhdHVzEjMKCHdvcmtmbG93GAMgASgL",
-            "MiEudXRvcy5kYWVtb24udjEuV29ya2Zsb3dSZWZlcmVuY2USLgoKY3JlYXRl",
-            "ZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASNQoMc2No",
-            "ZWR1bGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgA",
-            "iAEBEjMKCnN0YXJ0ZWRfYXQYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
-            "ZXN0YW1wSAGIAQESNAoLZmluaXNoZWRfYXQYCCABKAsyGi5nb29nbGUucHJv",
-            "dG9idWYuVGltZXN0YW1wSAKIAQESGgoNZXJyb3JfbWVzc2FnZRgJIAEoCUgD",
-            "iAEBQg8KDV9zY2hlZHVsZWRfYXRCDQoLX3N0YXJ0ZWRfYXRCDgoMX2Zpbmlz",
-            "aGVkX2F0QhAKDl9lcnJvcl9tZXNzYWdlSgQIBBAFSgQIChALSgQICxAMUhB3",
-            "b3JrZmxvd192ZXJzaW9uUhJ3b3JrZmxvd19uYW1lc3BhY2VSEXdvcmtmbG93",
-            "X3JlZ2lzdHJ5Kq0BCg9FeGVjdXRpb25TdGF0dXMSIAocRVhFQ1VUSU9OX1NU",
-            "QVRVU19VTlNQRUNJRklFRBAAEh4KGkVYRUNVVElPTl9TVEFUVVNfU0NIRURV",
-            "TEVEEAESGwoXRVhFQ1VUSU9OX1NUQVRVU19BQ1RJVkUQAhIeChpFWEVDVVRJ",
-            "T05fU1RBVFVTX0NPTVBMRVRFRBAKEhsKF0VYRUNVVElPTl9TVEFUVVNfRkFJ",
-            "TEVEEAtCEaoCDlV0b3MuRGFlbW9uLlYxYgZwcm90bzM="));
+            "bWVzdGFtcC5wcm90bxoYd29ya2Zsb3cvdjEvY29tbW9uLnByb3RvIq0BChFX",
+            "b3JrZmxvd1JlZmVyZW5jZRIVCghyZWdpc3RyeRgBIAEoCUgAiAEBEhYKCW5h",
+            "bWVzcGFjZRgCIAEoCUgBiAEBEgwKBG5hbWUYAyABKAkSFAoHdmVyc2lvbhgE",
+            "IAEoCUgCiAEBEhMKBmRpZ2VzdBgFIAEoCUgDiAEBQgsKCV9yZWdpc3RyeUIM",
+            "CgpfbmFtZXNwYWNlQgoKCF92ZXJzaW9uQgkKB19kaWdlc3QikQEKEEV4ZWN1",
+            "dGlvblBheWxvYWQSOAoEZGF0YRgBIAMoCzIqLnV0b3MuZGFlbW9uLnYxLkV4",
+            "ZWN1dGlvblBheWxvYWQuRGF0YUVudHJ5GkMKCURhdGFFbnRyeRILCgNrZXkY",
+            "ASABKAkSJQoFdmFsdWUYAiABKAsyFi5nb29nbGUucHJvdG9idWYuVmFsdWU6",
+            "AjgBIqUEChBFeGVjdXRpb25TdW1tYXJ5EgoKAmlkGAEgASgJEi8KBnN0YXR1",
+            "cxgCIAEoDjIfLnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblN0YXR1cxIzCgh3",
+            "b3JrZmxvdxgDIAEoCzIhLnV0b3MuZGFlbW9uLnYxLldvcmtmbG93UmVmZXJl",
+            "bmNlEi4KCmNyZWF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+            "ZXN0YW1wEjUKDHNjaGVkdWxlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXBIAIgBARIzCgpzdGFydGVkX2F0GAcgASgLMhouZ29vZ2xl",
+            "LnByb3RvYnVmLlRpbWVzdGFtcEgBiAEBEjQKC2ZpbmlzaGVkX2F0GAggASgL",
+            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgCiAEBEjMKBWVycm9yGAwg",
+            "ASgLMh8udXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0Vycm9ySAOIAQFCDwoN",
+            "X3NjaGVkdWxlZF9hdEINCgtfc3RhcnRlZF9hdEIOCgxfZmluaXNoZWRfYXRC",
+            "CAoGX2Vycm9ySgQIBBAFSgQIChALSgQICxAMSgQICRAKUhB3b3JrZmxvd192",
+            "ZXJzaW9uUhJ3b3JrZmxvd19uYW1lc3BhY2VSEXdvcmtmbG93X3JlZ2lzdHJ5",
+            "Ug1lcnJvcl9tZXNzYWdlKvEBCg9FeGVjdXRpb25TdGF0dXMSIAocRVhFQ1VU",
+            "SU9OX1NUQVRVU19VTlNQRUNJRklFRBAAEh4KGkVYRUNVVElPTl9TVEFUVVNf",
+            "U0NIRURVTEVEEAESGwoXRVhFQ1VUSU9OX1NUQVRVU19BQ1RJVkUQAhIeChpF",
+            "WEVDVVRJT05fU1RBVFVTX0NPTVBMRVRFRBAKEhsKF0VYRUNVVElPTl9TVEFU",
+            "VVNfRkFJTEVEEAsiBAgDEAMiBAgMEAwqGkVYRUNVVElPTl9TVEFUVVNfU1VT",
+            "UEVOREVEKhpFWEVDVVRJT05fU1RBVFVTX0NBTkNFTExFREIRqgIOVXRvcy5E",
+            "YWVtb24uVjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Utos.Workflow.V1.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Utos.Daemon.V1.ExecutionStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WorkflowReference), global::Utos.Daemon.V1.WorkflowReference.Parser, new[]{ "Registry", "Namespace", "Name", "Version" }, new[]{ "Registry", "Namespace", "Version" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WorkflowReference), global::Utos.Daemon.V1.WorkflowReference.Parser, new[]{ "Registry", "Namespace", "Name", "Version", "Digest" }, new[]{ "Registry", "Namespace", "Version", "Digest" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionPayload), global::Utos.Daemon.V1.ExecutionPayload.Parser, new[]{ "Data" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionSummary), global::Utos.Daemon.V1.ExecutionSummary.Parser, new[]{ "Id", "Status", "Workflow", "CreatedAt", "ScheduledAt", "StartedAt", "FinishedAt", "ErrorMessage" }, new[]{ "ScheduledAt", "StartedAt", "FinishedAt", "ErrorMessage" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionSummary), global::Utos.Daemon.V1.ExecutionSummary.Parser, new[]{ "Id", "Status", "Workflow", "CreatedAt", "ScheduledAt", "StartedAt", "FinishedAt", "Error" }, new[]{ "ScheduledAt", "StartedAt", "FinishedAt", "Error" }, null, null, null)
           }));
     }
     #endregion
@@ -66,7 +70,7 @@ namespace Utos.Daemon.V1 {
     [pbr::OriginalName("EXECUTION_STATUS_SCHEDULED")] Scheduled = 1,
     [pbr::OriginalName("EXECUTION_STATUS_ACTIVE")] Active = 2,
     /// <summary>
-    /// EXECUTION_STATUS_SUSPENDED = 3;  // Future: Waiting for external event/webhook/human
+    /// Terminal: success
     /// </summary>
     [pbr::OriginalName("EXECUTION_STATUS_COMPLETED")] Completed = 10,
     /// <summary>
@@ -81,9 +85,11 @@ namespace Utos.Daemon.V1 {
   /// <summary>
   /// Reference to a loaded workflow definition in the daemon's local store.
   ///
-  /// Identity is "[registry/][namespace/]name:version". registry and namespace are
-  /// omitted for local/unpublished workflows. version is omitted to mean "latest
-  /// loaded" (the highest semver among loaded versions of that identity).
+  /// Identity is the "[registry/][namespace/]name:version" key plus an optional
+  /// immutable content `digest`. registry and namespace are omitted for
+  /// local/unpublished workflows. version is omitted to mean "latest loaded" (the
+  /// highest semver among loaded versions of that identity). version is the
+  /// mutable, human-facing key; digest is the immutable content identity.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WorkflowReference : pb::IMessage<WorkflowReference>
@@ -124,6 +130,7 @@ namespace Utos.Daemon.V1 {
       namespace_ = other.namespace_;
       name_ = other.name_;
       version_ = other.version_;
+      digest_ = other.digest_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -236,6 +243,49 @@ namespace Utos.Daemon.V1 {
       version_ = null;
     }
 
+    /// <summary>Field number for the "digest" field.</summary>
+    public const int DigestFieldNumber = 5;
+    private readonly static string DigestDefaultValue = "";
+
+    private string digest_;
+    /// <summary>
+    /// OCI-style content digest of the resolved WorkflowBundle this reference
+    /// identifies, e.g. "sha256:&lt;hex>", computed over the canonical serialization
+    /// defined in docs/canonical-bundle-digest.md. Stable content identity,
+    /// independent of the mutable name:version key.
+    ///
+    /// On requests (schedule / get / unload / list filter): optional guard, not a
+    /// standalone selector. The daemon resolves by name(+version) as usual, then
+    /// requires the resolved bundle's digest to equal this value, failing on
+    /// mismatch (drift detection); it does not look workflows up by digest alone.
+    ///
+    /// On resolved references returned by the daemon (ExecutionSummary.workflow,
+    /// LoadWorkflowResponse/GetWorkflowResponse.reference,
+    /// WorkflowDefinitionSummary.reference): populated with the digest of the actual
+    /// bundle content, so callers can tell exactly what an identity resolved to and
+    /// detect snapshot-vs-store divergence.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Digest {
+      get { return digest_ ?? DigestDefaultValue; }
+      set {
+        digest_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "digest" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasDigest {
+      get { return digest_ != null; }
+    }
+    /// <summary>Clears the value of the "digest" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearDigest() {
+      digest_ = null;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -255,6 +305,7 @@ namespace Utos.Daemon.V1 {
       if (Namespace != other.Namespace) return false;
       if (Name != other.Name) return false;
       if (Version != other.Version) return false;
+      if (Digest != other.Digest) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -266,6 +317,7 @@ namespace Utos.Daemon.V1 {
       if (HasNamespace) hash ^= Namespace.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (HasVersion) hash ^= Version.GetHashCode();
+      if (HasDigest) hash ^= Digest.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -300,6 +352,10 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(34);
         output.WriteString(Version);
       }
+      if (HasDigest) {
+        output.WriteRawTag(42);
+        output.WriteString(Digest);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -326,6 +382,10 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(34);
         output.WriteString(Version);
       }
+      if (HasDigest) {
+        output.WriteRawTag(42);
+        output.WriteString(Digest);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -347,6 +407,9 @@ namespace Utos.Daemon.V1 {
       }
       if (HasVersion) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Version);
+      }
+      if (HasDigest) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Digest);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -371,6 +434,9 @@ namespace Utos.Daemon.V1 {
       }
       if (other.HasVersion) {
         Version = other.Version;
+      }
+      if (other.HasDigest) {
+        Digest = other.Digest;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -407,6 +473,10 @@ namespace Utos.Daemon.V1 {
             Version = input.ReadString();
             break;
           }
+          case 42: {
+            Digest = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -440,6 +510,10 @@ namespace Utos.Daemon.V1 {
           }
           case 34: {
             Version = input.ReadString();
+            break;
+          }
+          case 42: {
+            Digest = input.ReadString();
             break;
           }
         }
@@ -682,7 +756,7 @@ namespace Utos.Daemon.V1 {
       scheduledAt_ = other.scheduledAt_ != null ? other.scheduledAt_.Clone() : null;
       startedAt_ = other.startedAt_ != null ? other.startedAt_.Clone() : null;
       finishedAt_ = other.finishedAt_ != null ? other.finishedAt_.Clone() : null;
-      errorMessage_ = other.errorMessage_;
+      error_ = other.error_ != null ? other.error_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -727,7 +801,9 @@ namespace Utos.Daemon.V1 {
     private global::Utos.Daemon.V1.WorkflowReference workflow_;
     /// <summary>
     /// Identity of the workflow this execution ran, as resolved at schedule time
-    /// (version always populated).
+    /// (version and digest always populated). `digest` is the authoritative record
+    /// of the exact bundle this execution snapshotted and ran — immune to later
+    /// re-loads under the same name:version.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -798,33 +874,21 @@ namespace Utos.Daemon.V1 {
       }
     }
 
-    /// <summary>Field number for the "error_message" field.</summary>
-    public const int ErrorMessageFieldNumber = 9;
-    private readonly static string ErrorMessageDefaultValue = "";
-
-    private string errorMessage_;
+    /// <summary>Field number for the "error" field.</summary>
+    public const int ErrorFieldNumber = 12;
+    private global::Utos.Workflow.V1.WorkflowError error_;
     /// <summary>
-    /// Error message if execution failed (truncated to 200 chars for list view)
+    /// Structured failure details; set when status is FAILED. `details` may be
+    /// omitted in `ListExecutions` list views and is populated when this summary
+    /// is returned inside `GetExecutionResponse`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ErrorMessage {
-      get { return errorMessage_ ?? ErrorMessageDefaultValue; }
+    public global::Utos.Workflow.V1.WorkflowError Error {
+      get { return error_; }
       set {
-        errorMessage_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        error_ = value;
       }
-    }
-    /// <summary>Gets whether the "error_message" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasErrorMessage {
-      get { return errorMessage_ != null; }
-    }
-    /// <summary>Clears the value of the "error_message" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearErrorMessage() {
-      errorMessage_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -849,7 +913,7 @@ namespace Utos.Daemon.V1 {
       if (!object.Equals(ScheduledAt, other.ScheduledAt)) return false;
       if (!object.Equals(StartedAt, other.StartedAt)) return false;
       if (!object.Equals(FinishedAt, other.FinishedAt)) return false;
-      if (ErrorMessage != other.ErrorMessage) return false;
+      if (!object.Equals(Error, other.Error)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -864,7 +928,7 @@ namespace Utos.Daemon.V1 {
       if (scheduledAt_ != null) hash ^= ScheduledAt.GetHashCode();
       if (startedAt_ != null) hash ^= StartedAt.GetHashCode();
       if (finishedAt_ != null) hash ^= FinishedAt.GetHashCode();
-      if (HasErrorMessage) hash ^= ErrorMessage.GetHashCode();
+      if (error_ != null) hash ^= Error.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -911,9 +975,9 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(66);
         output.WriteMessage(FinishedAt);
       }
-      if (HasErrorMessage) {
-        output.WriteRawTag(74);
-        output.WriteString(ErrorMessage);
+      if (error_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(Error);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -953,9 +1017,9 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(66);
         output.WriteMessage(FinishedAt);
       }
-      if (HasErrorMessage) {
-        output.WriteRawTag(74);
-        output.WriteString(ErrorMessage);
+      if (error_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(Error);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -988,8 +1052,8 @@ namespace Utos.Daemon.V1 {
       if (finishedAt_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(FinishedAt);
       }
-      if (HasErrorMessage) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorMessage);
+      if (error_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1039,8 +1103,11 @@ namespace Utos.Daemon.V1 {
         }
         FinishedAt.MergeFrom(other.FinishedAt);
       }
-      if (other.HasErrorMessage) {
-        ErrorMessage = other.ErrorMessage;
+      if (other.error_ != null) {
+        if (error_ == null) {
+          Error = new global::Utos.Workflow.V1.WorkflowError();
+        }
+        Error.MergeFrom(other.Error);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1104,8 +1171,11 @@ namespace Utos.Daemon.V1 {
             input.ReadMessage(FinishedAt);
             break;
           }
-          case 74: {
-            ErrorMessage = input.ReadString();
+          case 98: {
+            if (error_ == null) {
+              Error = new global::Utos.Workflow.V1.WorkflowError();
+            }
+            input.ReadMessage(Error);
             break;
           }
         }
@@ -1170,8 +1240,11 @@ namespace Utos.Daemon.V1 {
             input.ReadMessage(FinishedAt);
             break;
           }
-          case 74: {
-            ErrorMessage = input.ReadString();
+          case 98: {
+            if (error_ == null) {
+              Error = new global::Utos.Workflow.V1.WorkflowError();
+            }
+            input.ReadMessage(Error);
             break;
           }
         }

@@ -29,26 +29,20 @@ namespace Utos.Workflow.V1 {
             "YWRhdGESDAoEbmFtZRgBIAEoCRIPCgd2ZXJzaW9uGAIgASgJEhgKC2Rlc2Ny",
             "aXB0aW9uGAMgASgJSACIAQESFgoJbmFtZXNwYWNlGAQgASgJSAGIAQESFQoI",
             "cmVnaXN0cnkYBSABKAlIAogBAUIOCgxfZGVzY3JpcHRpb25CDAoKX25hbWVz",
-            "cGFjZUILCglfcmVnaXN0cnki1wEKCFdvcmtmbG93EjkKC2FwaV92ZXJzaW9u",
-            "GAEgASgOMiQudXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0FwaVZlcnNpb24S",
-            "LAoEa2luZBgCIAEoDjIeLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dLaW5k",
-            "EjQKCG1ldGFkYXRhGAMgASgLMiIudXRvcy53b3JrZmxvdy52MS5Xb3JrZmxv",
-            "d01ldGFkYXRhEiwKBHNwZWMYBCABKAsyHi51dG9zLndvcmtmbG93LnYxLldv",
-            "cmtmbG93U3BlYyKmAgoMV29ya2Zsb3dTcGVjEkYKDGRlcGVuZGVuY2llcxgB",
-            "IAMoCzIwLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dTcGVjLkRlcGVuZGVu",
-            "Y2llc0VudHJ5EkIKCmFjdGl2aXRpZXMYAiADKAsyLi51dG9zLndvcmtmbG93",
-            "LnYxLldvcmtmbG93U3BlYy5BY3Rpdml0aWVzRW50cnkaMwoRRGVwZW5kZW5j",
-            "aWVzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARpVCg9B",
-            "Y3Rpdml0aWVzRW50cnkSCwoDa2V5GAEgASgJEjEKBXZhbHVlGAIgASgLMiIu",
-            "dXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0FjdGl2aXR5OgI4ASpbChJXb3Jr",
-            "Zmxvd0FwaVZlcnNpb24SJAogV09SS0ZMT1dfQVBJX1ZFUlNJT05fVU5TUEVD",
-            "SUZJRUQQABIfChtXT1JLRkxPV19BUElfVkVSU0lPTl9WMV8wXzAQASpOCgxX",
-            "b3JrZmxvd0tpbmQSHQoZV09SS0ZMT1dfS0lORF9VTlNQRUNJRklFRBAAEh8K",
-            "G1dPUktGTE9XX0tJTkRfV09SS0ZMT1dfVVRPUxABQhOqAhBVdG9zLldvcmtm",
-            "bG93LlYxYgZwcm90bzM="));
+            "cGFjZUILCglfcmVnaXN0cnkikQEKCFdvcmtmbG93EhMKC2FwaV92ZXJzaW9u",
+            "GAEgASgJEgwKBGtpbmQYAiABKAkSNAoIbWV0YWRhdGEYAyABKAsyIi51dG9z",
+            "LndvcmtmbG93LnYxLldvcmtmbG93TWV0YWRhdGESLAoEc3BlYxgEIAEoCzIe",
+            "LnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dTcGVjIqYCCgxXb3JrZmxvd1Nw",
+            "ZWMSRgoMZGVwZW5kZW5jaWVzGAEgAygLMjAudXRvcy53b3JrZmxvdy52MS5X",
+            "b3JrZmxvd1NwZWMuRGVwZW5kZW5jaWVzRW50cnkSQgoKYWN0aXZpdGllcxgC",
+            "IAMoCzIuLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dTcGVjLkFjdGl2aXRp",
+            "ZXNFbnRyeRozChFEZXBlbmRlbmNpZXNFbnRyeRILCgNrZXkYASABKAkSDQoF",
+            "dmFsdWUYAiABKAk6AjgBGlUKD0FjdGl2aXRpZXNFbnRyeRILCgNrZXkYASAB",
+            "KAkSMQoFdmFsdWUYAiABKAsyIi51dG9zLndvcmtmbG93LnYxLldvcmtmbG93",
+            "QWN0aXZpdHk6AjgBQhOqAhBVdG9zLldvcmtmbG93LlYxYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Utos.Workflow.V1.ActivityReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Utos.Workflow.V1.WorkflowApiVersion), typeof(global::Utos.Workflow.V1.WorkflowKind), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowMetadata), global::Utos.Workflow.V1.WorkflowMetadata.Parser, new[]{ "Name", "Version", "Description", "Namespace", "Registry" }, new[]{ "Description", "Namespace", "Registry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.Workflow), global::Utos.Workflow.V1.Workflow.Parser, new[]{ "ApiVersion", "Kind", "Metadata", "Spec" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowSpec), global::Utos.Workflow.V1.WorkflowSpec.Parser, new[]{ "Dependencies", "Activities" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
@@ -57,19 +51,6 @@ namespace Utos.Workflow.V1 {
     #endregion
 
   }
-  #region Enums
-  public enum WorkflowApiVersion {
-    [pbr::OriginalName("WORKFLOW_API_VERSION_UNSPECIFIED")] Unspecified = 0,
-    [pbr::OriginalName("WORKFLOW_API_VERSION_V1_0_0")] V100 = 1,
-  }
-
-  public enum WorkflowKind {
-    [pbr::OriginalName("WORKFLOW_KIND_UNSPECIFIED")] Unspecified = 0,
-    [pbr::OriginalName("WORKFLOW_KIND_WORKFLOW_UTOS")] WorkflowUtos = 1,
-  }
-
-  #endregion
-
   #region Messages
   /// <summary>
   /// Workflow metadata and versioning information
@@ -538,31 +519,36 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "api_version" field.</summary>
     public const int ApiVersionFieldNumber = 1;
-    private global::Utos.Workflow.V1.WorkflowApiVersion apiVersion_ = global::Utos.Workflow.V1.WorkflowApiVersion.Unspecified;
+    private string apiVersion_ = "";
     /// <summary>
-    /// Utos specification version
+    /// API group and spec version this document conforms to, as "group/version"
+    /// (e.g. "utos.io/v1"): the group namespaces Utos kinds, the version is a
+    /// coarse schema generation mirroring the proto package major — not a semver,
+    /// and distinct from WorkflowMetadata.version (the workflow's own version).
+    /// Currently: "utos.io/v1".
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowApiVersion ApiVersion {
+    public string ApiVersion {
       get { return apiVersion_; }
       set {
-        apiVersion_ = value;
+        apiVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "kind" field.</summary>
     public const int KindFieldNumber = 2;
-    private global::Utos.Workflow.V1.WorkflowKind kind_ = global::Utos.Workflow.V1.WorkflowKind.Unspecified;
+    private string kind_ = "";
     /// <summary>
-    /// Resource type identifier
+    /// Resource kind within the api_version group, a bare PascalCase noun.
+    /// Currently: "Workflow".
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowKind Kind {
+    public string Kind {
       get { return kind_; }
       set {
-        kind_ = value;
+        kind_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -622,8 +608,8 @@ namespace Utos.Workflow.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ApiVersion != global::Utos.Workflow.V1.WorkflowApiVersion.Unspecified) hash ^= ApiVersion.GetHashCode();
-      if (Kind != global::Utos.Workflow.V1.WorkflowKind.Unspecified) hash ^= Kind.GetHashCode();
+      if (ApiVersion.Length != 0) hash ^= ApiVersion.GetHashCode();
+      if (Kind.Length != 0) hash ^= Kind.GetHashCode();
       if (metadata_ != null) hash ^= Metadata.GetHashCode();
       if (spec_ != null) hash ^= Spec.GetHashCode();
       if (_unknownFields != null) {
@@ -644,13 +630,13 @@ namespace Utos.Workflow.V1 {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ApiVersion != global::Utos.Workflow.V1.WorkflowApiVersion.Unspecified) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) ApiVersion);
+      if (ApiVersion.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ApiVersion);
       }
-      if (Kind != global::Utos.Workflow.V1.WorkflowKind.Unspecified) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) Kind);
+      if (Kind.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Kind);
       }
       if (metadata_ != null) {
         output.WriteRawTag(26);
@@ -670,13 +656,13 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ApiVersion != global::Utos.Workflow.V1.WorkflowApiVersion.Unspecified) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) ApiVersion);
+      if (ApiVersion.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ApiVersion);
       }
-      if (Kind != global::Utos.Workflow.V1.WorkflowKind.Unspecified) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) Kind);
+      if (Kind.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Kind);
       }
       if (metadata_ != null) {
         output.WriteRawTag(26);
@@ -696,11 +682,11 @@ namespace Utos.Workflow.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ApiVersion != global::Utos.Workflow.V1.WorkflowApiVersion.Unspecified) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ApiVersion);
+      if (ApiVersion.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ApiVersion);
       }
-      if (Kind != global::Utos.Workflow.V1.WorkflowKind.Unspecified) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Kind);
+      if (Kind.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Kind);
       }
       if (metadata_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Metadata);
@@ -720,10 +706,10 @@ namespace Utos.Workflow.V1 {
       if (other == null) {
         return;
       }
-      if (other.ApiVersion != global::Utos.Workflow.V1.WorkflowApiVersion.Unspecified) {
+      if (other.ApiVersion.Length != 0) {
         ApiVersion = other.ApiVersion;
       }
-      if (other.Kind != global::Utos.Workflow.V1.WorkflowKind.Unspecified) {
+      if (other.Kind.Length != 0) {
         Kind = other.Kind;
       }
       if (other.metadata_ != null) {
@@ -757,12 +743,12 @@ namespace Utos.Workflow.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            ApiVersion = (global::Utos.Workflow.V1.WorkflowApiVersion) input.ReadEnum();
+          case 10: {
+            ApiVersion = input.ReadString();
             break;
           }
-          case 16: {
-            Kind = (global::Utos.Workflow.V1.WorkflowKind) input.ReadEnum();
+          case 18: {
+            Kind = input.ReadString();
             break;
           }
           case 26: {
@@ -798,12 +784,12 @@ namespace Utos.Workflow.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            ApiVersion = (global::Utos.Workflow.V1.WorkflowApiVersion) input.ReadEnum();
+          case 10: {
+            ApiVersion = input.ReadString();
             break;
           }
-          case 16: {
-            Kind = (global::Utos.Workflow.V1.WorkflowKind) input.ReadEnum();
+          case 18: {
+            Kind = input.ReadString();
             break;
           }
           case 26: {
@@ -882,11 +868,15 @@ namespace Utos.Workflow.V1 {
         = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 10);
     private readonly pbc::MapField<string, string> dependencies_ = new pbc::MapField<string, string>();
     /// <summary>
-    /// Sub-workflow dependencies
-    /// Key: alias used in activities (e.g., "claude-agent")
-    /// Value: reference string - either:
-    ///   - Registry ref: "registry.utos.dev/namespace/name:version"
+    /// Source-format dependency declarations: each entry binds an alias to a
+    /// sub-workflow reference.
+    /// Key: an alias, local to this workflow, that its activities use to name the
+    ///   dependency (e.g., "emailer").
+    /// Value: a reference to the dependency — either:
+    ///   - Registry ref: "registry.example.com/namespace/name:version"
     ///   - Local file: "./path/to/workflow.yaml" (starts with ./ or ../)
+    /// In the built bundle, activities name dependencies by canonical identity
+    /// (see WorkflowBundle.workflows).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -900,7 +890,9 @@ namespace Utos.Workflow.V1 {
         = new pbc::MapField<string, global::Utos.Workflow.V1.WorkflowActivity>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Utos.Workflow.V1.WorkflowActivity.Parser), 18);
     private readonly pbc::MapField<string, global::Utos.Workflow.V1.WorkflowActivity> activities_ = new pbc::MapField<string, global::Utos.Workflow.V1.WorkflowActivity>();
     /// <summary>
-    /// Map of activity name to activity definition
+    /// Map of activity name to activity definition. Activity names (the keys) are
+    /// referenced by TransitionTarget.name; the terminal keywords "end" and "error"
+    /// are reserved and may not be used as activity names.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

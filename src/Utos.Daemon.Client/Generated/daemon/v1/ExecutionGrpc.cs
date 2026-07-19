@@ -57,6 +57,10 @@ namespace Utos.Daemon.V1 {
     static readonly grpc::Marshaller<global::Utos.Daemon.V1.ListExecutionsRequest> __Marshaller_utos_daemon_v1_ListExecutionsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.ListExecutionsRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Utos.Daemon.V1.ListExecutionsResponse> __Marshaller_utos_daemon_v1_ListExecutionsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.ListExecutionsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Utos.Daemon.V1.DeleteExecutionRequest> __Marshaller_utos_daemon_v1_DeleteExecutionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.DeleteExecutionRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Utos.Daemon.V1.DeleteExecutionResponse> __Marshaller_utos_daemon_v1_DeleteExecutionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.DeleteExecutionResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Utos.Daemon.V1.ScheduleExecutionRequest, global::Utos.Daemon.V1.ScheduleExecutionResponse> __Method_ScheduleExecution = new grpc::Method<global::Utos.Daemon.V1.ScheduleExecutionRequest, global::Utos.Daemon.V1.ScheduleExecutionResponse>(
@@ -81,6 +85,14 @@ namespace Utos.Daemon.V1 {
         "ListExecutions",
         __Marshaller_utos_daemon_v1_ListExecutionsRequest,
         __Marshaller_utos_daemon_v1_ListExecutionsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Utos.Daemon.V1.DeleteExecutionRequest, global::Utos.Daemon.V1.DeleteExecutionResponse> __Method_DeleteExecution = new grpc::Method<global::Utos.Daemon.V1.DeleteExecutionRequest, global::Utos.Daemon.V1.DeleteExecutionResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteExecution",
+        __Marshaller_utos_daemon_v1_DeleteExecutionRequest,
+        __Marshaller_utos_daemon_v1_DeleteExecutionResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -258,6 +270,78 @@ namespace Utos.Daemon.V1 {
       public virtual grpc::AsyncUnaryCall<global::Utos.Daemon.V1.ListExecutionsResponse> ListExecutionsAsync(global::Utos.Daemon.V1.ListExecutionsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_ListExecutions, null, options, request);
+      }
+      /// <summary>
+      /// Delete a terminal execution's record (its summary, input/env, and the
+      /// snapshotted bundle). Permitted only when the execution is terminal
+      /// (COMPLETED or FAILED); a SCHEDULED or ACTIVE execution returns
+      /// FAILED_PRECONDITION and must be cancelled first (cancellation is a separate
+      /// concern, not yet defined). Unknown execution_id returns NOT_FOUND. Does not
+      /// affect any detached sub-workflow executions this run started — those are
+      /// independent top-level executions with their own records.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Utos.Daemon.V1.DeleteExecutionResponse DeleteExecution(global::Utos.Daemon.V1.DeleteExecutionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteExecution(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Delete a terminal execution's record (its summary, input/env, and the
+      /// snapshotted bundle). Permitted only when the execution is terminal
+      /// (COMPLETED or FAILED); a SCHEDULED or ACTIVE execution returns
+      /// FAILED_PRECONDITION and must be cancelled first (cancellation is a separate
+      /// concern, not yet defined). Unknown execution_id returns NOT_FOUND. Does not
+      /// affect any detached sub-workflow executions this run started — those are
+      /// independent top-level executions with their own records.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Utos.Daemon.V1.DeleteExecutionResponse DeleteExecution(global::Utos.Daemon.V1.DeleteExecutionRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteExecution, null, options, request);
+      }
+      /// <summary>
+      /// Delete a terminal execution's record (its summary, input/env, and the
+      /// snapshotted bundle). Permitted only when the execution is terminal
+      /// (COMPLETED or FAILED); a SCHEDULED or ACTIVE execution returns
+      /// FAILED_PRECONDITION and must be cancelled first (cancellation is a separate
+      /// concern, not yet defined). Unknown execution_id returns NOT_FOUND. Does not
+      /// affect any detached sub-workflow executions this run started — those are
+      /// independent top-level executions with their own records.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Utos.Daemon.V1.DeleteExecutionResponse> DeleteExecutionAsync(global::Utos.Daemon.V1.DeleteExecutionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteExecutionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Delete a terminal execution's record (its summary, input/env, and the
+      /// snapshotted bundle). Permitted only when the execution is terminal
+      /// (COMPLETED or FAILED); a SCHEDULED or ACTIVE execution returns
+      /// FAILED_PRECONDITION and must be cancelled first (cancellation is a separate
+      /// concern, not yet defined). Unknown execution_id returns NOT_FOUND. Does not
+      /// affect any detached sub-workflow executions this run started — those are
+      /// independent top-level executions with their own records.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Utos.Daemon.V1.DeleteExecutionResponse> DeleteExecutionAsync(global::Utos.Daemon.V1.DeleteExecutionRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteExecution, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

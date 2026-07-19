@@ -57,6 +57,10 @@ namespace Utos.Daemon.V1 {
     static readonly grpc::Marshaller<global::Utos.Daemon.V1.ListExecutionsRequest> __Marshaller_utos_daemon_v1_ListExecutionsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.ListExecutionsRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Utos.Daemon.V1.ListExecutionsResponse> __Marshaller_utos_daemon_v1_ListExecutionsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.ListExecutionsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Utos.Daemon.V1.DeleteExecutionRequest> __Marshaller_utos_daemon_v1_DeleteExecutionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.DeleteExecutionRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Utos.Daemon.V1.DeleteExecutionResponse> __Marshaller_utos_daemon_v1_DeleteExecutionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.DeleteExecutionResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Utos.Daemon.V1.ScheduleExecutionRequest, global::Utos.Daemon.V1.ScheduleExecutionResponse> __Method_ScheduleExecution = new grpc::Method<global::Utos.Daemon.V1.ScheduleExecutionRequest, global::Utos.Daemon.V1.ScheduleExecutionResponse>(
@@ -81,6 +85,14 @@ namespace Utos.Daemon.V1 {
         "ListExecutions",
         __Marshaller_utos_daemon_v1_ListExecutionsRequest,
         __Marshaller_utos_daemon_v1_ListExecutionsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Utos.Daemon.V1.DeleteExecutionRequest, global::Utos.Daemon.V1.DeleteExecutionResponse> __Method_DeleteExecution = new grpc::Method<global::Utos.Daemon.V1.DeleteExecutionRequest, global::Utos.Daemon.V1.DeleteExecutionResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteExecution",
+        __Marshaller_utos_daemon_v1_DeleteExecutionRequest,
+        __Marshaller_utos_daemon_v1_DeleteExecutionResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -128,6 +140,24 @@ namespace Utos.Daemon.V1 {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      /// Delete a terminal execution's record (its summary, input/env, and the
+      /// snapshotted bundle). Permitted only when the execution is terminal
+      /// (COMPLETED or FAILED); a SCHEDULED or ACTIVE execution returns
+      /// FAILED_PRECONDITION and must be cancelled first (cancellation is a separate
+      /// concern, not yet defined). Unknown execution_id returns NOT_FOUND. Does not
+      /// affect any detached sub-workflow executions this run started — those are
+      /// independent top-level executions with their own records.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Utos.Daemon.V1.DeleteExecutionResponse> DeleteExecution(global::Utos.Daemon.V1.DeleteExecutionRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -138,7 +168,8 @@ namespace Utos.Daemon.V1 {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_ScheduleExecution, serviceImpl.ScheduleExecution)
           .AddMethod(__Method_GetExecution, serviceImpl.GetExecution)
-          .AddMethod(__Method_ListExecutions, serviceImpl.ListExecutions).Build();
+          .AddMethod(__Method_ListExecutions, serviceImpl.ListExecutions)
+          .AddMethod(__Method_DeleteExecution, serviceImpl.DeleteExecution).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -151,6 +182,7 @@ namespace Utos.Daemon.V1 {
       serviceBinder.AddMethod(__Method_ScheduleExecution, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Utos.Daemon.V1.ScheduleExecutionRequest, global::Utos.Daemon.V1.ScheduleExecutionResponse>(serviceImpl.ScheduleExecution));
       serviceBinder.AddMethod(__Method_GetExecution, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Utos.Daemon.V1.GetExecutionRequest, global::Utos.Daemon.V1.GetExecutionResponse>(serviceImpl.GetExecution));
       serviceBinder.AddMethod(__Method_ListExecutions, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Utos.Daemon.V1.ListExecutionsRequest, global::Utos.Daemon.V1.ListExecutionsResponse>(serviceImpl.ListExecutions));
+      serviceBinder.AddMethod(__Method_DeleteExecution, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Utos.Daemon.V1.DeleteExecutionRequest, global::Utos.Daemon.V1.DeleteExecutionResponse>(serviceImpl.DeleteExecution));
     }
 
   }

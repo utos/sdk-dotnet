@@ -96,7 +96,8 @@ namespace Utos.Workflow.V1 {
     public const int EntryPointFieldNumber = 1;
     private string entryPoint_ = "";
     /// <summary>
-    /// The workflow to start execution from (key in workflows map)
+    /// Canonical identity key of the workflow where execution begins; one of the
+    /// keys in `workflows`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -113,8 +114,20 @@ namespace Utos.Workflow.V1 {
         = new pbc::MapField<string, global::Utos.Workflow.V1.Workflow>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Utos.Workflow.V1.Workflow.Parser), 18);
     private readonly pbc::MapField<string, global::Utos.Workflow.V1.Workflow> workflows_ = new pbc::MapField<string, global::Utos.Workflow.V1.Workflow>();
     /// <summary>
-    /// All resolved workflows by name
-    /// Includes the root workflow and all transitive dependencies
+    /// The entry-point workflow together with all transitive dependencies, each
+    /// keyed by its canonical identity.
+    ///
+    /// The key is the identity string defined on WorkflowMetadata:
+    ///   [registry/][namespace/]name:version
+    /// Examples: "registry.example.com/acme/send-email:v1.0.0",
+    /// "acme/send-email:v1.0.0", "send-email:1.0.0" (a local/unpublished workflow).
+    ///
+    /// Each key MUST equal the canonical identity of its value, derived from that
+    /// workflow's WorkflowMetadata; a bundle whose key and metadata disagree is
+    /// invalid and may be rejected.
+    ///
+    /// Each WorkflowActivityConfig.workflow in the bundle is one of these keys,
+    /// naming the sub-workflow that activity invokes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

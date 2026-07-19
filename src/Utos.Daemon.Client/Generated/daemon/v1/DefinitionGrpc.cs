@@ -139,7 +139,10 @@ namespace Utos.Daemon.V1 {
       /// <summary>
       /// Load (push) a fully-resolved bundle into the daemon's local store.
       /// Identity is derived from the entry_point workflow's metadata.
-      /// Re-loading an existing [registry/][namespace/]name:version replaces it.
+      /// Re-loading an existing [registry/][namespace/]name:version replaces it
+      /// (generally with a different content digest); existing executions are
+      /// unaffected and their ExecutionSummary.workflow.digest keeps identifying the
+      /// pre-replacement content.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -154,7 +157,10 @@ namespace Utos.Daemon.V1 {
       /// <summary>
       /// Load (push) a fully-resolved bundle into the daemon's local store.
       /// Identity is derived from the entry_point workflow's metadata.
-      /// Re-loading an existing [registry/][namespace/]name:version replaces it.
+      /// Re-loading an existing [registry/][namespace/]name:version replaces it
+      /// (generally with a different content digest); existing executions are
+      /// unaffected and their ExecutionSummary.workflow.digest keeps identifying the
+      /// pre-replacement content.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -167,7 +173,10 @@ namespace Utos.Daemon.V1 {
       /// <summary>
       /// Load (push) a fully-resolved bundle into the daemon's local store.
       /// Identity is derived from the entry_point workflow's metadata.
-      /// Re-loading an existing [registry/][namespace/]name:version replaces it.
+      /// Re-loading an existing [registry/][namespace/]name:version replaces it
+      /// (generally with a different content digest); existing executions are
+      /// unaffected and their ExecutionSummary.workflow.digest keeps identifying the
+      /// pre-replacement content.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -182,7 +191,10 @@ namespace Utos.Daemon.V1 {
       /// <summary>
       /// Load (push) a fully-resolved bundle into the daemon's local store.
       /// Identity is derived from the entry_point workflow's metadata.
-      /// Re-loading an existing [registry/][namespace/]name:version replaces it.
+      /// Re-loading an existing [registry/][namespace/]name:version replaces it
+      /// (generally with a different content digest); existing executions are
+      /// unaffected and their ExecutionSummary.workflow.digest keeps identifying the
+      /// pre-replacement content.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -289,8 +301,11 @@ namespace Utos.Daemon.V1 {
         return CallInvoker.AsyncUnaryCall(__Method_GetWorkflow, null, options, request);
       }
       /// <summary>
-      /// Remove a loaded definition. Does not affect existing executions, which
-      /// snapshot their bundle at schedule time.
+      /// Remove a loaded definition. Safe against history: it only prevents NEW
+      /// schedules — running and finished executions are unaffected, since each
+      /// snapshots its own bundle at schedule time. Unlike Docker's refuse-in-use
+      /// `docker rmi`, no force flag is needed: executions share nothing with the
+      /// store, so removal can never corrupt an in-flight run.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -303,8 +318,11 @@ namespace Utos.Daemon.V1 {
         return UnloadWorkflow(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Remove a loaded definition. Does not affect existing executions, which
-      /// snapshot their bundle at schedule time.
+      /// Remove a loaded definition. Safe against history: it only prevents NEW
+      /// schedules — running and finished executions are unaffected, since each
+      /// snapshots its own bundle at schedule time. Unlike Docker's refuse-in-use
+      /// `docker rmi`, no force flag is needed: executions share nothing with the
+      /// store, so removal can never corrupt an in-flight run.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -315,8 +333,11 @@ namespace Utos.Daemon.V1 {
         return CallInvoker.BlockingUnaryCall(__Method_UnloadWorkflow, null, options, request);
       }
       /// <summary>
-      /// Remove a loaded definition. Does not affect existing executions, which
-      /// snapshot their bundle at schedule time.
+      /// Remove a loaded definition. Safe against history: it only prevents NEW
+      /// schedules — running and finished executions are unaffected, since each
+      /// snapshots its own bundle at schedule time. Unlike Docker's refuse-in-use
+      /// `docker rmi`, no force flag is needed: executions share nothing with the
+      /// store, so removal can never corrupt an in-flight run.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -329,8 +350,11 @@ namespace Utos.Daemon.V1 {
         return UnloadWorkflowAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Remove a loaded definition. Does not affect existing executions, which
-      /// snapshot their bundle at schedule time.
+      /// Remove a loaded definition. Safe against history: it only prevents NEW
+      /// schedules — running and finished executions are unaffected, since each
+      /// snapshots its own bundle at schedule time. Unlike Docker's refuse-in-use
+      /// `docker rmi`, no force flag is needed: executions share nothing with the
+      /// store, so removal can never corrupt an in-flight run.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
