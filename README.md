@@ -27,6 +27,12 @@ No custom NuGet source or registry auth required — these install from nuget.or
 > pull in the shared `Utos.Workflow` types. Neither pulls a gRPC transport: choose
 > your own (`Grpc.Net.Client` for callers, `Grpc.AspNetCore` for daemons).
 
+## Content digest
+
+`Utos.Workflow` can compute the canonical `sha256:<hex>` content digest of a `WorkflowBundle`
+(`bundle.ComputeContentDigest()`) — the cross-SDK content identity carried by
+`WorkflowReference.digest`. See [`docs/content-digest.md`](docs/content-digest.md).
+
 ## Versioning
 
 The package version mirrors the Utos spec version it was generated from

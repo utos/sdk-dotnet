@@ -4,4 +4,7 @@
     <Project Path="src/Utos.Daemon.Server/Utos.Daemon.Server.csproj" />
     <Project Path="src/Utos.Workflow/Utos.Workflow.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Utos.Workflow.Tests/Utos.Workflow.Tests.csproj" />
+  </Folder>
 </Solution>

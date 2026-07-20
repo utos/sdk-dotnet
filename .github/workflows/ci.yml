@@ -31,5 +31,8 @@ jobs:
             exit 1
           fi
 
+      - name: Test (content-digest helper + conformance)
+        run: dotnet test Utos.slnx -c Release --no-build
+
       - name: Pack (validate packaging)
         run: dotnet pack Utos.slnx -c Release -p:Version=0.0.0-ci

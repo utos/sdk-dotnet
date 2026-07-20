@@ -10,6 +10,17 @@
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" />
     <PackageReference Include="Grpc.Tools" PrivateAssets="all" />
+    <!-- RFC 8785 (JCS) canonicalization for the content-digest helper (Digest/). -->
+    <PackageReference Include="jsoncanonicalizer" />
+  </ItemGroup>
+
+  <!--
+    Hand-written source (the content-digest helper). Kept OUTSIDE Generated/ so protoc
+    regeneration and the CI drift guard never touch it. EnableDefaultCompileItems=false
+    (see Directory.Build.props) means these must be added explicitly.
+  -->
+  <ItemGroup>
+    <Compile Include="Digest\**\*.cs" />
   </ItemGroup>
 
   <!-- Messages only (no services in utos.workflow.v1). Regenerated in-place into the committed Generated/ folder. -->
