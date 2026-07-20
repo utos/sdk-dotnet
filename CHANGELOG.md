@@ -24,6 +24,10 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
   cross-SDK reference set exists, and the SDK does not populate or enforce
   `WorkflowReference.digest` on daemon calls.
 
+## [0.0.10.1] - 2026-07-20
+
+SDK-only rebuild against [`v0.0.10`](https://github.com/utos/api/releases/tag/v0.0.10) (`949b56276cd87e2c2031469e0ecb2f32961a38a3`): codegen/runtime tooling bump, no spec change.
+
 ## [0.0.10] - 2026-07-19
 
 Generated from [`v0.0.10`](https://github.com/utos/api/releases/tag/v0.0.10) (`949b56276cd87e2c2031469e0ecb2f32961a38a3`). See the [spec changelog](https://github.com/utos/api/blob/v0.0.10/CHANGELOG.md).
