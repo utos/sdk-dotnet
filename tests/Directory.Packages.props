@@ -1,0 +1,18 @@
+<Project>
+
+  <!--
+    Central Package Management for test projects, kept separate from the shipping
+    Directory.Packages.props at the repo root so test-only tooling never appears in the
+    published packages' dependency graph. Shadows the root file (first one found wins).
+  -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageVersion Include="xunit" Version="2.9.2" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
+  </ItemGroup>
+
+</Project>

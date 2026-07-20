@@ -11,8 +11,18 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ## [Unreleased]
 
-Initial source-bearing SDK scaffold. The first published version will be generated
-from a `utos/api` `vX.Y.Z` tag and tracked here.
+### Added
+
+- **Content digest for `WorkflowBundle`** (`Utos.Workflow`). `ContentDigest.Compute` /
+  `WorkflowBundle.ComputeContentDigest()` produce the canonical `sha256:<hex>` content
+  identity carried by `WorkflowReference.digest`, following the spec's
+  [canonical serialization](https://github.com/utos/api/blob/v0.0.10/docs/canonical-bundle-digest.md)
+  (proto3 JSON → RFC 8785 / JCS → SHA-256). Also `ContentDigest.CanonicalJson` (the pre-hash
+  canonical JSON) and `ContentDigest.Verify`. See [`docs/content-digest.md`](docs/content-digest.md).
+  Adds a dependency on `jsoncanonicalizer` (and transitively `es6numberserializer`).
+  The digest format is **not yet conformance-locked**: golden vectors are deferred until a
+  cross-SDK reference set exists, and the SDK does not populate or enforce
+  `WorkflowReference.digest` on daemon calls.
 
 ## [0.0.10] - 2026-07-19
 

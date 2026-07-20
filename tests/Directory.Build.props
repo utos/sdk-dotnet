@@ -1,0 +1,17 @@
+<Project>
+
+  <!--
+    Test projects get a clean slate. This file shadows the repo-root Directory.Build.props
+    (MSBuild stops at the first one found walking up), so tests do NOT inherit the SDK-package
+    settings there: netstandard2.0, symbol packages, PackageReadmeFile, packability, and
+    EnableDefaultCompileItems=false. Test projects target a runnable TFM and use the default
+    compile-item globs.
+  -->
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsPublishable>false</IsPublishable>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+</Project>

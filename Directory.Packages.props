@@ -13,6 +13,12 @@
 
     SourceLink for the GitHub provider is included in the .NET SDK (8.0.100+), so no
     Microsoft.SourceLink.GitHub package is referenced here.
+
+    jsoncanonicalizer is the RFC 8785 (JSON Canonicalization Scheme) reference
+    implementation, used by Utos.Workflow's content-digest helper. It transitively pulls
+    es6numberserializer (RFC 8785 §3.2.2.3 ECMAScript number formatting), which makes the
+    digest byte-stable across runtimes — important since netstandard2.0's in-box double
+    formatting is not guaranteed shortest-round-trip.
   -->
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
@@ -22,6 +28,7 @@
     <PackageVersion Include="Grpc.Tools" Version="2.82.0" />
     <PackageVersion Include="Google.Protobuf" Version="3.35.1" />
     <PackageVersion Include="Grpc.Core.Api" Version="2.80.0" />
+    <PackageVersion Include="jsoncanonicalizer" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
