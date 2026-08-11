@@ -4,7 +4,7 @@ using System.Text;
 using Google.Protobuf;
 using Org.Webpki.JsonCanonicalizer;
 
-namespace Utos.Workflow.V1
+namespace Utos.Workflows.V1
 {
     /// <summary>
     /// Computes the canonical content digest of a <see cref="WorkflowBundle"/>, as defined by the

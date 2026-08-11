@@ -54,7 +54,7 @@ namespace Utos.Daemon.V1 {
             "UEVOREVEKhpFWEVDVVRJT05fU1RBVFVTX0NBTkNFTExFREIRqgIOVXRvcy5E",
             "YWVtb24uVjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Utos.Workflow.V1.CommonReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Utos.Daemon.V1.ExecutionStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WorkflowReference), global::Utos.Daemon.V1.WorkflowReference.Parser, new[]{ "Registry", "Namespace", "Name", "Version", "Digest" }, new[]{ "Registry", "Namespace", "Version", "Digest" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionPayload), global::Utos.Daemon.V1.ExecutionPayload.Parser, new[]{ "Data" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
@@ -876,7 +876,7 @@ namespace Utos.Daemon.V1 {
 
     /// <summary>Field number for the "error" field.</summary>
     public const int ErrorFieldNumber = 12;
-    private global::Utos.Workflow.V1.WorkflowError error_;
+    private global::Utos.Workflows.V1.WorkflowError error_;
     /// <summary>
     /// Structured failure details; set when status is FAILED. `details` may be
     /// omitted in `ListExecutions` list views and is populated when this summary
@@ -884,7 +884,7 @@ namespace Utos.Daemon.V1 {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowError Error {
+    public global::Utos.Workflows.V1.WorkflowError Error {
       get { return error_; }
       set {
         error_ = value;
@@ -1105,7 +1105,7 @@ namespace Utos.Daemon.V1 {
       }
       if (other.error_ != null) {
         if (error_ == null) {
-          Error = new global::Utos.Workflow.V1.WorkflowError();
+          Error = new global::Utos.Workflows.V1.WorkflowError();
         }
         Error.MergeFrom(other.Error);
       }
@@ -1173,7 +1173,7 @@ namespace Utos.Daemon.V1 {
           }
           case 98: {
             if (error_ == null) {
-              Error = new global::Utos.Workflow.V1.WorkflowError();
+              Error = new global::Utos.Workflows.V1.WorkflowError();
             }
             input.ReadMessage(Error);
             break;
@@ -1242,7 +1242,7 @@ namespace Utos.Daemon.V1 {
           }
           case 98: {
             if (error_ == null) {
-              Error = new global::Utos.Workflow.V1.WorkflowError();
+              Error = new global::Utos.Workflows.V1.WorkflowError();
             }
             input.ReadMessage(Error);
             break;

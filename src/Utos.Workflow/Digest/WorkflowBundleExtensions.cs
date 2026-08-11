@@ -1,4 +1,4 @@
-namespace Utos.Workflow.V1
+namespace Utos.Workflows.V1
 {
     /// <summary>Convenience extension methods on <see cref="WorkflowBundle"/>.</summary>
     public static class WorkflowBundleExtensions

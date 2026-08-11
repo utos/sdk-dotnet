@@ -3,8 +3,10 @@
     <Project Path="src/Utos.Daemon.Client/Utos.Daemon.Client.csproj" />
     <Project Path="src/Utos.Daemon.Server/Utos.Daemon.Server.csproj" />
     <Project Path="src/Utos.Workflow/Utos.Workflow.csproj" />
+    <Project Path="src/Utos.Workflow.Validation/Utos.Workflow.Validation.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/Utos.Workflow.Tests/Utos.Workflow.Tests.csproj" />
+    <Project Path="tests/Utos.Workflow.Validation.Tests/Utos.Workflow.Validation.Tests.csproj" />
   </Folder>
 </Solution>

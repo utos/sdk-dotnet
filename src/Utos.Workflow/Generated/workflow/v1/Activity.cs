@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Utos.Workflow.V1 {
+namespace Utos.Workflows.V1 {
 
   /// <summary>Holder for reflection information generated from workflow/v1/activity.proto</summary>
   public static partial class ActivityReflection {
@@ -56,20 +56,20 @@ namespace Utos.Workflow.V1 {
             "dy52MS5Gb3JFYWNoQ29uZmlnSACIAQESFgoJY29uZGl0aW9uGAMgASgJSAGI",
             "AQESMgoGdGFyZ2V0GAQgASgLMiIudXRvcy53b3JrZmxvdy52MS5UcmFuc2l0",
             "aW9uVGFyZ2V0QgsKCV9mb3JfZWFjaEIMCgpfY29uZGl0aW9uIjIKDUZvckVh",
-            "Y2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVhbGlhcxgCIAEoCUIT",
-            "qgIQVXRvcy5Xb3JrZmxvdy5WMWIGcHJvdG8z"));
+            "Y2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVhbGlhcxgCIAEoCUIU",
+            "qgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowActivity), global::Utos.Workflow.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Http", "Workflow", "Promise", "Timer" }, new[]{ "Config" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TransitionRule), global::Utos.Workflow.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Result" }, new[]{ "Action", "Condition" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TransitionTarget), global::Utos.Workflow.V1.TransitionTarget.Parser, new[]{ "Name", "Input" }, new[]{ "Input" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.HttpActivityConfig), global::Utos.Workflow.V1.HttpActivityConfig.Parser, new[]{ "Method", "Url", "Headers", "Body" }, new[]{ "Body" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.TimerActivityConfig), global::Utos.Workflow.V1.TimerActivityConfig.Parser, new[]{ "Duration" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowActivityConfig), global::Utos.Workflow.V1.WorkflowActivityConfig.Parser, new[]{ "Workflow", "StartActivity", "Input", "Detached" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.PromiseActivityConfig), global::Utos.Workflow.V1.PromiseActivityConfig.Parser, new[]{ "Mode", "RequiredCount", "Branches" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.PromiseBranch), global::Utos.Workflow.V1.PromiseBranch.Parser, new[]{ "Name", "ForEach", "Condition", "Target" }, new[]{ "ForEach", "Condition" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.ForEachConfig), global::Utos.Workflow.V1.ForEachConfig.Parser, new[]{ "Collection", "Alias" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowActivity), global::Utos.Workflows.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Http", "Workflow", "Promise", "Timer" }, new[]{ "Config" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionRule), global::Utos.Workflows.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Result" }, new[]{ "Action", "Condition" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionTarget), global::Utos.Workflows.V1.TransitionTarget.Parser, new[]{ "Name", "Input" }, new[]{ "Input" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.HttpActivityConfig), global::Utos.Workflows.V1.HttpActivityConfig.Parser, new[]{ "Method", "Url", "Headers", "Body" }, new[]{ "Body" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TimerActivityConfig), global::Utos.Workflows.V1.TimerActivityConfig.Parser, new[]{ "Duration" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowActivityConfig), global::Utos.Workflows.V1.WorkflowActivityConfig.Parser, new[]{ "Workflow", "StartActivity", "Input", "Detached" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseActivityConfig), global::Utos.Workflows.V1.PromiseActivityConfig.Parser, new[]{ "Mode", "RequiredCount", "Branches" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseBranch), global::Utos.Workflows.V1.PromiseBranch.Parser, new[]{ "Name", "ForEach", "Condition", "Target" }, new[]{ "ForEach", "Condition" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.ForEachConfig), global::Utos.Workflows.V1.ForEachConfig.Parser, new[]{ "Collection", "Alias" }, null, null, null, null)
           }));
     }
     #endregion
@@ -94,7 +94,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -142,9 +142,9 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "on_success" field.</summary>
     public const int OnSuccessFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Utos.Workflow.V1.TransitionRule> _repeated_onSuccess_codec
-        = pb::FieldCodec.ForMessage(10, global::Utos.Workflow.V1.TransitionRule.Parser);
-    private readonly pbc::RepeatedField<global::Utos.Workflow.V1.TransitionRule> onSuccess_ = new pbc::RepeatedField<global::Utos.Workflow.V1.TransitionRule>();
+    private static readonly pb::FieldCodec<global::Utos.Workflows.V1.TransitionRule> _repeated_onSuccess_codec
+        = pb::FieldCodec.ForMessage(10, global::Utos.Workflows.V1.TransitionRule.Parser);
+    private readonly pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule> onSuccess_ = new pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule>();
     /// <summary>
     /// Transitions to execute after successful completion
     /// Evaluated in order; first matching condition wins
@@ -152,15 +152,15 @@ namespace Utos.Workflow.V1 {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Utos.Workflow.V1.TransitionRule> OnSuccess {
+    public pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule> OnSuccess {
       get { return onSuccess_; }
     }
 
     /// <summary>Field number for the "on_failure" field.</summary>
     public const int OnFailureFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::Utos.Workflow.V1.TransitionRule> _repeated_onFailure_codec
-        = pb::FieldCodec.ForMessage(18, global::Utos.Workflow.V1.TransitionRule.Parser);
-    private readonly pbc::RepeatedField<global::Utos.Workflow.V1.TransitionRule> onFailure_ = new pbc::RepeatedField<global::Utos.Workflow.V1.TransitionRule>();
+    private static readonly pb::FieldCodec<global::Utos.Workflows.V1.TransitionRule> _repeated_onFailure_codec
+        = pb::FieldCodec.ForMessage(18, global::Utos.Workflows.V1.TransitionRule.Parser);
+    private readonly pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule> onFailure_ = new pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule>();
     /// <summary>
     /// Transitions to execute after a failure
     /// Evaluated in order; first matching condition wins
@@ -168,7 +168,7 @@ namespace Utos.Workflow.V1 {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Utos.Workflow.V1.TransitionRule> OnFailure {
+    public pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule> OnFailure {
       get { return onFailure_; }
     }
 
@@ -176,8 +176,8 @@ namespace Utos.Workflow.V1 {
     public const int HttpFieldNumber = 10;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.HttpActivityConfig Http {
-      get { return configCase_ == ConfigOneofCase.Http ? (global::Utos.Workflow.V1.HttpActivityConfig) config_ : null; }
+    public global::Utos.Workflows.V1.HttpActivityConfig Http {
+      get { return configCase_ == ConfigOneofCase.Http ? (global::Utos.Workflows.V1.HttpActivityConfig) config_ : null; }
       set {
         config_ = value;
         configCase_ = value == null ? ConfigOneofCase.None : ConfigOneofCase.Http;
@@ -188,8 +188,8 @@ namespace Utos.Workflow.V1 {
     public const int WorkflowFieldNumber = 11;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowActivityConfig Workflow {
-      get { return configCase_ == ConfigOneofCase.Workflow ? (global::Utos.Workflow.V1.WorkflowActivityConfig) config_ : null; }
+    public global::Utos.Workflows.V1.WorkflowActivityConfig Workflow {
+      get { return configCase_ == ConfigOneofCase.Workflow ? (global::Utos.Workflows.V1.WorkflowActivityConfig) config_ : null; }
       set {
         config_ = value;
         configCase_ = value == null ? ConfigOneofCase.None : ConfigOneofCase.Workflow;
@@ -200,8 +200,8 @@ namespace Utos.Workflow.V1 {
     public const int PromiseFieldNumber = 12;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.PromiseActivityConfig Promise {
-      get { return configCase_ == ConfigOneofCase.Promise ? (global::Utos.Workflow.V1.PromiseActivityConfig) config_ : null; }
+    public global::Utos.Workflows.V1.PromiseActivityConfig Promise {
+      get { return configCase_ == ConfigOneofCase.Promise ? (global::Utos.Workflows.V1.PromiseActivityConfig) config_ : null; }
       set {
         config_ = value;
         configCase_ = value == null ? ConfigOneofCase.None : ConfigOneofCase.Promise;
@@ -212,8 +212,8 @@ namespace Utos.Workflow.V1 {
     public const int TimerFieldNumber = 13;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.TimerActivityConfig Timer {
-      get { return configCase_ == ConfigOneofCase.Timer ? (global::Utos.Workflow.V1.TimerActivityConfig) config_ : null; }
+    public global::Utos.Workflows.V1.TimerActivityConfig Timer {
+      get { return configCase_ == ConfigOneofCase.Timer ? (global::Utos.Workflows.V1.TimerActivityConfig) config_ : null; }
       set {
         config_ = value;
         configCase_ = value == null ? ConfigOneofCase.None : ConfigOneofCase.Timer;
@@ -384,25 +384,25 @@ namespace Utos.Workflow.V1 {
       switch (other.ConfigCase) {
         case ConfigOneofCase.Http:
           if (Http == null) {
-            Http = new global::Utos.Workflow.V1.HttpActivityConfig();
+            Http = new global::Utos.Workflows.V1.HttpActivityConfig();
           }
           Http.MergeFrom(other.Http);
           break;
         case ConfigOneofCase.Workflow:
           if (Workflow == null) {
-            Workflow = new global::Utos.Workflow.V1.WorkflowActivityConfig();
+            Workflow = new global::Utos.Workflows.V1.WorkflowActivityConfig();
           }
           Workflow.MergeFrom(other.Workflow);
           break;
         case ConfigOneofCase.Promise:
           if (Promise == null) {
-            Promise = new global::Utos.Workflow.V1.PromiseActivityConfig();
+            Promise = new global::Utos.Workflows.V1.PromiseActivityConfig();
           }
           Promise.MergeFrom(other.Promise);
           break;
         case ConfigOneofCase.Timer:
           if (Timer == null) {
-            Timer = new global::Utos.Workflow.V1.TimerActivityConfig();
+            Timer = new global::Utos.Workflows.V1.TimerActivityConfig();
           }
           Timer.MergeFrom(other.Timer);
           break;
@@ -436,7 +436,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 82: {
-            global::Utos.Workflow.V1.HttpActivityConfig subBuilder = new global::Utos.Workflow.V1.HttpActivityConfig();
+            global::Utos.Workflows.V1.HttpActivityConfig subBuilder = new global::Utos.Workflows.V1.HttpActivityConfig();
             if (configCase_ == ConfigOneofCase.Http) {
               subBuilder.MergeFrom(Http);
             }
@@ -445,7 +445,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 90: {
-            global::Utos.Workflow.V1.WorkflowActivityConfig subBuilder = new global::Utos.Workflow.V1.WorkflowActivityConfig();
+            global::Utos.Workflows.V1.WorkflowActivityConfig subBuilder = new global::Utos.Workflows.V1.WorkflowActivityConfig();
             if (configCase_ == ConfigOneofCase.Workflow) {
               subBuilder.MergeFrom(Workflow);
             }
@@ -454,7 +454,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 98: {
-            global::Utos.Workflow.V1.PromiseActivityConfig subBuilder = new global::Utos.Workflow.V1.PromiseActivityConfig();
+            global::Utos.Workflows.V1.PromiseActivityConfig subBuilder = new global::Utos.Workflows.V1.PromiseActivityConfig();
             if (configCase_ == ConfigOneofCase.Promise) {
               subBuilder.MergeFrom(Promise);
             }
@@ -463,7 +463,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 106: {
-            global::Utos.Workflow.V1.TimerActivityConfig subBuilder = new global::Utos.Workflow.V1.TimerActivityConfig();
+            global::Utos.Workflows.V1.TimerActivityConfig subBuilder = new global::Utos.Workflows.V1.TimerActivityConfig();
             if (configCase_ == ConfigOneofCase.Timer) {
               subBuilder.MergeFrom(Timer);
             }
@@ -499,7 +499,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 82: {
-            global::Utos.Workflow.V1.HttpActivityConfig subBuilder = new global::Utos.Workflow.V1.HttpActivityConfig();
+            global::Utos.Workflows.V1.HttpActivityConfig subBuilder = new global::Utos.Workflows.V1.HttpActivityConfig();
             if (configCase_ == ConfigOneofCase.Http) {
               subBuilder.MergeFrom(Http);
             }
@@ -508,7 +508,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 90: {
-            global::Utos.Workflow.V1.WorkflowActivityConfig subBuilder = new global::Utos.Workflow.V1.WorkflowActivityConfig();
+            global::Utos.Workflows.V1.WorkflowActivityConfig subBuilder = new global::Utos.Workflows.V1.WorkflowActivityConfig();
             if (configCase_ == ConfigOneofCase.Workflow) {
               subBuilder.MergeFrom(Workflow);
             }
@@ -517,7 +517,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 98: {
-            global::Utos.Workflow.V1.PromiseActivityConfig subBuilder = new global::Utos.Workflow.V1.PromiseActivityConfig();
+            global::Utos.Workflows.V1.PromiseActivityConfig subBuilder = new global::Utos.Workflows.V1.PromiseActivityConfig();
             if (configCase_ == ConfigOneofCase.Promise) {
               subBuilder.MergeFrom(Promise);
             }
@@ -526,7 +526,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 106: {
-            global::Utos.Workflow.V1.TimerActivityConfig subBuilder = new global::Utos.Workflow.V1.TimerActivityConfig();
+            global::Utos.Workflows.V1.TimerActivityConfig subBuilder = new global::Utos.Workflows.V1.TimerActivityConfig();
             if (configCase_ == ConfigOneofCase.Timer) {
               subBuilder.MergeFrom(Timer);
             }
@@ -559,7 +559,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -638,8 +638,8 @@ namespace Utos.Workflow.V1 {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.TransitionTarget Transition {
-      get { return actionCase_ == ActionOneofCase.Transition ? (global::Utos.Workflow.V1.TransitionTarget) action_ : null; }
+    public global::Utos.Workflows.V1.TransitionTarget Transition {
+      get { return actionCase_ == ActionOneofCase.Transition ? (global::Utos.Workflows.V1.TransitionTarget) action_ : null; }
       set {
         action_ = value;
         actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Transition;
@@ -801,7 +801,7 @@ namespace Utos.Workflow.V1 {
       switch (other.ActionCase) {
         case ActionOneofCase.Transition:
           if (Transition == null) {
-            Transition = new global::Utos.Workflow.V1.TransitionTarget();
+            Transition = new global::Utos.Workflows.V1.TransitionTarget();
           }
           Transition.MergeFrom(other.Transition);
           break;
@@ -837,7 +837,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 18: {
-            global::Utos.Workflow.V1.TransitionTarget subBuilder = new global::Utos.Workflow.V1.TransitionTarget();
+            global::Utos.Workflows.V1.TransitionTarget subBuilder = new global::Utos.Workflows.V1.TransitionTarget();
             if (actionCase_ == ActionOneofCase.Transition) {
               subBuilder.MergeFrom(Transition);
             }
@@ -878,7 +878,7 @@ namespace Utos.Workflow.V1 {
             break;
           }
           case 18: {
-            global::Utos.Workflow.V1.TransitionTarget subBuilder = new global::Utos.Workflow.V1.TransitionTarget();
+            global::Utos.Workflows.V1.TransitionTarget subBuilder = new global::Utos.Workflows.V1.TransitionTarget();
             if (actionCase_ == ActionOneofCase.Transition) {
               subBuilder.MergeFrom(Transition);
             }
@@ -920,7 +920,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1189,7 +1189,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1523,7 +1523,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1736,7 +1736,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2098,7 +2098,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2166,15 +2166,15 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "branches" field.</summary>
     public const int BranchesFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::Utos.Workflow.V1.PromiseBranch> _repeated_branches_codec
-        = pb::FieldCodec.ForMessage(26, global::Utos.Workflow.V1.PromiseBranch.Parser);
-    private readonly pbc::RepeatedField<global::Utos.Workflow.V1.PromiseBranch> branches_ = new pbc::RepeatedField<global::Utos.Workflow.V1.PromiseBranch>();
+    private static readonly pb::FieldCodec<global::Utos.Workflows.V1.PromiseBranch> _repeated_branches_codec
+        = pb::FieldCodec.ForMessage(26, global::Utos.Workflows.V1.PromiseBranch.Parser);
+    private readonly pbc::RepeatedField<global::Utos.Workflows.V1.PromiseBranch> branches_ = new pbc::RepeatedField<global::Utos.Workflows.V1.PromiseBranch>();
     /// <summary>
     /// Branches to execute concurrently
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Utos.Workflow.V1.PromiseBranch> Branches {
+    public pbc::RepeatedField<global::Utos.Workflows.V1.PromiseBranch> Branches {
       get { return branches_; }
     }
 
@@ -2376,7 +2376,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2427,13 +2427,13 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "for_each" field.</summary>
     public const int ForEachFieldNumber = 2;
-    private global::Utos.Workflow.V1.ForEachConfig forEach_;
+    private global::Utos.Workflows.V1.ForEachConfig forEach_;
     /// <summary>
     /// Optional; expands this branch once per item in the collection
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.ForEachConfig ForEach {
+    public global::Utos.Workflows.V1.ForEachConfig ForEach {
       get { return forEach_; }
       set {
         forEach_ = value;
@@ -2473,13 +2473,13 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "target" field.</summary>
     public const int TargetFieldNumber = 4;
-    private global::Utos.Workflow.V1.TransitionTarget target_;
+    private global::Utos.Workflows.V1.TransitionTarget target_;
     /// <summary>
     /// Which activity to start and input mapping for this branch
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.TransitionTarget Target {
+    public global::Utos.Workflows.V1.TransitionTarget Target {
       get { return target_; }
       set {
         target_ = value;
@@ -2615,7 +2615,7 @@ namespace Utos.Workflow.V1 {
       }
       if (other.forEach_ != null) {
         if (forEach_ == null) {
-          ForEach = new global::Utos.Workflow.V1.ForEachConfig();
+          ForEach = new global::Utos.Workflows.V1.ForEachConfig();
         }
         ForEach.MergeFrom(other.ForEach);
       }
@@ -2624,7 +2624,7 @@ namespace Utos.Workflow.V1 {
       }
       if (other.target_ != null) {
         if (target_ == null) {
-          Target = new global::Utos.Workflow.V1.TransitionTarget();
+          Target = new global::Utos.Workflows.V1.TransitionTarget();
         }
         Target.MergeFrom(other.Target);
       }
@@ -2653,7 +2653,7 @@ namespace Utos.Workflow.V1 {
           }
           case 18: {
             if (forEach_ == null) {
-              ForEach = new global::Utos.Workflow.V1.ForEachConfig();
+              ForEach = new global::Utos.Workflows.V1.ForEachConfig();
             }
             input.ReadMessage(ForEach);
             break;
@@ -2664,7 +2664,7 @@ namespace Utos.Workflow.V1 {
           }
           case 34: {
             if (target_ == null) {
-              Target = new global::Utos.Workflow.V1.TransitionTarget();
+              Target = new global::Utos.Workflows.V1.TransitionTarget();
             }
             input.ReadMessage(Target);
             break;
@@ -2694,7 +2694,7 @@ namespace Utos.Workflow.V1 {
           }
           case 18: {
             if (forEach_ == null) {
-              ForEach = new global::Utos.Workflow.V1.ForEachConfig();
+              ForEach = new global::Utos.Workflows.V1.ForEachConfig();
             }
             input.ReadMessage(ForEach);
             break;
@@ -2705,7 +2705,7 @@ namespace Utos.Workflow.V1 {
           }
           case 34: {
             if (target_ == null) {
-              Target = new global::Utos.Workflow.V1.TransitionTarget();
+              Target = new global::Utos.Workflows.V1.TransitionTarget();
             }
             input.ReadMessage(Target);
             break;
@@ -2735,7 +2735,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.ActivityReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

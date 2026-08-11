@@ -19,7 +19,7 @@ i.e. proto3 JSON mapping → RFC 8785 (JSON Canonicalization Scheme) → SHA-256
 ## API
 
 ```csharp
-using Utos.Workflow.V1;
+using Utos.Workflows.V1;
 
 WorkflowBundle bundle = ...;
 

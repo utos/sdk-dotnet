@@ -54,7 +54,7 @@ namespace Utos.Daemon.V1 {
             "LnYxLkdldEhlYWx0aFJlc3BvbnNlQhGqAg5VdG9zLkRhZW1vbi5WMWIGcHJv",
             "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Utos.Workflow.V1.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Utos.Daemon.V1.LogLevel), typeof(global::Utos.Daemon.V1.HealthStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WatchExecutionRequest), global::Utos.Daemon.V1.WatchExecutionRequest.Parser, new[]{ "ExecutionId", "Source", "Category", "Level", "Tail", "After" }, new[]{ "Position", "Source", "Category", "Level" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WatchExecutionResponse), global::Utos.Daemon.V1.WatchExecutionResponse.Parser, new[]{ "Source", "Category", "Level", "Message", "Timestamp", "Status", "Error" }, new[]{ "Category", "Status", "Error" }, null, null, null),
@@ -751,13 +751,13 @@ namespace Utos.Daemon.V1 {
 
     /// <summary>Field number for the "error" field.</summary>
     public const int ErrorFieldNumber = 7;
-    private global::Utos.Workflow.V1.WorkflowError error_;
+    private global::Utos.Workflows.V1.WorkflowError error_;
     /// <summary>
     /// Structured failure details; set on the transition to FAILED.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowError Error {
+    public global::Utos.Workflows.V1.WorkflowError Error {
       get { return error_; }
       set {
         error_ = value;
@@ -950,7 +950,7 @@ namespace Utos.Daemon.V1 {
       }
       if (other.error_ != null) {
         if (error_ == null) {
-          Error = new global::Utos.Workflow.V1.WorkflowError();
+          Error = new global::Utos.Workflows.V1.WorkflowError();
         }
         Error.MergeFrom(other.Error);
       }
@@ -1002,7 +1002,7 @@ namespace Utos.Daemon.V1 {
           }
           case 58: {
             if (error_ == null) {
-              Error = new global::Utos.Workflow.V1.WorkflowError();
+              Error = new global::Utos.Workflows.V1.WorkflowError();
             }
             input.ReadMessage(Error);
             break;
@@ -1055,7 +1055,7 @@ namespace Utos.Daemon.V1 {
           }
           case 58: {
             if (error_ == null) {
-              Error = new global::Utos.Workflow.V1.WorkflowError();
+              Error = new global::Utos.Workflows.V1.WorkflowError();
             }
             input.ReadMessage(Error);
             break;

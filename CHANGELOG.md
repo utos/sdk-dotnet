@@ -13,6 +13,25 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ### Added
 
+- **`Utos.Workflow.Validation`** — a new package implementing the bundle validation rules from
+  [`docs/workflow-validation.md`](https://github.com/utos/api/blob/main/docs/workflow-validation.md).
+  `WorkflowBundleValidator.Validate(bundle)` returns a `ValidationReport` of coded,
+  path-addressed `ValidationIssue`s — e.g. `UTOS-C102` at
+  `workflows["acme/greet:1.0.0"].spec.activities["send"].http.url` — reported exhaustively rather
+  than fail-fast. **No third-party dependencies**: a validation framework forced on every consumer
+  of a spec package could not be walked back without a breaking change, and its flattened message
+  strings would not survive the trip to another language. Only `code` and `path` are contractual;
+  message wording is free to improve.
+- **Spec primitives in `Utos.Workflow`** (`Utos.Workflows.V1`), beside the existing digest helper:
+  `SemanticVersion` (full semver precedence; build metadata excluded from equality, since the
+  version forms part of a dictionary key), `WorkflowIdentity` (the canonical
+  `[registry/][namespace/]name:version` bundle key), `WorkflowRef` (a *partial* reference as a user
+  types it — optional version, optional `@sha256:` pin), plus the fixed vocabularies
+  `WorkflowDocument`, `ReservedKeywords`, `PromiseModes` and `HttpUrlRules`.
+- **Conformance test suite** driven by fixtures vendored from `utos/api` into `conformance/`,
+  asserting exact `{code, path}` sets. The release workflow vendors that directory alongside
+  `proto/`, so the corpus cannot drift from the spec.
+
 - **Content digest for `WorkflowBundle`** (`Utos.Workflow`). `ContentDigest.Compute` /
   `WorkflowBundle.ComputeContentDigest()` produce the canonical `sha256:<hex>` content
   identity carried by `WorkflowReference.digest`, following the spec's
@@ -23,6 +42,17 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
   The digest format is **not yet conformance-locked**: golden vectors are deferred until a
   cross-SDK reference set exists, and the SDK does not populate or enforce
   `WorkflowReference.digest` on daemon calls.
+
+### Changed
+
+- **The C# namespace for `utos.workflow.v1` is now `Utos.Workflows.V1`** (plural), following the
+  spec's `option csharp_namespace`. The singular form declared a namespace `Utos.Workflow` that
+  shadowed the `Workflow` message type for any consumer whose own namespace sits under `Utos.` —
+  and C# resolves simple names through enclosing namespaces *before* using-directives, so a
+  using-alias could not fix it, only full qualification. **Nothing on the wire changes**: the proto
+  package remains `utos.workflow.v1`, message full names are unchanged, and content digests are
+  identical. Consumers update their `using` directives. `Utos.Daemon.V1` is unaffected and every
+  package id is unchanged.
 
 ## [0.0.10.1] - 2026-07-20
 

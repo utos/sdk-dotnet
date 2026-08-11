@@ -1,13 +1,13 @@
 using System;
 using System.Text.RegularExpressions;
 using Google.Protobuf.WellKnownTypes;
-using Utos.Workflow.V1;
+using Utos.Workflows.V1;
 using Xunit;
 using Xunit.Abstractions;
 
 // The bare type name `Workflow` collides with the `Utos.Workflow` namespace inside this
 // test namespace, so reference the message type through an alias.
-using WorkflowMessage = Utos.Workflow.V1.Workflow;
+using WorkflowMessage = Utos.Workflows.V1.Workflow;
 
 namespace Utos.Workflow.Tests;
 
