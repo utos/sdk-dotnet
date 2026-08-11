@@ -54,6 +54,10 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
   identical. Consumers update their `using` directives. `Utos.Daemon.V1` is unaffected and every
   package id is unchanged.
 
+## [0.0.11] - 2026-08-11
+
+Generated from [`v0.0.11`](https://github.com/utos/api/releases/tag/v0.0.11) (`f2ff9084810c943c3c6db404b0e57f12858ecfea`). See the [spec changelog](https://github.com/utos/api/blob/v0.0.11/CHANGELOG.md).
+
 ## [0.0.10.1] - 2026-07-20
 
 SDK-only rebuild against [`v0.0.10`](https://github.com/utos/api/releases/tag/v0.0.10) (`949b56276cd87e2c2031469e0ecb2f32961a38a3`): codegen/runtime tooling bump, no spec change.
