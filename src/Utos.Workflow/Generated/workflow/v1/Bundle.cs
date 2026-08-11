@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Utos.Workflow.V1 {
+namespace Utos.Workflows.V1 {
 
   /// <summary>Holder for reflection information generated from workflow/v1/bundle.proto</summary>
   public static partial class BundleReflection {
@@ -29,12 +29,12 @@ namespace Utos.Workflow.V1 {
             "ZRITCgtlbnRyeV9wb2ludBgBIAEoCRJCCgl3b3JrZmxvd3MYAiADKAsyLy51",
             "dG9zLndvcmtmbG93LnYxLldvcmtmbG93QnVuZGxlLldvcmtmbG93c0VudHJ5",
             "GkwKDldvcmtmbG93c0VudHJ5EgsKA2tleRgBIAEoCRIpCgV2YWx1ZRgCIAEo",
-            "CzIaLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3c6AjgBQhOqAhBVdG9zLldv",
-            "cmtmbG93LlYxYgZwcm90bzM="));
+            "CzIaLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3c6AjgBQhSqAhFVdG9zLldv",
+            "cmtmbG93cy5WMWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Utos.Workflow.V1.WorkflowReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Utos.Workflows.V1.WorkflowReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowBundle), global::Utos.Workflow.V1.WorkflowBundle.Parser, new[]{ "EntryPoint", "Workflows" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowBundle), global::Utos.Workflows.V1.WorkflowBundle.Parser, new[]{ "EntryPoint", "Workflows" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -61,7 +61,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.BundleReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Utos.Workflows.V1.BundleReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -110,9 +110,9 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "workflows" field.</summary>
     public const int WorkflowsFieldNumber = 2;
-    private static readonly pbc::MapField<string, global::Utos.Workflow.V1.Workflow>.Codec _map_workflows_codec
-        = new pbc::MapField<string, global::Utos.Workflow.V1.Workflow>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Utos.Workflow.V1.Workflow.Parser), 18);
-    private readonly pbc::MapField<string, global::Utos.Workflow.V1.Workflow> workflows_ = new pbc::MapField<string, global::Utos.Workflow.V1.Workflow>();
+    private static readonly pbc::MapField<string, global::Utos.Workflows.V1.Workflow>.Codec _map_workflows_codec
+        = new pbc::MapField<string, global::Utos.Workflows.V1.Workflow>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Utos.Workflows.V1.Workflow.Parser), 18);
+    private readonly pbc::MapField<string, global::Utos.Workflows.V1.Workflow> workflows_ = new pbc::MapField<string, global::Utos.Workflows.V1.Workflow>();
     /// <summary>
     /// The entry-point workflow together with all transitive dependencies, each
     /// keyed by its canonical identity.
@@ -131,7 +131,7 @@ namespace Utos.Workflow.V1 {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<string, global::Utos.Workflow.V1.Workflow> Workflows {
+    public pbc::MapField<string, global::Utos.Workflows.V1.Workflow> Workflows {
       get { return workflows_; }
     }
 

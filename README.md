@@ -10,7 +10,7 @@ package ships with SourceLink + symbols for step-into debugging.
 
 | Package | Use it when you… | Contains | Depends on |
 |---------|------------------|----------|------------|
-| [`Utos.Workflow`](https://www.nuget.org/packages/Utos.Workflow) | define or represent Utos workflows | `utos.workflow.v1` message types (`Workflow`, `WorkflowBundle`, activities) | `Google.Protobuf` |
+| [`Utos.Workflow`](https://www.nuget.org/packages/Utos.Workflow) | define or represent Utos workflows | `Utos.Workflows.V1` message types (`Workflow`, `WorkflowBundle`, activities) | `Google.Protobuf` |
 | [`Utos.Daemon.Client`](https://www.nuget.org/packages/Utos.Daemon.Client) | call a Utos daemon | `utos.daemon.v1` messages + gRPC **client** stubs | `Grpc.Core.Api`, `Utos.Workflow` |
 | [`Utos.Daemon.Server`](https://www.nuget.org/packages/Utos.Daemon.Server) | implement a Utos daemon | `utos.daemon.v1` messages + gRPC **server** base classes | `Grpc.Core.Api`, `Utos.Workflow` |
 

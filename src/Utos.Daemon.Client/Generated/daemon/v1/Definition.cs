@@ -56,7 +56,7 @@ namespace Utos.Daemon.V1 {
             "VW5sb2FkV29ya2Zsb3dSZXNwb25zZUIRqgIOVXRvcy5EYWVtb24uVjFiBnBy",
             "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Utos.Workflow.V1.BundleReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Utos.Workflows.V1.BundleReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.LoadWorkflowRequest), global::Utos.Daemon.V1.LoadWorkflowRequest.Parser, new[]{ "Bundle" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.LoadWorkflowResponse), global::Utos.Daemon.V1.LoadWorkflowResponse.Parser, new[]{ "Reference" }, null, null, null, null),
@@ -120,14 +120,14 @@ namespace Utos.Daemon.V1 {
 
     /// <summary>Field number for the "bundle" field.</summary>
     public const int BundleFieldNumber = 1;
-    private global::Utos.Workflow.V1.WorkflowBundle bundle_;
+    private global::Utos.Workflows.V1.WorkflowBundle bundle_;
     /// <summary>
     /// Fully-resolved bundle to load. Its identity is taken from the metadata of
     /// the entry_point workflow (namespace/name/version).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowBundle Bundle {
+    public global::Utos.Workflows.V1.WorkflowBundle Bundle {
       get { return bundle_; }
       set {
         bundle_ = value;
@@ -221,7 +221,7 @@ namespace Utos.Daemon.V1 {
       }
       if (other.bundle_ != null) {
         if (bundle_ == null) {
-          Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
+          Bundle = new global::Utos.Workflows.V1.WorkflowBundle();
         }
         Bundle.MergeFrom(other.Bundle);
       }
@@ -246,7 +246,7 @@ namespace Utos.Daemon.V1 {
             break;
           case 10: {
             if (bundle_ == null) {
-              Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
+              Bundle = new global::Utos.Workflows.V1.WorkflowBundle();
             }
             input.ReadMessage(Bundle);
             break;
@@ -272,7 +272,7 @@ namespace Utos.Daemon.V1 {
             break;
           case 10: {
             if (bundle_ == null) {
-              Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
+              Bundle = new global::Utos.Workflows.V1.WorkflowBundle();
             }
             input.ReadMessage(Bundle);
             break;
@@ -1440,13 +1440,13 @@ namespace Utos.Daemon.V1 {
 
     /// <summary>Field number for the "bundle" field.</summary>
     public const int BundleFieldNumber = 2;
-    private global::Utos.Workflow.V1.WorkflowBundle bundle_;
+    private global::Utos.Workflows.V1.WorkflowBundle bundle_;
     /// <summary>
     /// Full workflow bundle as loaded.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowBundle Bundle {
+    public global::Utos.Workflows.V1.WorkflowBundle Bundle {
       get { return bundle_; }
       set {
         bundle_ = value;
@@ -1587,7 +1587,7 @@ namespace Utos.Daemon.V1 {
       }
       if (other.bundle_ != null) {
         if (bundle_ == null) {
-          Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
+          Bundle = new global::Utos.Workflows.V1.WorkflowBundle();
         }
         Bundle.MergeFrom(other.Bundle);
       }
@@ -1625,7 +1625,7 @@ namespace Utos.Daemon.V1 {
           }
           case 18: {
             if (bundle_ == null) {
-              Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
+              Bundle = new global::Utos.Workflows.V1.WorkflowBundle();
             }
             input.ReadMessage(Bundle);
             break;
@@ -1665,7 +1665,7 @@ namespace Utos.Daemon.V1 {
           }
           case 18: {
             if (bundle_ == null) {
-              Bundle = new global::Utos.Workflow.V1.WorkflowBundle();
+              Bundle = new global::Utos.Workflows.V1.WorkflowBundle();
             }
             input.ReadMessage(Bundle);
             break;

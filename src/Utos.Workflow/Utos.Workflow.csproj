@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>Utos.Workflow</PackageId>
     <RootNamespace>Utos.Workflow</RootNamespace>
-    <Description>Utos workflow format types (utos.workflow.v1): Workflow, WorkflowBundle, activities and related messages. Generated from the Utos API specification. Shared by daemon implementers and callers.</Description>
+    <Description>Utos workflow format types (Utos.Workflows.V1): Workflow, WorkflowBundle, activities and related messages. Generated from the Utos API specification. Shared by daemon implementers and callers.</Description>
     <PackageTags>utos;workflow;protobuf;grpc</PackageTags>
   </PropertyGroup>
 
@@ -15,15 +15,18 @@
   </ItemGroup>
 
   <!--
-    Hand-written source (the content-digest helper). Kept OUTSIDE Generated/ so protoc
-    regeneration and the CI drift guard never touch it. EnableDefaultCompileItems=false
-    (see Directory.Build.props) means these must be added explicitly.
+    Hand-written source: the content-digest helper (Digest/) and the spec primitives the protos
+    cannot express — semantic versions, canonical identity, reference parsing, and the fixed
+    vocabularies (Spec/). Kept OUTSIDE Generated/ so protoc regeneration and the CI drift guard
+    never touch them. EnableDefaultCompileItems=false (see Directory.Build.props) means these
+    must be added explicitly.
   -->
   <ItemGroup>
     <Compile Include="Digest\**\*.cs" />
+    <Compile Include="Spec\**\*.cs" />
   </ItemGroup>
 
-  <!-- Messages only (no services in utos.workflow.v1). Regenerated in-place into the committed Generated/ folder. -->
+  <!-- Messages only (no services in Utos.Workflows.V1). Regenerated in-place into the committed Generated/ folder. -->
   <ItemGroup>
     <Protobuf Include="..\..\proto\workflow\v1\*.proto"
               ProtoRoot="..\..\proto"

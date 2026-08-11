@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Utos.Workflow.Validation</PackageId>
+    <RootNamespace>Utos.Workflows.V1.Validation</RootNamespace>
+    <Description>Validation rules for Utos workflow bundles, as specified by api/docs/workflow-validation.md. Reports coded, path-addressed issues so the CLI, the daemon and every tool enforce one rule set. No third-party dependencies.</Description>
+    <PackageTags>utos;workflow;validation;protobuf</PackageTags>
+  </PropertyGroup>
+
+  <!--
+    Deliberately depends on Utos.Workflow and nothing else. A validation framework forced on
+    every consumer of a spec package would be an imposition that cannot be walked back without a
+    breaking change, and its flattened message strings would not survive the trip to another
+    language anyway. Callers that want FluentValidation can adapt ValidationReport in a few lines.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\Utos.Workflow\Utos.Workflow.csproj" />
+  </ItemGroup>
+
+  <!-- All source here is hand-written; EnableDefaultCompileItems=false (see Directory.Build.props). -->
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="bin\**\*.cs;obj\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\CHANGELOG.md" Pack="true" PackagePath="docs\" Visible="false" />
+  </ItemGroup>
+
+</Project>

@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Utos.Workflow.V1 {
+namespace Utos.Workflows.V1 {
 
   /// <summary>Holder for reflection information generated from workflow/v1/common.proto</summary>
   public static partial class CommonReflection {
@@ -28,11 +28,11 @@ namespace Utos.Workflow.V1 {
             "HGdvb2dsZS9wcm90b2J1Zi9zdHJ1Y3QucHJvdG8iaQoNV29ya2Zsb3dFcnJv",
             "chIMCgRjb2RlGAEgASgJEg8KB21lc3NhZ2UYAiABKAkSLQoHZGV0YWlscxgD",
             "IAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIAIgBAUIKCghfZGV0YWls",
-            "c0ITqgIQVXRvcy5Xb3JrZmxvdy5WMWIGcHJvdG8z"));
+            "c0IUqgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowError), global::Utos.Workflow.V1.WorkflowError.Parser, new[]{ "Code", "Message", "Details" }, new[]{ "Details" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowError), global::Utos.Workflows.V1.WorkflowError.Parser, new[]{ "Code", "Message", "Details" }, new[]{ "Details" }, null, null, null)
           }));
     }
     #endregion
@@ -57,7 +57,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.CommonReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Utos.Workflows.V1.CommonReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

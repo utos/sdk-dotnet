@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Utos.Workflow.V1 {
+namespace Utos.Workflows.V1 {
 
   /// <summary>Holder for reflection information generated from workflow/v1/workflow.proto</summary>
   public static partial class WorkflowReflection {
@@ -39,13 +39,13 @@ namespace Utos.Workflow.V1 {
             "ZXNFbnRyeRozChFEZXBlbmRlbmNpZXNFbnRyeRILCgNrZXkYASABKAkSDQoF",
             "dmFsdWUYAiABKAk6AjgBGlUKD0FjdGl2aXRpZXNFbnRyeRILCgNrZXkYASAB",
             "KAkSMQoFdmFsdWUYAiABKAsyIi51dG9zLndvcmtmbG93LnYxLldvcmtmbG93",
-            "QWN0aXZpdHk6AjgBQhOqAhBVdG9zLldvcmtmbG93LlYxYgZwcm90bzM="));
+            "QWN0aXZpdHk6AjgBQhSqAhFVdG9zLldvcmtmbG93cy5WMWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Utos.Workflow.V1.ActivityReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Utos.Workflows.V1.ActivityReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowMetadata), global::Utos.Workflow.V1.WorkflowMetadata.Parser, new[]{ "Name", "Version", "Description", "Namespace", "Registry" }, new[]{ "Description", "Namespace", "Registry" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.Workflow), global::Utos.Workflow.V1.Workflow.Parser, new[]{ "ApiVersion", "Kind", "Metadata", "Spec" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflow.V1.WorkflowSpec), global::Utos.Workflow.V1.WorkflowSpec.Parser, new[]{ "Dependencies", "Activities" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowMetadata), global::Utos.Workflows.V1.WorkflowMetadata.Parser, new[]{ "Name", "Version", "Description", "Namespace", "Registry" }, new[]{ "Description", "Namespace", "Registry" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.Workflow), global::Utos.Workflows.V1.Workflow.Parser, new[]{ "ApiVersion", "Kind", "Metadata", "Spec" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowSpec), global::Utos.Workflows.V1.WorkflowSpec.Parser, new[]{ "Dependencies", "Activities" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
           }));
     }
     #endregion
@@ -75,7 +75,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.WorkflowReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Utos.Workflows.V1.WorkflowReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -484,7 +484,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.WorkflowReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Utos.Workflows.V1.WorkflowReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -554,13 +554,13 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "metadata" field.</summary>
     public const int MetadataFieldNumber = 3;
-    private global::Utos.Workflow.V1.WorkflowMetadata metadata_;
+    private global::Utos.Workflows.V1.WorkflowMetadata metadata_;
     /// <summary>
     /// Workflow metadata
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowMetadata Metadata {
+    public global::Utos.Workflows.V1.WorkflowMetadata Metadata {
       get { return metadata_; }
       set {
         metadata_ = value;
@@ -569,13 +569,13 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "spec" field.</summary>
     public const int SpecFieldNumber = 4;
-    private global::Utos.Workflow.V1.WorkflowSpec spec_;
+    private global::Utos.Workflows.V1.WorkflowSpec spec_;
     /// <summary>
     /// Workflow specification
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflow.V1.WorkflowSpec Spec {
+    public global::Utos.Workflows.V1.WorkflowSpec Spec {
       get { return spec_; }
       set {
         spec_ = value;
@@ -714,13 +714,13 @@ namespace Utos.Workflow.V1 {
       }
       if (other.metadata_ != null) {
         if (metadata_ == null) {
-          Metadata = new global::Utos.Workflow.V1.WorkflowMetadata();
+          Metadata = new global::Utos.Workflows.V1.WorkflowMetadata();
         }
         Metadata.MergeFrom(other.Metadata);
       }
       if (other.spec_ != null) {
         if (spec_ == null) {
-          Spec = new global::Utos.Workflow.V1.WorkflowSpec();
+          Spec = new global::Utos.Workflows.V1.WorkflowSpec();
         }
         Spec.MergeFrom(other.Spec);
       }
@@ -753,14 +753,14 @@ namespace Utos.Workflow.V1 {
           }
           case 26: {
             if (metadata_ == null) {
-              Metadata = new global::Utos.Workflow.V1.WorkflowMetadata();
+              Metadata = new global::Utos.Workflows.V1.WorkflowMetadata();
             }
             input.ReadMessage(Metadata);
             break;
           }
           case 34: {
             if (spec_ == null) {
-              Spec = new global::Utos.Workflow.V1.WorkflowSpec();
+              Spec = new global::Utos.Workflows.V1.WorkflowSpec();
             }
             input.ReadMessage(Spec);
             break;
@@ -794,14 +794,14 @@ namespace Utos.Workflow.V1 {
           }
           case 26: {
             if (metadata_ == null) {
-              Metadata = new global::Utos.Workflow.V1.WorkflowMetadata();
+              Metadata = new global::Utos.Workflows.V1.WorkflowMetadata();
             }
             input.ReadMessage(Metadata);
             break;
           }
           case 34: {
             if (spec_ == null) {
-              Spec = new global::Utos.Workflow.V1.WorkflowSpec();
+              Spec = new global::Utos.Workflows.V1.WorkflowSpec();
             }
             input.ReadMessage(Spec);
             break;
@@ -831,7 +831,7 @@ namespace Utos.Workflow.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflow.V1.WorkflowReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Utos.Workflows.V1.WorkflowReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -886,9 +886,9 @@ namespace Utos.Workflow.V1 {
 
     /// <summary>Field number for the "activities" field.</summary>
     public const int ActivitiesFieldNumber = 2;
-    private static readonly pbc::MapField<string, global::Utos.Workflow.V1.WorkflowActivity>.Codec _map_activities_codec
-        = new pbc::MapField<string, global::Utos.Workflow.V1.WorkflowActivity>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Utos.Workflow.V1.WorkflowActivity.Parser), 18);
-    private readonly pbc::MapField<string, global::Utos.Workflow.V1.WorkflowActivity> activities_ = new pbc::MapField<string, global::Utos.Workflow.V1.WorkflowActivity>();
+    private static readonly pbc::MapField<string, global::Utos.Workflows.V1.WorkflowActivity>.Codec _map_activities_codec
+        = new pbc::MapField<string, global::Utos.Workflows.V1.WorkflowActivity>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Utos.Workflows.V1.WorkflowActivity.Parser), 18);
+    private readonly pbc::MapField<string, global::Utos.Workflows.V1.WorkflowActivity> activities_ = new pbc::MapField<string, global::Utos.Workflows.V1.WorkflowActivity>();
     /// <summary>
     /// Map of activity name to activity definition. Activity names (the keys) are
     /// referenced by TransitionTarget.name; the terminal keywords "end" and "error"
@@ -896,7 +896,7 @@ namespace Utos.Workflow.V1 {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<string, global::Utos.Workflow.V1.WorkflowActivity> Activities {
+    public pbc::MapField<string, global::Utos.Workflows.V1.WorkflowActivity> Activities {
       get { return activities_; }
     }
 
