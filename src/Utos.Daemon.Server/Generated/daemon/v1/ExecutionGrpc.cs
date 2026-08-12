@@ -58,6 +58,14 @@ namespace Utos.Daemon.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Utos.Daemon.V1.ListExecutionsResponse> __Marshaller_utos_daemon_v1_ListExecutionsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.ListExecutionsResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Utos.Daemon.V1.WatchOutputRequest> __Marshaller_utos_daemon_v1_WatchOutputRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.WatchOutputRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Utos.Daemon.V1.WatchOutputResponse> __Marshaller_utos_daemon_v1_WatchOutputResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.WatchOutputResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Utos.Daemon.V1.CancelExecutionRequest> __Marshaller_utos_daemon_v1_CancelExecutionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.CancelExecutionRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Utos.Daemon.V1.CancelExecutionResponse> __Marshaller_utos_daemon_v1_CancelExecutionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.CancelExecutionResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Utos.Daemon.V1.DeleteExecutionRequest> __Marshaller_utos_daemon_v1_DeleteExecutionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.DeleteExecutionRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Utos.Daemon.V1.DeleteExecutionResponse> __Marshaller_utos_daemon_v1_DeleteExecutionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Utos.Daemon.V1.DeleteExecutionResponse.Parser));
@@ -85,6 +93,22 @@ namespace Utos.Daemon.V1 {
         "ListExecutions",
         __Marshaller_utos_daemon_v1_ListExecutionsRequest,
         __Marshaller_utos_daemon_v1_ListExecutionsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Utos.Daemon.V1.WatchOutputRequest, global::Utos.Daemon.V1.WatchOutputResponse> __Method_WatchOutput = new grpc::Method<global::Utos.Daemon.V1.WatchOutputRequest, global::Utos.Daemon.V1.WatchOutputResponse>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "WatchOutput",
+        __Marshaller_utos_daemon_v1_WatchOutputRequest,
+        __Marshaller_utos_daemon_v1_WatchOutputResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Utos.Daemon.V1.CancelExecutionRequest, global::Utos.Daemon.V1.CancelExecutionResponse> __Method_CancelExecution = new grpc::Method<global::Utos.Daemon.V1.CancelExecutionRequest, global::Utos.Daemon.V1.CancelExecutionResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CancelExecution",
+        __Marshaller_utos_daemon_v1_CancelExecutionRequest,
+        __Marshaller_utos_daemon_v1_CancelExecutionResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Utos.Daemon.V1.DeleteExecutionRequest, global::Utos.Daemon.V1.DeleteExecutionResponse> __Method_DeleteExecution = new grpc::Method<global::Utos.Daemon.V1.DeleteExecutionRequest, global::Utos.Daemon.V1.DeleteExecutionResponse>(
@@ -141,13 +165,66 @@ namespace Utos.Daemon.V1 {
       }
 
       /// <summary>
+      /// Stream an execution's output — the values it emitted and its terminal
+      /// result — in order, from a cursor. See docs/execution-output-stream.md.
+      ///
+      /// This is a data stream, deliberately separate from
+      /// ObservabilityService.WatchExecution, which carries log lines. Emitted
+      /// values are what a workflow produced, not a record of what it did, and
+      /// folding them into a filterable log stream would let a `level` filter drop
+      /// them.
+      ///
+      /// Callers here are observers: reading never gates the producer, however far
+      /// behind the cursor falls. Only a `workflow.call` parent that declared
+      /// `on_emitted` gates.
+      ///
+      /// The stream ends after the terminal entry. Watching an execution that has
+      /// already finished replays its recorded entries and then ends, so a cursor
+      /// survives disconnects, daemon restarts, and reconnects.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task WatchOutput(global::Utos.Daemon.V1.WatchOutputRequest request, grpc::IServerStreamWriter<global::Utos.Daemon.V1.WatchOutputResponse> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Stop a running execution. Permitted while SCHEDULED or ACTIVE; the
+      /// execution reaches the terminal status CANCELLED.
+      ///
+      /// Idempotent: cancelling an already-CANCELLED execution returns OK. An
+      /// execution that already reached COMPLETED or FAILED stays there and returns
+      /// FAILED_PRECONDITION — the first terminal state wins, because the daemon's
+      /// delivery is at-least-once and a late cancel must not rewrite history.
+      /// Unknown execution_id returns NOT_FOUND.
+      ///
+      /// Cancellation cascades to sub-workflows this run is awaiting, since their
+      /// results can no longer be observed — that is, sub-workflows invoked with
+      /// `workflow.call`. It does NOT touch executions started with
+      /// `workflow.spawn` — those are independent top-level executions with their
+      /// own lifecycle, and must be cancelled by id.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Utos.Daemon.V1.CancelExecutionResponse> CancelExecution(global::Utos.Daemon.V1.CancelExecutionRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
       /// Delete a terminal execution's record (its summary, input/env, and the
       /// snapshotted bundle). Permitted only when the execution is terminal
-      /// (COMPLETED or FAILED); a SCHEDULED or ACTIVE execution returns
-      /// FAILED_PRECONDITION and must be cancelled first (cancellation is a separate
-      /// concern, not yet defined). Unknown execution_id returns NOT_FOUND. Does not
-      /// affect any detached sub-workflow executions this run started — those are
-      /// independent top-level executions with their own records.
+      /// (COMPLETED, FAILED, or CANCELLED); a SCHEDULED or ACTIVE execution returns
+      /// FAILED_PRECONDITION and must be cancelled first, via CancelExecution.
+      /// Unknown execution_id returns NOT_FOUND. Does not affect any sub-workflow
+      /// executions this run started with `workflow.spawn` — those are independent
+      /// top-level executions with their own records.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -169,6 +246,8 @@ namespace Utos.Daemon.V1 {
           .AddMethod(__Method_ScheduleExecution, serviceImpl.ScheduleExecution)
           .AddMethod(__Method_GetExecution, serviceImpl.GetExecution)
           .AddMethod(__Method_ListExecutions, serviceImpl.ListExecutions)
+          .AddMethod(__Method_WatchOutput, serviceImpl.WatchOutput)
+          .AddMethod(__Method_CancelExecution, serviceImpl.CancelExecution)
           .AddMethod(__Method_DeleteExecution, serviceImpl.DeleteExecution).Build();
     }
 
@@ -182,6 +261,8 @@ namespace Utos.Daemon.V1 {
       serviceBinder.AddMethod(__Method_ScheduleExecution, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Utos.Daemon.V1.ScheduleExecutionRequest, global::Utos.Daemon.V1.ScheduleExecutionResponse>(serviceImpl.ScheduleExecution));
       serviceBinder.AddMethod(__Method_GetExecution, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Utos.Daemon.V1.GetExecutionRequest, global::Utos.Daemon.V1.GetExecutionResponse>(serviceImpl.GetExecution));
       serviceBinder.AddMethod(__Method_ListExecutions, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Utos.Daemon.V1.ListExecutionsRequest, global::Utos.Daemon.V1.ListExecutionsResponse>(serviceImpl.ListExecutions));
+      serviceBinder.AddMethod(__Method_WatchOutput, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Utos.Daemon.V1.WatchOutputRequest, global::Utos.Daemon.V1.WatchOutputResponse>(serviceImpl.WatchOutput));
+      serviceBinder.AddMethod(__Method_CancelExecution, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Utos.Daemon.V1.CancelExecutionRequest, global::Utos.Daemon.V1.CancelExecutionResponse>(serviceImpl.CancelExecution));
       serviceBinder.AddMethod(__Method_DeleteExecution, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Utos.Daemon.V1.DeleteExecutionRequest, global::Utos.Daemon.V1.DeleteExecutionResponse>(serviceImpl.DeleteExecution));
     }
 

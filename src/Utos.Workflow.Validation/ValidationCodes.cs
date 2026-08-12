@@ -48,6 +48,7 @@ namespace Utos.Workflows.V1.Validation
         public const string TransitionActionRequired = "UTOS-T001";
         public const string TransitionTargetRequired = "UTOS-T002";
         public const string TransitionTargetUnresolved = "UTOS-T003";
+        public const string EmitTransitionRequired = "UTOS-T004";
 
         // HTTP configuration
         public const string HttpUrlRequired = "UTOS-C101";
@@ -58,8 +59,11 @@ namespace Utos.Workflows.V1.Validation
         public const string TimerDurationRequired = "UTOS-C201";
         public const string TimerDurationNotPositive = "UTOS-C202";
 
-        // Promise configuration
-        public const string PromiseModeInvalid = "UTOS-C301";
+        // Promise configuration.
+        // UTOS-C301 (promise mode must be one of all/any/race/count) is RETIRED: the completion
+        // mode is a oneof, so an unknown mode is unrepresentable and an unset one is UTOS-A007.
+        // The code stays burned rather than reused — codes are a stable contract, and recycling
+        // one would silently change the meaning of a suppression somebody already wrote down.
         public const string PromiseRequiredCountInvalid = "UTOS-C302";
         public const string PromiseBranchesRequired = "UTOS-C303";
         public const string PromiseBranchNameRequired = "UTOS-C304";
@@ -70,6 +74,7 @@ namespace Utos.Workflows.V1.Validation
         public const string SubWorkflowRequired = "UTOS-C401";
         public const string SubWorkflowStartActivityRequired = "UTOS-C402";
         public const string SubWorkflowStartActivityUnresolved = "UTOS-C403";
+        public const string OnEmittedActionInvalid = "UTOS-C404";
 
         // Struct values
         public const string NonFiniteNumber = "UTOS-V001";
