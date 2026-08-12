@@ -13,6 +13,20 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ### Added
 
+- Regenerated against the upstream `0.0.12` protos: `CallActivityConfig`/`SpawnActivityConfig`,
+  the promise `completion` oneof, `EmitAction`, `ExecutionService.WatchOutput`/`CancelExecution`,
+  `EXECUTION_STATUS_CANCELLED`, and `GetExecutionResponse.result`
+- Validation for the new shapes: `UTOS-T004` (an `emit` requires a transition — it is the one
+  non-terminal action, so a rule that emits and goes nowhere strands the execution) and
+  `UTOS-C404` (an `onEmitted` rule must transition; `result` would end the parent mid-stream and
+  `emit` would republish a child's value onto the parent's own stream from inside the handler
+  consuming it)
+- `ActivityDescriptorTests` — asserts the descriptor invariants the source format's dotted `type`
+  discriminator relies on: no field name declared at two levels of one resolvable path (which is
+  what makes "place each authored key on the message along the path that declares it"
+  unambiguous), every path ending at a message with no remaining oneof, and the resolvable set
+  matching the documented table. These are properties of the protos rather than of any parser, so
+  they are pinned here instead of trusted to review
 - **`Utos.Workflow.Validation`** — a new package implementing the bundle validation rules from
   [`docs/workflow-validation.md`](https://github.com/utos/api/blob/main/docs/workflow-validation.md).
   `WorkflowBundleValidator.Validate(bundle)` returns a `ValidationReport` of coded,
@@ -45,6 +59,11 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ### Changed
 
+- **BREAKING**: `UTOS-A007` now also reports an unset nested mode — a `WorkflowActivityConfig`
+  with neither `call` nor `spawn`, or a `PromiseActivityConfig` with no `completion` — with the
+  `path` naming the level that is unset
+- **BREAKING**: `UTOS-C302` is no longer conditional on the mode and its `path` moves to
+  `promise.count.requiredCount`, since `requiredCount` now exists only on `PromiseCountConfig`
 - **The C# namespace for `utos.workflow.v1` is now `Utos.Workflows.V1`** (plural), following the
   spec's `option csharp_namespace`. The singular form declared a namespace `Utos.Workflow` that
   shadowed the `Workflow` message type for any consumer whose own namespace sits under `Utos.` —
@@ -53,6 +72,15 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
   package remains `utos.workflow.v1`, message full names are unchanged, and content digests are
   identical. Consumers update their `using` directives. `Utos.Daemon.V1` is unaffected and every
   package id is unchanged.
+
+### Removed
+
+- **BREAKING**: `PromiseModes` (`Utos.Workflows.V1.Spec`) — the string table the promise
+  `completion` oneof replaces. An unknown mode is no longer representable, so there is nothing
+  left to parse or check
+- **BREAKING**: `ValidationCodes.PromiseModeInvalid` (`UTOS-C301`) is **retired**, not renumbered.
+  The code stays burned because codes are a stable contract, and recycling one would silently
+  change the meaning of a suppression somebody had already written down
 
 ## [0.0.11] - 2026-08-11
 

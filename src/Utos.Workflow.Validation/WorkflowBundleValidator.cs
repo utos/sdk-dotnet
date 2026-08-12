@@ -235,7 +235,8 @@ namespace Utos.Workflows.V1.Validation
                     ValidatePromise(activity.Promise, Field(path, "promise"), activityNames, issues);
                     break;
                 case WorkflowActivity.ConfigOneofCase.Workflow:
-                    ValidateSubWorkflow(activity.Workflow, Field(path, "workflow"), bundle, issues);
+                    ValidateSubWorkflow(activity.Workflow, Field(path, "workflow"), activityNames,
+                        bundle, issues);
                     break;
                 default:
                     // The oneof cannot be set twice — protobuf enforces that structurally — but it
@@ -297,7 +298,7 @@ namespace Utos.Workflows.V1.Validation
             if (rule.ActionCase == TransitionRule.ActionOneofCase.None)
             {
                 Add(issues, ValidationCodes.TransitionActionRequired, path,
-                    "Transition rule must carry an action (transition or result).");
+                    "Transition rule must carry an action (transition, result or emit).");
                 return;
             }
 
@@ -305,10 +306,35 @@ namespace Utos.Workflows.V1.Validation
             {
                 ValidateTarget(rule.Transition, Field(path, "transition"), activityNames, issues);
             }
+            else if (rule.ActionCase == TransitionRule.ActionOneofCase.Emit)
+            {
+                ValidateEmit(rule.Emit, Field(path, "emit"), activityNames, issues);
+            }
             else if (rule.Result != null)
             {
                 ValidateStruct(rule.Result, Field(path, "result"), issues);
             }
+        }
+
+        private static void ValidateEmit(EmitAction emit, string path,
+            HashSet<string> activityNames, List<ValidationIssue> issues)
+        {
+            if (emit == null) return;
+
+            // `emit` is the one non-terminal action: it appends a value and carries on. A rule that
+            // emits without saying where to go next is a dead end rather than a return, so unlike
+            // `result` it needs a target.
+            if (emit.Transition == null)
+            {
+                Add(issues, ValidationCodes.EmitTransitionRequired, Field(path, "transition"),
+                    "An emit action requires a transition; emit appends a value and continues.");
+            }
+            else
+            {
+                ValidateTarget(emit.Transition, Field(path, "transition"), activityNames, issues);
+            }
+
+            if (emit.Value != null) ValidateStruct(emit.Value, Field(path, "value"), issues);
         }
 
         private static void ValidateTarget(TransitionTarget target, string path,
@@ -378,17 +404,22 @@ namespace Utos.Workflows.V1.Validation
         {
             if (config == null) return;
 
-            if (!PromiseModes.IsKnown(config.Mode))
+            // An unknown completion mode is no longer representable — that is what retiring
+            // UTOS-C301 in favour of the `completion` oneof bought. An *unset* one is still
+            // possible, and is UTOS-A007 like any other omitted configuration.
+            if (config.CompletionCase == PromiseActivityConfig.CompletionOneofCase.None)
             {
-                Add(issues, ValidationCodes.PromiseModeInvalid, Field(path, "mode"),
-                    "Promise mode must be one of " + string.Join(", ", PromiseModes.Names) + ".");
+                Add(issues, ValidationCodes.ActivityConfigRequired, path,
+                    "Promise activity must have exactly one completion mode set (all, any, race "
+                    + "or count).");
             }
-
-            if (string.Equals(config.Mode, PromiseModes.Count, StringComparison.Ordinal)
-                && config.RequiredCount <= 0)
+            else if (config.CompletionCase == PromiseActivityConfig.CompletionOneofCase.Count
+                     && config.Count.RequiredCount <= 0)
             {
-                Add(issues, ValidationCodes.PromiseRequiredCountInvalid, Field(path, "requiredCount"),
-                    "Promise mode 'count' requires requiredCount greater than zero.");
+                // requiredCount lives only on PromiseCountConfig now, so this needs no mode guard.
+                Add(issues, ValidationCodes.PromiseRequiredCountInvalid,
+                    Field(Field(path, "count"), "requiredCount"),
+                    "promise.count requires requiredCount greater than zero.");
             }
 
             if (config.Branches.Count == 0)
@@ -431,9 +462,23 @@ namespace Utos.Workflows.V1.Validation
         }
 
         private static void ValidateSubWorkflow(WorkflowActivityConfig config, string path,
-            WorkflowBundle bundle, List<ValidationIssue> issues)
+            HashSet<string> activityNames, WorkflowBundle bundle, List<ValidationIssue> issues)
         {
             if (config == null) return;
+
+            // call vs spawn changes what this activity returns and whether on_failure sees the
+            // child's runtime failures, so leaving it unset is as malformed as an activity with no
+            // configuration at all.
+            if (config.ModeCase == WorkflowActivityConfig.ModeOneofCase.None)
+            {
+                Add(issues, ValidationCodes.ActivityConfigRequired, path,
+                    "Sub-workflow activity must have exactly one mode set (call or spawn).");
+            }
+            else if (config.ModeCase == WorkflowActivityConfig.ModeOneofCase.Call)
+            {
+                ValidateOnEmitted(config.Call, Field(Field(path, "call"), "onEmitted"),
+                    activityNames, issues);
+            }
 
             Workflow target = null;
 
@@ -465,6 +510,36 @@ namespace Utos.Workflows.V1.Validation
             }
 
             if (config.Input != null) ValidateStruct(config.Input, Field(path, "input"), issues);
+        }
+
+        private static void ValidateOnEmitted(CallActivityConfig call, string path,
+            HashSet<string> activityNames, List<ValidationIssue> issues)
+        {
+            if (call == null) return;
+
+            for (int i = 0; i < call.OnEmitted.Count; i++)
+            {
+                TransitionRule rule = call.OnEmitted[i];
+                string rulePath = Index(path, i);
+
+                // UTOS-C404: an onEmitted rule is an ordinary transition rule.
+                ValidateTransitionRule(rule, rulePath, activityNames, issues);
+
+                if (rule == null) continue;
+
+                // UTOS-C405: and it must transition. A `result` would end the parent mid-stream
+                // while values were still arriving; an `emit` would republish the child's value
+                // onto the parent's own stream from inside the handler consuming it. The handler's
+                // job is to process one value and go back for the next.
+                if (rule.ActionCase != TransitionRule.ActionOneofCase.None
+                    && rule.ActionCase != TransitionRule.ActionOneofCase.Transition)
+                {
+                    Add(issues, ValidationCodes.OnEmittedActionInvalid, rulePath,
+                        "An onEmitted rule must carry a transition action; '"
+                        + rule.ActionCase.ToString().ToLowerInvariant() + "' has no meaning in an "
+                        + "emission handler.");
+                }
+            }
         }
 
         private static void ValidateStruct(Struct value, string path, List<ValidationIssue> issues)

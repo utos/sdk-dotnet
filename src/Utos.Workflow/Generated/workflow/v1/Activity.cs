@@ -34,40 +34,63 @@ namespace Utos.Workflows.V1 {
             "cy53b3JrZmxvdy52MS5Xb3JrZmxvd0FjdGl2aXR5Q29uZmlnSAASOgoHcHJv",
             "bWlzZRgMIAEoCzInLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZUFjdGl2aXR5",
             "Q29uZmlnSAASNgoFdGltZXIYDSABKAsyJS51dG9zLndvcmtmbG93LnYxLlRp",
-            "bWVyQWN0aXZpdHlDb25maWdIAEIICgZjb25maWcipQEKDlRyYW5zaXRpb25S",
+            "bWVyQWN0aXZpdHlDb25maWdIAEIICgZjb25maWci0wEKDlRyYW5zaXRpb25S",
             "dWxlEhYKCWNvbmRpdGlvbhgBIAEoCUgBiAEBEjgKCnRyYW5zaXRpb24YAiAB",
             "KAsyIi51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJnZXRIABIpCgZy",
-            "ZXN1bHQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SABCCAoGYWN0",
-            "aW9uQgwKCl9jb25kaXRpb24iVwoQVHJhbnNpdGlvblRhcmdldBIMCgRuYW1l",
-            "GAEgASgJEisKBWlucHV0GAIgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVj",
-            "dEgAiAEBQggKBl9pbnB1dCLBAQoSSHR0cEFjdGl2aXR5Q29uZmlnEg4KBm1l",
-            "dGhvZBgBIAEoCRILCgN1cmwYAiABKAkSQgoHaGVhZGVycxgDIAMoCzIxLnV0",
-            "b3Mud29ya2Zsb3cudjEuSHR0cEFjdGl2aXR5Q29uZmlnLkhlYWRlcnNFbnRy",
-            "eRIRCgRib2R5GAQgASgJSACIAQEaLgoMSGVhZGVyc0VudHJ5EgsKA2tleRgB",
-            "IAEoCRINCgV2YWx1ZRgCIAEoCToCOAFCBwoFX2JvZHkiQgoTVGltZXJBY3Rp",
-            "dml0eUNvbmZpZxIrCghkdXJhdGlvbhgBIAEoCzIZLmdvb2dsZS5wcm90b2J1",
-            "Zi5EdXJhdGlvbiJ8ChZXb3JrZmxvd0FjdGl2aXR5Q29uZmlnEhAKCHdvcmtm",
-            "bG93GAEgASgJEhYKDnN0YXJ0X2FjdGl2aXR5GAIgASgJEiYKBWlucHV0GAMg",
-            "ASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdBIQCghkZXRhY2hlZBgEIAEo",
-            "CCJwChVQcm9taXNlQWN0aXZpdHlDb25maWcSDAoEbW9kZRgBIAEoCRIWCg5y",
-            "ZXF1aXJlZF9jb3VudBgCIAEoBRIxCghicmFuY2hlcxgDIAMoCzIfLnV0b3Mu",
-            "d29ya2Zsb3cudjEuUHJvbWlzZUJyYW5jaCK8AQoNUHJvbWlzZUJyYW5jaBIM",
-            "CgRuYW1lGAEgASgJEjYKCGZvcl9lYWNoGAIgASgLMh8udXRvcy53b3JrZmxv",
-            "dy52MS5Gb3JFYWNoQ29uZmlnSACIAQESFgoJY29uZGl0aW9uGAMgASgJSAGI",
-            "AQESMgoGdGFyZ2V0GAQgASgLMiIudXRvcy53b3JrZmxvdy52MS5UcmFuc2l0",
-            "aW9uVGFyZ2V0QgsKCV9mb3JfZWFjaEIMCgpfY29uZGl0aW9uIjIKDUZvckVh",
-            "Y2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVhbGlhcxgCIAEoCUIU",
-            "qgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnByb3RvMw=="));
+            "ZXN1bHQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SAASLAoEZW1p",
+            "dBgEIAEoCzIcLnV0b3Mud29ya2Zsb3cudjEuRW1pdEFjdGlvbkgAQggKBmFj",
+            "dGlvbkIMCgpfY29uZGl0aW9uImwKCkVtaXRBY3Rpb24SJgoFdmFsdWUYASAB",
+            "KAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0EjYKCnRyYW5zaXRpb24YAiAB",
+            "KAsyIi51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJnZXQiVwoQVHJh",
+            "bnNpdGlvblRhcmdldBIMCgRuYW1lGAEgASgJEisKBWlucHV0GAIgASgLMhcu",
+            "Z29vZ2xlLnByb3RvYnVmLlN0cnVjdEgAiAEBQggKBl9pbnB1dCLBAQoSSHR0",
+            "cEFjdGl2aXR5Q29uZmlnEg4KBm1ldGhvZBgBIAEoCRILCgN1cmwYAiABKAkS",
+            "QgoHaGVhZGVycxgDIAMoCzIxLnV0b3Mud29ya2Zsb3cudjEuSHR0cEFjdGl2",
+            "aXR5Q29uZmlnLkhlYWRlcnNFbnRyeRIRCgRib2R5GAQgASgJSACIAQEaLgoM",
+            "SGVhZGVyc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAFC",
+            "BwoFX2JvZHkiQgoTVGltZXJBY3Rpdml0eUNvbmZpZxIrCghkdXJhdGlvbhgB",
+            "IAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbiLwAQoWV29ya2Zsb3dB",
+            "Y3Rpdml0eUNvbmZpZxIQCgh3b3JrZmxvdxgBIAEoCRIWCg5zdGFydF9hY3Rp",
+            "dml0eRgCIAEoCRImCgVpbnB1dBgDIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5T",
+            "dHJ1Y3QSNAoEY2FsbBgFIAEoCzIkLnV0b3Mud29ya2Zsb3cudjEuQ2FsbEFj",
+            "dGl2aXR5Q29uZmlnSAASNgoFc3Bhd24YBiABKAsyJS51dG9zLndvcmtmbG93",
+            "LnYxLlNwYXduQWN0aXZpdHlDb25maWdIAEIGCgRtb2RlSgQIBBAFUghkZXRh",
+            "Y2hlZCJKChJDYWxsQWN0aXZpdHlDb25maWcSNAoKb25fZW1pdHRlZBgBIAMo",
+            "CzIgLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblJ1bGUiFQoTU3Bhd25B",
+            "Y3Rpdml0eUNvbmZpZyLMAgoVUHJvbWlzZUFjdGl2aXR5Q29uZmlnEjEKCGJy",
+            "YW5jaGVzGAMgAygLMh8udXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQnJhbmNo",
+            "EjEKA2FsbBgEIAEoCzIiLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZUFsbENv",
+            "bmZpZ0gAEjEKA2FueRgFIAEoCzIiLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlz",
+            "ZUFueUNvbmZpZ0gAEjMKBHJhY2UYBiABKAsyIy51dG9zLndvcmtmbG93LnYx",
+            "LlByb21pc2VSYWNlQ29uZmlnSAASNQoFY291bnQYByABKAsyJC51dG9zLndv",
+            "cmtmbG93LnYxLlByb21pc2VDb3VudENvbmZpZ0gAQgwKCmNvbXBsZXRpb25K",
+            "BAgBEAJKBAgCEANSBG1vZGVSDnJlcXVpcmVkX2NvdW50IhIKEFByb21pc2VB",
+            "bGxDb25maWciEgoQUHJvbWlzZUFueUNvbmZpZyITChFQcm9taXNlUmFjZUNv",
+            "bmZpZyIsChJQcm9taXNlQ291bnRDb25maWcSFgoOcmVxdWlyZWRfY291bnQY",
+            "ASABKAUivAEKDVByb21pc2VCcmFuY2gSDAoEbmFtZRgBIAEoCRI2Cghmb3Jf",
+            "ZWFjaBgCIAEoCzIfLnV0b3Mud29ya2Zsb3cudjEuRm9yRWFjaENvbmZpZ0gA",
+            "iAEBEhYKCWNvbmRpdGlvbhgDIAEoCUgBiAEBEjIKBnRhcmdldBgEIAEoCzIi",
+            "LnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblRhcmdldEILCglfZm9yX2Vh",
+            "Y2hCDAoKX2NvbmRpdGlvbiIyCg1Gb3JFYWNoQ29uZmlnEhIKCmNvbGxlY3Rp",
+            "b24YASABKAkSDQoFYWxpYXMYAiABKAlCFKoCEVV0b3MuV29ya2Zsb3dzLlYx",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowActivity), global::Utos.Workflows.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Http", "Workflow", "Promise", "Timer" }, new[]{ "Config" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionRule), global::Utos.Workflows.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Result" }, new[]{ "Action", "Condition" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionRule), global::Utos.Workflows.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Result", "Emit" }, new[]{ "Action", "Condition" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.EmitAction), global::Utos.Workflows.V1.EmitAction.Parser, new[]{ "Value", "Transition" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionTarget), global::Utos.Workflows.V1.TransitionTarget.Parser, new[]{ "Name", "Input" }, new[]{ "Input" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.HttpActivityConfig), global::Utos.Workflows.V1.HttpActivityConfig.Parser, new[]{ "Method", "Url", "Headers", "Body" }, new[]{ "Body" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TimerActivityConfig), global::Utos.Workflows.V1.TimerActivityConfig.Parser, new[]{ "Duration" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowActivityConfig), global::Utos.Workflows.V1.WorkflowActivityConfig.Parser, new[]{ "Workflow", "StartActivity", "Input", "Detached" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseActivityConfig), global::Utos.Workflows.V1.PromiseActivityConfig.Parser, new[]{ "Mode", "RequiredCount", "Branches" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowActivityConfig), global::Utos.Workflows.V1.WorkflowActivityConfig.Parser, new[]{ "Workflow", "StartActivity", "Input", "Call", "Spawn" }, new[]{ "Mode" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.CallActivityConfig), global::Utos.Workflows.V1.CallActivityConfig.Parser, new[]{ "OnEmitted" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.SpawnActivityConfig), global::Utos.Workflows.V1.SpawnActivityConfig.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseActivityConfig), global::Utos.Workflows.V1.PromiseActivityConfig.Parser, new[]{ "Branches", "All", "Any", "Race", "Count" }, new[]{ "Completion" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseAllConfig), global::Utos.Workflows.V1.PromiseAllConfig.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseAnyConfig), global::Utos.Workflows.V1.PromiseAnyConfig.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseRaceConfig), global::Utos.Workflows.V1.PromiseRaceConfig.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseCountConfig), global::Utos.Workflows.V1.PromiseCountConfig.Parser, new[]{ "RequiredCount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseBranch), global::Utos.Workflows.V1.PromiseBranch.Parser, new[]{ "Name", "ForEach", "Condition", "Target" }, new[]{ "ForEach", "Condition" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.ForEachConfig), global::Utos.Workflows.V1.ForEachConfig.Parser, new[]{ "Collection", "Alias" }, null, null, null, null)
           }));
@@ -542,7 +565,7 @@ namespace Utos.Workflows.V1 {
   }
 
   /// <summary>
-  /// Defines a conditional transition rule with an action (transition or result)
+  /// Defines a conditional transition rule with an action (transition, result, or emit)
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class TransitionRule : pb::IMessage<TransitionRule>
@@ -586,6 +609,9 @@ namespace Utos.Workflows.V1 {
           break;
         case ActionOneofCase.Result:
           Result = other.Result.Clone();
+          break;
+        case ActionOneofCase.Emit:
+          Emit = other.Emit.Clone();
           break;
       }
 
@@ -649,7 +675,8 @@ namespace Utos.Workflows.V1 {
     /// <summary>Field number for the "result" field.</summary>
     public const int ResultFieldNumber = 3;
     /// <summary>
-    /// Return data and end this execution path
+    /// Return data and end this execution path. Appends the terminal entry to
+    /// this execution's output stream — see docs/execution-output-stream.md.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -661,12 +688,28 @@ namespace Utos.Workflows.V1 {
       }
     }
 
+    /// <summary>Field number for the "emit" field.</summary>
+    public const int EmitFieldNumber = 4;
+    /// <summary>
+    /// Append a value to this execution's output stream and keep going.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.EmitAction Emit {
+      get { return actionCase_ == ActionOneofCase.Emit ? (global::Utos.Workflows.V1.EmitAction) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Emit;
+      }
+    }
+
     private object action_;
     /// <summary>Enum of possible cases for the "action" oneof.</summary>
     public enum ActionOneofCase {
       None = 0,
       Transition = 2,
       Result = 3,
+      Emit = 4,
     }
     private ActionOneofCase actionCase_ = ActionOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -700,6 +743,7 @@ namespace Utos.Workflows.V1 {
       if (Condition != other.Condition) return false;
       if (!object.Equals(Transition, other.Transition)) return false;
       if (!object.Equals(Result, other.Result)) return false;
+      if (!object.Equals(Emit, other.Emit)) return false;
       if (ActionCase != other.ActionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -711,6 +755,7 @@ namespace Utos.Workflows.V1 {
       if (HasCondition) hash ^= Condition.GetHashCode();
       if (actionCase_ == ActionOneofCase.Transition) hash ^= Transition.GetHashCode();
       if (actionCase_ == ActionOneofCase.Result) hash ^= Result.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Emit) hash ^= Emit.GetHashCode();
       hash ^= (int) actionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -742,6 +787,10 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(26);
         output.WriteMessage(Result);
       }
+      if (actionCase_ == ActionOneofCase.Emit) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Emit);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -764,6 +813,10 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(26);
         output.WriteMessage(Result);
       }
+      if (actionCase_ == ActionOneofCase.Emit) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Emit);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -782,6 +835,9 @@ namespace Utos.Workflows.V1 {
       }
       if (actionCase_ == ActionOneofCase.Result) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Result);
+      }
+      if (actionCase_ == ActionOneofCase.Emit) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Emit);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -810,6 +866,12 @@ namespace Utos.Workflows.V1 {
             Result = new global::Google.Protobuf.WellKnownTypes.Struct();
           }
           Result.MergeFrom(other.Result);
+          break;
+        case ActionOneofCase.Emit:
+          if (Emit == null) {
+            Emit = new global::Utos.Workflows.V1.EmitAction();
+          }
+          Emit.MergeFrom(other.Emit);
           break;
       }
 
@@ -854,6 +916,15 @@ namespace Utos.Workflows.V1 {
             Result = subBuilder;
             break;
           }
+          case 34: {
+            global::Utos.Workflows.V1.EmitAction subBuilder = new global::Utos.Workflows.V1.EmitAction();
+            if (actionCase_ == ActionOneofCase.Emit) {
+              subBuilder.MergeFrom(Emit);
+            }
+            input.ReadMessage(subBuilder);
+            Emit = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -895,6 +966,291 @@ namespace Utos.Workflows.V1 {
             Result = subBuilder;
             break;
           }
+          case 34: {
+            global::Utos.Workflows.V1.EmitAction subBuilder = new global::Utos.Workflows.V1.EmitAction();
+            if (actionCase_ == ActionOneofCase.Emit) {
+              subBuilder.MergeFrom(Emit);
+            }
+            input.ReadMessage(subBuilder);
+            Emit = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Appends a value to this execution's output stream, then transitions.
+  ///
+  /// `result` is emit-and-terminate; `emit` is emit-and-continue. A workflow that
+  /// emits N times and then returns produces a stream of N value entries followed
+  /// by one terminal entry, which is what lets a caller consume values in order
+  /// and still observe the final result — see docs/execution-output-stream.md.
+  ///
+  /// A caller that invoked this workflow with `workflow.call` and declared
+  /// `on_emitted` is a privileged consumer: the emit does not complete until that
+  /// consumer's cursor advances past the entry. That bounds the unconsumed buffer
+  /// to one entry, so a producer faster than its consumer cannot grow the durable
+  /// stream without limit. With no privileged consumer the emit completes as soon
+  /// as the entry is durable.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class EmitAction : pb::IMessage<EmitAction>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<EmitAction> _parser = new pb::MessageParser<EmitAction>(() => new EmitAction());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<EmitAction> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EmitAction() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EmitAction(EmitAction other) : this() {
+      value_ = other.value_ != null ? other.value_.Clone() : null;
+      transition_ = other.transition_ != null ? other.transition_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EmitAction Clone() {
+      return new EmitAction(this);
+    }
+
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 1;
+    private global::Google.Protobuf.WellKnownTypes.Struct value_;
+    /// <summary>
+    /// The value to append. Leaf string values may contain {{ }} template
+    /// expressions, resolved in the same context as a TransitionRule condition.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Value {
+      get { return value_; }
+      set {
+        value_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "transition" field.</summary>
+    public const int TransitionFieldNumber = 2;
+    private global::Utos.Workflows.V1.TransitionTarget transition_;
+    /// <summary>
+    /// Where to go after emitting. Required — an emit is not a terminal action, so
+    /// a rule that emits and goes nowhere is a dead end rather than a return.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.TransitionTarget Transition {
+      get { return transition_; }
+      set {
+        transition_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as EmitAction);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(EmitAction other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Value, other.Value)) return false;
+      if (!object.Equals(Transition, other.Transition)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (value_ != null) hash ^= Value.GetHashCode();
+      if (transition_ != null) hash ^= Transition.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (value_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Value);
+      }
+      if (transition_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Transition);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (value_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Value);
+      }
+      if (transition_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Transition);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (value_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Value);
+      }
+      if (transition_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Transition);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(EmitAction other) {
+      if (other == null) {
+        return;
+      }
+      if (other.value_ != null) {
+        if (value_ == null) {
+          Value = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Value.MergeFrom(other.Value);
+      }
+      if (other.transition_ != null) {
+        if (transition_ == null) {
+          Transition = new global::Utos.Workflows.V1.TransitionTarget();
+        }
+        Transition.MergeFrom(other.Transition);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (value_ == null) {
+              Value = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Value);
+            break;
+          }
+          case 18: {
+            if (transition_ == null) {
+              Transition = new global::Utos.Workflows.V1.TransitionTarget();
+            }
+            input.ReadMessage(Transition);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (value_ == null) {
+              Value = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Value);
+            break;
+          }
+          case 18: {
+            if (transition_ == null) {
+              Transition = new global::Utos.Workflows.V1.TransitionTarget();
+            }
+            input.ReadMessage(Transition);
+            break;
+          }
         }
       }
     }
@@ -920,7 +1276,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1189,7 +1545,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1523,7 +1879,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1719,7 +2075,12 @@ namespace Utos.Workflows.V1 {
   }
 
   /// <summary>
-  /// Configuration for sub-workflow invocation
+  /// Configuration for sub-workflow invocation.
+  ///
+  /// The invocation mode is a nested oneof rather than a flag, because the choice
+  /// changes this activity's output contract and its failure semantics — see
+  /// CallActivityConfig and SpawnActivityConfig. In the source format the mode is
+  /// part of the `type` discriminator path: `workflow.call` or `workflow.spawn`.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WorkflowActivityConfig : pb::IMessage<WorkflowActivityConfig>
@@ -1736,7 +2097,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1759,7 +2120,15 @@ namespace Utos.Workflows.V1 {
       workflow_ = other.workflow_;
       startActivity_ = other.startActivity_;
       input_ = other.input_ != null ? other.input_.Clone() : null;
-      detached_ = other.detached_;
+      switch (other.ModeCase) {
+        case ModeOneofCase.Call:
+          Call = other.Call.Clone();
+          break;
+        case ModeOneofCase.Spawn:
+          Spawn = other.Spawn.Clone();
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1820,35 +2189,49 @@ namespace Utos.Workflows.V1 {
       }
     }
 
-    /// <summary>Field number for the "detached" field.</summary>
-    public const int DetachedFieldNumber = 4;
-    private bool detached_;
-    /// <summary>
-    /// If true, start the sub-workflow but do NOT wait for it to finish
-    /// (fire-and-forget). The parent transitions immediately once the child is
-    /// started; the child runs as an independent execution with its own lifecycle
-    /// and may outlive the parent.
-    ///
-    /// When detached, the activity's `output` is a handle to the started run —
-    /// { "execution_id": "&lt;id>" } — not the child's result (there is no result to
-    /// wait for). `on_failure` only catches failures to *start* the child, not the
-    /// child's own runtime failures, which the parent never observes.
-    ///
-    /// A detached child runs the sub-workflow content snapshotted in the parent's
-    /// bundle (same content lineage / digest family), not a re-resolution against
-    /// the current store, so it is reproducible and its recorded workflow.digest
-    /// derives from the parent's snapshot.
-    ///
-    /// Defaults to false: the sub-workflow is awaited and its result becomes this
-    /// activity's `output`.
-    /// </summary>
+    /// <summary>Field number for the "call" field.</summary>
+    public const int CallFieldNumber = 5;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Detached {
-      get { return detached_; }
+    public global::Utos.Workflows.V1.CallActivityConfig Call {
+      get { return modeCase_ == ModeOneofCase.Call ? (global::Utos.Workflows.V1.CallActivityConfig) mode_ : null; }
       set {
-        detached_ = value;
+        mode_ = value;
+        modeCase_ = value == null ? ModeOneofCase.None : ModeOneofCase.Call;
       }
+    }
+
+    /// <summary>Field number for the "spawn" field.</summary>
+    public const int SpawnFieldNumber = 6;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.SpawnActivityConfig Spawn {
+      get { return modeCase_ == ModeOneofCase.Spawn ? (global::Utos.Workflows.V1.SpawnActivityConfig) mode_ : null; }
+      set {
+        mode_ = value;
+        modeCase_ = value == null ? ModeOneofCase.None : ModeOneofCase.Spawn;
+      }
+    }
+
+    private object mode_;
+    /// <summary>Enum of possible cases for the "mode" oneof.</summary>
+    public enum ModeOneofCase {
+      None = 0,
+      Call = 5,
+      Spawn = 6,
+    }
+    private ModeOneofCase modeCase_ = ModeOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ModeOneofCase ModeCase {
+      get { return modeCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMode() {
+      modeCase_ = ModeOneofCase.None;
+      mode_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1869,7 +2252,9 @@ namespace Utos.Workflows.V1 {
       if (Workflow != other.Workflow) return false;
       if (StartActivity != other.StartActivity) return false;
       if (!object.Equals(Input, other.Input)) return false;
-      if (Detached != other.Detached) return false;
+      if (!object.Equals(Call, other.Call)) return false;
+      if (!object.Equals(Spawn, other.Spawn)) return false;
+      if (ModeCase != other.ModeCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1880,7 +2265,9 @@ namespace Utos.Workflows.V1 {
       if (Workflow.Length != 0) hash ^= Workflow.GetHashCode();
       if (StartActivity.Length != 0) hash ^= StartActivity.GetHashCode();
       if (input_ != null) hash ^= Input.GetHashCode();
-      if (Detached != false) hash ^= Detached.GetHashCode();
+      if (modeCase_ == ModeOneofCase.Call) hash ^= Call.GetHashCode();
+      if (modeCase_ == ModeOneofCase.Spawn) hash ^= Spawn.GetHashCode();
+      hash ^= (int) modeCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1911,9 +2298,13 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(26);
         output.WriteMessage(Input);
       }
-      if (Detached != false) {
-        output.WriteRawTag(32);
-        output.WriteBool(Detached);
+      if (modeCase_ == ModeOneofCase.Call) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Call);
+      }
+      if (modeCase_ == ModeOneofCase.Spawn) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Spawn);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1937,9 +2328,13 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(26);
         output.WriteMessage(Input);
       }
-      if (Detached != false) {
-        output.WriteRawTag(32);
-        output.WriteBool(Detached);
+      if (modeCase_ == ModeOneofCase.Call) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Call);
+      }
+      if (modeCase_ == ModeOneofCase.Spawn) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Spawn);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1960,8 +2355,11 @@ namespace Utos.Workflows.V1 {
       if (input_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Input);
       }
-      if (Detached != false) {
-        size += 1 + 1;
+      if (modeCase_ == ModeOneofCase.Call) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Call);
+      }
+      if (modeCase_ == ModeOneofCase.Spawn) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Spawn);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1987,9 +2385,21 @@ namespace Utos.Workflows.V1 {
         }
         Input.MergeFrom(other.Input);
       }
-      if (other.Detached != false) {
-        Detached = other.Detached;
+      switch (other.ModeCase) {
+        case ModeOneofCase.Call:
+          if (Call == null) {
+            Call = new global::Utos.Workflows.V1.CallActivityConfig();
+          }
+          Call.MergeFrom(other.Call);
+          break;
+        case ModeOneofCase.Spawn:
+          if (Spawn == null) {
+            Spawn = new global::Utos.Workflows.V1.SpawnActivityConfig();
+          }
+          Spawn.MergeFrom(other.Spawn);
+          break;
       }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2024,8 +2434,22 @@ namespace Utos.Workflows.V1 {
             input.ReadMessage(Input);
             break;
           }
-          case 32: {
-            Detached = input.ReadBool();
+          case 42: {
+            global::Utos.Workflows.V1.CallActivityConfig subBuilder = new global::Utos.Workflows.V1.CallActivityConfig();
+            if (modeCase_ == ModeOneofCase.Call) {
+              subBuilder.MergeFrom(Call);
+            }
+            input.ReadMessage(subBuilder);
+            Call = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Utos.Workflows.V1.SpawnActivityConfig subBuilder = new global::Utos.Workflows.V1.SpawnActivityConfig();
+            if (modeCase_ == ModeOneofCase.Spawn) {
+              subBuilder.MergeFrom(Spawn);
+            }
+            input.ReadMessage(subBuilder);
+            Spawn = subBuilder;
             break;
           }
         }
@@ -2062,10 +2486,414 @@ namespace Utos.Workflows.V1 {
             input.ReadMessage(Input);
             break;
           }
-          case 32: {
-            Detached = input.ReadBool();
+          case 42: {
+            global::Utos.Workflows.V1.CallActivityConfig subBuilder = new global::Utos.Workflows.V1.CallActivityConfig();
+            if (modeCase_ == ModeOneofCase.Call) {
+              subBuilder.MergeFrom(Call);
+            }
+            input.ReadMessage(subBuilder);
+            Call = subBuilder;
             break;
           }
+          case 50: {
+            global::Utos.Workflows.V1.SpawnActivityConfig subBuilder = new global::Utos.Workflows.V1.SpawnActivityConfig();
+            if (modeCase_ == ModeOneofCase.Spawn) {
+              subBuilder.MergeFrom(Spawn);
+            }
+            input.ReadMessage(subBuilder);
+            Spawn = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Await the sub-workflow: this activity does not complete until the child
+  /// terminates, and the child's result becomes this activity's `output`.
+  /// `on_failure` catches the child's runtime failures.
+  ///
+  /// The child's lifecycle is bound to this activity. If the parent execution is
+  /// cancelled, or stops waiting, the child is cancelled too — its result can no
+  /// longer be observed.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class CallActivityConfig : pb::IMessage<CallActivityConfig>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CallActivityConfig> _parser = new pb::MessageParser<CallActivityConfig>(() => new CallActivityConfig());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CallActivityConfig> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CallActivityConfig() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CallActivityConfig(CallActivityConfig other) : this() {
+      onEmitted_ = other.onEmitted_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CallActivityConfig Clone() {
+      return new CallActivityConfig(this);
+    }
+
+    /// <summary>Field number for the "on_emitted" field.</summary>
+    public const int OnEmittedFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Utos.Workflows.V1.TransitionRule> _repeated_onEmitted_codec
+        = pb::FieldCodec.ForMessage(10, global::Utos.Workflows.V1.TransitionRule.Parser);
+    private readonly pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule> onEmitted_ = new pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule>();
+    /// <summary>
+    /// Subscribes this activity to the sub-workflow's output stream: evaluated
+    /// once per value the child emits, in stream order, before the child's
+    /// terminal entry reaches `on_success`.
+    ///
+    /// Consuming is a loop, expressed with the transitions that already exist: the
+    /// handler path must transition back to this activity to take the next value.
+    /// Re-entering the activity while a subscription is live consumes rather than
+    /// starting a second child. Leaving the handler path any other way — `end`,
+    /// `result`, or a transition into an unrelated part of the graph — ends the
+    /// subscription and cancels the child, since nothing will observe it again.
+    ///
+    /// Every rule here must carry a `transition` action; `result` and `emit` have
+    /// no meaning inside an emission handler (UTOS-C405).
+    ///
+    /// Ordering needs no separate rule. Emitted values and the terminal result are
+    /// entries in one ordered stream walked by one cursor, so `on_emitted` cannot
+    /// race `on_success` — a fast-terminating child cannot overtake its own
+    /// output.
+    ///
+    /// Empty (the default) means this caller ignores emissions: it awaits only the
+    /// terminal entry. It is not privileged, so it does not gate the producer.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule> OnEmitted {
+      get { return onEmitted_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CallActivityConfig);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CallActivityConfig other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!onEmitted_.Equals(other.onEmitted_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= onEmitted_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      onEmitted_.WriteTo(output, _repeated_onEmitted_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      onEmitted_.WriteTo(ref output, _repeated_onEmitted_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += onEmitted_.CalculateSize(_repeated_onEmitted_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CallActivityConfig other) {
+      if (other == null) {
+        return;
+      }
+      onEmitted_.Add(other.onEmitted_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            onEmitted_.AddEntriesFrom(input, _repeated_onEmitted_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            onEmitted_.AddEntriesFrom(ref input, _repeated_onEmitted_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Start the sub-workflow and move on immediately (fire-and-forget). The child
+  /// runs as an independent top-level execution with its own lifecycle and may
+  /// outlive the parent; the daemon must not tear it down when the parent ends.
+  ///
+  /// The activity's `output` is a handle to the started run —
+  /// { "execution_id": "&lt;id>" } — not the child's result, since there is nothing
+  /// to wait for. `on_failure` only catches failures to *start* the child, not the
+  /// child's own runtime failures, which the parent never observes.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SpawnActivityConfig : pb::IMessage<SpawnActivityConfig>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SpawnActivityConfig> _parser = new pb::MessageParser<SpawnActivityConfig>(() => new SpawnActivityConfig());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SpawnActivityConfig> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SpawnActivityConfig() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SpawnActivityConfig(SpawnActivityConfig other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SpawnActivityConfig Clone() {
+      return new SpawnActivityConfig(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SpawnActivityConfig);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SpawnActivityConfig other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SpawnActivityConfig other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
         }
       }
     }
@@ -2098,7 +2926,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2118,9 +2946,22 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PromiseActivityConfig(PromiseActivityConfig other) : this() {
-      mode_ = other.mode_;
-      requiredCount_ = other.requiredCount_;
       branches_ = other.branches_.Clone();
+      switch (other.CompletionCase) {
+        case CompletionOneofCase.All:
+          All = other.All.Clone();
+          break;
+        case CompletionOneofCase.Any:
+          Any = other.Any.Clone();
+          break;
+        case CompletionOneofCase.Race:
+          Race = other.Race.Clone();
+          break;
+        case CompletionOneofCase.Count:
+          Count = other.Count.Clone();
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2128,40 +2969,6 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PromiseActivityConfig Clone() {
       return new PromiseActivityConfig(this);
-    }
-
-    /// <summary>Field number for the "mode" field.</summary>
-    public const int ModeFieldNumber = 1;
-    private string mode_ = "";
-    /// <summary>
-    /// Completion mode — operates on *started* branches (after condition filtering):
-    ///   "all"   — all must succeed; fails if any branch fails
-    ///   "any"   — resolves on first success; fails if all branches fail
-    ///   "race"  — resolves on first settlement (success or failure); result propagates
-    ///   "count" — resolves when required_count branches succeed; fails if unreachable
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Mode {
-      get { return mode_; }
-      set {
-        mode_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "required_count" field.</summary>
-    public const int RequiredCountFieldNumber = 2;
-    private int requiredCount_;
-    /// <summary>
-    /// Number of branches that must succeed — only used when mode is "count"
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int RequiredCount {
-      get { return requiredCount_; }
-      set {
-        requiredCount_ = value;
-      }
     }
 
     /// <summary>Field number for the "branches" field.</summary>
@@ -2176,6 +2983,77 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::Utos.Workflows.V1.PromiseBranch> Branches {
       get { return branches_; }
+    }
+
+    /// <summary>Field number for the "all" field.</summary>
+    public const int AllFieldNumber = 4;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.PromiseAllConfig All {
+      get { return completionCase_ == CompletionOneofCase.All ? (global::Utos.Workflows.V1.PromiseAllConfig) completion_ : null; }
+      set {
+        completion_ = value;
+        completionCase_ = value == null ? CompletionOneofCase.None : CompletionOneofCase.All;
+      }
+    }
+
+    /// <summary>Field number for the "any" field.</summary>
+    public const int AnyFieldNumber = 5;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.PromiseAnyConfig Any {
+      get { return completionCase_ == CompletionOneofCase.Any ? (global::Utos.Workflows.V1.PromiseAnyConfig) completion_ : null; }
+      set {
+        completion_ = value;
+        completionCase_ = value == null ? CompletionOneofCase.None : CompletionOneofCase.Any;
+      }
+    }
+
+    /// <summary>Field number for the "race" field.</summary>
+    public const int RaceFieldNumber = 6;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.PromiseRaceConfig Race {
+      get { return completionCase_ == CompletionOneofCase.Race ? (global::Utos.Workflows.V1.PromiseRaceConfig) completion_ : null; }
+      set {
+        completion_ = value;
+        completionCase_ = value == null ? CompletionOneofCase.None : CompletionOneofCase.Race;
+      }
+    }
+
+    /// <summary>Field number for the "count" field.</summary>
+    public const int CountFieldNumber = 7;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.PromiseCountConfig Count {
+      get { return completionCase_ == CompletionOneofCase.Count ? (global::Utos.Workflows.V1.PromiseCountConfig) completion_ : null; }
+      set {
+        completion_ = value;
+        completionCase_ = value == null ? CompletionOneofCase.None : CompletionOneofCase.Count;
+      }
+    }
+
+    private object completion_;
+    /// <summary>Enum of possible cases for the "completion" oneof.</summary>
+    public enum CompletionOneofCase {
+      None = 0,
+      All = 4,
+      Any = 5,
+      Race = 6,
+      Count = 7,
+    }
+    private CompletionOneofCase completionCase_ = CompletionOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CompletionOneofCase CompletionCase {
+      get { return completionCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearCompletion() {
+      completionCase_ = CompletionOneofCase.None;
+      completion_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2193,9 +3071,12 @@ namespace Utos.Workflows.V1 {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Mode != other.Mode) return false;
-      if (RequiredCount != other.RequiredCount) return false;
       if(!branches_.Equals(other.branches_)) return false;
+      if (!object.Equals(All, other.All)) return false;
+      if (!object.Equals(Any, other.Any)) return false;
+      if (!object.Equals(Race, other.Race)) return false;
+      if (!object.Equals(Count, other.Count)) return false;
+      if (CompletionCase != other.CompletionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2203,9 +3084,12 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Mode.Length != 0) hash ^= Mode.GetHashCode();
-      if (RequiredCount != 0) hash ^= RequiredCount.GetHashCode();
       hash ^= branches_.GetHashCode();
+      if (completionCase_ == CompletionOneofCase.All) hash ^= All.GetHashCode();
+      if (completionCase_ == CompletionOneofCase.Any) hash ^= Any.GetHashCode();
+      if (completionCase_ == CompletionOneofCase.Race) hash ^= Race.GetHashCode();
+      if (completionCase_ == CompletionOneofCase.Count) hash ^= Count.GetHashCode();
+      hash ^= (int) completionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2224,15 +3108,23 @@ namespace Utos.Workflows.V1 {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Mode.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Mode);
-      }
-      if (RequiredCount != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(RequiredCount);
-      }
       branches_.WriteTo(output, _repeated_branches_codec);
+      if (completionCase_ == CompletionOneofCase.All) {
+        output.WriteRawTag(34);
+        output.WriteMessage(All);
+      }
+      if (completionCase_ == CompletionOneofCase.Any) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Any);
+      }
+      if (completionCase_ == CompletionOneofCase.Race) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Race);
+      }
+      if (completionCase_ == CompletionOneofCase.Count) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Count);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2243,15 +3135,23 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Mode.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Mode);
-      }
-      if (RequiredCount != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(RequiredCount);
-      }
       branches_.WriteTo(ref output, _repeated_branches_codec);
+      if (completionCase_ == CompletionOneofCase.All) {
+        output.WriteRawTag(34);
+        output.WriteMessage(All);
+      }
+      if (completionCase_ == CompletionOneofCase.Any) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Any);
+      }
+      if (completionCase_ == CompletionOneofCase.Race) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Race);
+      }
+      if (completionCase_ == CompletionOneofCase.Count) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Count);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2262,13 +3162,19 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Mode.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Mode);
-      }
-      if (RequiredCount != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RequiredCount);
-      }
       size += branches_.CalculateSize(_repeated_branches_codec);
+      if (completionCase_ == CompletionOneofCase.All) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(All);
+      }
+      if (completionCase_ == CompletionOneofCase.Any) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Any);
+      }
+      if (completionCase_ == CompletionOneofCase.Race) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Race);
+      }
+      if (completionCase_ == CompletionOneofCase.Count) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Count);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2281,13 +3187,34 @@ namespace Utos.Workflows.V1 {
       if (other == null) {
         return;
       }
-      if (other.Mode.Length != 0) {
-        Mode = other.Mode;
-      }
-      if (other.RequiredCount != 0) {
-        RequiredCount = other.RequiredCount;
-      }
       branches_.Add(other.branches_);
+      switch (other.CompletionCase) {
+        case CompletionOneofCase.All:
+          if (All == null) {
+            All = new global::Utos.Workflows.V1.PromiseAllConfig();
+          }
+          All.MergeFrom(other.All);
+          break;
+        case CompletionOneofCase.Any:
+          if (Any == null) {
+            Any = new global::Utos.Workflows.V1.PromiseAnyConfig();
+          }
+          Any.MergeFrom(other.Any);
+          break;
+        case CompletionOneofCase.Race:
+          if (Race == null) {
+            Race = new global::Utos.Workflows.V1.PromiseRaceConfig();
+          }
+          Race.MergeFrom(other.Race);
+          break;
+        case CompletionOneofCase.Count:
+          if (Count == null) {
+            Count = new global::Utos.Workflows.V1.PromiseCountConfig();
+          }
+          Count.MergeFrom(other.Count);
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2307,16 +3234,44 @@ namespace Utos.Workflows.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Mode = input.ReadString();
-            break;
-          }
-          case 16: {
-            RequiredCount = input.ReadInt32();
-            break;
-          }
           case 26: {
             branches_.AddEntriesFrom(input, _repeated_branches_codec);
+            break;
+          }
+          case 34: {
+            global::Utos.Workflows.V1.PromiseAllConfig subBuilder = new global::Utos.Workflows.V1.PromiseAllConfig();
+            if (completionCase_ == CompletionOneofCase.All) {
+              subBuilder.MergeFrom(All);
+            }
+            input.ReadMessage(subBuilder);
+            All = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Utos.Workflows.V1.PromiseAnyConfig subBuilder = new global::Utos.Workflows.V1.PromiseAnyConfig();
+            if (completionCase_ == CompletionOneofCase.Any) {
+              subBuilder.MergeFrom(Any);
+            }
+            input.ReadMessage(subBuilder);
+            Any = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Utos.Workflows.V1.PromiseRaceConfig subBuilder = new global::Utos.Workflows.V1.PromiseRaceConfig();
+            if (completionCase_ == CompletionOneofCase.Race) {
+              subBuilder.MergeFrom(Race);
+            }
+            input.ReadMessage(subBuilder);
+            Race = subBuilder;
+            break;
+          }
+          case 58: {
+            global::Utos.Workflows.V1.PromiseCountConfig subBuilder = new global::Utos.Workflows.V1.PromiseCountConfig();
+            if (completionCase_ == CompletionOneofCase.Count) {
+              subBuilder.MergeFrom(Count);
+            }
+            input.ReadMessage(subBuilder);
+            Count = subBuilder;
             break;
           }
         }
@@ -2338,16 +3293,742 @@ namespace Utos.Workflows.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Mode = input.ReadString();
+          case 26: {
+            branches_.AddEntriesFrom(ref input, _repeated_branches_codec);
             break;
           }
-          case 16: {
+          case 34: {
+            global::Utos.Workflows.V1.PromiseAllConfig subBuilder = new global::Utos.Workflows.V1.PromiseAllConfig();
+            if (completionCase_ == CompletionOneofCase.All) {
+              subBuilder.MergeFrom(All);
+            }
+            input.ReadMessage(subBuilder);
+            All = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Utos.Workflows.V1.PromiseAnyConfig subBuilder = new global::Utos.Workflows.V1.PromiseAnyConfig();
+            if (completionCase_ == CompletionOneofCase.Any) {
+              subBuilder.MergeFrom(Any);
+            }
+            input.ReadMessage(subBuilder);
+            Any = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Utos.Workflows.V1.PromiseRaceConfig subBuilder = new global::Utos.Workflows.V1.PromiseRaceConfig();
+            if (completionCase_ == CompletionOneofCase.Race) {
+              subBuilder.MergeFrom(Race);
+            }
+            input.ReadMessage(subBuilder);
+            Race = subBuilder;
+            break;
+          }
+          case 58: {
+            global::Utos.Workflows.V1.PromiseCountConfig subBuilder = new global::Utos.Workflows.V1.PromiseCountConfig();
+            if (completionCase_ == CompletionOneofCase.Count) {
+              subBuilder.MergeFrom(Count);
+            }
+            input.ReadMessage(subBuilder);
+            Count = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// All started branches must succeed; fails if any branch fails.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class PromiseAllConfig : pb::IMessage<PromiseAllConfig>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PromiseAllConfig> _parser = new pb::MessageParser<PromiseAllConfig>(() => new PromiseAllConfig());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<PromiseAllConfig> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseAllConfig() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseAllConfig(PromiseAllConfig other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseAllConfig Clone() {
+      return new PromiseAllConfig(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as PromiseAllConfig);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(PromiseAllConfig other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(PromiseAllConfig other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Resolves on the first branch to succeed; fails if all branches fail.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class PromiseAnyConfig : pb::IMessage<PromiseAnyConfig>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PromiseAnyConfig> _parser = new pb::MessageParser<PromiseAnyConfig>(() => new PromiseAnyConfig());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<PromiseAnyConfig> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseAnyConfig() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseAnyConfig(PromiseAnyConfig other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseAnyConfig Clone() {
+      return new PromiseAnyConfig(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as PromiseAnyConfig);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(PromiseAnyConfig other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(PromiseAnyConfig other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Resolves on the first branch to settle, success or failure; that branch's
+  /// result propagates either way.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class PromiseRaceConfig : pb::IMessage<PromiseRaceConfig>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PromiseRaceConfig> _parser = new pb::MessageParser<PromiseRaceConfig>(() => new PromiseRaceConfig());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<PromiseRaceConfig> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseRaceConfig() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseRaceConfig(PromiseRaceConfig other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseRaceConfig Clone() {
+      return new PromiseRaceConfig(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as PromiseRaceConfig);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(PromiseRaceConfig other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(PromiseRaceConfig other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Resolves once `required_count` branches have succeeded; fails as soon as
+  /// enough branches have failed that the count is unreachable.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class PromiseCountConfig : pb::IMessage<PromiseCountConfig>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PromiseCountConfig> _parser = new pb::MessageParser<PromiseCountConfig>(() => new PromiseCountConfig());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<PromiseCountConfig> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseCountConfig() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseCountConfig(PromiseCountConfig other) : this() {
+      requiredCount_ = other.requiredCount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PromiseCountConfig Clone() {
+      return new PromiseCountConfig(this);
+    }
+
+    /// <summary>Field number for the "required_count" field.</summary>
+    public const int RequiredCountFieldNumber = 1;
+    private int requiredCount_;
+    /// <summary>
+    /// Number of branches that must succeed. Must be greater than zero.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int RequiredCount {
+      get { return requiredCount_; }
+      set {
+        requiredCount_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as PromiseCountConfig);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(PromiseCountConfig other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RequiredCount != other.RequiredCount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RequiredCount != 0) hash ^= RequiredCount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (RequiredCount != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(RequiredCount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (RequiredCount != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(RequiredCount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (RequiredCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RequiredCount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(PromiseCountConfig other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RequiredCount != 0) {
+        RequiredCount = other.RequiredCount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
             RequiredCount = input.ReadInt32();
             break;
           }
-          case 26: {
-            branches_.AddEntriesFrom(ref input, _repeated_branches_codec);
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            RequiredCount = input.ReadInt32();
             break;
           }
         }
@@ -2376,7 +4057,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2735,7 +4416,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

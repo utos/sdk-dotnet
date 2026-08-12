@@ -34,7 +34,7 @@ namespace Utos.Daemon.V1 {
             "dGlvblBheWxvYWQSOAoEZGF0YRgBIAMoCzIqLnV0b3MuZGFlbW9uLnYxLkV4",
             "ZWN1dGlvblBheWxvYWQuRGF0YUVudHJ5GkMKCURhdGFFbnRyeRILCgNrZXkY",
             "ASABKAkSJQoFdmFsdWUYAiABKAsyFi5nb29nbGUucHJvdG9idWYuVmFsdWU6",
-            "AjgBIqUEChBFeGVjdXRpb25TdW1tYXJ5EgoKAmlkGAEgASgJEi8KBnN0YXR1",
+            "AjgBIt8EChBFeGVjdXRpb25TdW1tYXJ5EgoKAmlkGAEgASgJEi8KBnN0YXR1",
             "cxgCIAEoDjIfLnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblN0YXR1cxIzCgh3",
             "b3JrZmxvdxgDIAEoCzIhLnV0b3MuZGFlbW9uLnYxLldvcmtmbG93UmVmZXJl",
             "bmNlEi4KCmNyZWF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
@@ -42,23 +42,24 @@ namespace Utos.Daemon.V1 {
             "Zi5UaW1lc3RhbXBIAIgBARIzCgpzdGFydGVkX2F0GAcgASgLMhouZ29vZ2xl",
             "LnByb3RvYnVmLlRpbWVzdGFtcEgBiAEBEjQKC2ZpbmlzaGVkX2F0GAggASgL",
             "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgCiAEBEjMKBWVycm9yGAwg",
-            "ASgLMh8udXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0Vycm9ySAOIAQFCDwoN",
-            "X3NjaGVkdWxlZF9hdEINCgtfc3RhcnRlZF9hdEIOCgxfZmluaXNoZWRfYXRC",
-            "CAoGX2Vycm9ySgQIBBAFSgQIChALSgQICxAMSgQICRAKUhB3b3JrZmxvd192",
-            "ZXJzaW9uUhJ3b3JrZmxvd19uYW1lc3BhY2VSEXdvcmtmbG93X3JlZ2lzdHJ5",
-            "Ug1lcnJvcl9tZXNzYWdlKvEBCg9FeGVjdXRpb25TdGF0dXMSIAocRVhFQ1VU",
-            "SU9OX1NUQVRVU19VTlNQRUNJRklFRBAAEh4KGkVYRUNVVElPTl9TVEFUVVNf",
-            "U0NIRURVTEVEEAESGwoXRVhFQ1VUSU9OX1NUQVRVU19BQ1RJVkUQAhIeChpF",
-            "WEVDVVRJT05fU1RBVFVTX0NPTVBMRVRFRBAKEhsKF0VYRUNVVElPTl9TVEFU",
-            "VVNfRkFJTEVEEAsiBAgDEAMiBAgMEAwqGkVYRUNVVElPTl9TVEFUVVNfU1VT",
-            "UEVOREVEKhpFWEVDVVRJT05fU1RBVFVTX0NBTkNFTExFREIRqgIOVXRvcy5E",
-            "YWVtb24uVjFiBnByb3RvMw=="));
+            "ASgLMh8udXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0Vycm9ySAOIAQESIAoT",
+            "Y2FuY2VsbGF0aW9uX3JlYXNvbhgNIAEoCUgEiAEBQg8KDV9zY2hlZHVsZWRf",
+            "YXRCDQoLX3N0YXJ0ZWRfYXRCDgoMX2ZpbmlzaGVkX2F0QggKBl9lcnJvckIW",
+            "ChRfY2FuY2VsbGF0aW9uX3JlYXNvbkoECAQQBUoECAoQC0oECAsQDEoECAkQ",
+            "ClIQd29ya2Zsb3dfdmVyc2lvblISd29ya2Zsb3dfbmFtZXNwYWNlUhF3b3Jr",
+            "Zmxvd19yZWdpc3RyeVINZXJyb3JfbWVzc2FnZSrvAQoPRXhlY3V0aW9uU3Rh",
+            "dHVzEiAKHEVYRUNVVElPTl9TVEFUVVNfVU5TUEVDSUZJRUQQABIeChpFWEVD",
+            "VVRJT05fU1RBVFVTX1NDSEVEVUxFRBABEhsKF0VYRUNVVElPTl9TVEFUVVNf",
+            "QUNUSVZFEAISHgoaRVhFQ1VUSU9OX1NUQVRVU19DT01QTEVURUQQChIbChdF",
+            "WEVDVVRJT05fU1RBVFVTX0ZBSUxFRBALEh4KGkVYRUNVVElPTl9TVEFUVVNf",
+            "Q0FOQ0VMTEVEEAwiBAgDEAMqGkVYRUNVVElPTl9TVEFUVVNfU1VTUEVOREVE",
+            "QhGqAg5VdG9zLkRhZW1vbi5WMWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Utos.Daemon.V1.ExecutionStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WorkflowReference), global::Utos.Daemon.V1.WorkflowReference.Parser, new[]{ "Registry", "Namespace", "Name", "Version", "Digest" }, new[]{ "Registry", "Namespace", "Version", "Digest" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionPayload), global::Utos.Daemon.V1.ExecutionPayload.Parser, new[]{ "Data" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionSummary), global::Utos.Daemon.V1.ExecutionSummary.Parser, new[]{ "Id", "Status", "Workflow", "CreatedAt", "ScheduledAt", "StartedAt", "FinishedAt", "Error" }, new[]{ "ScheduledAt", "StartedAt", "FinishedAt", "Error" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionSummary), global::Utos.Daemon.V1.ExecutionSummary.Parser, new[]{ "Id", "Status", "Workflow", "CreatedAt", "ScheduledAt", "StartedAt", "FinishedAt", "Error", "CancellationReason" }, new[]{ "ScheduledAt", "StartedAt", "FinishedAt", "Error", "CancellationReason" }, null, null, null)
           }));
     }
     #endregion
@@ -77,6 +78,18 @@ namespace Utos.Daemon.V1 {
     /// Terminal: failure
     /// </summary>
     [pbr::OriginalName("EXECUTION_STATUS_FAILED")] Failed = 11,
+    /// <summary>
+    /// Terminal: user- or system-initiated cancellation. Reached via
+    /// ExecutionService.CancelExecution, or automatically when the daemon tears
+    /// down an execution whose result is no longer wanted — a sub-workflow whose
+    /// calling activity abandoned it, or a child of a cancelled parent.
+    ///
+    /// Cancellation is terminal and idempotent: an execution that has already
+    /// reached COMPLETED or FAILED stays there, and cancelling twice is not an
+    /// error. Distinct from FAILED because nothing went wrong — a poller cancelled
+    /// on purpose has not failed.
+    /// </summary>
+    [pbr::OriginalName("EXECUTION_STATUS_CANCELLED")] Cancelled = 12,
   }
 
   #endregion
@@ -757,6 +770,7 @@ namespace Utos.Daemon.V1 {
       startedAt_ = other.startedAt_ != null ? other.startedAt_.Clone() : null;
       finishedAt_ = other.finishedAt_ != null ? other.finishedAt_.Clone() : null;
       error_ = other.error_ != null ? other.error_.Clone() : null;
+      cancellationReason_ = other.cancellationReason_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -863,7 +877,8 @@ namespace Utos.Daemon.V1 {
     public const int FinishedAtFieldNumber = 8;
     private global::Google.Protobuf.WellKnownTypes.Timestamp finishedAt_;
     /// <summary>
-    /// When the execution completed or failed (whichever happened)
+    /// When the execution reached a terminal status — completed, failed, or
+    /// cancelled, whichever happened
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -891,6 +906,38 @@ namespace Utos.Daemon.V1 {
       }
     }
 
+    /// <summary>Field number for the "cancellation_reason" field.</summary>
+    public const int CancellationReasonFieldNumber = 13;
+    private readonly static string CancellationReasonDefaultValue = "";
+
+    private string cancellationReason_;
+    /// <summary>
+    /// Why this execution was cancelled; set only when status is CANCELLED, and
+    /// only when a reason was supplied or the daemon cancelled it on its own
+    /// initiative (a cascade from a cancelled parent, or a sub-workflow whose
+    /// calling activity abandoned it). Not an error — see EXECUTION_STATUS_CANCELLED.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CancellationReason {
+      get { return cancellationReason_ ?? CancellationReasonDefaultValue; }
+      set {
+        cancellationReason_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "cancellation_reason" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasCancellationReason {
+      get { return cancellationReason_ != null; }
+    }
+    /// <summary>Clears the value of the "cancellation_reason" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearCancellationReason() {
+      cancellationReason_ = null;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -914,6 +961,7 @@ namespace Utos.Daemon.V1 {
       if (!object.Equals(StartedAt, other.StartedAt)) return false;
       if (!object.Equals(FinishedAt, other.FinishedAt)) return false;
       if (!object.Equals(Error, other.Error)) return false;
+      if (CancellationReason != other.CancellationReason) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -929,6 +977,7 @@ namespace Utos.Daemon.V1 {
       if (startedAt_ != null) hash ^= StartedAt.GetHashCode();
       if (finishedAt_ != null) hash ^= FinishedAt.GetHashCode();
       if (error_ != null) hash ^= Error.GetHashCode();
+      if (HasCancellationReason) hash ^= CancellationReason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -979,6 +1028,10 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(98);
         output.WriteMessage(Error);
       }
+      if (HasCancellationReason) {
+        output.WriteRawTag(106);
+        output.WriteString(CancellationReason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1021,6 +1074,10 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(98);
         output.WriteMessage(Error);
       }
+      if (HasCancellationReason) {
+        output.WriteRawTag(106);
+        output.WriteString(CancellationReason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1054,6 +1111,9 @@ namespace Utos.Daemon.V1 {
       }
       if (error_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
+      }
+      if (HasCancellationReason) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CancellationReason);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1108,6 +1168,9 @@ namespace Utos.Daemon.V1 {
           Error = new global::Utos.Workflows.V1.WorkflowError();
         }
         Error.MergeFrom(other.Error);
+      }
+      if (other.HasCancellationReason) {
+        CancellationReason = other.CancellationReason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1178,6 +1241,10 @@ namespace Utos.Daemon.V1 {
             input.ReadMessage(Error);
             break;
           }
+          case 106: {
+            CancellationReason = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -1245,6 +1312,10 @@ namespace Utos.Daemon.V1 {
               Error = new global::Utos.Workflows.V1.WorkflowError();
             }
             input.ReadMessage(Error);
+            break;
+          }
+          case 106: {
+            CancellationReason = input.ReadString();
             break;
           }
         }
