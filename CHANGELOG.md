@@ -82,6 +82,10 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
   The code stays burned because codes are a stable contract, and recycling one would silently
   change the meaning of a suppression somebody had already written down
 
+## [0.0.12] - 2026-08-12
+
+Generated from [`v0.0.12`](https://github.com/utos/api/releases/tag/v0.0.12) (`a96714b11e23f081d20dab4c53bc78dc1e936e54`). See the [spec changelog](https://github.com/utos/api/blob/v0.0.12/CHANGELOG.md).
+
 ## [0.0.11] - 2026-08-11
 
 Generated from [`v0.0.11`](https://github.com/utos/api/releases/tag/v0.0.11) (`f2ff9084810c943c3c6db404b0e57f12858ecfea`). See the [spec changelog](https://github.com/utos/api/blob/v0.0.11/CHANGELOG.md).
