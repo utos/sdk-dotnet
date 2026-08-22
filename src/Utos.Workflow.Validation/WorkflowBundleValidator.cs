@@ -232,7 +232,7 @@ namespace Utos.Workflows.V1.Validation
                     ValidateTimer(activity.Timer, Field(path, "timer"), issues);
                     break;
                 case WorkflowActivity.ConfigOneofCase.Promise:
-                    ValidatePromise(activity.Promise, Field(path, "promise"), activityNames, issues);
+                    ValidatePromise(activity.Promise, Field(path, "promise"), bundle, issues);
                     break;
                 case WorkflowActivity.ConfigOneofCase.Workflow:
                     ValidateSubWorkflow(activity.Workflow, Field(path, "workflow"), activityNames,
@@ -400,7 +400,7 @@ namespace Utos.Workflows.V1.Validation
         }
 
         private static void ValidatePromise(PromiseActivityConfig config, string path,
-            HashSet<string> activityNames, List<ValidationIssue> issues)
+            WorkflowBundle bundle, List<ValidationIssue> issues)
         {
             if (config == null) return;
 
@@ -429,6 +429,12 @@ namespace Utos.Workflows.V1.Validation
                 return;
             }
 
+            // Rendered branch names must be distinct or the output map loses an entry, but
+            // rendering needs the forEach collection and these rules do not evaluate templates.
+            // Literal collisions are the half that is knowable here, and the half that can never
+            // turn out to be fine.
+            HashSet<string> literalBranchNames = new HashSet<string>(StringComparer.Ordinal);
+
             for (int i = 0; i < config.Branches.Count; i++)
             {
                 PromiseBranch branch = config.Branches[i];
@@ -440,16 +446,15 @@ namespace Utos.Workflows.V1.Validation
                     Add(issues, ValidationCodes.PromiseBranchNameRequired, Field(branchPath, "name"),
                         "Promise branch name is required.");
                 }
+                else if (!literalBranchNames.Add(branch.Name))
+                {
+                    Add(issues, ValidationCodes.PromiseBranchNameDuplicate, Field(branchPath, "name"),
+                        "Two branches of this promise are named '" + branch.Name
+                        + "'; branch names key the promise output map and must be distinct.");
+                }
 
-                if (branch.Target == null)
-                {
-                    Add(issues, ValidationCodes.PromiseBranchTargetRequired, Field(branchPath, "target"),
-                        "Promise branch target is required.");
-                }
-                else
-                {
-                    ValidateTarget(branch.Target, Field(branchPath, "target"), activityNames, issues);
-                }
+                ValidateDispatch(branch.Workflow, branch.StartActivity, branch.Input,
+                    branchPath, bundle, issues);
 
                 if (branch.ForEach != null
                     && (string.IsNullOrEmpty(branch.ForEach.Collection)
@@ -477,7 +482,7 @@ namespace Utos.Workflows.V1.Validation
             else if (config.ModeCase == WorkflowActivityConfig.ModeOneofCase.Call)
             {
                 ValidateOnEmitted(config.Call, Field(Field(path, "call"), "onEmitted"),
-                    activityNames, issues);
+                    bundle, issues);
             }
 
             Workflow target = null;
@@ -513,33 +518,69 @@ namespace Utos.Workflows.V1.Validation
         }
 
         private static void ValidateOnEmitted(CallActivityConfig call, string path,
-            HashSet<string> activityNames, List<ValidationIssue> issues)
+            WorkflowBundle bundle, List<ValidationIssue> issues)
         {
             if (call == null) return;
 
             for (int i = 0; i < call.OnEmitted.Count; i++)
             {
-                TransitionRule rule = call.OnEmitted[i];
-                string rulePath = Index(path, i);
-
-                // UTOS-C404: an onEmitted rule is an ordinary transition rule.
-                ValidateTransitionRule(rule, rulePath, activityNames, issues);
-
+                DispatchRule rule = call.OnEmitted[i];
                 if (rule == null) continue;
 
-                // UTOS-C405: and it must transition. A `result` would end the parent mid-stream
-                // while values were still arriving; an `emit` would republish the child's value
-                // onto the parent's own stream from inside the handler consuming it. The handler's
-                // job is to process one value and go back for the next.
-                if (rule.ActionCase != TransitionRule.ActionOneofCase.None
-                    && rule.ActionCase != TransitionRule.ActionOneofCase.Transition)
-                {
-                    Add(issues, ValidationCodes.OnEmittedActionInvalid, rulePath,
-                        "An onEmitted rule must carry a transition action; '"
-                        + rule.ActionCase.ToString().ToLowerInvariant() + "' has no meaning in an "
-                        + "emission handler.");
-                }
+                ValidateDispatch(rule.Workflow, rule.StartActivity, rule.Input,
+                    Index(path, i), bundle, issues);
             }
+        }
+
+        /// <summary>
+        /// UTOS-C501-C503, over the three fields a promise branch and an onEmitted rule share.
+        /// <para>
+        /// One method rather than one per construct, mirroring the single rule range: a dispatch
+        /// means "run this document, starting here" wherever it appears, and a reader who has
+        /// learned what UTOS-C502 means has learned it in both places.
+        /// </para>
+        /// <para>
+        /// Deliberately not folded together with the UTOS-C401-C403 checks on a workflow.call,
+        /// which read the same but are not the same thing: a call is an activity in the current
+        /// flow that waits for a result and whose failure is that activity's failure. A dispatch
+        /// has no activity of its own.
+        /// </para>
+        /// </summary>
+        private static void ValidateDispatch(string workflow, string startActivity, Struct input,
+            string path, WorkflowBundle bundle, List<ValidationIssue> issues)
+        {
+            Workflow target = null;
+
+            if (string.IsNullOrEmpty(workflow))
+            {
+                Add(issues, ValidationCodes.DispatchWorkflowRequired, Field(path, "workflow"),
+                    "A dispatch must name the workflow to run.");
+            }
+            else if (!bundle.Workflows.TryGetValue(workflow, out target))
+            {
+                // `self` never reaches a bundle — the CLI rewrites it to this document's own
+                // canonical identity at build time, and an alias that resolves to nothing is a
+                // source-format error (UTOS-S004) caught before a bundle exists.
+                Add(issues, ValidationCodes.SubWorkflowNotInBundle, Field(path, "workflow"),
+                    "Dispatched workflow '" + workflow + "' is not a key of workflows.");
+            }
+
+            if (string.IsNullOrEmpty(startActivity))
+            {
+                Add(issues, ValidationCodes.DispatchStartActivityRequired,
+                    Field(path, "startActivity"),
+                    "A dispatch must name the activity to start from.");
+            }
+            else if (target != null && target.Spec != null
+                     && !target.Spec.Activities.ContainsKey(startActivity))
+            {
+                Add(issues, ValidationCodes.DispatchStartActivityUnresolved,
+                    Field(path, "startActivity"),
+                    "Start activity '" + startActivity + "' does not exist in workflow '"
+                    + workflow + "'.");
+            }
+
+            if (input != null) ValidateStruct(input, Field(path, "input"), issues);
         }
 
         private static void ValidateStruct(Struct value, string path, List<ValidationIssue> issues)
