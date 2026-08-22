@@ -67,14 +67,29 @@ namespace Utos.Workflows.V1.Validation
         public const string PromiseRequiredCountInvalid = "UTOS-C302";
         public const string PromiseBranchesRequired = "UTOS-C303";
         public const string PromiseBranchNameRequired = "UTOS-C304";
-        public const string PromiseBranchTargetRequired = "UTOS-C305";
+        // UTOS-C305 (a branch target is required) is RETIRED: a branch dispatches a document, so
+        // there is no `target` left to require. What it names is UTOS-C501-C503 now. Burned for
+        // the same reason UTOS-C301 is.
         public const string PromiseForEachIncomplete = "UTOS-C306";
+        public const string PromiseBranchNameDuplicate = "UTOS-C307";
 
         // Sub-workflow configuration
         public const string SubWorkflowRequired = "UTOS-C401";
         public const string SubWorkflowStartActivityRequired = "UTOS-C402";
         public const string SubWorkflowStartActivityUnresolved = "UTOS-C403";
-        public const string OnEmittedActionInvalid = "UTOS-C404";
+        // UTOS-C404 (an onEmitted rule's action must be a transition) is RETIRED: an onEmitted
+        // rule is no longer a transition rule, so there is no action left to narrow. What it
+        // protected against now holds by construction — a handler is a document, so it cannot
+        // transition into the consumer's flow and has no `result` to end the consumer with.
+        // UTOS-C405 stays burned too: it never existed as a rule, only as a wrong citation in the
+        // proto, and 0.0.13 tells readers so.
+
+        // Dispatch — a promise branch or an onEmitted rule. One range for both, because they
+        // carry the same three fields and mean the same thing by them; two identical rules under
+        // different codes would duplicate everything a code is for.
+        public const string DispatchWorkflowRequired = "UTOS-C501";
+        public const string DispatchStartActivityRequired = "UTOS-C502";
+        public const string DispatchStartActivityUnresolved = "UTOS-C503";
 
         // Struct values
         public const string NonFiniteNumber = "UTOS-V001";
