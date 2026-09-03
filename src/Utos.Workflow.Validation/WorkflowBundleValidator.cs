@@ -482,7 +482,7 @@ namespace Utos.Workflows.V1.Validation
             else if (config.ModeCase == WorkflowActivityConfig.ModeOneofCase.Call)
             {
                 ValidateOnEmitted(config.Call, Field(Field(path, "call"), "onEmitted"),
-                    bundle, issues);
+                    activityNames, bundle, issues);
             }
 
             Workflow target = null;
@@ -517,18 +517,51 @@ namespace Utos.Workflows.V1.Validation
             if (config.Input != null) ValidateStruct(config.Input, Field(path, "input"), issues);
         }
 
+        /// <summary>
+        /// An emission rule is a guard plus exactly one action, and which action decides what is
+        /// checked: a dispatch names another document, a transition names an activity here.
+        /// <para>
+        /// Only the missing case needs a rule of its own. The actions are a proto <c>oneof</c>, so
+        /// two of them cannot be expressed and there is nothing to check; a rule with none is a
+        /// value that matched a condition and then did nothing, which is a dead end rather than a
+        /// skip — an unmatched rule list already means "take the next value".
+        /// </para>
+        /// </summary>
         private static void ValidateOnEmitted(CallActivityConfig call, string path,
-            WorkflowBundle bundle, List<ValidationIssue> issues)
+            HashSet<string> activityNames, WorkflowBundle bundle, List<ValidationIssue> issues)
         {
             if (call == null) return;
 
             for (int i = 0; i < call.OnEmitted.Count; i++)
             {
-                DispatchRule rule = call.OnEmitted[i];
+                EmissionRule rule = call.OnEmitted[i];
+                string rulePath = Index(path, i);
                 if (rule == null) continue;
 
-                ValidateDispatch(rule.Workflow, rule.StartActivity, rule.Input,
-                    Index(path, i), bundle, issues);
+                switch (rule.ActionCase)
+                {
+                    case EmissionRule.ActionOneofCase.Handle:
+                        ValidateDispatch(rule.Handle.Workflow, rule.Handle.StartActivity,
+                            rule.Handle.Input, Field(rulePath, "handle"), bundle, issues);
+                        break;
+
+                    // A transition site like any other. The rule is evaluated by the consumer, in
+                    // the consumer's own execution, so its target is an activity in this workflow
+                    // — unlike the handler a dispatch names, which is another document entirely.
+                    case EmissionRule.ActionOneofCase.Transition:
+                        ValidateTarget(rule.Transition, Field(rulePath, "transition"),
+                            activityNames, issues);
+                        break;
+
+                    case EmissionRule.ActionOneofCase.Result:
+                        ValidateStruct(rule.Result, Field(rulePath, "result"), issues);
+                        break;
+
+                    default:
+                        Add(issues, ValidationCodes.EmissionRuleActionRequired, rulePath,
+                            "An onEmitted rule must carry an action: handle, transition or result.");
+                        break;
+                }
             }
         }
 
