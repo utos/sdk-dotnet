@@ -91,6 +91,13 @@ namespace Utos.Workflows.V1.Validation
         public const string DispatchStartActivityRequired = "UTOS-C502";
         public const string DispatchStartActivityUnresolved = "UTOS-C503";
 
+        /// <summary>
+        /// An onEmitted rule carries no action. Weak by design: the actions are a proto oneof, so
+        /// two cannot be expressed and only "none" is left to check — the same thing UTOS-T001
+        /// checks for a transition rule.
+        /// </summary>
+        public const string EmissionRuleActionRequired = "UTOS-C504";
+
         // Struct values
         public const string NonFiniteNumber = "UTOS-V001";
 

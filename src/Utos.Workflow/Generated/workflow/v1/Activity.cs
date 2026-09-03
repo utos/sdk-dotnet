@@ -56,7 +56,7 @@ namespace Utos.Workflows.V1 {
             "dGl2aXR5Q29uZmlnSAASNgoFc3Bhd24YBiABKAsyJS51dG9zLndvcmtmbG93",
             "LnYxLlNwYXduQWN0aXZpdHlDb25maWdIAEIGCgRtb2RlSgQIBBAFUghkZXRh",
             "Y2hlZCJIChJDYWxsQWN0aXZpdHlDb25maWcSMgoKb25fZW1pdHRlZBgBIAMo",
-            "CzIeLnV0b3Mud29ya2Zsb3cudjEuRGlzcGF0Y2hSdWxlIhUKE1NwYXduQWN0",
+            "CzIeLnV0b3Mud29ya2Zsb3cudjEuRW1pc3Npb25SdWxlIhUKE1NwYXduQWN0",
             "aXZpdHlDb25maWcizAIKFVByb21pc2VBY3Rpdml0eUNvbmZpZxIxCghicmFu",
             "Y2hlcxgDIAMoCzIfLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZUJyYW5jaBIx",
             "CgNhbGwYBCABKAsyIi51dG9zLndvcmtmbG93LnYxLlByb21pc2VBbGxDb25m",
@@ -72,12 +72,16 @@ namespace Utos.Workflows.V1 {
             "ARIWCgljb25kaXRpb24YAyABKAlIAYgBARIQCgh3b3JrZmxvdxgFIAEoCRIW",
             "Cg5zdGFydF9hY3Rpdml0eRgGIAEoCRIrCgVpbnB1dBgHIAEoCzIXLmdvb2ds",
             "ZS5wcm90b2J1Zi5TdHJ1Y3RIAogBAUILCglfZm9yX2VhY2hCDAoKX2NvbmRp",
-            "dGlvbkIICgZfaW5wdXRKBAgEEAVSBnRhcmdldCKVAQoMRGlzcGF0Y2hSdWxl",
-            "EhYKCWNvbmRpdGlvbhgBIAEoCUgAiAEBEhAKCHdvcmtmbG93GAIgASgJEhYK",
-            "DnN0YXJ0X2FjdGl2aXR5GAMgASgJEisKBWlucHV0GAQgASgLMhcuZ29vZ2xl",
-            "LnByb3RvYnVmLlN0cnVjdEgBiAEBQgwKCl9jb25kaXRpb25CCAoGX2lucHV0",
-            "IjIKDUZvckVhY2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVhbGlh",
-            "cxgCIAEoCUIUqgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnByb3RvMw=="));
+            "dGlvbkIICgZfaW5wdXRKBAgEEAVSBnRhcmdldCLYAQoMRW1pc3Npb25SdWxl",
+            "EhYKCWNvbmRpdGlvbhgBIAEoCUgBiAEBEjMKBmhhbmRsZRgCIAEoCzIhLnV0",
+            "b3Mud29ya2Zsb3cudjEuSGFuZGxlckRpc3BhdGNoSAASOAoKdHJhbnNpdGlv",
+            "bhgDIAEoCzIiLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblRhcmdldEgA",
+            "EikKBnJlc3VsdBgEIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIAEII",
+            "CgZhY3Rpb25CDAoKX2NvbmRpdGlvbiJyCg9IYW5kbGVyRGlzcGF0Y2gSEAoI",
+            "d29ya2Zsb3cYASABKAkSFgoOc3RhcnRfYWN0aXZpdHkYAiABKAkSKwoFaW5w",
+            "dXQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SACIAQFCCAoGX2lu",
+            "cHV0IjIKDUZvckVhY2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVh",
+            "bGlhcxgCIAEoCUIUqgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -96,7 +100,8 @@ namespace Utos.Workflows.V1 {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseRaceConfig), global::Utos.Workflows.V1.PromiseRaceConfig.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseCountConfig), global::Utos.Workflows.V1.PromiseCountConfig.Parser, new[]{ "RequiredCount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseBranch), global::Utos.Workflows.V1.PromiseBranch.Parser, new[]{ "Name", "ForEach", "Condition", "Workflow", "StartActivity", "Input" }, new[]{ "ForEach", "Condition", "Input" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.DispatchRule), global::Utos.Workflows.V1.DispatchRule.Parser, new[]{ "Condition", "Workflow", "StartActivity", "Input" }, new[]{ "Condition", "Input" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.EmissionRule), global::Utos.Workflows.V1.EmissionRule.Parser, new[]{ "Condition", "Handle", "Transition", "Result" }, new[]{ "Action", "Condition" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.HandlerDispatch), global::Utos.Workflows.V1.HandlerDispatch.Parser, new[]{ "Workflow", "StartActivity", "Input" }, new[]{ "Input" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.ForEachConfig), global::Utos.Workflows.V1.ForEachConfig.Parser, new[]{ "Collection", "Alias" }, null, null, null, null)
           }));
     }
@@ -2591,9 +2596,9 @@ namespace Utos.Workflows.V1 {
 
     /// <summary>Field number for the "on_emitted" field.</summary>
     public const int OnEmittedFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Utos.Workflows.V1.DispatchRule> _repeated_onEmitted_codec
-        = pb::FieldCodec.ForMessage(10, global::Utos.Workflows.V1.DispatchRule.Parser);
-    private readonly pbc::RepeatedField<global::Utos.Workflows.V1.DispatchRule> onEmitted_ = new pbc::RepeatedField<global::Utos.Workflows.V1.DispatchRule>();
+    private static readonly pb::FieldCodec<global::Utos.Workflows.V1.EmissionRule> _repeated_onEmitted_codec
+        = pb::FieldCodec.ForMessage(10, global::Utos.Workflows.V1.EmissionRule.Parser);
+    private readonly pbc::RepeatedField<global::Utos.Workflows.V1.EmissionRule> onEmitted_ = new pbc::RepeatedField<global::Utos.Workflows.V1.EmissionRule>();
     /// <summary>
     /// Subscribes this activity to the sub-workflow's output stream: evaluated
     /// once per value the child emits, in stream order, before the child's
@@ -2624,7 +2629,7 @@ namespace Utos.Workflows.V1 {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Utos.Workflows.V1.DispatchRule> OnEmitted {
+    public pbc::RepeatedField<global::Utos.Workflows.V1.EmissionRule> OnEmitted {
       get { return onEmitted_; }
     }
 
@@ -4078,8 +4083,10 @@ namespace Utos.Workflows.V1 {
   /// Supports static, conditional, and dynamic (for_each) branches
   ///
   /// A branch dispatches a *document*, not an activity: the same `workflow` /
-  /// `start_activity` / `input` triple a DispatchRule carries. See DispatchRule
-  /// for what dispatch means and why both constructs spell it the same way.
+  /// `start_activity` / `input` triple a HandlerDispatch carries, declared flat
+  /// here because a branch has no alternative action to disambiguate from. See
+  /// HandlerDispatch for what a dispatch means and why both constructs agree on
+  /// its content.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PromiseBranch : pb::IMessage<PromiseBranch>
@@ -4139,15 +4146,22 @@ namespace Utos.Workflows.V1 {
     ///
     /// Rendered against the branch scope, so `{{ alias.x }}` may be used with
     /// for_each to name each expansion after the item it processes —
-    /// `addon-{{ item.sku }}` yields `addon-SKU-123`. The rendered names must be
-    /// distinct within one promise, which is a run-time failure rather than a
-    /// validation rule: rendering requires the collection, and validation does not
-    /// evaluate templates. A name with no template renders to itself, so a static
-    /// branch is unaffected.
+    /// `addon-{{ item.sku }}` yields `addon-SKU-123`, which says which expansion
+    /// failed where an ordinal says nothing.
     ///
-    /// Implementations must not disambiguate by appending an ordinal. `item_0`
-    /// says nothing about which expansion failed, which is the entire reason the
-    /// name is templatable.
+    /// Names must be distinct within one promise, since they key the output map.
+    /// Where a for_each expansion renders names that are not distinct — most
+    /// obviously a name with no template in it, which renders to itself every
+    /// time — an implementation appends `_{index}` to each of that expansion's
+    /// names. That fallback is what keeps a plain `name: item` over a collection
+    /// working, and it applies per expansion, not per promise: a templated name
+    /// that is already distinct is used exactly as written.
+    ///
+    /// A collision *between* branches is not disambiguated, because renaming a
+    /// branch the author named deliberately would be worse than refusing. Where
+    /// both names are literal it is UTOS-C307; where rendering produces it, it is
+    /// a run-time failure, since rendering needs the collection and validation
+    /// does not evaluate templates.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4210,6 +4224,12 @@ namespace Utos.Workflows.V1 {
     /// <summary>
     /// The document this branch runs — a `spec.dependencies` alias, or `self` for
     /// the document the promise is declared in. Required (UTOS-C501).
+    ///
+    /// This is the one place `self` is legal, and the reason it exists: recursive
+    /// fan-out is otherwise inexpressible, because a document reaching itself
+    /// through an alias is a cycle (UTOS-S005). Such a branch terminates on its
+    /// data — a for_each over an empty collection starts nothing — rather than on
+    /// a depth rule.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4553,16 +4573,16 @@ namespace Utos.Workflows.V1 {
   /// the current document, including recursively.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class DispatchRule : pb::IMessage<DispatchRule>
+  public sealed partial class EmissionRule : pb::IMessage<EmissionRule>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<DispatchRule> _parser = new pb::MessageParser<DispatchRule>(() => new DispatchRule());
+    private static readonly pb::MessageParser<EmissionRule> _parser = new pb::MessageParser<EmissionRule>(() => new EmissionRule());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<DispatchRule> Parser { get { return _parser; } }
+    public static pb::MessageParser<EmissionRule> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4578,7 +4598,7 @@ namespace Utos.Workflows.V1 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DispatchRule() {
+    public EmissionRule() {
       OnConstruction();
     }
 
@@ -4586,18 +4606,27 @@ namespace Utos.Workflows.V1 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DispatchRule(DispatchRule other) : this() {
+    public EmissionRule(EmissionRule other) : this() {
       condition_ = other.condition_;
-      workflow_ = other.workflow_;
-      startActivity_ = other.startActivity_;
-      input_ = other.input_ != null ? other.input_.Clone() : null;
+      switch (other.ActionCase) {
+        case ActionOneofCase.Handle:
+          Handle = other.Handle.Clone();
+          break;
+        case ActionOneofCase.Transition:
+          Transition = other.Transition.Clone();
+          break;
+        case ActionOneofCase.Result:
+          Result = other.Result.Clone();
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DispatchRule Clone() {
-      return new DispatchRule(this);
+    public EmissionRule Clone() {
+      return new EmissionRule(this);
     }
 
     /// <summary>Field number for the "condition" field.</summary>
@@ -4607,7 +4636,9 @@ namespace Utos.Workflows.V1 {
     private string condition_;
     /// <summary>
     /// Optional; skip this rule if the condition evaluates to false. Rules are
-    /// evaluated in order and the first match wins, as elsewhere.
+    /// evaluated in order and the first match wins, as elsewhere. A list where
+    /// nothing matches skips that value and takes the next — a filtering consumer,
+    /// not an abandoned loop.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4630,64 +4661,109 @@ namespace Utos.Workflows.V1 {
       condition_ = null;
     }
 
-    /// <summary>Field number for the "workflow" field.</summary>
-    public const int WorkflowFieldNumber = 2;
-    private string workflow_ = "";
+    /// <summary>Field number for the "handle" field.</summary>
+    public const int HandleFieldNumber = 2;
     /// <summary>
-    /// The document to dispatch — a `spec.dependencies` alias, or `self`.
-    /// Required (UTOS-C501).
+    /// Run a document for this value, wait for it to finish, then come back for
+    /// the next one. The loop body, and the only action that continues
+    /// consuming.
+    ///
+    /// The producer stays parked for the duration, so values are handled one at
+    /// a time and cannot pile up — the back-pressure described in
+    /// docs/execution-output-stream.md is a consequence of this waiting, not a
+    /// separate mechanism.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Workflow {
-      get { return workflow_; }
+    public global::Utos.Workflows.V1.HandlerDispatch Handle {
+      get { return actionCase_ == ActionOneofCase.Handle ? (global::Utos.Workflows.V1.HandlerDispatch) action_ : null; }
       set {
-        workflow_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Handle;
       }
     }
 
-    /// <summary>Field number for the "start_activity" field.</summary>
-    public const int StartActivityFieldNumber = 3;
-    private string startActivity_ = "";
+    /// <summary>Field number for the "transition" field.</summary>
+    public const int TransitionFieldNumber = 3;
     /// <summary>
-    /// Which activity in that document to start from. Required (UTOS-C502), and
-    /// must name an activity it declares (UTOS-C503).
+    /// Stop consuming and continue at this activity, in the *consuming*
+    /// workflow. The subscription ends and the producer is cancelled at that
+    /// point — not when this workflow eventually terminates, which may be much
+    /// later — since nothing will observe it again.
+    ///
+    /// Safe where a handler transitioning here would not be, and the difference
+    /// is which execution evaluates it. This rule is evaluated by the consumer,
+    /// in the consumer's own execution, so the target is an ordinary activity in
+    /// the consumer's own graph (UTOS-T003). A dispatched handler runs in an
+    /// execution of its own that holds no subscription, which is why it cannot
+    /// name the consumer's flow at all — see UTOS-S011.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string StartActivity {
-      get { return startActivity_; }
+    public global::Utos.Workflows.V1.TransitionTarget Transition {
+      get { return actionCase_ == ActionOneofCase.Transition ? (global::Utos.Workflows.V1.TransitionTarget) action_ : null; }
       set {
-        startActivity_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Transition;
       }
     }
 
-    /// <summary>Field number for the "input" field.</summary>
-    public const int InputFieldNumber = 4;
-    private global::Google.Protobuf.WellKnownTypes.Struct input_;
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 4;
     /// <summary>
-    /// Transform producing the dispatched document's run input. Leaf string values
-    /// may contain {{ }} expressions. Omitted passes the dispatching context's
-    /// value through unchanged — for an emission handler, the emitted value.
+    /// Stop consuming and end the consumer with this value as its result. The
+    /// subscription ends and the producer is cancelled, as above.
+    ///
+    /// The same action `on_success` carries, and it means the same thing there;
+    /// what differs is when the list is evaluated. This one fires on a value
+    /// while the producer is still running, that one only once it has finished.
+    ///
+    /// This is how "find one thing and return it" is written. Without it the
+    /// only way to stop early was to make a handler fail, which ends the run as
+    /// an error and loses the distinction between finishing early on purpose and
+    /// breaking.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Struct Input {
-      get { return input_; }
+    public global::Google.Protobuf.WellKnownTypes.Struct Result {
+      get { return actionCase_ == ActionOneofCase.Result ? (global::Google.Protobuf.WellKnownTypes.Struct) action_ : null; }
       set {
-        input_ = value;
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Result;
       }
+    }
+
+    private object action_;
+    /// <summary>Enum of possible cases for the "action" oneof.</summary>
+    public enum ActionOneofCase {
+      None = 0,
+      Handle = 2,
+      Transition = 3,
+      Result = 4,
+    }
+    private ActionOneofCase actionCase_ = ActionOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ActionOneofCase ActionCase {
+      get { return actionCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAction() {
+      actionCase_ = ActionOneofCase.None;
+      action_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as DispatchRule);
+      return Equals(other as EmissionRule);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(DispatchRule other) {
+    public bool Equals(EmissionRule other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -4695,9 +4771,10 @@ namespace Utos.Workflows.V1 {
         return true;
       }
       if (Condition != other.Condition) return false;
-      if (Workflow != other.Workflow) return false;
-      if (StartActivity != other.StartActivity) return false;
-      if (!object.Equals(Input, other.Input)) return false;
+      if (!object.Equals(Handle, other.Handle)) return false;
+      if (!object.Equals(Transition, other.Transition)) return false;
+      if (!object.Equals(Result, other.Result)) return false;
+      if (ActionCase != other.ActionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4706,9 +4783,10 @@ namespace Utos.Workflows.V1 {
     public override int GetHashCode() {
       int hash = 1;
       if (HasCondition) hash ^= Condition.GetHashCode();
-      if (Workflow.Length != 0) hash ^= Workflow.GetHashCode();
-      if (StartActivity.Length != 0) hash ^= StartActivity.GetHashCode();
-      if (input_ != null) hash ^= Input.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Handle) hash ^= Handle.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Transition) hash ^= Transition.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Result) hash ^= Result.GetHashCode();
+      hash ^= (int) actionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4731,17 +4809,17 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(10);
         output.WriteString(Condition);
       }
-      if (Workflow.Length != 0) {
+      if (actionCase_ == ActionOneofCase.Handle) {
         output.WriteRawTag(18);
-        output.WriteString(Workflow);
+        output.WriteMessage(Handle);
       }
-      if (StartActivity.Length != 0) {
+      if (actionCase_ == ActionOneofCase.Transition) {
         output.WriteRawTag(26);
-        output.WriteString(StartActivity);
+        output.WriteMessage(Transition);
       }
-      if (input_ != null) {
+      if (actionCase_ == ActionOneofCase.Result) {
         output.WriteRawTag(34);
-        output.WriteMessage(Input);
+        output.WriteMessage(Result);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4757,17 +4835,17 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(10);
         output.WriteString(Condition);
       }
-      if (Workflow.Length != 0) {
+      if (actionCase_ == ActionOneofCase.Handle) {
         output.WriteRawTag(18);
-        output.WriteString(Workflow);
+        output.WriteMessage(Handle);
       }
-      if (StartActivity.Length != 0) {
+      if (actionCase_ == ActionOneofCase.Transition) {
         output.WriteRawTag(26);
-        output.WriteString(StartActivity);
+        output.WriteMessage(Transition);
       }
-      if (input_ != null) {
+      if (actionCase_ == ActionOneofCase.Result) {
         output.WriteRawTag(34);
-        output.WriteMessage(Input);
+        output.WriteMessage(Result);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -4782,6 +4860,376 @@ namespace Utos.Workflows.V1 {
       if (HasCondition) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Condition);
       }
+      if (actionCase_ == ActionOneofCase.Handle) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Handle);
+      }
+      if (actionCase_ == ActionOneofCase.Transition) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Transition);
+      }
+      if (actionCase_ == ActionOneofCase.Result) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Result);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(EmissionRule other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasCondition) {
+        Condition = other.Condition;
+      }
+      switch (other.ActionCase) {
+        case ActionOneofCase.Handle:
+          if (Handle == null) {
+            Handle = new global::Utos.Workflows.V1.HandlerDispatch();
+          }
+          Handle.MergeFrom(other.Handle);
+          break;
+        case ActionOneofCase.Transition:
+          if (Transition == null) {
+            Transition = new global::Utos.Workflows.V1.TransitionTarget();
+          }
+          Transition.MergeFrom(other.Transition);
+          break;
+        case ActionOneofCase.Result:
+          if (Result == null) {
+            Result = new global::Google.Protobuf.WellKnownTypes.Struct();
+          }
+          Result.MergeFrom(other.Result);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Condition = input.ReadString();
+            break;
+          }
+          case 18: {
+            global::Utos.Workflows.V1.HandlerDispatch subBuilder = new global::Utos.Workflows.V1.HandlerDispatch();
+            if (actionCase_ == ActionOneofCase.Handle) {
+              subBuilder.MergeFrom(Handle);
+            }
+            input.ReadMessage(subBuilder);
+            Handle = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Utos.Workflows.V1.TransitionTarget subBuilder = new global::Utos.Workflows.V1.TransitionTarget();
+            if (actionCase_ == ActionOneofCase.Transition) {
+              subBuilder.MergeFrom(Transition);
+            }
+            input.ReadMessage(subBuilder);
+            Transition = subBuilder;
+            break;
+          }
+          case 34: {
+            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
+            if (actionCase_ == ActionOneofCase.Result) {
+              subBuilder.MergeFrom(Result);
+            }
+            input.ReadMessage(subBuilder);
+            Result = subBuilder;
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Condition = input.ReadString();
+            break;
+          }
+          case 18: {
+            global::Utos.Workflows.V1.HandlerDispatch subBuilder = new global::Utos.Workflows.V1.HandlerDispatch();
+            if (actionCase_ == ActionOneofCase.Handle) {
+              subBuilder.MergeFrom(Handle);
+            }
+            input.ReadMessage(subBuilder);
+            Handle = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Utos.Workflows.V1.TransitionTarget subBuilder = new global::Utos.Workflows.V1.TransitionTarget();
+            if (actionCase_ == ActionOneofCase.Transition) {
+              subBuilder.MergeFrom(Transition);
+            }
+            input.ReadMessage(subBuilder);
+            Transition = subBuilder;
+            break;
+          }
+          case 34: {
+            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
+            if (actionCase_ == ActionOneofCase.Result) {
+              subBuilder.MergeFrom(Result);
+            }
+            input.ReadMessage(subBuilder);
+            Result = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Run a document, starting from one of its activities.
+  ///
+  /// The same triple a PromiseBranch carries, and deliberately so: dispatching
+  /// work is one thing to learn, whether a promise is fanning out over it or an
+  /// emission handler is processing a value with it. Neither names an activity in
+  /// the dispatching document; both name a document and where to enter it.
+  ///
+  /// A branch carries these fields flat while an emission rule nests them under
+  /// `handle`, which is the one asymmetry. A branch has no alternative actions, so
+  /// there is nothing for a wrapper to disambiguate; an emission rule has three,
+  /// and the block is what makes the choice visible rather than something the
+  /// author has to know from the field names.
+  ///
+  /// Requiring a document is what keeps `spec.activities` honest. An activity that
+  /// existed only to serve a branch or a handler used to sit in the same flat map
+  /// as the main flow with nothing to mark it, and what it meant depended on where
+  /// it was used. A reader who opens a dispatched document now finds only that
+  /// work.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class HandlerDispatch : pb::IMessage<HandlerDispatch>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<HandlerDispatch> _parser = new pb::MessageParser<HandlerDispatch>(() => new HandlerDispatch());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<HandlerDispatch> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public HandlerDispatch() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public HandlerDispatch(HandlerDispatch other) : this() {
+      workflow_ = other.workflow_;
+      startActivity_ = other.startActivity_;
+      input_ = other.input_ != null ? other.input_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public HandlerDispatch Clone() {
+      return new HandlerDispatch(this);
+    }
+
+    /// <summary>Field number for the "workflow" field.</summary>
+    public const int WorkflowFieldNumber = 1;
+    private string workflow_ = "";
+    /// <summary>
+    /// The document to dispatch — a `spec.dependencies` alias. Required
+    /// (UTOS-C501).
+    ///
+    /// `self` is **not** legal here (UTOS-S011). A handler in another document
+    /// cannot transition into the dispatching flow, because transitions do not
+    /// cross documents; a handler in the *same* document can, and re-entering the
+    /// call activity that dispatched it starts a second producer rather than
+    /// resuming the first — once per value, without bound. That was the shape
+    /// `on_emitted` handlers were written in before they became documents, so it
+    /// is a mistake authors arrive at by leaving old text alone rather than by
+    /// writing something new.
+    ///
+    /// A consumer that wants to reach its own flow says so with `transition`,
+    /// which is evaluated in its own execution and carries none of that risk.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Workflow {
+      get { return workflow_; }
+      set {
+        workflow_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "start_activity" field.</summary>
+    public const int StartActivityFieldNumber = 2;
+    private string startActivity_ = "";
+    /// <summary>
+    /// Which activity in that document to start from. Required (UTOS-C502), and
+    /// must name an activity it declares (UTOS-C503).
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string StartActivity {
+      get { return startActivity_; }
+      set {
+        startActivity_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "input" field.</summary>
+    public const int InputFieldNumber = 3;
+    private global::Google.Protobuf.WellKnownTypes.Struct input_;
+    /// <summary>
+    /// Transform producing the dispatched document's run input. Leaf string values
+    /// may contain {{ }} expressions. Omitted passes the dispatching context's
+    /// value through unchanged — for an emission handler, the emitted value.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Input {
+      get { return input_; }
+      set {
+        input_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as HandlerDispatch);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(HandlerDispatch other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Workflow != other.Workflow) return false;
+      if (StartActivity != other.StartActivity) return false;
+      if (!object.Equals(Input, other.Input)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Workflow.Length != 0) hash ^= Workflow.GetHashCode();
+      if (StartActivity.Length != 0) hash ^= StartActivity.GetHashCode();
+      if (input_ != null) hash ^= Input.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Workflow.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Workflow);
+      }
+      if (StartActivity.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(StartActivity);
+      }
+      if (input_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Input);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Workflow.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Workflow);
+      }
+      if (StartActivity.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(StartActivity);
+      }
+      if (input_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Input);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
       if (Workflow.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Workflow);
       }
@@ -4799,12 +5247,9 @@ namespace Utos.Workflows.V1 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(DispatchRule other) {
+    public void MergeFrom(HandlerDispatch other) {
       if (other == null) {
         return;
-      }
-      if (other.HasCondition) {
-        Condition = other.Condition;
       }
       if (other.Workflow.Length != 0) {
         Workflow = other.Workflow;
@@ -4838,18 +5283,14 @@ namespace Utos.Workflows.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Condition = input.ReadString();
-            break;
-          }
-          case 18: {
             Workflow = input.ReadString();
             break;
           }
-          case 26: {
+          case 18: {
             StartActivity = input.ReadString();
             break;
           }
-          case 34: {
+          case 26: {
             if (input_ == null) {
               Input = new global::Google.Protobuf.WellKnownTypes.Struct();
             }
@@ -4876,18 +5317,14 @@ namespace Utos.Workflows.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Condition = input.ReadString();
-            break;
-          }
-          case 18: {
             Workflow = input.ReadString();
             break;
           }
-          case 26: {
+          case 18: {
             StartActivity = input.ReadString();
             break;
           }
-          case 34: {
+          case 26: {
             if (input_ == null) {
               Input = new global::Google.Protobuf.WellKnownTypes.Struct();
             }
@@ -4919,7 +5356,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
