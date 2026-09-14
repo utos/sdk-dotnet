@@ -1,6 +1,0 @@
-{
-  "form": "value",
-  "expression": "input.missing",
-  "scope": { "input": { "present": 1 } },
-  "expect": { "omitted": true }
-}

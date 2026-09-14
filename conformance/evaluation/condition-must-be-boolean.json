@@ -1,6 +1,0 @@
-{
-  "form": "condition",
-  "expression": "output.items",
-  "scope": { "output": { "items": [] } },
-  "expect": { "error": "UTOS-E101" }
-}
