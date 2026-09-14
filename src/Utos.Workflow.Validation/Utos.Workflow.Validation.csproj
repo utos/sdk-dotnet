@@ -3,18 +3,30 @@
   <PropertyGroup>
     <PackageId>Utos.Workflow.Validation</PackageId>
     <RootNamespace>Utos.Workflows.V1.Validation</RootNamespace>
-    <Description>Validation rules for Utos workflow bundles, as specified by api/docs/workflow-validation.md. Reports coded, path-addressed issues so the CLI, the daemon and every tool enforce one rule set. No third-party dependencies.</Description>
+    <Description>Validation rules for Utos workflow bundles, as specified by api/docs/workflow-validation.md and the static expression rules of api/docs/template-expressions.md. Reports coded, path-addressed issues so the CLI, the daemon and every tool enforce one rule set. Depends on Utos.Workflow and on Acornima, the ECMAScript parser the expression grammar is defined over.</Description>
     <PackageTags>utos;workflow;validation;protobuf</PackageTags>
   </PropertyGroup>
 
   <!--
-    Deliberately depends on Utos.Workflow and nothing else. A validation framework forced on
-    every consumer of a spec package would be an imposition that cannot be walked back without a
-    breaking change, and its flattened message strings would not survive the trip to another
-    language anyway. Callers that want FluentValidation can adapt ValidationReport in a few lines.
+    Depends on Utos.Workflow and on Acornima, and deliberately on nothing else. A validation
+    framework forced on every consumer of a spec package would be an imposition that cannot be
+    walked back without a breaking change, and its flattened message strings would not survive
+    the trip to another language anyway. Callers that want FluentValidation can adapt
+    ValidationReport in a few lines.
+
+    Acornima is the exception the expression rules require: a grammar over ECMAScript syntax trees
+    needs an ECMAScript parser, and this is the one the reference engine (Jint) parses with, so the
+    tree validated here is the tree that runs. It is AOT- and trim-compatible, which the NativeAOT
+    CLI that consumes this package needs.
   -->
   <ItemGroup>
     <ProjectReference Include="..\Utos.Workflow\Utos.Workflow.csproj" />
+    <PackageReference Include="Acornima" />
+  </ItemGroup>
+
+  <!-- The splitter and the grammar are tested below the public entry point. -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="Utos.Workflow.Validation.Tests" />
   </ItemGroup>
 
   <!-- All source here is hand-written; EnableDefaultCompileItems=false (see Directory.Build.props). -->

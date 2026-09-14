@@ -10,9 +10,10 @@ namespace Utos.Workflows.V1.Validation
     /// Validates a <see cref="WorkflowBundle"/> against the rules in
     /// <c>api/docs/workflow-validation.md</c>.
     /// <para>
-    /// The rules are structural and referential: they check shape and that names resolve. They do
-    /// not evaluate template expressions, reach the network, or reason about what a workflow will
-    /// do at run time.
+    /// The rules are structural and referential: they check shape and that names resolve. They
+    /// parse template expressions against the grammar of <c>api/docs/template-expressions.md</c>
+    /// but never evaluate one, reach the network, or reason about what a workflow will do at run
+    /// time.
     /// </para>
     /// </summary>
     public static class WorkflowBundleValidator
@@ -295,6 +296,9 @@ namespace Utos.Workflows.V1.Validation
         {
             if (rule == null) return;
 
+            if (rule.HasCondition)
+                ExpressionRules.ValidateCondition(rule.Condition, Field(path, "condition"), issues);
+
             if (rule.ActionCase == TransitionRule.ActionOneofCase.None)
             {
                 Add(issues, ValidationCodes.TransitionActionRequired, path,
@@ -377,6 +381,13 @@ namespace Utos.Workflows.V1.Validation
                 Add(issues, ValidationCodes.HttpMethodRequired, Field(path, "method"),
                     "HTTP method is required.");
             }
+
+            // Text fields: rendered at run time, so any {{ }} in them must be in the language.
+            ExpressionRules.ValidateTemplate(config.Url, Field(path, "url"), issues);
+            foreach (string header in SortedKeys(config.Headers))
+                ExpressionRules.ValidateTemplate(config.Headers[header], Key(Field(path, "headers"), header), issues);
+            if (config.HasBody)
+                ExpressionRules.ValidateTemplate(config.Body, Field(path, "body"), issues);
         }
 
         private static void ValidateTimer(TimerActivityConfig config, string path,
@@ -456,12 +467,21 @@ namespace Utos.Workflows.V1.Validation
                 ValidateDispatch(branch.Workflow, branch.StartActivity, branch.Input,
                     branchPath, bundle, issues);
 
+                ExpressionRules.ValidateTemplate(branch.Name, Field(branchPath, "name"), issues);
+                if (branch.HasCondition)
+                    ExpressionRules.ValidateCondition(branch.Condition, Field(branchPath, "condition"), issues);
+
                 if (branch.ForEach != null
                     && (string.IsNullOrEmpty(branch.ForEach.Collection)
                         || string.IsNullOrEmpty(branch.ForEach.Alias)))
                 {
                     Add(issues, ValidationCodes.PromiseForEachIncomplete, Field(branchPath, "forEach"),
                         "forEach requires both a collection and an alias.");
+                }
+                else if (branch.ForEach != null)
+                {
+                    ExpressionRules.ValidateTemplate(branch.ForEach.Collection,
+                        Field(Field(branchPath, "forEach"), "collection"), issues);
                 }
             }
         }
@@ -537,6 +557,9 @@ namespace Utos.Workflows.V1.Validation
                 EmissionRule rule = call.OnEmitted[i];
                 string rulePath = Index(path, i);
                 if (rule == null) continue;
+
+                if (rule.HasCondition)
+                    ExpressionRules.ValidateCondition(rule.Condition, Field(rulePath, "condition"), issues);
 
                 switch (rule.ActionCase)
                 {
@@ -637,6 +660,10 @@ namespace Utos.Workflows.V1.Validation
                             "Struct values cannot contain NaN or Infinity.");
                     }
 
+                    break;
+                case Value.KindOneofCase.StringValue:
+                    // A leaf string may carry {{ }}; one without is a literal and passes.
+                    ExpressionRules.ValidateTemplate(value.StringValue, path, issues);
                     break;
                 case Value.KindOneofCase.StructValue:
                     ValidateStruct(value.StructValue, path, issues);

@@ -13,6 +13,21 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ### Added
 
+- **The static expression rules, `UTOS-E0##`** (`api/docs/template-expressions.md`). Every
+  `condition` and every string that may carry `{{ }}` — struct leaves, URL, headers, body, branch
+  name, `forEach.collection` — is parsed as a strict-mode script and checked against the language's
+  grammar, an allow-list of syntax-tree node types. What is refused takes a named code (loops,
+  `function`, `class`, `var`, `this`, `async`, `new` beyond `Set`/`Map`, `__proto__` keys,
+  bitwise operators…) and `UTOS-E099` covers whatever the list does not mention; a syntax error is
+  `UTOS-E060`, `{{` inside a condition `UTOS-E061`, an unclosed or multi-statement interpolation
+  `UTOS-E062`, a program with no value `UTOS-E063`. Nothing is evaluated. Each field reports a
+  code at most once
+- The template splitter finds the closing `}}` by parsing rather than scanning, so `{{ {a: {b: 1}} }}`
+  is one program and `{{ '}}' }}` contains its own delimiter
+- **Acornima** becomes the package's one third-party dependency: the grammar is defined over
+  ECMAScript syntax trees, this is the parser the reference engine parses with (so the tree
+  validated is the tree that runs), and it is AOT- and trim-compatible for the NativeAOT CLI
+
 - Regenerated against the upstream `0.0.12` protos: `CallActivityConfig`/`SpawnActivityConfig`,
   the promise `completion` oneof, `EmitAction`, `ExecutionService.WatchOutput`/`CancelExecution`,
   `EXECUTION_STATUS_CANCELLED`, and `GetExecutionResponse.result`
