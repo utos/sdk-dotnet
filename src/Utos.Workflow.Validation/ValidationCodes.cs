@@ -101,6 +101,33 @@ namespace Utos.Workflows.V1.Validation
         // Struct values
         public const string NonFiniteNumber = "UTOS-V001";
 
+        // Expressions — the static rules of api/docs/template-expressions.md. These parse the
+        // text of a condition or a {{ }} template against the language's grammar; they never
+        // evaluate it. The grammar is an allow-list of syntax-tree node types, so the codes name
+        // what was refused and UTOS-E099 covers everything the list does not mention.
+        public const string ExpressionLoop = "UTOS-E001";
+        public const string ExpressionFunction = "UTOS-E002";
+        public const string ExpressionClass = "UTOS-E003";
+        public const string ExpressionStatement = "UTOS-E004";
+        public const string ExpressionVar = "UTOS-E010";
+        public const string ExpressionArrayHole = "UTOS-E012";
+        public const string ExpressionAccessor = "UTOS-E020";
+        public const string ExpressionProto = "UTOS-E021";
+        public const string ExpressionThis = "UTOS-E030";
+        public const string ExpressionAsync = "UTOS-E031";
+        public const string ExpressionModule = "UTOS-E032";
+        public const string ExpressionSequence = "UTOS-E035";
+        public const string ExpressionNew = "UTOS-E040";
+        public const string ExpressionForbiddenCall = "UTOS-E041";
+        public const string ExpressionUnaryOperator = "UTOS-E050";
+        public const string ExpressionBinaryOperator = "UTOS-E051";
+        public const string ExpressionAssignmentOperator = "UTOS-E052";
+        public const string ExpressionSyntaxError = "UTOS-E060";
+        public const string ExpressionDelimitedCondition = "UTOS-E061";
+        public const string ExpressionUnclosed = "UTOS-E062";
+        public const string ExpressionNoValue = "UTOS-E063";
+        public const string ExpressionUnknownNode = "UTOS-E099";
+
 #pragma warning restore CS1591
     }
 }
