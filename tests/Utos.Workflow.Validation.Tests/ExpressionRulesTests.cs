@@ -106,7 +106,11 @@ public class ExpressionRulesTests
             "input.items.toSorted((a, b) => a - b)",
             "let s = 0; input.items.forEach(x => { s += x; }); s",
             "typeof input.count === 'number' && 'name' in input.user",
-            "utos.base64UrlDecode(input.data)",
+            "Buffer.from(input.data, 'base64url').toString()",
+            "crypto.createHmac('sha256', input.key).update(response.body).digest('hex')",
+            "new Date(Date.now() + 3600 * 1000).toISOString()",
+            "new URL(input.href).searchParams.get('page') ?? new URLSearchParams({ q: input.q }).toString()",
+            "let flags = input.flags; flags |= 8; (flags & 4) !== 0 && (flags >>> 1) > 0 && ~0 === -1",
             "input['co' + 'unt']",
             "-input.count",
             "JSON.stringify({ ...input.user, [input.key]: 1 })",
@@ -119,6 +123,17 @@ public class ExpressionRulesTests
             Run("{{ " + program + " }}", issues);
             Assert.True(issues.Count == 0, program + " → " + string.Join("; ", issues.Select(i => i.Code)));
         }
+    }
+
+    [Theory]
+    [InlineData("new Proxy({}, {})", ValidationCodes.ExpressionNew)]
+    [InlineData("new Date() instanceof Date", ValidationCodes.ExpressionBinaryOperator)]
+    [InlineData("void input.x", ValidationCodes.ExpressionUnaryOperator)]
+    public void What_0_0_16_still_refuses(string program, string code)
+    {
+        var issues = new List<ValidationIssue>();
+        Run("{{ " + program + " }}", issues);
+        Assert.Equal(code, Assert.Single(issues).Code);
     }
 
     private static void Run(string text, List<ValidationIssue> issues) =>
