@@ -26,67 +26,70 @@ namespace Utos.Workflows.V1 {
           string.Concat(
             "Chp3b3JrZmxvdy92MS9hY3Rpdml0eS5wcm90bxIQdXRvcy53b3JrZmxvdy52",
             "MRoeZ29vZ2xlL3Byb3RvYnVmL2R1cmF0aW9uLnByb3RvGhxnb29nbGUvcHJv",
-            "dG9idWYvc3RydWN0LnByb3RvIvACChBXb3JrZmxvd0FjdGl2aXR5EjQKCm9u",
-            "X3N1Y2Nlc3MYASADKAsyIC51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25S",
-            "dWxlEjQKCm9uX2ZhaWx1cmUYAiADKAsyIC51dG9zLndvcmtmbG93LnYxLlRy",
-            "YW5zaXRpb25SdWxlEjQKBGh0dHAYCiABKAsyJC51dG9zLndvcmtmbG93LnYx",
-            "Lkh0dHBBY3Rpdml0eUNvbmZpZ0gAEjwKCHdvcmtmbG93GAsgASgLMigudXRv",
-            "cy53b3JrZmxvdy52MS5Xb3JrZmxvd0FjdGl2aXR5Q29uZmlnSAASOgoHcHJv",
-            "bWlzZRgMIAEoCzInLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZUFjdGl2aXR5",
-            "Q29uZmlnSAASNgoFdGltZXIYDSABKAsyJS51dG9zLndvcmtmbG93LnYxLlRp",
-            "bWVyQWN0aXZpdHlDb25maWdIAEIICgZjb25maWci0wEKDlRyYW5zaXRpb25S",
-            "dWxlEhYKCWNvbmRpdGlvbhgBIAEoCUgBiAEBEjgKCnRyYW5zaXRpb24YAiAB",
-            "KAsyIi51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJnZXRIABIpCgZy",
-            "ZXN1bHQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SAASLAoEZW1p",
-            "dBgEIAEoCzIcLnV0b3Mud29ya2Zsb3cudjEuRW1pdEFjdGlvbkgAQggKBmFj",
-            "dGlvbkIMCgpfY29uZGl0aW9uImwKCkVtaXRBY3Rpb24SJgoFdmFsdWUYASAB",
-            "KAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0EjYKCnRyYW5zaXRpb24YAiAB",
-            "KAsyIi51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJnZXQiVwoQVHJh",
-            "bnNpdGlvblRhcmdldBIMCgRuYW1lGAEgASgJEisKBWlucHV0GAIgASgLMhcu",
-            "Z29vZ2xlLnByb3RvYnVmLlN0cnVjdEgAiAEBQggKBl9pbnB1dCLBAQoSSHR0",
-            "cEFjdGl2aXR5Q29uZmlnEg4KBm1ldGhvZBgBIAEoCRILCgN1cmwYAiABKAkS",
-            "QgoHaGVhZGVycxgDIAMoCzIxLnV0b3Mud29ya2Zsb3cudjEuSHR0cEFjdGl2",
-            "aXR5Q29uZmlnLkhlYWRlcnNFbnRyeRIRCgRib2R5GAQgASgJSACIAQEaLgoM",
-            "SGVhZGVyc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAFC",
-            "BwoFX2JvZHkiQgoTVGltZXJBY3Rpdml0eUNvbmZpZxIrCghkdXJhdGlvbhgB",
-            "IAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbiLwAQoWV29ya2Zsb3dB",
-            "Y3Rpdml0eUNvbmZpZxIQCgh3b3JrZmxvdxgBIAEoCRIWCg5zdGFydF9hY3Rp",
-            "dml0eRgCIAEoCRImCgVpbnB1dBgDIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5T",
-            "dHJ1Y3QSNAoEY2FsbBgFIAEoCzIkLnV0b3Mud29ya2Zsb3cudjEuQ2FsbEFj",
-            "dGl2aXR5Q29uZmlnSAASNgoFc3Bhd24YBiABKAsyJS51dG9zLndvcmtmbG93",
-            "LnYxLlNwYXduQWN0aXZpdHlDb25maWdIAEIGCgRtb2RlSgQIBBAFUghkZXRh",
-            "Y2hlZCJIChJDYWxsQWN0aXZpdHlDb25maWcSMgoKb25fZW1pdHRlZBgBIAMo",
-            "CzIeLnV0b3Mud29ya2Zsb3cudjEuRW1pc3Npb25SdWxlIhUKE1NwYXduQWN0",
-            "aXZpdHlDb25maWcizAIKFVByb21pc2VBY3Rpdml0eUNvbmZpZxIxCghicmFu",
-            "Y2hlcxgDIAMoCzIfLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZUJyYW5jaBIx",
-            "CgNhbGwYBCABKAsyIi51dG9zLndvcmtmbG93LnYxLlByb21pc2VBbGxDb25m",
-            "aWdIABIxCgNhbnkYBSABKAsyIi51dG9zLndvcmtmbG93LnYxLlByb21pc2VB",
-            "bnlDb25maWdIABIzCgRyYWNlGAYgASgLMiMudXRvcy53b3JrZmxvdy52MS5Q",
-            "cm9taXNlUmFjZUNvbmZpZ0gAEjUKBWNvdW50GAcgASgLMiQudXRvcy53b3Jr",
-            "Zmxvdy52MS5Qcm9taXNlQ291bnRDb25maWdIAEIMCgpjb21wbGV0aW9uSgQI",
-            "ARACSgQIAhADUgRtb2RlUg5yZXF1aXJlZF9jb3VudCISChBQcm9taXNlQWxs",
-            "Q29uZmlnIhIKEFByb21pc2VBbnlDb25maWciEwoRUHJvbWlzZVJhY2VDb25m",
-            "aWciLAoSUHJvbWlzZUNvdW50Q29uZmlnEhYKDnJlcXVpcmVkX2NvdW50GAEg",
-            "ASgFIvcBCg1Qcm9taXNlQnJhbmNoEgwKBG5hbWUYASABKAkSNgoIZm9yX2Vh",
-            "Y2gYAiABKAsyHy51dG9zLndvcmtmbG93LnYxLkZvckVhY2hDb25maWdIAIgB",
-            "ARIWCgljb25kaXRpb24YAyABKAlIAYgBARIQCgh3b3JrZmxvdxgFIAEoCRIW",
-            "Cg5zdGFydF9hY3Rpdml0eRgGIAEoCRIrCgVpbnB1dBgHIAEoCzIXLmdvb2ds",
-            "ZS5wcm90b2J1Zi5TdHJ1Y3RIAogBAUILCglfZm9yX2VhY2hCDAoKX2NvbmRp",
-            "dGlvbkIICgZfaW5wdXRKBAgEEAVSBnRhcmdldCLYAQoMRW1pc3Npb25SdWxl",
-            "EhYKCWNvbmRpdGlvbhgBIAEoCUgBiAEBEjMKBmhhbmRsZRgCIAEoCzIhLnV0",
-            "b3Mud29ya2Zsb3cudjEuSGFuZGxlckRpc3BhdGNoSAASOAoKdHJhbnNpdGlv",
-            "bhgDIAEoCzIiLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblRhcmdldEgA",
-            "EikKBnJlc3VsdBgEIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIAEII",
-            "CgZhY3Rpb25CDAoKX2NvbmRpdGlvbiJyCg9IYW5kbGVyRGlzcGF0Y2gSEAoI",
-            "d29ya2Zsb3cYASABKAkSFgoOc3RhcnRfYWN0aXZpdHkYAiABKAkSKwoFaW5w",
-            "dXQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SACIAQFCCAoGX2lu",
-            "cHV0IjIKDUZvckVhY2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVh",
-            "bGlhcxgCIAEoCUIUqgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnByb3RvMw=="));
+            "dG9idWYvc3RydWN0LnByb3RvGhh3b3JrZmxvdy92MS9jb21tb24ucHJvdG8i",
+            "8AIKEFdvcmtmbG93QWN0aXZpdHkSNAoKb25fc3VjY2VzcxgBIAMoCzIgLnV0",
+            "b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblJ1bGUSNAoKb25fZmFpbHVyZRgC",
+            "IAMoCzIgLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblJ1bGUSNAoEaHR0",
+            "cBgKIAEoCzIkLnV0b3Mud29ya2Zsb3cudjEuSHR0cEFjdGl2aXR5Q29uZmln",
+            "SAASPAoId29ya2Zsb3cYCyABKAsyKC51dG9zLndvcmtmbG93LnYxLldvcmtm",
+            "bG93QWN0aXZpdHlDb25maWdIABI6Cgdwcm9taXNlGAwgASgLMicudXRvcy53",
+            "b3JrZmxvdy52MS5Qcm9taXNlQWN0aXZpdHlDb25maWdIABI2CgV0aW1lchgN",
+            "IAEoCzIlLnV0b3Mud29ya2Zsb3cudjEuVGltZXJBY3Rpdml0eUNvbmZpZ0gA",
+            "QggKBmNvbmZpZyKFAgoOVHJhbnNpdGlvblJ1bGUSFgoJY29uZGl0aW9uGAEg",
+            "ASgJSAGIAQESOAoKdHJhbnNpdGlvbhgCIAEoCzIiLnV0b3Mud29ya2Zsb3cu",
+            "djEuVHJhbnNpdGlvblRhcmdldEgAEikKBnJlc3VsdBgDIAEoCzIXLmdvb2ds",
+            "ZS5wcm90b2J1Zi5TdHJ1Y3RIABIsCgRlbWl0GAQgASgLMhwudXRvcy53b3Jr",
+            "Zmxvdy52MS5FbWl0QWN0aW9uSAASMAoFZXJyb3IYBSABKAsyHy51dG9zLndv",
+            "cmtmbG93LnYxLldvcmtmbG93RXJyb3JIAEIICgZhY3Rpb25CDAoKX2NvbmRp",
+            "dGlvbiJsCgpFbWl0QWN0aW9uEiYKBXZhbHVlGAEgASgLMhcuZ29vZ2xlLnBy",
+            "b3RvYnVmLlN0cnVjdBI2Cgp0cmFuc2l0aW9uGAIgASgLMiIudXRvcy53b3Jr",
+            "Zmxvdy52MS5UcmFuc2l0aW9uVGFyZ2V0IlcKEFRyYW5zaXRpb25UYXJnZXQS",
+            "DAoEbmFtZRgBIAEoCRIrCgVpbnB1dBgCIAEoCzIXLmdvb2dsZS5wcm90b2J1",
+            "Zi5TdHJ1Y3RIAIgBAUIICgZfaW5wdXQiwQEKEkh0dHBBY3Rpdml0eUNvbmZp",
+            "ZxIOCgZtZXRob2QYASABKAkSCwoDdXJsGAIgASgJEkIKB2hlYWRlcnMYAyAD",
+            "KAsyMS51dG9zLndvcmtmbG93LnYxLkh0dHBBY3Rpdml0eUNvbmZpZy5IZWFk",
+            "ZXJzRW50cnkSEQoEYm9keRgEIAEoCUgAiAEBGi4KDEhlYWRlcnNFbnRyeRIL",
+            "CgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBQgcKBV9ib2R5IkIKE1Rp",
+            "bWVyQWN0aXZpdHlDb25maWcSKwoIZHVyYXRpb24YASABKAsyGS5nb29nbGUu",
+            "cHJvdG9idWYuRHVyYXRpb24i8AEKFldvcmtmbG93QWN0aXZpdHlDb25maWcS",
+            "EAoId29ya2Zsb3cYASABKAkSFgoOc3RhcnRfYWN0aXZpdHkYAiABKAkSJgoF",
+            "aW5wdXQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0EjQKBGNhbGwY",
+            "BSABKAsyJC51dG9zLndvcmtmbG93LnYxLkNhbGxBY3Rpdml0eUNvbmZpZ0gA",
+            "EjYKBXNwYXduGAYgASgLMiUudXRvcy53b3JrZmxvdy52MS5TcGF3bkFjdGl2",
+            "aXR5Q29uZmlnSABCBgoEbW9kZUoECAQQBVIIZGV0YWNoZWQiSAoSQ2FsbEFj",
+            "dGl2aXR5Q29uZmlnEjIKCm9uX2VtaXR0ZWQYASADKAsyHi51dG9zLndvcmtm",
+            "bG93LnYxLkVtaXNzaW9uUnVsZSIVChNTcGF3bkFjdGl2aXR5Q29uZmlnIswC",
+            "ChVQcm9taXNlQWN0aXZpdHlDb25maWcSMQoIYnJhbmNoZXMYAyADKAsyHy51",
+            "dG9zLndvcmtmbG93LnYxLlByb21pc2VCcmFuY2gSMQoDYWxsGAQgASgLMiIu",
+            "dXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQWxsQ29uZmlnSAASMQoDYW55GAUg",
+            "ASgLMiIudXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQW55Q29uZmlnSAASMwoE",
+            "cmFjZRgGIAEoCzIjLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZVJhY2VDb25m",
+            "aWdIABI1CgVjb3VudBgHIAEoCzIkLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlz",
+            "ZUNvdW50Q29uZmlnSABCDAoKY29tcGxldGlvbkoECAEQAkoECAIQA1IEbW9k",
+            "ZVIOcmVxdWlyZWRfY291bnQiEgoQUHJvbWlzZUFsbENvbmZpZyISChBQcm9t",
+            "aXNlQW55Q29uZmlnIhMKEVByb21pc2VSYWNlQ29uZmlnIiwKElByb21pc2VD",
+            "b3VudENvbmZpZxIWCg5yZXF1aXJlZF9jb3VudBgBIAEoBSL3AQoNUHJvbWlz",
+            "ZUJyYW5jaBIMCgRuYW1lGAEgASgJEjYKCGZvcl9lYWNoGAIgASgLMh8udXRv",
+            "cy53b3JrZmxvdy52MS5Gb3JFYWNoQ29uZmlnSACIAQESFgoJY29uZGl0aW9u",
+            "GAMgASgJSAGIAQESEAoId29ya2Zsb3cYBSABKAkSFgoOc3RhcnRfYWN0aXZp",
+            "dHkYBiABKAkSKwoFaW5wdXQYByABKAsyFy5nb29nbGUucHJvdG9idWYuU3Ry",
+            "dWN0SAKIAQFCCwoJX2Zvcl9lYWNoQgwKCl9jb25kaXRpb25CCAoGX2lucHV0",
+            "SgQIBBAFUgZ0YXJnZXQiigIKDEVtaXNzaW9uUnVsZRIWCgljb25kaXRpb24Y",
+            "ASABKAlIAYgBARIzCgZoYW5kbGUYAiABKAsyIS51dG9zLndvcmtmbG93LnYx",
+            "LkhhbmRsZXJEaXNwYXRjaEgAEjgKCnRyYW5zaXRpb24YAyABKAsyIi51dG9z",
+            "LndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJnZXRIABIpCgZyZXN1bHQYBCAB",
+            "KAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SAASMAoFZXJyb3IYBSABKAsy",
+            "Hy51dG9zLndvcmtmbG93LnYxLldvcmtmbG93RXJyb3JIAEIICgZhY3Rpb25C",
+            "DAoKX2NvbmRpdGlvbiJyCg9IYW5kbGVyRGlzcGF0Y2gSEAoId29ya2Zsb3cY",
+            "ASABKAkSFgoOc3RhcnRfYWN0aXZpdHkYAiABKAkSKwoFaW5wdXQYAyABKAsy",
+            "Fy5nb29nbGUucHJvdG9idWYuU3RydWN0SACIAQFCCAoGX2lucHV0IjIKDUZv",
+            "ckVhY2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVhbGlhcxgCIAEo",
+            "CUIUqgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowActivity), global::Utos.Workflows.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Http", "Workflow", "Promise", "Timer" }, new[]{ "Config" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionRule), global::Utos.Workflows.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Result", "Emit" }, new[]{ "Action", "Condition" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionRule), global::Utos.Workflows.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Result", "Emit", "Error" }, new[]{ "Action", "Condition" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.EmitAction), global::Utos.Workflows.V1.EmitAction.Parser, new[]{ "Value", "Transition" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionTarget), global::Utos.Workflows.V1.TransitionTarget.Parser, new[]{ "Name", "Input" }, new[]{ "Input" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.HttpActivityConfig), global::Utos.Workflows.V1.HttpActivityConfig.Parser, new[]{ "Method", "Url", "Headers", "Body" }, new[]{ "Body" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
@@ -100,7 +103,7 @@ namespace Utos.Workflows.V1 {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseRaceConfig), global::Utos.Workflows.V1.PromiseRaceConfig.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseCountConfig), global::Utos.Workflows.V1.PromiseCountConfig.Parser, new[]{ "RequiredCount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseBranch), global::Utos.Workflows.V1.PromiseBranch.Parser, new[]{ "Name", "ForEach", "Condition", "Workflow", "StartActivity", "Input" }, new[]{ "ForEach", "Condition", "Input" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.EmissionRule), global::Utos.Workflows.V1.EmissionRule.Parser, new[]{ "Condition", "Handle", "Transition", "Result" }, new[]{ "Action", "Condition" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.EmissionRule), global::Utos.Workflows.V1.EmissionRule.Parser, new[]{ "Condition", "Handle", "Transition", "Result", "Error" }, new[]{ "Action", "Condition" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.HandlerDispatch), global::Utos.Workflows.V1.HandlerDispatch.Parser, new[]{ "Workflow", "StartActivity", "Input" }, new[]{ "Input" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.ForEachConfig), global::Utos.Workflows.V1.ForEachConfig.Parser, new[]{ "Collection", "Alias" }, null, null, null, null)
           }));
@@ -623,6 +626,9 @@ namespace Utos.Workflows.V1 {
         case ActionOneofCase.Emit:
           Emit = other.Emit.Clone();
           break;
+        case ActionOneofCase.Error:
+          Error = other.Error.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -640,11 +646,13 @@ namespace Utos.Workflows.V1 {
 
     private string condition_;
     /// <summary>
-    /// Template condition expression (e.g., "{{ output.count > 10 }}")
-    /// If empty/omitted, rule always executes (default/fallback rule)
+    /// A bare expression that must evaluate to exactly true or false — e.g.
+    /// `output.count > 10` — as docs/template-expressions.md defines. Not `{{ }}`-
+    /// wrapped (UTOS-E061). If empty/omitted, the rule always matches (a fallback).
     /// Available context: `input` (data the source activity received),
     /// `output` (raw output from the source activity's execution),
-    /// `env` (the run's ambient environment map, available to every activity)
+    /// `env` (the run's ambient environment map, available to every activity),
+    /// `response` and `error` — always defined, null where they do not apply.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -670,7 +678,9 @@ namespace Utos.Workflows.V1 {
     /// <summary>Field number for the "transition" field.</summary>
     public const int TransitionFieldNumber = 2;
     /// <summary>
-    /// Transition to another activity
+    /// Transition to another activity in this workflow. Since 0.0.16 a target is
+    /// always an activity: the former `end` and `error` keywords are `result`
+    /// and `error` below, so a name is never ambiguous.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -685,8 +695,10 @@ namespace Utos.Workflows.V1 {
     /// <summary>Field number for the "result" field.</summary>
     public const int ResultFieldNumber = 3;
     /// <summary>
-    /// Return data and end this execution path. Appends the terminal entry to
-    /// this execution's output stream — see docs/execution-output-stream.md.
+    /// End this execution path, returning this value. Appends the terminal entry
+    /// to this execution's output stream — see docs/execution-output-stream.md.
+    /// An EMPTY struct ends the path with no value (GetExecution.result is unset);
+    /// the source format spells both as `return`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -713,6 +725,25 @@ namespace Utos.Workflows.V1 {
       }
     }
 
+    /// <summary>Field number for the "error" field.</summary>
+    public const int ErrorFieldNumber = 5;
+    /// <summary>
+    /// End this execution path as a failure, with this error. The run reports
+    /// exactly what the author wrote: `code` is a literal identifier (required,
+    /// UTOS-T005); `message` is a text template and `details` a struct template,
+    /// rendered in the same context as the condition. Replaces the former
+    /// `transition: { name: error }`, which could carry no reason.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.WorkflowError Error {
+      get { return actionCase_ == ActionOneofCase.Error ? (global::Utos.Workflows.V1.WorkflowError) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Error;
+      }
+    }
+
     private object action_;
     /// <summary>Enum of possible cases for the "action" oneof.</summary>
     public enum ActionOneofCase {
@@ -720,6 +751,7 @@ namespace Utos.Workflows.V1 {
       Transition = 2,
       Result = 3,
       Emit = 4,
+      Error = 5,
     }
     private ActionOneofCase actionCase_ = ActionOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -754,6 +786,7 @@ namespace Utos.Workflows.V1 {
       if (!object.Equals(Transition, other.Transition)) return false;
       if (!object.Equals(Result, other.Result)) return false;
       if (!object.Equals(Emit, other.Emit)) return false;
+      if (!object.Equals(Error, other.Error)) return false;
       if (ActionCase != other.ActionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -766,6 +799,7 @@ namespace Utos.Workflows.V1 {
       if (actionCase_ == ActionOneofCase.Transition) hash ^= Transition.GetHashCode();
       if (actionCase_ == ActionOneofCase.Result) hash ^= Result.GetHashCode();
       if (actionCase_ == ActionOneofCase.Emit) hash ^= Emit.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Error) hash ^= Error.GetHashCode();
       hash ^= (int) actionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -801,6 +835,10 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(34);
         output.WriteMessage(Emit);
       }
+      if (actionCase_ == ActionOneofCase.Error) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Error);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -827,6 +865,10 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(34);
         output.WriteMessage(Emit);
       }
+      if (actionCase_ == ActionOneofCase.Error) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Error);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -848,6 +890,9 @@ namespace Utos.Workflows.V1 {
       }
       if (actionCase_ == ActionOneofCase.Emit) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Emit);
+      }
+      if (actionCase_ == ActionOneofCase.Error) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -882,6 +927,12 @@ namespace Utos.Workflows.V1 {
             Emit = new global::Utos.Workflows.V1.EmitAction();
           }
           Emit.MergeFrom(other.Emit);
+          break;
+        case ActionOneofCase.Error:
+          if (Error == null) {
+            Error = new global::Utos.Workflows.V1.WorkflowError();
+          }
+          Error.MergeFrom(other.Error);
           break;
       }
 
@@ -935,6 +986,15 @@ namespace Utos.Workflows.V1 {
             Emit = subBuilder;
             break;
           }
+          case 42: {
+            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
+            if (actionCase_ == ActionOneofCase.Error) {
+              subBuilder.MergeFrom(Error);
+            }
+            input.ReadMessage(subBuilder);
+            Error = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -983,6 +1043,15 @@ namespace Utos.Workflows.V1 {
             }
             input.ReadMessage(subBuilder);
             Emit = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
+            if (actionCase_ == ActionOneofCase.Error) {
+              subBuilder.MergeFrom(Error);
+            }
+            input.ReadMessage(subBuilder);
+            Error = subBuilder;
             break;
           }
         }
@@ -1321,14 +1390,13 @@ namespace Utos.Workflows.V1 {
     public const int NameFieldNumber = 1;
     private string name_ = "";
     /// <summary>
-    /// Activity name, or a reserved terminal keyword: "end" (end this path
-    /// successfully) or "error" (end this path with an error). The keywords are
-    /// reserved — an activity in WorkflowSpec.activities may not be named "end" or
-    /// "error" — so a target name is never ambiguous.
+    /// The name of an activity in the same workflow (UTOS-T003). Nothing else:
+    /// ending a path is a `result` action and failing it is an `error` action, so
+    /// there are no keywords and no name is reserved.
     /// The name may reference an already-visited activity — a back-edge — which
     /// forms a loop (e.g. poll-inbox -> wait -> poll-inbox). A loop with no rule
-    /// transitioning to "end" (or a `result` action) runs until the execution is
-    /// cancelled, expressing an intentionally infinite loop such as a poller.
+    /// carrying a `result` runs until the execution is cancelled, expressing an
+    /// intentionally infinite loop such as a poller.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1548,8 +1616,9 @@ namespace Utos.Workflows.V1 {
   ///
   /// An http activity surfaces its result twice, on different axes: `output` is
   /// the parsed JSON body, in common with every other activity kind, while
-  /// `response` carries the transport facts — status, headers, bodyText — that
-  /// have no analogue on the other kinds. `response` is available on the failure
+  /// `response` carries the transport facts — status, headers (names lowercased),
+  /// body (the raw bytes, as a Buffer) and bodyText — that have no analogue on the
+  /// other kinds. `response` is available on the failure
   /// path as well, which is what lets an on_failure rule tell a 429 from a 401
   /// without an error-code taxonomy. A non-2xx is a failure.
   /// </summary>
@@ -4618,6 +4687,9 @@ namespace Utos.Workflows.V1 {
         case ActionOneofCase.Result:
           Result = other.Result.Clone();
           break;
+        case ActionOneofCase.Error:
+          Error = other.Error.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -4721,7 +4793,7 @@ namespace Utos.Workflows.V1 {
     /// This is how "find one thing and return it" is written. Without it the
     /// only way to stop early was to make a handler fail, which ends the run as
     /// an error and loses the distinction between finishing early on purpose and
-    /// breaking.
+    /// breaking. An empty struct stops consuming and ends with no value.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4733,6 +4805,23 @@ namespace Utos.Workflows.V1 {
       }
     }
 
+    /// <summary>Field number for the "error" field.</summary>
+    public const int ErrorFieldNumber = 5;
+    /// <summary>
+    /// Stop consuming and end the consumer as a failure, with this error — the
+    /// same action `on_success` carries, with the same shape and rules
+    /// (UTOS-T005). The subscription ends and the producer is cancelled.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.WorkflowError Error {
+      get { return actionCase_ == ActionOneofCase.Error ? (global::Utos.Workflows.V1.WorkflowError) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Error;
+      }
+    }
+
     private object action_;
     /// <summary>Enum of possible cases for the "action" oneof.</summary>
     public enum ActionOneofCase {
@@ -4740,6 +4829,7 @@ namespace Utos.Workflows.V1 {
       Handle = 2,
       Transition = 3,
       Result = 4,
+      Error = 5,
     }
     private ActionOneofCase actionCase_ = ActionOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4774,6 +4864,7 @@ namespace Utos.Workflows.V1 {
       if (!object.Equals(Handle, other.Handle)) return false;
       if (!object.Equals(Transition, other.Transition)) return false;
       if (!object.Equals(Result, other.Result)) return false;
+      if (!object.Equals(Error, other.Error)) return false;
       if (ActionCase != other.ActionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -4786,6 +4877,7 @@ namespace Utos.Workflows.V1 {
       if (actionCase_ == ActionOneofCase.Handle) hash ^= Handle.GetHashCode();
       if (actionCase_ == ActionOneofCase.Transition) hash ^= Transition.GetHashCode();
       if (actionCase_ == ActionOneofCase.Result) hash ^= Result.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Error) hash ^= Error.GetHashCode();
       hash ^= (int) actionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -4821,6 +4913,10 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(34);
         output.WriteMessage(Result);
       }
+      if (actionCase_ == ActionOneofCase.Error) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Error);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4847,6 +4943,10 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(34);
         output.WriteMessage(Result);
       }
+      if (actionCase_ == ActionOneofCase.Error) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Error);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4868,6 +4968,9 @@ namespace Utos.Workflows.V1 {
       }
       if (actionCase_ == ActionOneofCase.Result) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Result);
+      }
+      if (actionCase_ == ActionOneofCase.Error) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4902,6 +5005,12 @@ namespace Utos.Workflows.V1 {
             Result = new global::Google.Protobuf.WellKnownTypes.Struct();
           }
           Result.MergeFrom(other.Result);
+          break;
+        case ActionOneofCase.Error:
+          if (Error == null) {
+            Error = new global::Utos.Workflows.V1.WorkflowError();
+          }
+          Error.MergeFrom(other.Error);
           break;
       }
 
@@ -4955,6 +5064,15 @@ namespace Utos.Workflows.V1 {
             Result = subBuilder;
             break;
           }
+          case 42: {
+            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
+            if (actionCase_ == ActionOneofCase.Error) {
+              subBuilder.MergeFrom(Error);
+            }
+            input.ReadMessage(subBuilder);
+            Error = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -5003,6 +5121,15 @@ namespace Utos.Workflows.V1 {
             }
             input.ReadMessage(subBuilder);
             Result = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
+            if (actionCase_ == ActionOneofCase.Error) {
+              subBuilder.MergeFrom(Error);
+            }
+            input.ReadMessage(subBuilder);
+            Error = subBuilder;
             break;
           }
         }

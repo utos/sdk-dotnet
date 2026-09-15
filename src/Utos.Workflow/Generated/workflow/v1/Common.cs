@@ -40,7 +40,9 @@ namespace Utos.Workflows.V1 {
   }
   #region Messages
   /// <summary>
-  /// Standard error response
+  /// Why an execution failed. Reported on a failed execution, and — the same
+  /// shape — authored as a rule's `error` action, so a workflow that decides to
+  /// fail says exactly what the run will report.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WorkflowError : pb::IMessage<WorkflowError>
@@ -93,7 +95,8 @@ namespace Utos.Workflows.V1 {
     public const int CodeFieldNumber = 1;
     private string code_ = "";
     /// <summary>
-    /// Error code
+    /// A stable identifier for the failure class, e.g. "MISSING_CUSTOMER". As an
+    /// authored action it is a literal (never a template) and required (UTOS-T005).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -108,7 +111,7 @@ namespace Utos.Workflows.V1 {
     public const int MessageFieldNumber = 2;
     private string message_ = "";
     /// <summary>
-    /// Error message
+    /// Human-readable explanation. As an authored action, a text template.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -123,7 +126,7 @@ namespace Utos.Workflows.V1 {
     public const int DetailsFieldNumber = 3;
     private global::Google.Protobuf.WellKnownTypes.Struct details_;
     /// <summary>
-    /// Additional structured error details
+    /// Additional structured details. As an authored action, a struct template.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
