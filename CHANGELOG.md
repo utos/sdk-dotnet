@@ -21,6 +21,11 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
   there with a message naming the `result` and `error` actions that replaced them. `UTOS-A003` is
   retired, since nothing is reserved. The grammar admits bitwise, shift and `~`, every assignment
   operator (`UTOS-E052` retired), and `new Date`, `new URL`, `new URLSearchParams`
+- **A change to hand-written source now releases.** `release.yml` rebuilt only on a
+  `Directory.Packages.props` change — which is why `0.0.14.2` existed and why the 0.0.16
+  validator fix, merged to `main`, published nothing. A push touching `src/` (`Generated/`
+  excluded) rebuilds the current spec under the next 4th-field version, and `workflow_dispatch`
+  takes a `rebuild` flag for doing so by hand
 - **`ReservedKeywords` is removed from `Utos.Workflow`.** The spec has no reserved names, so a
   type whose only job was to name two of them would be a lie; a daemon or CLI that consulted it
   to recognise a terminal transition must now match the `result` and `error` actions instead

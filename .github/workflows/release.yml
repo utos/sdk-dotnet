@@ -6,10 +6,13 @@ name: Release
 # Triggers:
 #   - repository_dispatch (spec-released): utos/api published a new spec version.
 #       client_payload = { version, sha, tag }.
-#   - workflow_dispatch: build a specific api tag now (or the latest) — manual fallback.
-#   - push to main touching Directory.Packages.props: a tooling bump (e.g. Dependabot
-#     raising Grpc.Tools / Google.Protobuf) -> rebuild the latest spec with a new
-#     4th-field version (X.Y.Z.N).
+#   - workflow_dispatch: build a specific api tag now (or the latest) — manual fallback;
+#     with `rebuild` set, republish it under a new 4th-field version instead.
+#   - push to main touching Directory.Packages.props or hand-written source under src/:
+#     a tooling bump (e.g. Dependabot raising Grpc.Tools / Google.Protobuf) or a change to
+#     the validator or a spec primitive -> rebuild the latest spec with a new 4th-field
+#     version (X.Y.Z.N). Generated/ is excluded: only this job writes it, and its own push
+#     (GITHUB_TOKEN) never triggers a workflow anyway.
 
 on:
   repository_dispatch:
@@ -20,10 +23,17 @@ on:
         description: 'utos/api tag to build, e.g. v0.0.7 (empty = latest released tag)'
         required: false
         default: ''
+      rebuild:
+        description: 'Republish that spec under a new 4th-field version (X.Y.Z.N) — for a source or packaging change that arrived after the spec build'
+        type: boolean
+        required: false
+        default: false
   push:
     branches: [main]
     paths:
       - 'Directory.Packages.props'
+      - 'src/**'
+      - '!src/**/Generated/**'
 
 permissions:
   contents: write   # commit regenerated source + push tags to this repo
@@ -63,8 +73,13 @@ jobs:
             SPEC_TAG="v${SPEC_VER}"
             SPEC_SHA="${{ github.event.client_payload.sha }}"
           else
-            # Mode: 'rebuild' for a tooling bump (push), else 'spec'.
-            if [ "$EVENT" = "push" ]; then MODE=rebuild; else MODE=spec; fi
+            # Mode: 'rebuild' for a push (tooling bump or source change) or an explicit
+            # request, else 'spec'.
+            if [ "$EVENT" = "push" ] || [ "${{ github.event.inputs.rebuild }}" = "true" ]; then
+              MODE=rebuild
+            else
+              MODE=spec
+            fi
 
             # Target spec tag: explicit input, else the highest vX.Y.Z on utos/api.
             REF_INPUT="${{ github.event.inputs.api_ref }}"
