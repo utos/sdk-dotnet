@@ -116,6 +116,10 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
   The code stays burned because codes are a stable contract, and recycling one would silently
   change the meaning of a suppression somebody had already written down
 
+## [0.0.16.1] - 2026-09-15
+
+SDK-only rebuild against [`v0.0.16`](https://github.com/utos/api/releases/tag/v0.0.16) (`257d55128f6b190bfba17fc8383f9bff192156a7`): codegen/runtime tooling bump, no spec change.
+
 ## [0.0.16] - 2026-09-15
 
 Generated from [`v0.0.16`](https://github.com/utos/api/releases/tag/v0.0.16) (`257d55128f6b190bfba17fc8383f9bff192156a7`). See the [spec changelog](https://github.com/utos/api/blob/v0.0.16/CHANGELOG.md).
