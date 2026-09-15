@@ -240,8 +240,8 @@ namespace Utos.Workflows.V1.Validation
                     break;
 
                 case NewExpression newExpression:
-                    if (!(newExpression.Callee is Identifier newCallee && (newCallee.Name == "Set" || newCallee.Name == "Map")))
-                        Reject(v, ValidationCodes.ExpressionNew, "`new` is limited to Set and Map", node);
+                    if (!(newExpression.Callee is Identifier newCallee && IsConstructible(newCallee.Name)))
+                        Reject(v, ValidationCodes.ExpressionNew, "`new` is limited to Set, Map, Date, URL and URLSearchParams", node);
                     CheckArguments(newExpression.Arguments, inArrowBody, v);
                     break;
 
@@ -265,9 +265,8 @@ namespace Utos.Workflows.V1.Validation
                     break;
 
                 case AssignmentExpression assignment:
-                    if (!IsAllowedAssignment(assignment.Operator))
-                        Reject(v, ValidationCodes.ExpressionAssignmentOperator,
-                            "operator `" + assignment.Operator + "` is not part of the language", node);
+                    // Every assignment operator: the target is what matters, and CheckPattern
+                    // decides that.
                     CheckPattern(assignment.Left, inArrowBody, v);
                     CheckExpression(assignment.Right, inArrowBody, v);
                     break;
@@ -335,6 +334,13 @@ namespace Utos.Workflows.V1.Validation
         private static bool IsForbiddenCallee(string name) =>
             name == "Array" || name == "Object" || name == "Function" || name == "eval";
 
+        // The five constructible globals of the surface: the two collections, and the three
+        // Node globals whose value is an object rather than a function call.
+        private static bool IsConstructible(string name) =>
+            name == "Set" || name == "Map" || name == "Date" || name == "URL" || name == "URLSearchParams";
+
+        // Everything but `instanceof`: it reads the prototype chain, which the language has no
+        // other way to observe. Bitwise and shift operators are pure integer arithmetic.
         private static bool IsAllowedBinary(Operator op)
         {
             switch (op)
@@ -353,6 +359,12 @@ namespace Utos.Workflows.V1.Validation
                 case Operator.Division:
                 case Operator.Remainder:
                 case Operator.Exponentiation:
+                case Operator.BitwiseAnd:
+                case Operator.BitwiseOr:
+                case Operator.BitwiseXor:
+                case Operator.LeftShift:
+                case Operator.RightShift:
+                case Operator.UnsignedRightShift:
                 case Operator.In:
                     return true;
                 default:
@@ -360,26 +372,14 @@ namespace Utos.Workflows.V1.Validation
             }
         }
 
-        private static bool IsAllowedAssignment(Operator op)
-        {
-            switch (op)
-            {
-                case Operator.Assignment:
-                case Operator.AdditionAssignment:
-                case Operator.SubtractionAssignment:
-                case Operator.MultiplicationAssignment:
-                case Operator.DivisionAssignment:
-                    return true;
-                default:
-                    return false;
-            }
-        }
-
+        // `delete` mutates and `void` only ever means "discard", which a program with a value
+        // has no use for.
         private static bool IsAllowedUnary(Operator op)
         {
             switch (op)
             {
                 case Operator.LogicalNot:
+                case Operator.BitwiseNot:
                 case Operator.UnaryNegation:
                 case Operator.UnaryPlus:
                 case Operator.TypeOf:

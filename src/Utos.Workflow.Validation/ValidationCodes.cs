@@ -38,7 +38,9 @@ namespace Utos.Workflows.V1.Validation
         // Activities
         public const string ActivityNameRequired = "UTOS-A001";
         public const string ActivityNameTooLong = "UTOS-A002";
-        public const string ActivityNameReserved = "UTOS-A003";
+        // UTOS-A003 (an activity may not be named `end` or `error`) is RETIRED in 0.0.16: those
+        // were transition-target keywords, and ending or failing a path is now a `result` or
+        // `error` action, so nothing is reserved. Burned, not reused, like UTOS-C301.
         public const string ActivityNameInvalid = "UTOS-A004";
         public const string ActivityNameBadStart = "UTOS-A005";
         public const string ActivityNameBadEnd = "UTOS-A006";
@@ -49,6 +51,13 @@ namespace Utos.Workflows.V1.Validation
         public const string TransitionTargetRequired = "UTOS-T002";
         public const string TransitionTargetUnresolved = "UTOS-T003";
         public const string EmitTransitionRequired = "UTOS-T004";
+
+        /// <summary>
+        /// An <c>error</c> action carries no <c>code</c>. The code is what a consumer or an
+        /// <c>onFailure</c> rule matches on, so it is a literal and required; <c>message</c> and
+        /// <c>details</c> are templates and may be omitted.
+        /// </summary>
+        public const string ErrorCodeRequired = "UTOS-T005";
 
         // HTTP configuration
         public const string HttpUrlRequired = "UTOS-C101";
@@ -121,7 +130,9 @@ namespace Utos.Workflows.V1.Validation
         public const string ExpressionForbiddenCall = "UTOS-E041";
         public const string ExpressionUnaryOperator = "UTOS-E050";
         public const string ExpressionBinaryOperator = "UTOS-E051";
-        public const string ExpressionAssignmentOperator = "UTOS-E052";
+        // UTOS-E052 (compound assignment operators) is RETIRED in 0.0.16: every assignment
+        // operator is in the language, alongside the bitwise and shift operators it existed to
+        // refuse the assignment forms of. Burned, not reused.
         public const string ExpressionSyntaxError = "UTOS-E060";
         public const string ExpressionDelimitedCondition = "UTOS-E061";
         public const string ExpressionUnclosed = "UTOS-E062";

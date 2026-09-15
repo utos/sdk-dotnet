@@ -11,6 +11,20 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ## [Unreleased]
 
+### Changed
+
+- **The validator implements the 0.0.16 rules.** The `0.0.16` package was built from the tag
+  before this landed and still enforced 0.0.15's; this is the correction. `UTOS-T005` — an `error`
+  action must carry a `code` — on transition rules and `onEmitted` rules alike, with `message`
+  checked as a text template and `details` as a struct template. `UTOS-T003` resolves activities
+  only: `end` and `error` are no longer keywords, and a document still transitioning to them fails
+  there with a message naming the `result` and `error` actions that replaced them. `UTOS-A003` is
+  retired, since nothing is reserved. The grammar admits bitwise, shift and `~`, every assignment
+  operator (`UTOS-E052` retired), and `new Date`, `new URL`, `new URLSearchParams`
+- **`ReservedKeywords` is removed from `Utos.Workflow`.** The spec has no reserved names, so a
+  type whose only job was to name two of them would be a lie; a daemon or CLI that consulted it
+  to recognise a terminal transition must now match the `result` and `error` actions instead
+
 ### Added
 
 - **The static expression rules, `UTOS-E0##`** (`api/docs/template-expressions.md`). Every

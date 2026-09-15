@@ -269,11 +269,6 @@ namespace Utos.Workflows.V1.Validation
                 Add(issues, ValidationCodes.ActivityNameTooLong, path,
                     "Activity name is too long (maximum " + MaxNameLength + " characters).");
             }
-            else if (ReservedKeywords.IsReserved(name))
-            {
-                Add(issues, ValidationCodes.ActivityNameReserved, path,
-                    "Activity name '" + name + "' is a reserved terminal keyword.");
-            }
             else if (!ActivityNamePattern.IsMatch(name))
             {
                 Add(issues, ValidationCodes.ActivityNameInvalid, path,
@@ -299,25 +294,46 @@ namespace Utos.Workflows.V1.Validation
             if (rule.HasCondition)
                 ExpressionRules.ValidateCondition(rule.Condition, Field(path, "condition"), issues);
 
-            if (rule.ActionCase == TransitionRule.ActionOneofCase.None)
+            switch (rule.ActionCase)
             {
-                Add(issues, ValidationCodes.TransitionActionRequired, path,
-                    "Transition rule must carry an action (transition, result or emit).");
-                return;
+                case TransitionRule.ActionOneofCase.Transition:
+                    ValidateTarget(rule.Transition, Field(path, "transition"), activityNames, issues);
+                    break;
+                case TransitionRule.ActionOneofCase.Emit:
+                    ValidateEmit(rule.Emit, Field(path, "emit"), activityNames, issues);
+                    break;
+                case TransitionRule.ActionOneofCase.Result:
+                    // An empty struct is a complete action: it ends the path with no value.
+                    if (rule.Result != null) ValidateStruct(rule.Result, Field(path, "result"), issues);
+                    break;
+                case TransitionRule.ActionOneofCase.Error:
+                    ValidateError(rule.Error, Field(path, "error"), issues);
+                    break;
+                default:
+                    Add(issues, ValidationCodes.TransitionActionRequired, path,
+                        "Transition rule must carry an action (transition, result, emit or error).");
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// UTOS-T005. An <c>error</c> action is the <c>WorkflowError</c> the run will report,
+        /// authored: <c>code</c> is the literal a consumer matches on and is required; the
+        /// <c>message</c> text and the <c>details</c> struct are templates.
+        /// </summary>
+        private static void ValidateError(WorkflowError error, string path, List<ValidationIssue> issues)
+        {
+            if (error == null) return;
+
+            if (string.IsNullOrEmpty(error.Code))
+            {
+                Add(issues, ValidationCodes.ErrorCodeRequired, Field(path, "code"),
+                    "An error action requires a code; it is what on_failure rules and consumers "
+                    + "match on.");
             }
 
-            if (rule.ActionCase == TransitionRule.ActionOneofCase.Transition)
-            {
-                ValidateTarget(rule.Transition, Field(path, "transition"), activityNames, issues);
-            }
-            else if (rule.ActionCase == TransitionRule.ActionOneofCase.Emit)
-            {
-                ValidateEmit(rule.Emit, Field(path, "emit"), activityNames, issues);
-            }
-            else if (rule.Result != null)
-            {
-                ValidateStruct(rule.Result, Field(path, "result"), issues);
-            }
+            ExpressionRules.ValidateTemplate(error.Message, Field(path, "message"), issues);
+            if (error.Details != null) ValidateStruct(error.Details, Field(path, "details"), issues);
         }
 
         private static void ValidateEmit(EmitAction emit, string path,
@@ -351,11 +367,16 @@ namespace Utos.Workflows.V1.Validation
                 Add(issues, ValidationCodes.TransitionTargetRequired, Field(path, "name"),
                     "Transition target name is required.");
             }
-            else if (!ReservedKeywords.IsReserved(target.Name) && !activityNames.Contains(target.Name))
+            else if (!activityNames.Contains(target.Name))
             {
+                // A target is always an activity. Until 0.0.15 `end` and `error` were keywords
+                // here; a document that still uses them lands on this rule, which is intended —
+                // the replacement is a `result` or `error` action, and the message says so.
                 Add(issues, ValidationCodes.TransitionTargetUnresolved, Field(path, "name"),
-                    "Transition target '" + target.Name + "' is neither an activity in this workflow "
-                    + "nor a reserved terminal keyword (end, error).");
+                    "Transition target '" + target.Name + "' is not an activity in this workflow"
+                    + (IsFormerKeyword(target.Name)
+                        ? "; to end a path use a result action, to fail it use an error action."
+                        : "."));
             }
 
             if (target.Input != null) ValidateStruct(target.Input, Field(path, "input"), issues);
@@ -580,9 +601,13 @@ namespace Utos.Workflows.V1.Validation
                         ValidateStruct(rule.Result, Field(rulePath, "result"), issues);
                         break;
 
+                    case EmissionRule.ActionOneofCase.Error:
+                        ValidateError(rule.Error, Field(rulePath, "error"), issues);
+                        break;
+
                     default:
                         Add(issues, ValidationCodes.EmissionRuleActionRequired, rulePath,
-                            "An onEmitted rule must carry an action: handle, transition or result.");
+                            "An onEmitted rule must carry an action: handle, transition, result or error.");
                         break;
                 }
             }
@@ -701,6 +726,10 @@ namespace Utos.Workflows.V1.Validation
 
             return "'" + version + "' is not a valid semantic version.";
         }
+
+        private static bool IsFormerKeyword(string name) =>
+            string.Equals(name, "end", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(name, "error", StringComparison.OrdinalIgnoreCase);
 
         private static void Add(List<ValidationIssue> issues, string code, string path, string message)
             => issues.Add(new ValidationIssue(code, path, message));
