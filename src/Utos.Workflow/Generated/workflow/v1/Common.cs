@@ -96,7 +96,8 @@ namespace Utos.Workflows.V1 {
     private string code_ = "";
     /// <summary>
     /// A stable identifier for the failure class, e.g. "MISSING_CUSTOMER". As an
-    /// authored action it is a literal (never a template) and required (UTOS-T005).
+    /// authored action it is a literal (never a template) and required (UTOS-T005),
+    /// except in the empty re-raise form an `on_failure` rule may carry.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
