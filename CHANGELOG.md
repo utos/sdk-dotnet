@@ -13,6 +13,10 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ### Changed
 
+- **`UTOS-T005` admits the re-raise** (spec `0.0.17`). An `error` action with no `code`, `message` or
+  `details`, in an `onFailure` rule, re-raises the failure being handled and is valid. Empty on
+  `onSuccess` or on an `onEmitted` rule, where no failure is in scope, it is still `UTOS-T005`; so is
+  a partly written one on `onFailure`, such as a `message` with no `code`
 - **The validator implements the 0.0.16 rules.** The `0.0.16` package was built from the tag
   before this landed and still enforced 0.0.15's; this is the correction. `UTOS-T005` — an `error`
   action must carry a `code` — on transition rules and `onEmitted` rules alike, with `message`

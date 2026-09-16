@@ -250,11 +250,11 @@ namespace Utos.Workflows.V1.Validation
 
             for (int i = 0; i < activity.OnSuccess.Count; i++)
                 ValidateTransitionRule(activity.OnSuccess[i], Index(Field(path, "onSuccess"), i),
-                    activityNames, issues);
+                    activityNames, issues, failureInScope: false);
 
             for (int i = 0; i < activity.OnFailure.Count; i++)
                 ValidateTransitionRule(activity.OnFailure[i], Index(Field(path, "onFailure"), i),
-                    activityNames, issues);
+                    activityNames, issues, failureInScope: true);
         }
 
         private static void ValidateActivityName(string name, string path, List<ValidationIssue> issues)
@@ -287,7 +287,7 @@ namespace Utos.Workflows.V1.Validation
         }
 
         private static void ValidateTransitionRule(TransitionRule rule, string path,
-            HashSet<string> activityNames, List<ValidationIssue> issues)
+            HashSet<string> activityNames, List<ValidationIssue> issues, bool failureInScope)
         {
             if (rule == null) return;
 
@@ -307,7 +307,7 @@ namespace Utos.Workflows.V1.Validation
                     if (rule.Result != null) ValidateStruct(rule.Result, Field(path, "result"), issues);
                     break;
                 case TransitionRule.ActionOneofCase.Error:
-                    ValidateError(rule.Error, Field(path, "error"), issues);
+                    ValidateError(rule.Error, Field(path, "error"), issues, failureInScope);
                     break;
                 default:
                     Add(issues, ValidationCodes.TransitionActionRequired, path,
@@ -320,16 +320,29 @@ namespace Utos.Workflows.V1.Validation
         /// UTOS-T005. An <c>error</c> action is the <c>WorkflowError</c> the run will report,
         /// authored: <c>code</c> is the literal a consumer matches on and is required; the
         /// <c>message</c> text and the <c>details</c> struct are templates.
+        /// <para>
+        /// The exception is the re-raise: an <c>error</c> with no fields at all, where there is a
+        /// failure in scope to re-raise — an <c>onFailure</c> rule. After a success, or when an
+        /// <c>onEmitted</c> rule fires on a value, <c>error</c> is null and an empty action has
+        /// nothing to re-raise. A partly written one on <c>onFailure</c> (a message and no code)
+        /// is still T005: it is a mistake, not a re-raise.
+        /// </para>
         /// </summary>
-        private static void ValidateError(WorkflowError error, string path, List<ValidationIssue> issues)
+        private static void ValidateError(WorkflowError error, string path, List<ValidationIssue> issues,
+            bool failureInScope)
         {
             if (error == null) return;
+
+            bool isReraise = string.IsNullOrEmpty(error.Code) && string.IsNullOrEmpty(error.Message)
+                && error.Details == null;
+            if (isReraise && failureInScope) return;
 
             if (string.IsNullOrEmpty(error.Code))
             {
                 Add(issues, ValidationCodes.ErrorCodeRequired, Field(path, "code"),
                     "An error action requires a code; it is what on_failure rules and consumers "
-                    + "match on.");
+                    + "match on."
+                    + (failureInScope ? " Only an error with no fields at all re-raises the failure being handled." : ""));
             }
 
             ExpressionRules.ValidateTemplate(error.Message, Field(path, "message"), issues);
@@ -602,7 +615,8 @@ namespace Utos.Workflows.V1.Validation
                         break;
 
                     case EmissionRule.ActionOneofCase.Error:
-                        ValidateError(rule.Error, Field(rulePath, "error"), issues);
+                        // A value arrived, not a failure: there is nothing in scope to re-raise.
+                        ValidateError(rule.Error, Field(rulePath, "error"), issues, failureInScope: false);
                         break;
 
                     default:
