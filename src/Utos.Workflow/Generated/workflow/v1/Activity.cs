@@ -733,6 +733,10 @@ namespace Utos.Workflows.V1 {
     /// UTOS-T005); `message` is a text template and `details` a struct template,
     /// rendered in the same context as the condition. Replaces the former
     /// `transition: { name: error }`, which could carry no reason.
+    ///
+    /// An EMPTY WorkflowError in an `on_failure` rule re-raises the failure being
+    /// handled, as it is — its `code`, `message` and `details` — and is legal
+    /// without a `code` there only. The source format spells it as a bare `error`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4810,7 +4814,9 @@ namespace Utos.Workflows.V1 {
     /// <summary>
     /// Stop consuming and end the consumer as a failure, with this error — the
     /// same action `on_success` carries, with the same shape and rules
-    /// (UTOS-T005). The subscription ends and the producer is cancelled.
+    /// (UTOS-T005). The subscription ends and the producer is cancelled. There is
+    /// no failure in scope when a value arrives, so the empty re-raise form of
+    /// `on_failure` is not legal here.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
