@@ -8,8 +8,9 @@ namespace Utos.Workflows.Validation.Tests;
 
 /// <summary>
 /// UTOS-T005 and its one exception: an <c>error</c> with no fields in an <c>onFailure</c> rule
-/// re-raises the failure being handled. The conformance corpus carries the same cases from
-/// <c>utos/api</c> 0.0.17; these pin the rule until that corpus is vendored here.
+/// re-raises the failure being handled. The vendored conformance corpus (<c>utos/api</c> 0.0.17)
+/// carries the same cases as bundles; these pin the rule directly, including the <c>details</c>-only case
+/// the corpus does not have.
 /// </summary>
 public class ErrorReraiseTests
 {
