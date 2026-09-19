@@ -1,20 +1,51 @@
 version: 2
 updates:
-  # Bumps Grpc.Tools / Google.Protobuf / Grpc.Core.Api in Directory.Packages.props.
-  # A merged bump touches Directory.Packages.props, which triggers release.yml to
-  # rebuild the latest spec with a new 4th-field version (X.Y.Z.N).
+  # NuGet, via Central Package Management. Two manifests are in scope: the root
+  # Directory.Packages.props (shipping dependencies) and tests/Directory.Packages.props
+  # (test-only tooling, kept out of the published dependency graph).
+  #
+  # These target `dev`, not `main`. A push to `main` touching the root manifest triggers
+  # release.yml, so bumps merged straight to `main` published one package per bump; on
+  # `dev` they accumulate and the dev -> main merge releases them once.
   - package-ecosystem: nuget
     directory: "/"
+    target-branch: dev
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+      day: monday
+    open-pull-requests-limit: 10
     commit-message:
       prefix: chore
+    groups:
+      # Grpc.Tools bundles the protoc + grpc_csharp_plugin that generate the committed
+      # source, and Google.Protobuf is the runtime that source compiles against — the
+      # coupling is spelled out in Directory.Packages.props. Bumped in separate PRs they
+      # land in separate merges and the tree sits mismatched in between, so they share a
+      # PR whatever the update type, majors included.
+      grpc-stack:
+        patterns:
+          - "Grpc.*"
+          - "Google.Protobuf"
+      # Everything else, where minor and patch bumps are routine enough to review in bulk.
+      # A major falls outside both groups and arrives on its own, which is the point.
+      nuget-minor-and-patch:
+        exclude-patterns:
+          - "Grpc.*"
+          - "Google.Protobuf"
+        update-types:
+          - minor
+          - patch
 
   # Keeps the GitHub Actions used by the workflows current.
   - package-ecosystem: github-actions
     directory: "/"
+    target-branch: dev
     schedule:
       interval: weekly
+      day: monday
     commit-message:
       prefix: ci
+    groups:
+      github-actions:
+        patterns:
+          - "*"

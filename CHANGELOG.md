@@ -11,8 +11,52 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ## [Unreleased]
 
+### Added
+
+- **`Utos.Workflow.Validation` enforces the schema rules of spec 0.0.18** — `UTOS-H001` through
+  `UTOS-H014`, over the four slots a workflow may declare: an activity's `schema.input`, and
+  `spec.output`, `spec.emits` and `spec.env`. Every slot is optional and an absent one is the empty
+  schema, so a bundle built before schemas existed reports nothing new. The 14 fixtures the spec
+  shipped with the corpus now pass; they had been failing since `0.0.18` was vendored in, because
+  the corpus arrives with the spec and the implementation follows it
+- **`UTOS-H013` and `UTOS-H014` compare property sets, never values.** A `transition.input`, or the
+  `input` of anything that starts a document, must supply every property the target activity's
+  declared input requires and none it does not declare. An input transform's keys are always
+  literal — only its leaf values may be templates — so this is knowable with certainty at load,
+  which is the test every rule in `workflow-validation.md` has to pass. Whether a template will
+  produce a string is not, and stays the daemon's business
+- **`JsonSchema.Net` is a new dependency of `Utos.Workflow.Validation`, and the second exception to
+  that package depending on nothing.** Exactly one rule needs it: `UTOS-H008`, a `default`
+  validating against the schema that declares it, where the schema is not known until a bundle is
+  read — so nothing generate-ahead can serve it. Every other `UTOS-H0##` rule is a structural walk
+  over the `Struct` and uses no evaluator. It clears the same bar Acornima did: `dotnet publish
+  -p:PublishAot=true` against this assembly reports zero IL2026/IL3050, which the NativeAOT `utos`
+  binary needs. That holds only if schemas are parsed with `JsonSchema.FromText` — the
+  `JsonSerializer.Deserialize<JsonSchema>` overload is reflective and is not to be used here
+
 ### Changed
 
+- **The README documents `Utos.Workflow.Validation`.** The package table listed three packages and
+  there are four — the validator has shipped since `0.0.17` and appeared nowhere, so the one package
+  a tool author most needs to find was the one the README omitted. Adds it to the table and a
+  section covering `WorkflowBundleValidator.Validate`, the `ValidationReport` shape, and that the
+  code is the contract while the message text is not
+- **`dev` becomes the integration branch.** Every merge to `main` that touched
+  `Directory.Packages.props` or `src/` released, so four Dependabot bumps were four versions and
+  each release commit pushed back to `main` left the rest needing a rebase. Feature branches and
+  Dependabot now target `dev`, and the `dev` -> `main` merge is the release — one push, one
+  version, however much accumulated. `release.yml` fast-forwards `dev` onto the release commit it
+  writes, so the branches are equal between releases rather than drifting by the regenerated
+  source and the changelog entry
+- **A release drains `## [Unreleased]`.** The changelog step only ever inserted a generated
+  provenance line, so hand-written notes stayed under `Unreleased` after the version they
+  described had shipped — everything down to `0.0.16` was sitting there. The notes now move into
+  the section for the version that carried them
+- **Dependabot groups its bumps.** The config had no `groups`, which is why this repo gets a PR
+  per package where `utos/daemon` and `utos/cli` get one. `Grpc.*` and `Google.Protobuf` share a
+  PR whatever the update type — the generated source is compiled against one and produced by the
+  other, so they cannot land a merge apart — and everything else is grouped for minor and patch,
+  leaving a major to arrive on its own
 - **`UTOS-T005` admits the re-raise** (spec `0.0.17`). An `error` action with no `code`, `message` or
   `details`, in an `onFailure` rule, re-raises the failure being handled and is valid. Empty on
   `onSuccess` or on an `onEmitted` rule, where no failure is in scope, it is still `UTOS-T005`; so is
