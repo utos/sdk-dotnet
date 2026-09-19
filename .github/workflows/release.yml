@@ -3,6 +3,14 @@ name: Release
 # Event-driven push model: utos/api fires a `spec-released` repository_dispatch on every
 # release; this repo regenerates and publishes from the payload. No polling.
 #
+# Regenerating and publishing are separate outcomes, and the conformance corpus decides
+# which one happens. The corpus is vendored from the spec tag, so it can assert rules this
+# repo has not implemented yet — that is normal, because the fixtures arrive with the spec
+# and the implementation follows them. When it does not pass, the regenerated protos and
+# fixtures are still committed (the implementation has to be written against them) but
+# nothing is tagged and nothing reaches nuget.org, and the job ends red. The absent tag is
+# what makes the retry correct: the next push resolves to the same version and releases it.
+#
 # Branches: `dev` integrates, `main` releases. Nothing is published from `dev` — feature
 # branches and Dependabot bumps land there and accumulate, and the dev -> main merge is
 # the release. That merge is a single push to `main`, so a week of bumps and fixes costs
@@ -154,8 +162,28 @@ jobs:
           rm -rf _api
           dotnet build Utos.slnx -c Release
 
-      - name: Update CHANGELOG
+      # The corpus this job just vendored is the whole point of vendoring it, and until now
+      # nothing here ran it: CI gates PRs against the corpus the repo *already had*, while this
+      # job replaces that corpus and then packs. So a spec release that adds rules shipped green —
+      # 0.0.18 published while failing 14 of its own fixtures.
+      #
+      # `continue-on-error` is deliberate, and what it buys is spelled out on the commit step
+      # below: a corpus failure must stop the *publish* without stopping the *regeneration*.
+      # Blocking both would deadlock, because the fixtures arrive with the spec and the
+      # implementation that satisfies them needs the protos this job is what delivers.
+      #
+      # The job still ends red — see the last step — so the failure is not something to scroll
+      # past.
+      - name: Test against the vendored corpus
+        id: corpus
         if: steps.r.outputs.should_build == 'true'
+        continue-on-error: true
+        run: dotnet test Utos.slnx -c Release --no-build
+
+      # Only for a release that will actually publish. A changelog entry for a version that never
+      # reached nuget.org would be a lie in the one file people read to find out what shipped.
+      - name: Update CHANGELOG
+        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome == 'success'
         env:
           MODE: ${{ steps.r.outputs.mode }}
           SDK_VERSION: ${{ steps.r.outputs.sdk_version }}
@@ -200,44 +228,79 @@ jobs:
             END { flush() }
           ' CHANGELOG.md > CHANGELOG.tmp && mv CHANGELOG.tmp CHANGELOG.md
 
-      - name: Commit, tag
+      # Two outcomes, and the split is the whole point of running the corpus here.
+      #
+      # Corpus passed: this is a release. Commit the regenerated source and the changelog, tag it,
+      # push both.
+      #
+      # Corpus failed: this is not a release, but the regenerated source still has to land. The
+      # protos and the fixtures this job vendored are exactly what the implementation that will
+      # satisfy them is written against — refusing to commit them would leave the only route open
+      # to vendoring `utos/api` by hand, which is precisely the manual step this workflow exists
+      # to remove. So: commit, do not tag, do not publish.
+      #
+      # Leaving the tag off is also what makes the retry correct. `v${SDK_VERSION}` absent is how
+      # "Resolve target spec" already decides a spec has not been published, so the next push —
+      # the one carrying the implementation — resolves to this same version and releases it, with
+      # no bookkeeping to undo.
+      - name: Commit regenerated source, and tag only if the corpus passed
         if: steps.r.outputs.should_build == 'true'
         env:
           SDK_VERSION: ${{ steps.r.outputs.sdk_version }}
           SPEC_TAG: ${{ steps.r.outputs.spec_tag }}
           SPEC_SHA: ${{ steps.r.outputs.spec_sha }}
+          RELEASING: ${{ steps.corpus.outcome == 'success' }}
         run: |
           set -euo pipefail
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add proto conformance src/**/Generated CHANGELOG.md
-          if git diff --cached --quiet; then
-            echo "::notice::No content changes; tagging existing tree."
-          fi
-          git commit --allow-empty -m "release: ${SDK_VERSION}
+
+          if [ "$RELEASING" = "true" ]; then
+            if git diff --cached --quiet; then
+              echo "::notice::No content changes; tagging existing tree."
+            fi
+            git commit --allow-empty -m "release: ${SDK_VERSION}
 
           Generated from ${API_REPO}@${SPEC_TAG}
           Utos-api-sha: ${SPEC_SHA}"
-          git tag "v${SDK_VERSION}"
+            git tag "v${SDK_VERSION}"
+            git push origin HEAD:main
+            git push origin "v${SDK_VERSION}"
+            exit 0
+          fi
+
+          if git diff --cached --quiet; then
+            echo "::notice::Corpus failed and there is nothing to vendor; leaving main alone."
+            exit 0
+          fi
+
+          git commit -m "chore: vendor ${SPEC_TAG}
+
+          The conformance corpus from ${API_REPO}@${SPEC_TAG} does not pass yet, so nothing was
+          tagged or published. The protos and fixtures land here so the implementation that
+          satisfies them can be written against exactly what it must satisfy.
+
+          Utos-api-sha: ${SPEC_SHA}"
           git push origin HEAD:main
-          git push origin "v${SDK_VERSION}"
+          echo "::warning::Vendored ${SPEC_TAG} without releasing: the corpus does not pass."
 
       - name: Pack
-        if: steps.r.outputs.should_build == 'true'
+        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome == 'success'
         run: dotnet pack Utos.slnx -c Release -p:Version=${{ steps.r.outputs.sdk_version }} -o artifacts
 
       # Trusted Publishing: exchange the GitHub OIDC token for a short-lived nuget.org
       # API key (no stored secret). Requires a trusted-publishing policy on nuget.org
       # bound to repo utos/sdk-dotnet + workflow release.yml, owner = Utos.
       - name: Authenticate to nuget.org (Trusted Publishing)
-        if: steps.r.outputs.should_build == 'true'
+        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome == 'success'
         id: nuget-login
         uses: NuGet/login@v1
         with:
           user: ${{ vars.NUGET_USER }}
 
       - name: Push to nuget.org
-        if: steps.r.outputs.should_build == 'true'
+        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome == 'success'
         run: |
           set -euo pipefail
           dotnet nuget push 'artifacts/*.nupkg' \
@@ -245,10 +308,11 @@ jobs:
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
 
-      # The release commit (regenerated source + CHANGELOG) exists only on `main`. Leave it
-      # there and `dev` is behind by a commit it will conflict with on the next merge, so
-      # fast-forward `dev` onto it. Last, and only after the push to nuget.org: `dev` moving
-      # means the release landed. If somebody merged into `dev` while this job ran the
+      # The commit this job wrote — a release, or a bare vendor of a corpus that does not pass
+      # yet — exists only on `main`. Leave it there and `dev` is behind by a commit it will
+      # conflict with on the next merge, so fast-forward `dev` onto it. This runs either way:
+      # a vendored corpus is exactly what the branch that implements it starts from. If somebody
+      # merged into `dev` while this job ran the
       # fast-forward is not available — say so rather than force anything; `git merge main`
       # on `dev` resolves it.
       - name: Fast-forward dev to the release commit
@@ -265,3 +329,15 @@ jobs:
           else
             echo "::warning::dev has commits that are not on main, so it could not be fast-forwarded. Run 'git checkout dev && git merge main && git push' to bring the release commit across."
           fi
+
+      # `continue-on-error` on the corpus step keeps the job running so the regenerated source
+      # still lands; it also makes the job green by default, which would hide exactly the failure
+      # this step was added to surface. Fail here instead, after everything that had to happen has.
+      - name: Fail if the corpus did not pass
+        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome != 'success'
+        run: |
+          echo "::error::The conformance corpus vendored from ${API_REPO}@${{ steps.r.outputs.spec_tag }} does not pass."
+          echo "Nothing was tagged and nothing was published. The protos and fixtures were committed"
+          echo "to main (and fast-forwarded to dev) so the implementation can be written against them."
+          echo "Land that implementation and the next push to main releases ${{ steps.r.outputs.sdk_version }}."
+          exit 1

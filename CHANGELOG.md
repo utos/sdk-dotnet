@@ -11,6 +11,23 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ## [Unreleased]
 
+### Fixed
+
+- **A release runs the corpus it just vendored, and will not publish a package that fails it.**
+  `release.yml` built, packed and pushed to nuget.org without ever testing — CI gates PRs against
+  the corpus the repo *already had*, while this job replaces that corpus and then packs, so nothing
+  ever ran the new fixtures. That is how `0.0.18` shipped green while failing 14 of its own
+- **Regenerating and publishing are now separate outcomes**, because blocking both on the corpus
+  would deadlock. The fixtures arrive with the spec and the implementation follows them, so a spec
+  release that adds rules *must* be able to land its protos before those rules exist — otherwise the
+  implementation that would satisfy them has nothing to compile against, and the only way out is
+  vendoring `utos/api` by hand, which is the manual step this workflow exists to remove. A failing
+  corpus therefore commits the regenerated source and fast-forwards `dev` onto it, tags nothing,
+  publishes nothing, and ends the job red. Leaving the tag off is also what makes the retry
+  correct: an absent `v{version}` is already how the job decides a spec is unpublished, so the next
+  push — the one carrying the implementation — resolves to that same version and releases it, with
+  no bookkeeping to undo
+
 ## [0.0.18.1] - 2026-09-19
 
 SDK-only rebuild against [`v0.0.18`](https://github.com/utos/api/releases/tag/v0.0.18) (`f0f91bd68133716f6256c6f5155874938a8b585f`): codegen/runtime tooling bump, no spec change.
