@@ -3,12 +3,16 @@ name: CI
 # Builds the SDK and verifies the committed generated source is in sync with the
 # vendored proto under the pinned Grpc.Tools (the "drift" safety net). Runs on PRs
 # and pushes; does not publish.
+#
+# `dev` is the integration branch and `main` is the release branch, so both are covered:
+# a PR into `dev` is gated here, and the dev -> main merge that releases is gated again
+# before release.yml acts on it.
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
-    branches: [main]
+    branches: [dev, main]
 
 jobs:
   build:

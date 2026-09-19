@@ -40,6 +40,24 @@ The package version mirrors the Utos spec version it was generated from
 spec (e.g. a `Grpc.Tools` bump) increment a fourth field (`X.Y.Z.N`). Each release
 records the exact `utos/api` tag and commit it was generated from.
 
+## Branches and releases
+
+`dev` is the integration branch; `main` is the release branch. Feature branches and
+Dependabot bumps target `dev` and merge there freely — nothing is published from `dev`.
+The `dev` → `main` merge **is** the release: it arrives as one push, so a run of bumps
+and fixes costs one version rather than one per merge.
+
+Two things then happen on `main` without further help. `release.yml` regenerates from
+the current `utos/api` spec tag, drains `## [Unreleased]` in `CHANGELOG.md` into the new
+version's section, commits, tags and pushes to nuget.org — then fast-forwards `dev` onto
+that release commit, so the two branches are equal between releases. A spec release in
+`utos/api` reaches `main` the same way, through a `spec-released` `repository_dispatch`,
+independently of whatever is waiting on `dev`.
+
+A push to `main` releases only when it touches `Directory.Packages.props` or `src/`
+(excluding `Generated/`): a docs- or test-only merge changes nothing a consumer installs,
+so it publishes nothing and its notes wait under `## [Unreleased]` for the next release.
+
 ## License
 
 [Apache 2.0](LICENSE)
