@@ -174,7 +174,12 @@ namespace Utos.Daemon.V1 {
     public const int InputFieldNumber = 2;
     private global::Utos.Daemon.V1.ExecutionPayload input_;
     /// <summary>
-    /// Input data passed to the start activity
+    /// Input data passed to the start activity.
+    ///
+    /// Validated against that activity's `schema.input` where it declares one, and
+    /// the value RECORDED is the one after declared defaults are filled — so a
+    /// replay sees exactly what the activity saw, and an operator reading the
+    /// execution back sees the same.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -212,6 +217,11 @@ namespace Utos.Daemon.V1 {
     /// flags), as opposed to `input`, which reaches only the start activity.
     /// Non-secret only — secrets are resolved outside the daemon from a 3rd-party
     /// provider, never passed here.
+    ///
+    /// Validated against `spec.env` where the workflow declares one, and defaults
+    /// filled, as `input` is. That declaration is deliberately NOT closed: this
+    /// map is inherited by every sub-workflow in the run tree, so a variable a
+    /// child does not name is ordinary ambient config rather than a mistake.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
