@@ -13,6 +13,11 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ### Changed
 
+- **The README documents `Utos.Workflow.Validation`.** The package table listed three packages and
+  there are four — the validator has shipped since `0.0.17` and appeared nowhere, so the one package
+  a tool author most needs to find was the one the README omitted. Adds it to the table and a
+  section covering `WorkflowBundleValidator.Validate`, the `ValidationReport` shape, and that the
+  code is the contract while the message text is not
 - **`dev` becomes the integration branch.** Every merge to `main` that touched
   `Directory.Packages.props` or `src/` released, so four Dependabot bumps were four versions and
   each release commit pushed back to `main` left the rest needing a rebase. Feature branches and
