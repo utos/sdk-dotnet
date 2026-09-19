@@ -11,6 +11,10 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ## [Unreleased]
 
+## [0.0.18.1] - 2026-09-19
+
+SDK-only rebuild against [`v0.0.18`](https://github.com/utos/api/releases/tag/v0.0.18) (`f0f91bd68133716f6256c6f5155874938a8b585f`): codegen/runtime tooling bump, no spec change.
+
 ### Added
 
 - **`Utos.Workflow.Validation` enforces the schema rules of spec 0.0.18** — `UTOS-H001` through
