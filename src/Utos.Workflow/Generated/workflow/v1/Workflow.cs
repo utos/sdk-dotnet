@@ -25,27 +25,31 @@ namespace Utos.Workflows.V1 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Chp3b3JrZmxvdy92MS93b3JrZmxvdy5wcm90bxIQdXRvcy53b3JrZmxvdy52",
-            "MRoad29ya2Zsb3cvdjEvYWN0aXZpdHkucHJvdG8ipQEKEFdvcmtmbG93TWV0",
-            "YWRhdGESDAoEbmFtZRgBIAEoCRIPCgd2ZXJzaW9uGAIgASgJEhgKC2Rlc2Ny",
-            "aXB0aW9uGAMgASgJSACIAQESFgoJbmFtZXNwYWNlGAQgASgJSAGIAQESFQoI",
-            "cmVnaXN0cnkYBSABKAlIAogBAUIOCgxfZGVzY3JpcHRpb25CDAoKX25hbWVz",
-            "cGFjZUILCglfcmVnaXN0cnkikQEKCFdvcmtmbG93EhMKC2FwaV92ZXJzaW9u",
-            "GAEgASgJEgwKBGtpbmQYAiABKAkSNAoIbWV0YWRhdGEYAyABKAsyIi51dG9z",
-            "LndvcmtmbG93LnYxLldvcmtmbG93TWV0YWRhdGESLAoEc3BlYxgEIAEoCzIe",
-            "LnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dTcGVjIqYCCgxXb3JrZmxvd1Nw",
-            "ZWMSRgoMZGVwZW5kZW5jaWVzGAEgAygLMjAudXRvcy53b3JrZmxvdy52MS5X",
-            "b3JrZmxvd1NwZWMuRGVwZW5kZW5jaWVzRW50cnkSQgoKYWN0aXZpdGllcxgC",
-            "IAMoCzIuLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dTcGVjLkFjdGl2aXRp",
-            "ZXNFbnRyeRozChFEZXBlbmRlbmNpZXNFbnRyeRILCgNrZXkYASABKAkSDQoF",
-            "dmFsdWUYAiABKAk6AjgBGlUKD0FjdGl2aXRpZXNFbnRyeRILCgNrZXkYASAB",
-            "KAkSMQoFdmFsdWUYAiABKAsyIi51dG9zLndvcmtmbG93LnYxLldvcmtmbG93",
-            "QWN0aXZpdHk6AjgBQhSqAhFVdG9zLldvcmtmbG93cy5WMWIGcHJvdG8z"));
+            "MRocZ29vZ2xlL3Byb3RvYnVmL3N0cnVjdC5wcm90bxoad29ya2Zsb3cvdjEv",
+            "YWN0aXZpdHkucHJvdG8ipQEKEFdvcmtmbG93TWV0YWRhdGESDAoEbmFtZRgB",
+            "IAEoCRIPCgd2ZXJzaW9uGAIgASgJEhgKC2Rlc2NyaXB0aW9uGAMgASgJSACI",
+            "AQESFgoJbmFtZXNwYWNlGAQgASgJSAGIAQESFQoIcmVnaXN0cnkYBSABKAlI",
+            "AogBAUIOCgxfZGVzY3JpcHRpb25CDAoKX25hbWVzcGFjZUILCglfcmVnaXN0",
+            "cnkikQEKCFdvcmtmbG93EhMKC2FwaV92ZXJzaW9uGAEgASgJEgwKBGtpbmQY",
+            "AiABKAkSNAoIbWV0YWRhdGEYAyABKAsyIi51dG9zLndvcmtmbG93LnYxLldv",
+            "cmtmbG93TWV0YWRhdGESLAoEc3BlYxgEIAEoCzIeLnV0b3Mud29ya2Zsb3cu",
+            "djEuV29ya2Zsb3dTcGVjIp0DCgxXb3JrZmxvd1NwZWMSRgoMZGVwZW5kZW5j",
+            "aWVzGAEgAygLMjAudXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd1NwZWMuRGVw",
+            "ZW5kZW5jaWVzRW50cnkSQgoKYWN0aXZpdGllcxgCIAMoCzIuLnV0b3Mud29y",
+            "a2Zsb3cudjEuV29ya2Zsb3dTcGVjLkFjdGl2aXRpZXNFbnRyeRInCgZvdXRw",
+            "dXQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0EiYKBWVtaXRzGAQg",
+            "ASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdBIkCgNlbnYYBSABKAsyFy5n",
+            "b29nbGUucHJvdG9idWYuU3RydWN0GjMKEURlcGVuZGVuY2llc0VudHJ5EgsK",
+            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEaVQoPQWN0aXZpdGllc0Vu",
+            "dHJ5EgsKA2tleRgBIAEoCRIxCgV2YWx1ZRgCIAEoCzIiLnV0b3Mud29ya2Zs",
+            "b3cudjEuV29ya2Zsb3dBY3Rpdml0eToCOAFCFKoCEVV0b3MuV29ya2Zsb3dz",
+            "LlYxYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Utos.Workflows.V1.ActivityReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Utos.Workflows.V1.ActivityReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowMetadata), global::Utos.Workflows.V1.WorkflowMetadata.Parser, new[]{ "Name", "Version", "Description", "Namespace", "Registry" }, new[]{ "Description", "Namespace", "Registry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.Workflow), global::Utos.Workflows.V1.Workflow.Parser, new[]{ "ApiVersion", "Kind", "Metadata", "Spec" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowSpec), global::Utos.Workflows.V1.WorkflowSpec.Parser, new[]{ "Dependencies", "Activities" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowSpec), global::Utos.Workflows.V1.WorkflowSpec.Parser, new[]{ "Dependencies", "Activities", "Output", "Emits", "Env" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
           }));
     }
     #endregion
@@ -853,6 +857,9 @@ namespace Utos.Workflows.V1 {
     public WorkflowSpec(WorkflowSpec other) : this() {
       dependencies_ = other.dependencies_.Clone();
       activities_ = other.activities_.Clone();
+      output_ = other.output_ != null ? other.output_.Clone() : null;
+      emits_ = other.emits_ != null ? other.emits_.Clone() : null;
+      env_ = other.env_ != null ? other.env_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -891,13 +898,95 @@ namespace Utos.Workflows.V1 {
     private readonly pbc::MapField<string, global::Utos.Workflows.V1.WorkflowActivity> activities_ = new pbc::MapField<string, global::Utos.Workflows.V1.WorkflowActivity>();
     /// <summary>
     /// Map of activity name to activity definition. Activity names (the keys) are
-    /// referenced by TransitionTarget.name; the terminal keywords "end" and "error"
-    /// are reserved and may not be used as activity names.
+    /// referenced by TransitionTarget.name.
+    ///
+    /// No name is reserved. Until 0.0.16 "end" and "error" were terminal keywords
+    /// a transition could target; ending a path is now a `result` action and
+    /// failing it an `error` action, so a target is always an activity and the
+    /// comparison is ordinal everywhere (UTOS-A003 is retired).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::MapField<string, global::Utos.Workflows.V1.WorkflowActivity> Activities {
       get { return activities_; }
+    }
+
+    /// <summary>Field number for the "output" field.</summary>
+    public const int OutputFieldNumber = 3;
+    private global::Google.Protobuf.WellKnownTypes.Struct output_;
+    /// <summary>
+    /// A JSON Schema 2020-12 document describing what this workflow returns — the
+    /// value of the `result` terminal entry of its output stream. Optional; absent
+    /// is the empty schema, which anything satisfies.
+    ///
+    /// Output is declared here and input is not, and the asymmetry is the point.
+    /// A run is scheduled with a start activity and its input goes to *that*
+    /// activity, so input belongs on ActivitySchema; a result is one shape
+    /// whatever the entry, so it belongs here. There is deliberately no
+    /// `spec.input`.
+    ///
+    /// A result that violates this fails the run, and that is not a policy an
+    /// author opts into: a workflow returning the wrong shape is broken, and the
+    /// caller that trusted its contract is the one that would otherwise carry the
+    /// damage. See docs/workflow-schemas.md.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Output {
+      get { return output_; }
+      set {
+        output_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "emits" field.</summary>
+    public const int EmitsFieldNumber = 4;
+    private global::Google.Protobuf.WellKnownTypes.Struct emits_;
+    /// <summary>
+    /// A JSON Schema 2020-12 document describing each value this workflow appends
+    /// to its output stream with an `emit` action. Optional, as `output` is.
+    ///
+    /// A contract in its own right: a consumer's `on_emitted` rules depend on it
+    /// exactly as a caller depends on a result. It describes ONE emitted value,
+    /// not the stream — the stream is a sequence of values each of which must
+    /// satisfy this — and an emit that violates it fails the run, for the same
+    /// reason a bad result does.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Emits {
+      get { return emits_; }
+      set {
+        emits_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "env" field.</summary>
+    public const int EnvFieldNumber = 5;
+    private global::Google.Protobuf.WellKnownTypes.Struct env_;
+    /// <summary>
+    /// A JSON Schema 2020-12 document describing the ambient environment this
+    /// workflow requires — the `env` a run is scheduled with, and what `{{ env.x }}`
+    /// reads. Optional, as the others are.
+    ///
+    /// Every property is a string, because ScheduleExecutionRequest.env is
+    /// map&lt;string, string>; the source format's sugar enforces that and this is
+    /// its compiled form. A run missing a required variable is rejected at
+    /// schedule, before anything executes, and a declared `default` is filled at
+    /// the same point.
+    ///
+    /// `env` is still per-run ambient state supplied by whoever starts the run —
+    /// the analogue of `docker run -e` — not something the document sets. This
+    /// declares what the document needs, which every workflow we have has
+    /// documented in comments and nothing has ever checked.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Env {
+      get { return env_; }
+      set {
+        env_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -917,6 +1006,9 @@ namespace Utos.Workflows.V1 {
       }
       if (!Dependencies.Equals(other.Dependencies)) return false;
       if (!Activities.Equals(other.Activities)) return false;
+      if (!object.Equals(Output, other.Output)) return false;
+      if (!object.Equals(Emits, other.Emits)) return false;
+      if (!object.Equals(Env, other.Env)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -926,6 +1018,9 @@ namespace Utos.Workflows.V1 {
       int hash = 1;
       hash ^= Dependencies.GetHashCode();
       hash ^= Activities.GetHashCode();
+      if (output_ != null) hash ^= Output.GetHashCode();
+      if (emits_ != null) hash ^= Emits.GetHashCode();
+      if (env_ != null) hash ^= Env.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -946,6 +1041,18 @@ namespace Utos.Workflows.V1 {
     #else
       dependencies_.WriteTo(output, _map_dependencies_codec);
       activities_.WriteTo(output, _map_activities_codec);
+      if (output_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Output);
+      }
+      if (emits_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Emits);
+      }
+      if (env_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Env);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -958,6 +1065,18 @@ namespace Utos.Workflows.V1 {
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       dependencies_.WriteTo(ref output, _map_dependencies_codec);
       activities_.WriteTo(ref output, _map_activities_codec);
+      if (output_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Output);
+      }
+      if (emits_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Emits);
+      }
+      if (env_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Env);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -970,6 +1089,15 @@ namespace Utos.Workflows.V1 {
       int size = 0;
       size += dependencies_.CalculateSize(_map_dependencies_codec);
       size += activities_.CalculateSize(_map_activities_codec);
+      if (output_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Output);
+      }
+      if (emits_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Emits);
+      }
+      if (env_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Env);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -984,6 +1112,24 @@ namespace Utos.Workflows.V1 {
       }
       dependencies_.MergeFrom(other.dependencies_);
       activities_.MergeFrom(other.activities_);
+      if (other.output_ != null) {
+        if (output_ == null) {
+          Output = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Output.MergeFrom(other.Output);
+      }
+      if (other.emits_ != null) {
+        if (emits_ == null) {
+          Emits = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Emits.MergeFrom(other.Emits);
+      }
+      if (other.env_ != null) {
+        if (env_ == null) {
+          Env = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Env.MergeFrom(other.Env);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1011,6 +1157,27 @@ namespace Utos.Workflows.V1 {
             activities_.AddEntriesFrom(input, _map_activities_codec);
             break;
           }
+          case 26: {
+            if (output_ == null) {
+              Output = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Output);
+            break;
+          }
+          case 34: {
+            if (emits_ == null) {
+              Emits = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Emits);
+            break;
+          }
+          case 42: {
+            if (env_ == null) {
+              Env = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Env);
+            break;
+          }
         }
       }
     #endif
@@ -1036,6 +1203,27 @@ namespace Utos.Workflows.V1 {
           }
           case 18: {
             activities_.AddEntriesFrom(ref input, _map_activities_codec);
+            break;
+          }
+          case 26: {
+            if (output_ == null) {
+              Output = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Output);
+            break;
+          }
+          case 34: {
+            if (emits_ == null) {
+              Emits = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Emits);
+            break;
+          }
+          case 42: {
+            if (env_ == null) {
+              Env = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Env);
             break;
           }
         }

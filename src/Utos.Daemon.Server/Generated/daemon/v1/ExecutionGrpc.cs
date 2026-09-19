@@ -129,7 +129,14 @@ namespace Utos.Daemon.V1 {
     public abstract partial class ExecutionServiceBase
     {
       /// <summary>
-      /// Schedule a new workflow execution
+      /// Schedule a new workflow execution.
+      ///
+      /// Where the start activity declares `schema.input`, or the workflow declares
+      /// `spec.env`, `input` and `env` are validated against them before the
+      /// execution exists, and declared defaults are filled into what is recorded.
+      /// A violation is INVALID_ARGUMENT carrying every failing location, not the
+      /// first — see docs/workflow-schemas.md. Nothing is scheduled, so there is no
+      /// run to inspect and no partial work to undo.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>

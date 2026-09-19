@@ -152,7 +152,14 @@ namespace Utos.Daemon.V1 {
       }
 
       /// <summary>
-      /// Schedule a new workflow execution
+      /// Schedule a new workflow execution.
+      ///
+      /// Where the start activity declares `schema.input`, or the workflow declares
+      /// `spec.env`, `input` and `env` are validated against them before the
+      /// execution exists, and declared defaults are filled into what is recorded.
+      /// A violation is INVALID_ARGUMENT carrying every failing location, not the
+      /// first — see docs/workflow-schemas.md. Nothing is scheduled, so there is no
+      /// run to inspect and no partial work to undo.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -165,7 +172,14 @@ namespace Utos.Daemon.V1 {
         return ScheduleExecution(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Schedule a new workflow execution
+      /// Schedule a new workflow execution.
+      ///
+      /// Where the start activity declares `schema.input`, or the workflow declares
+      /// `spec.env`, `input` and `env` are validated against them before the
+      /// execution exists, and declared defaults are filled into what is recorded.
+      /// A violation is INVALID_ARGUMENT carrying every failing location, not the
+      /// first — see docs/workflow-schemas.md. Nothing is scheduled, so there is no
+      /// run to inspect and no partial work to undo.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -176,7 +190,14 @@ namespace Utos.Daemon.V1 {
         return CallInvoker.BlockingUnaryCall(__Method_ScheduleExecution, null, options, request);
       }
       /// <summary>
-      /// Schedule a new workflow execution
+      /// Schedule a new workflow execution.
+      ///
+      /// Where the start activity declares `schema.input`, or the workflow declares
+      /// `spec.env`, `input` and `env` are validated against them before the
+      /// execution exists, and declared defaults are filled into what is recorded.
+      /// A violation is INVALID_ARGUMENT carrying every failing location, not the
+      /// first — see docs/workflow-schemas.md. Nothing is scheduled, so there is no
+      /// run to inspect and no partial work to undo.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -189,7 +210,14 @@ namespace Utos.Daemon.V1 {
         return ScheduleExecutionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Schedule a new workflow execution
+      /// Schedule a new workflow execution.
+      ///
+      /// Where the start activity declares `schema.input`, or the workflow declares
+      /// `spec.env`, `input` and `env` are validated against them before the
+      /// execution exists, and declared defaults are filled into what is recorded.
+      /// A violation is INVALID_ARGUMENT carrying every failing location, not the
+      /// first — see docs/workflow-schemas.md. Nothing is scheduled, so there is no
+      /// run to inspect and no partial work to undo.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>

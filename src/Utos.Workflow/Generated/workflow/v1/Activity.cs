@@ -27,68 +27,72 @@ namespace Utos.Workflows.V1 {
             "Chp3b3JrZmxvdy92MS9hY3Rpdml0eS5wcm90bxIQdXRvcy53b3JrZmxvdy52",
             "MRoeZ29vZ2xlL3Byb3RvYnVmL2R1cmF0aW9uLnByb3RvGhxnb29nbGUvcHJv",
             "dG9idWYvc3RydWN0LnByb3RvGhh3b3JrZmxvdy92MS9jb21tb24ucHJvdG8i",
-            "8AIKEFdvcmtmbG93QWN0aXZpdHkSNAoKb25fc3VjY2VzcxgBIAMoCzIgLnV0",
+            "ogMKEFdvcmtmbG93QWN0aXZpdHkSNAoKb25fc3VjY2VzcxgBIAMoCzIgLnV0",
             "b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblJ1bGUSNAoKb25fZmFpbHVyZRgC",
-            "IAMoCzIgLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblJ1bGUSNAoEaHR0",
-            "cBgKIAEoCzIkLnV0b3Mud29ya2Zsb3cudjEuSHR0cEFjdGl2aXR5Q29uZmln",
-            "SAASPAoId29ya2Zsb3cYCyABKAsyKC51dG9zLndvcmtmbG93LnYxLldvcmtm",
-            "bG93QWN0aXZpdHlDb25maWdIABI6Cgdwcm9taXNlGAwgASgLMicudXRvcy53",
-            "b3JrZmxvdy52MS5Qcm9taXNlQWN0aXZpdHlDb25maWdIABI2CgV0aW1lchgN",
-            "IAEoCzIlLnV0b3Mud29ya2Zsb3cudjEuVGltZXJBY3Rpdml0eUNvbmZpZ0gA",
-            "QggKBmNvbmZpZyKFAgoOVHJhbnNpdGlvblJ1bGUSFgoJY29uZGl0aW9uGAEg",
-            "ASgJSAGIAQESOAoKdHJhbnNpdGlvbhgCIAEoCzIiLnV0b3Mud29ya2Zsb3cu",
-            "djEuVHJhbnNpdGlvblRhcmdldEgAEikKBnJlc3VsdBgDIAEoCzIXLmdvb2ds",
-            "ZS5wcm90b2J1Zi5TdHJ1Y3RIABIsCgRlbWl0GAQgASgLMhwudXRvcy53b3Jr",
-            "Zmxvdy52MS5FbWl0QWN0aW9uSAASMAoFZXJyb3IYBSABKAsyHy51dG9zLndv",
-            "cmtmbG93LnYxLldvcmtmbG93RXJyb3JIAEIICgZhY3Rpb25CDAoKX2NvbmRp",
-            "dGlvbiJsCgpFbWl0QWN0aW9uEiYKBXZhbHVlGAEgASgLMhcuZ29vZ2xlLnBy",
-            "b3RvYnVmLlN0cnVjdBI2Cgp0cmFuc2l0aW9uGAIgASgLMiIudXRvcy53b3Jr",
-            "Zmxvdy52MS5UcmFuc2l0aW9uVGFyZ2V0IlcKEFRyYW5zaXRpb25UYXJnZXQS",
-            "DAoEbmFtZRgBIAEoCRIrCgVpbnB1dBgCIAEoCzIXLmdvb2dsZS5wcm90b2J1",
-            "Zi5TdHJ1Y3RIAIgBAUIICgZfaW5wdXQiwQEKEkh0dHBBY3Rpdml0eUNvbmZp",
-            "ZxIOCgZtZXRob2QYASABKAkSCwoDdXJsGAIgASgJEkIKB2hlYWRlcnMYAyAD",
-            "KAsyMS51dG9zLndvcmtmbG93LnYxLkh0dHBBY3Rpdml0eUNvbmZpZy5IZWFk",
-            "ZXJzRW50cnkSEQoEYm9keRgEIAEoCUgAiAEBGi4KDEhlYWRlcnNFbnRyeRIL",
-            "CgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBQgcKBV9ib2R5IkIKE1Rp",
-            "bWVyQWN0aXZpdHlDb25maWcSKwoIZHVyYXRpb24YASABKAsyGS5nb29nbGUu",
-            "cHJvdG9idWYuRHVyYXRpb24i8AEKFldvcmtmbG93QWN0aXZpdHlDb25maWcS",
-            "EAoId29ya2Zsb3cYASABKAkSFgoOc3RhcnRfYWN0aXZpdHkYAiABKAkSJgoF",
-            "aW5wdXQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0EjQKBGNhbGwY",
-            "BSABKAsyJC51dG9zLndvcmtmbG93LnYxLkNhbGxBY3Rpdml0eUNvbmZpZ0gA",
-            "EjYKBXNwYXduGAYgASgLMiUudXRvcy53b3JrZmxvdy52MS5TcGF3bkFjdGl2",
-            "aXR5Q29uZmlnSABCBgoEbW9kZUoECAQQBVIIZGV0YWNoZWQiSAoSQ2FsbEFj",
-            "dGl2aXR5Q29uZmlnEjIKCm9uX2VtaXR0ZWQYASADKAsyHi51dG9zLndvcmtm",
-            "bG93LnYxLkVtaXNzaW9uUnVsZSIVChNTcGF3bkFjdGl2aXR5Q29uZmlnIswC",
-            "ChVQcm9taXNlQWN0aXZpdHlDb25maWcSMQoIYnJhbmNoZXMYAyADKAsyHy51",
-            "dG9zLndvcmtmbG93LnYxLlByb21pc2VCcmFuY2gSMQoDYWxsGAQgASgLMiIu",
-            "dXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQWxsQ29uZmlnSAASMQoDYW55GAUg",
-            "ASgLMiIudXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQW55Q29uZmlnSAASMwoE",
-            "cmFjZRgGIAEoCzIjLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZVJhY2VDb25m",
-            "aWdIABI1CgVjb3VudBgHIAEoCzIkLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlz",
-            "ZUNvdW50Q29uZmlnSABCDAoKY29tcGxldGlvbkoECAEQAkoECAIQA1IEbW9k",
-            "ZVIOcmVxdWlyZWRfY291bnQiEgoQUHJvbWlzZUFsbENvbmZpZyISChBQcm9t",
-            "aXNlQW55Q29uZmlnIhMKEVByb21pc2VSYWNlQ29uZmlnIiwKElByb21pc2VD",
-            "b3VudENvbmZpZxIWCg5yZXF1aXJlZF9jb3VudBgBIAEoBSL3AQoNUHJvbWlz",
-            "ZUJyYW5jaBIMCgRuYW1lGAEgASgJEjYKCGZvcl9lYWNoGAIgASgLMh8udXRv",
-            "cy53b3JrZmxvdy52MS5Gb3JFYWNoQ29uZmlnSACIAQESFgoJY29uZGl0aW9u",
-            "GAMgASgJSAGIAQESEAoId29ya2Zsb3cYBSABKAkSFgoOc3RhcnRfYWN0aXZp",
-            "dHkYBiABKAkSKwoFaW5wdXQYByABKAsyFy5nb29nbGUucHJvdG9idWYuU3Ry",
-            "dWN0SAKIAQFCCwoJX2Zvcl9lYWNoQgwKCl9jb25kaXRpb25CCAoGX2lucHV0",
-            "SgQIBBAFUgZ0YXJnZXQiigIKDEVtaXNzaW9uUnVsZRIWCgljb25kaXRpb24Y",
-            "ASABKAlIAYgBARIzCgZoYW5kbGUYAiABKAsyIS51dG9zLndvcmtmbG93LnYx",
-            "LkhhbmRsZXJEaXNwYXRjaEgAEjgKCnRyYW5zaXRpb24YAyABKAsyIi51dG9z",
-            "LndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJnZXRIABIpCgZyZXN1bHQYBCAB",
-            "KAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SAASMAoFZXJyb3IYBSABKAsy",
-            "Hy51dG9zLndvcmtmbG93LnYxLldvcmtmbG93RXJyb3JIAEIICgZhY3Rpb25C",
-            "DAoKX2NvbmRpdGlvbiJyCg9IYW5kbGVyRGlzcGF0Y2gSEAoId29ya2Zsb3cY",
-            "ASABKAkSFgoOc3RhcnRfYWN0aXZpdHkYAiABKAkSKwoFaW5wdXQYAyABKAsy",
-            "Fy5nb29nbGUucHJvdG9idWYuU3RydWN0SACIAQFCCAoGX2lucHV0IjIKDUZv",
-            "ckVhY2hDb25maWcSEgoKY29sbGVjdGlvbhgBIAEoCRINCgVhbGlhcxgCIAEo",
-            "CUIUqgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnByb3RvMw=="));
+            "IAMoCzIgLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblJ1bGUSMAoGc2No",
+            "ZW1hGAMgASgLMiAudXRvcy53b3JrZmxvdy52MS5BY3Rpdml0eVNjaGVtYRI0",
+            "CgRodHRwGAogASgLMiQudXRvcy53b3JrZmxvdy52MS5IdHRwQWN0aXZpdHlD",
+            "b25maWdIABI8Cgh3b3JrZmxvdxgLIAEoCzIoLnV0b3Mud29ya2Zsb3cudjEu",
+            "V29ya2Zsb3dBY3Rpdml0eUNvbmZpZ0gAEjoKB3Byb21pc2UYDCABKAsyJy51",
+            "dG9zLndvcmtmbG93LnYxLlByb21pc2VBY3Rpdml0eUNvbmZpZ0gAEjYKBXRp",
+            "bWVyGA0gASgLMiUudXRvcy53b3JrZmxvdy52MS5UaW1lckFjdGl2aXR5Q29u",
+            "ZmlnSABCCAoGY29uZmlnIjgKDkFjdGl2aXR5U2NoZW1hEiYKBWlucHV0GAEg",
+            "ASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdCKFAgoOVHJhbnNpdGlvblJ1",
+            "bGUSFgoJY29uZGl0aW9uGAEgASgJSAGIAQESOAoKdHJhbnNpdGlvbhgCIAEo",
+            "CzIiLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblRhcmdldEgAEikKBnJl",
+            "c3VsdBgDIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIABIsCgRlbWl0",
+            "GAQgASgLMhwudXRvcy53b3JrZmxvdy52MS5FbWl0QWN0aW9uSAASMAoFZXJy",
+            "b3IYBSABKAsyHy51dG9zLndvcmtmbG93LnYxLldvcmtmbG93RXJyb3JIAEII",
+            "CgZhY3Rpb25CDAoKX2NvbmRpdGlvbiJsCgpFbWl0QWN0aW9uEiYKBXZhbHVl",
+            "GAEgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdBI2Cgp0cmFuc2l0aW9u",
+            "GAIgASgLMiIudXRvcy53b3JrZmxvdy52MS5UcmFuc2l0aW9uVGFyZ2V0IlcK",
+            "EFRyYW5zaXRpb25UYXJnZXQSDAoEbmFtZRgBIAEoCRIrCgVpbnB1dBgCIAEo",
+            "CzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIAIgBAUIICgZfaW5wdXQiwQEK",
+            "Ekh0dHBBY3Rpdml0eUNvbmZpZxIOCgZtZXRob2QYASABKAkSCwoDdXJsGAIg",
+            "ASgJEkIKB2hlYWRlcnMYAyADKAsyMS51dG9zLndvcmtmbG93LnYxLkh0dHBB",
+            "Y3Rpdml0eUNvbmZpZy5IZWFkZXJzRW50cnkSEQoEYm9keRgEIAEoCUgAiAEB",
+            "Gi4KDEhlYWRlcnNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6",
+            "AjgBQgcKBV9ib2R5IkIKE1RpbWVyQWN0aXZpdHlDb25maWcSKwoIZHVyYXRp",
+            "b24YASABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb24i8AEKFldvcmtm",
+            "bG93QWN0aXZpdHlDb25maWcSEAoId29ya2Zsb3cYASABKAkSFgoOc3RhcnRf",
+            "YWN0aXZpdHkYAiABKAkSJgoFaW5wdXQYAyABKAsyFy5nb29nbGUucHJvdG9i",
+            "dWYuU3RydWN0EjQKBGNhbGwYBSABKAsyJC51dG9zLndvcmtmbG93LnYxLkNh",
+            "bGxBY3Rpdml0eUNvbmZpZ0gAEjYKBXNwYXduGAYgASgLMiUudXRvcy53b3Jr",
+            "Zmxvdy52MS5TcGF3bkFjdGl2aXR5Q29uZmlnSABCBgoEbW9kZUoECAQQBVII",
+            "ZGV0YWNoZWQiSAoSQ2FsbEFjdGl2aXR5Q29uZmlnEjIKCm9uX2VtaXR0ZWQY",
+            "ASADKAsyHi51dG9zLndvcmtmbG93LnYxLkVtaXNzaW9uUnVsZSIVChNTcGF3",
+            "bkFjdGl2aXR5Q29uZmlnIswCChVQcm9taXNlQWN0aXZpdHlDb25maWcSMQoI",
+            "YnJhbmNoZXMYAyADKAsyHy51dG9zLndvcmtmbG93LnYxLlByb21pc2VCcmFu",
+            "Y2gSMQoDYWxsGAQgASgLMiIudXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQWxs",
+            "Q29uZmlnSAASMQoDYW55GAUgASgLMiIudXRvcy53b3JrZmxvdy52MS5Qcm9t",
+            "aXNlQW55Q29uZmlnSAASMwoEcmFjZRgGIAEoCzIjLnV0b3Mud29ya2Zsb3cu",
+            "djEuUHJvbWlzZVJhY2VDb25maWdIABI1CgVjb3VudBgHIAEoCzIkLnV0b3Mu",
+            "d29ya2Zsb3cudjEuUHJvbWlzZUNvdW50Q29uZmlnSABCDAoKY29tcGxldGlv",
+            "bkoECAEQAkoECAIQA1IEbW9kZVIOcmVxdWlyZWRfY291bnQiEgoQUHJvbWlz",
+            "ZUFsbENvbmZpZyISChBQcm9taXNlQW55Q29uZmlnIhMKEVByb21pc2VSYWNl",
+            "Q29uZmlnIiwKElByb21pc2VDb3VudENvbmZpZxIWCg5yZXF1aXJlZF9jb3Vu",
+            "dBgBIAEoBSL3AQoNUHJvbWlzZUJyYW5jaBIMCgRuYW1lGAEgASgJEjYKCGZv",
+            "cl9lYWNoGAIgASgLMh8udXRvcy53b3JrZmxvdy52MS5Gb3JFYWNoQ29uZmln",
+            "SACIAQESFgoJY29uZGl0aW9uGAMgASgJSAGIAQESEAoId29ya2Zsb3cYBSAB",
+            "KAkSFgoOc3RhcnRfYWN0aXZpdHkYBiABKAkSKwoFaW5wdXQYByABKAsyFy5n",
+            "b29nbGUucHJvdG9idWYuU3RydWN0SAKIAQFCCwoJX2Zvcl9lYWNoQgwKCl9j",
+            "b25kaXRpb25CCAoGX2lucHV0SgQIBBAFUgZ0YXJnZXQiigIKDEVtaXNzaW9u",
+            "UnVsZRIWCgljb25kaXRpb24YASABKAlIAYgBARIzCgZoYW5kbGUYAiABKAsy",
+            "IS51dG9zLndvcmtmbG93LnYxLkhhbmRsZXJEaXNwYXRjaEgAEjgKCnRyYW5z",
+            "aXRpb24YAyABKAsyIi51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJn",
+            "ZXRIABIpCgZyZXN1bHQYBCABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0",
+            "SAASMAoFZXJyb3IYBSABKAsyHy51dG9zLndvcmtmbG93LnYxLldvcmtmbG93",
+            "RXJyb3JIAEIICgZhY3Rpb25CDAoKX2NvbmRpdGlvbiJyCg9IYW5kbGVyRGlz",
+            "cGF0Y2gSEAoId29ya2Zsb3cYASABKAkSFgoOc3RhcnRfYWN0aXZpdHkYAiAB",
+            "KAkSKwoFaW5wdXQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SACI",
+            "AQFCCAoGX2lucHV0IjIKDUZvckVhY2hDb25maWcSEgoKY29sbGVjdGlvbhgB",
+            "IAEoCRINCgVhbGlhcxgCIAEoCUIUqgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowActivity), global::Utos.Workflows.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Http", "Workflow", "Promise", "Timer" }, new[]{ "Config" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowActivity), global::Utos.Workflows.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Schema", "Http", "Workflow", "Promise", "Timer" }, new[]{ "Config" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.ActivitySchema), global::Utos.Workflows.V1.ActivitySchema.Parser, new[]{ "Input" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionRule), global::Utos.Workflows.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Result", "Emit", "Error" }, new[]{ "Action", "Condition" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.EmitAction), global::Utos.Workflows.V1.EmitAction.Parser, new[]{ "Value", "Transition" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionTarget), global::Utos.Workflows.V1.TransitionTarget.Parser, new[]{ "Name", "Input" }, new[]{ "Input" }, null, null, null),
@@ -152,6 +156,7 @@ namespace Utos.Workflows.V1 {
     public WorkflowActivity(WorkflowActivity other) : this() {
       onSuccess_ = other.onSuccess_.Clone();
       onFailure_ = other.onFailure_.Clone();
+      schema_ = other.schema_ != null ? other.schema_.Clone() : null;
       switch (other.ConfigCase) {
         case ConfigOneofCase.Http:
           Http = other.Http.Clone();
@@ -206,6 +211,34 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule> OnFailure {
       get { return onFailure_; }
+    }
+
+    /// <summary>Field number for the "schema" field.</summary>
+    public const int SchemaFieldNumber = 3;
+    private global::Utos.Workflows.V1.ActivitySchema schema_;
+    /// <summary>
+    /// What this activity declares about the data crossing into it. Optional —
+    /// an absent schema is the empty schema, which anything the wire can carry
+    /// satisfies, so every workflow written before schemas existed keeps working.
+    ///
+    /// Declared here rather than inside a configuration because `input` is taken:
+    /// on a workflow.call activity `input` is the *child's* input, and the same
+    /// holds for a promise branch and a handler dispatch, so an activity's own
+    /// declaration cannot live under that name. Being an activity-level field
+    /// outside the oneof is also what keeps the source-format mapping simple —
+    /// step 3 of that mapping places every key it does not recognize into the
+    /// resolved configuration message, so a `schema` declared anywhere else would
+    /// land inside HttpActivityConfig.
+    ///
+    /// See docs/workflow-schemas.md.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.ActivitySchema Schema {
+      get { return schema_; }
+      set {
+        schema_ = value;
+      }
     }
 
     /// <summary>Field number for the "http" field.</summary>
@@ -296,6 +329,7 @@ namespace Utos.Workflows.V1 {
       }
       if(!onSuccess_.Equals(other.onSuccess_)) return false;
       if(!onFailure_.Equals(other.onFailure_)) return false;
+      if (!object.Equals(Schema, other.Schema)) return false;
       if (!object.Equals(Http, other.Http)) return false;
       if (!object.Equals(Workflow, other.Workflow)) return false;
       if (!object.Equals(Promise, other.Promise)) return false;
@@ -310,6 +344,7 @@ namespace Utos.Workflows.V1 {
       int hash = 1;
       hash ^= onSuccess_.GetHashCode();
       hash ^= onFailure_.GetHashCode();
+      if (schema_ != null) hash ^= Schema.GetHashCode();
       if (configCase_ == ConfigOneofCase.Http) hash ^= Http.GetHashCode();
       if (configCase_ == ConfigOneofCase.Workflow) hash ^= Workflow.GetHashCode();
       if (configCase_ == ConfigOneofCase.Promise) hash ^= Promise.GetHashCode();
@@ -335,6 +370,10 @@ namespace Utos.Workflows.V1 {
     #else
       onSuccess_.WriteTo(output, _repeated_onSuccess_codec);
       onFailure_.WriteTo(output, _repeated_onFailure_codec);
+      if (schema_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Schema);
+      }
       if (configCase_ == ConfigOneofCase.Http) {
         output.WriteRawTag(82);
         output.WriteMessage(Http);
@@ -363,6 +402,10 @@ namespace Utos.Workflows.V1 {
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       onSuccess_.WriteTo(ref output, _repeated_onSuccess_codec);
       onFailure_.WriteTo(ref output, _repeated_onFailure_codec);
+      if (schema_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Schema);
+      }
       if (configCase_ == ConfigOneofCase.Http) {
         output.WriteRawTag(82);
         output.WriteMessage(Http);
@@ -391,6 +434,9 @@ namespace Utos.Workflows.V1 {
       int size = 0;
       size += onSuccess_.CalculateSize(_repeated_onSuccess_codec);
       size += onFailure_.CalculateSize(_repeated_onFailure_codec);
+      if (schema_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Schema);
+      }
       if (configCase_ == ConfigOneofCase.Http) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Http);
       }
@@ -417,6 +463,12 @@ namespace Utos.Workflows.V1 {
       }
       onSuccess_.Add(other.onSuccess_);
       onFailure_.Add(other.onFailure_);
+      if (other.schema_ != null) {
+        if (schema_ == null) {
+          Schema = new global::Utos.Workflows.V1.ActivitySchema();
+        }
+        Schema.MergeFrom(other.Schema);
+      }
       switch (other.ConfigCase) {
         case ConfigOneofCase.Http:
           if (Http == null) {
@@ -469,6 +521,13 @@ namespace Utos.Workflows.V1 {
           }
           case 18: {
             onFailure_.AddEntriesFrom(input, _repeated_onFailure_codec);
+            break;
+          }
+          case 26: {
+            if (schema_ == null) {
+              Schema = new global::Utos.Workflows.V1.ActivitySchema();
+            }
+            input.ReadMessage(Schema);
             break;
           }
           case 82: {
@@ -534,6 +593,13 @@ namespace Utos.Workflows.V1 {
             onFailure_.AddEntriesFrom(ref input, _repeated_onFailure_codec);
             break;
           }
+          case 26: {
+            if (schema_ == null) {
+              Schema = new global::Utos.Workflows.V1.ActivitySchema();
+            }
+            input.ReadMessage(Schema);
+            break;
+          }
           case 82: {
             global::Utos.Workflows.V1.HttpActivityConfig subBuilder = new global::Utos.Workflows.V1.HttpActivityConfig();
             if (configCase_ == ConfigOneofCase.Http) {
@@ -578,6 +644,242 @@ namespace Utos.Workflows.V1 {
   }
 
   /// <summary>
+  /// What an activity declares about the data crossing into it.
+  ///
+  /// A message rather than a bare `input` field so that anything else declarative
+  /// — an activity's own limits, a retry policy — has somewhere to go without
+  /// another field on WorkflowActivity.
+  ///
+  /// Only `input` is declarable. An activity's *output* shape follows from its
+  /// kind — an http activity's is the parsed JSON body or null, a timer's is its
+  /// input, a workflow.call's is the callee's declared `spec.output` — so it is
+  /// derived, and authoring it would be a second place to disagree.
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ActivitySchema : pb::IMessage<ActivitySchema>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ActivitySchema> _parser = new pb::MessageParser<ActivitySchema>(() => new ActivitySchema());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ActivitySchema> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ActivitySchema() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ActivitySchema(ActivitySchema other) : this() {
+      input_ = other.input_ != null ? other.input_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ActivitySchema Clone() {
+      return new ActivitySchema(this);
+    }
+
+    /// <summary>Field number for the "input" field.</summary>
+    public const int InputFieldNumber = 1;
+    private global::Google.Protobuf.WellKnownTypes.Struct input_;
+    /// <summary>
+    /// A JSON Schema 2020-12 document describing what this activity accepts,
+    /// as the value every input boundary that reaches this activity is checked
+    /// against: the run input when it is the start activity, a transition's
+    /// rendered `input` when it is the target, and a dispatched document's input
+    /// when it is that document's start activity.
+    ///
+    /// This is the ONLY input schema in the system, which is why it is declared
+    /// per activity and not once per workflow: a run is scheduled with a start
+    /// activity, so a document with three entry points has three input shapes and
+    /// a workflow-level `spec.input` would be a fiction.
+    ///
+    /// Plain JSON Schema by the time it is here. The source format's authoring
+    /// sugar — `?` for optional, `min`/`max`, closed by default — is compiled by
+    /// the front end, so a bundle carries the standard form and no consumer has to
+    /// learn ours. See docs/workflow-schemas.md.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Input {
+      get { return input_; }
+      set {
+        input_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ActivitySchema);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ActivitySchema other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Input, other.Input)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (input_ != null) hash ^= Input.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (input_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Input);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (input_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Input);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (input_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Input);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ActivitySchema other) {
+      if (other == null) {
+        return;
+      }
+      if (other.input_ != null) {
+        if (input_ == null) {
+          Input = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Input.MergeFrom(other.Input);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (input_ == null) {
+              Input = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Input);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (input_ == null) {
+              Input = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Input);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Defines a conditional transition rule with an action (transition, result, or emit)
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
@@ -595,7 +897,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1095,7 +1397,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1359,7 +1661,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1641,7 +1943,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1981,7 +2283,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2199,7 +2501,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2637,7 +2939,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2862,7 +3164,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3039,7 +3341,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3471,7 +3773,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3635,7 +3937,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3800,7 +4102,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3965,7 +4267,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4176,7 +4478,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4660,7 +4962,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5180,7 +5482,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5489,7 +5791,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
