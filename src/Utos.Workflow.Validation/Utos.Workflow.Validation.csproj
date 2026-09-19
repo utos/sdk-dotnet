@@ -14,14 +14,35 @@
     the trip to another language anyway. Callers that want FluentValidation can adapt
     ValidationReport in a few lines.
 
-    Acornima is the exception the expression rules require: a grammar over ECMAScript syntax trees
-    needs an ECMAScript parser, and this is the one the reference engine (Jint) parses with, so the
-    tree validated here is the tree that runs. It is AOT- and trim-compatible, which the NativeAOT
-    CLI that consumes this package needs.
+    Acornima is the first exception, and the expression rules require it: a grammar over ECMAScript
+    syntax trees needs an ECMAScript parser, and this is the one the reference engine (Jint) parses
+    with, so the tree validated here is the tree that runs.
+
+    JsonSchema.Net is the second, and the schema rules require it for exactly one rule. UTOS-H008 —
+    a `default` validating against the schema that declares it — is the only rule here that
+    evaluates a schema rather than inspecting one, and the schema is not known until a bundle is
+    read, so nothing generate-ahead can serve it. Every other UTOS-H0## rule is a structural walk
+    over the Struct and uses no evaluator at all.
+
+    Both clear the same bar the CLI sets: AOT- and trim-compatible, because the NativeAOT `utos`
+    binary links this assembly. For JsonSchema.Net that holds only if schemas are parsed with
+    JsonSchema.FromText — JsonSerializer.Deserialize<JsonSchema> is the reflective overload and
+    raises IL2026/IL3050, verified with `dotnet publish -p:PublishAot=true` on a probe consuming
+    this package.
+
+    The AOT analyzer cannot enforce that here: it does not run on netstandard2.0, which is what
+    these packages target (NETSDK1210). The property below is written the way the SDK's own message
+    prescribes, so it is inert today and arms itself if this project ever multi-targets net8.0+.
+    Until then the real check lives in the CLI's publish, which is the thing that would break.
   -->
+  <PropertyGroup>
+    <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">true</IsAotCompatible>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Utos.Workflow\Utos.Workflow.csproj" />
     <PackageReference Include="Acornima" />
+    <PackageReference Include="JsonSchema.Net" />
   </ItemGroup>
 
   <!-- The splitter and the grammar are tested below the public entry point. -->

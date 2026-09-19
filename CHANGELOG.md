@@ -11,6 +11,29 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ## [Unreleased]
 
+### Added
+
+- **`Utos.Workflow.Validation` enforces the schema rules of spec 0.0.18** — `UTOS-H001` through
+  `UTOS-H014`, over the four slots a workflow may declare: an activity's `schema.input`, and
+  `spec.output`, `spec.emits` and `spec.env`. Every slot is optional and an absent one is the empty
+  schema, so a bundle built before schemas existed reports nothing new. The 14 fixtures the spec
+  shipped with the corpus now pass; they had been failing since `0.0.18` was vendored in, because
+  the corpus arrives with the spec and the implementation follows it
+- **`UTOS-H013` and `UTOS-H014` compare property sets, never values.** A `transition.input`, or the
+  `input` of anything that starts a document, must supply every property the target activity's
+  declared input requires and none it does not declare. An input transform's keys are always
+  literal — only its leaf values may be templates — so this is knowable with certainty at load,
+  which is the test every rule in `workflow-validation.md` has to pass. Whether a template will
+  produce a string is not, and stays the daemon's business
+- **`JsonSchema.Net` is a new dependency of `Utos.Workflow.Validation`, and the second exception to
+  that package depending on nothing.** Exactly one rule needs it: `UTOS-H008`, a `default`
+  validating against the schema that declares it, where the schema is not known until a bundle is
+  read — so nothing generate-ahead can serve it. Every other `UTOS-H0##` rule is a structural walk
+  over the `Struct` and uses no evaluator. It clears the same bar Acornima did: `dotnet publish
+  -p:PublishAot=true` against this assembly reports zero IL2026/IL3050, which the NativeAOT `utos`
+  binary needs. That holds only if schemas are parsed with `JsonSchema.FromText` — the
+  `JsonSerializer.Deserialize<JsonSchema>` overload is reflective and is not to be used here
+
 ### Changed
 
 - **The README documents `Utos.Workflow.Validation`.** The package table listed three packages and

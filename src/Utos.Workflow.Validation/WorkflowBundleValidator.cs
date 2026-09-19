@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using Google.Protobuf.WellKnownTypes;
+using Utos.Workflows.V1.Validation.Schemas;
 
 namespace Utos.Workflows.V1.Validation
 {
@@ -71,6 +72,12 @@ namespace Utos.Workflows.V1.Validation
 
                 ValidateWorkflow(workflow, key, path, bundle, issues);
             }
+
+            // The schema rules run as their own pass. They are defined over whole schema documents
+            // and, for UTOS-H013/H014, over a transform and the activity it targets — neither of
+            // which fits the activity-at-a-time walk above, and both of which need the bundle.
+            SchemaRules.ValidateBundle(bundle, issues);
+            InputSiteRules.Validate(bundle, issues);
 
             return new ValidationReport(issues);
         }
