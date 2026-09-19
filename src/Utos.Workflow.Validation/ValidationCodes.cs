@@ -110,6 +110,43 @@ namespace Utos.Workflows.V1.Validation
         // Struct values
         public const string NonFiniteNumber = "UTOS-V001";
 
+        // Schemas — the load-time rules of api/docs/workflow-schemas.md, over the four slots a
+        // workflow may declare: an activity's schema.input, and spec.output / spec.emits /
+        // spec.env. Every slot is optional and an absent one is the empty schema, so a bundle
+        // built before schemas existed reports nothing here.
+        //
+        // These inspect a schema; they do not evaluate one against data. That is the daemon's
+        // job (UTOS-H1##) and is not implemented in this package. The single exception is
+        // UTOS-H008, which evaluates a `default` against the schema that declares it — so that a
+        // default can never be the thing that fails the boundary it was meant to satisfy.
+        public const string SchemaNotASchema = "UTOS-H001";
+        public const string SchemaMalformed = "UTOS-H002";
+        public const string SchemaRootNotObject = "UTOS-H003";
+        public const string SchemaWrongDialect = "UTOS-H004";
+        public const string SchemaRefUnknown = "UTOS-H005";
+        public const string SchemaRefUnresolved = "UTOS-H006";
+        public const string SchemaFormatUnknown = "UTOS-H007";
+        public const string SchemaDefaultInvalid = "UTOS-H008";
+        public const string SchemaDefaultOnRequired = "UTOS-H009";
+        public const string SchemaPatternInvalid = "UTOS-H010";
+        public const string SchemaEnvNotString = "UTOS-H011";
+        public const string SchemaLimitExceeded = "UTOS-H012";
+
+        /// <summary>
+        /// A <c>transition.input</c> cannot satisfy the target activity's declared input, or an
+        /// invocation's <c>input</c> cannot satisfy the invoked start activity's.
+        /// <para>
+        /// These compare <em>property sets</em>, never values: an input transform's keys are
+        /// always literal and only its leaf values may be templates, so "this transform can never
+        /// satisfy that activity" is knowable with certainty at load, which is the test every rule
+        /// in <c>workflow-validation.md</c> has to pass.
+        /// </para>
+        /// </summary>
+        public const string TransitionInputMismatch = "UTOS-H013";
+
+        /// <inheritdoc cref="TransitionInputMismatch"/>
+        public const string InvocationInputMismatch = "UTOS-H014";
+
         // Expressions — the static rules of api/docs/template-expressions.md. These parse the
         // text of a condition or a {{ }} template against the language's grammar; they never
         // evaluate it. The grammar is an allow-list of syntax-tree node types, so the codes name
