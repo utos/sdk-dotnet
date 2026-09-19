@@ -3,16 +3,25 @@ name: Release
 # Event-driven push model: utos/api fires a `spec-released` repository_dispatch on every
 # release; this repo regenerates and publishes from the payload. No polling.
 #
+# Branches: `dev` integrates, `main` releases. Nothing is published from `dev` — feature
+# branches and Dependabot bumps land there and accumulate, and the dev -> main merge is
+# the release. That merge is a single push to `main`, so a week of bumps and fixes costs
+# one version instead of one per merge. When a release finishes, `main` carries a commit
+# this job wrote (regenerated source + CHANGELOG), so the last step fast-forwards `dev`
+# back onto it; the two branches are equal between releases and diverge only forward.
+#
 # Triggers:
 #   - repository_dispatch (spec-released): utos/api published a new spec version.
-#       client_payload = { version, sha, tag }.
+#       client_payload = { version, sha, tag }. Independent of the branch flow — a spec
+#       release publishes off `main` whether or not `dev` has anything waiting.
 #   - workflow_dispatch: build a specific api tag now (or the latest) — manual fallback;
 #     with `rebuild` set, republish it under a new 4th-field version instead.
 #   - push to main touching Directory.Packages.props or hand-written source under src/:
-#     a tooling bump (e.g. Dependabot raising Grpc.Tools / Google.Protobuf) or a change to
-#     the validator or a spec primitive -> rebuild the latest spec with a new 4th-field
-#     version (X.Y.Z.N). Generated/ is excluded: only this job writes it, and its own push
-#     (GITHUB_TOKEN) never triggers a workflow anyway.
+#     in practice the dev -> main merge carrying a tooling bump (e.g. Dependabot raising
+#     Grpc.Tools / Google.Protobuf) or a change to the validator or a spec primitive ->
+#     rebuild the latest spec with a new 4th-field version (X.Y.Z.N). Generated/ is
+#     excluded: only this job writes it, and its own push (GITHUB_TOKEN) never triggers a
+#     workflow anyway.
 
 on:
   repository_dispatch:
@@ -161,13 +170,34 @@ jobs:
           else
             BODY="SDK-only rebuild against [\`${SPEC_TAG}\`](${API_LINK}) (\`${SPEC_SHA}\`): codegen/runtime tooling bump, no spec change."
           fi
-          # Real newlines, then insert the section above the first existing release
-          # heading (newest-first), or append if this is the first release.
-          SECTION=$(printf '## [%s] - %s\n\n%s\n' "$SDK_VERSION" "$DATE" "$BODY")
-          awk -v sec="$SECTION" '
-            /^## \[/ && $0 !~ /^## \[Unreleased\]/ && !ins { print sec "\n"; ins=1 }
+          # `## [Unreleased]` on `dev` is the hand-written half of the release notes: it is
+          # what accumulated since the last dev -> main merge. Drain it into the new version's
+          # section under the generated provenance line and leave the heading empty, so notes
+          # are attached to the version that shipped them instead of piling up unreleased.
+          if ! grep -q '^## \[Unreleased\]' CHANGELOG.md; then
+            echo "::error::CHANGELOG.md has no '## [Unreleased]' heading to release from"; exit 1
+          fi
+          awk -v ver="$SDK_VERSION" -v date="$DATE" -v body="$BODY" '
+            function flush(  i, first, last) {
+              if (flushed) return
+              flushed = 1
+              first = 0; last = 0
+              for (i = 1; i <= n; i++) if (notes[i] ~ /[^ \t]/) { if (!first) first = i; last = i }
+              if (!first) return
+              for (i = first; i <= last; i++) print notes[i]
+              print ""
+            }
+            /^## \[Unreleased\]/ && !seen {
+              seen = 1
+              print; print ""
+              print "## [" ver "] - " date
+              print ""; print body; print ""
+              next
+            }
+            seen && !flushed && /^## \[/ { flush() }
+            seen && !flushed { notes[++n] = $0; next }
             { print }
-            END { if (!ins) print "\n" sec }
+            END { flush() }
           ' CHANGELOG.md > CHANGELOG.tmp && mv CHANGELOG.tmp CHANGELOG.md
 
       - name: Commit, tag
@@ -214,3 +244,24 @@ jobs:
             --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
+
+      # The release commit (regenerated source + CHANGELOG) exists only on `main`. Leave it
+      # there and `dev` is behind by a commit it will conflict with on the next merge, so
+      # fast-forward `dev` onto it. Last, and only after the push to nuget.org: `dev` moving
+      # means the release landed. If somebody merged into `dev` while this job ran the
+      # fast-forward is not available — say so rather than force anything; `git merge main`
+      # on `dev` resolves it.
+      - name: Fast-forward dev to the release commit
+        if: steps.r.outputs.should_build == 'true'
+        run: |
+          set -euo pipefail
+          if ! git fetch --quiet origin dev; then
+            echo "::notice::no dev branch on origin; nothing to fast-forward"
+            exit 0
+          fi
+          if git merge-base --is-ancestor FETCH_HEAD HEAD; then
+            git push origin HEAD:dev
+            echo "::notice::dev fast-forwarded to v${{ steps.r.outputs.sdk_version }}"
+          else
+            echo "::warning::dev has commits that are not on main, so it could not be fast-forwarded. Run 'git checkout dev && git merge main && git push' to bring the release commit across."
+          fi
