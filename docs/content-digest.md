@@ -38,7 +38,8 @@ string canonical = ContentDigest.CanonicalJson(bundle);  // the pre-hash canonic
   digest byte-stable while these packages targeted netstandard2.0, whose in-box `double`
   formatting is not guaranteed shortest-round-trip; on `net10.0` it is, so the canonicalizer is
   now used for being the reference implementation of the scheme the digest cites rather than to
-  paper over a runtime difference.
+  paper over a runtime difference. The digest itself is unchanged by that retarget: the pinned
+  worked-example value in ContentDigestTests still matches.
 - **Non-finite numbers.** `NaN` / `±Infinity` in a `Struct` value are rejected (`ArgumentException`),
   per the spec.
 
