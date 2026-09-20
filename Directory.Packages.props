@@ -15,10 +15,21 @@
     Microsoft.SourceLink.GitHub package is referenced here.
 
     jsoncanonicalizer is the RFC 8785 (JSON Canonicalization Scheme) reference
-    implementation, used by Utos.Workflow's content-digest helper. It transitively pulls
-    es6numberserializer (RFC 8785 §3.2.2.3 ECMAScript number formatting), which makes the
-    digest byte-stable across runtimes — important since netstandard2.0's in-box double
-    formatting is not guaranteed shortest-round-trip.
+    implementation, used by Utos.Workflow's content-digest helper: key ordering, string escaping
+    and number formatting, none of which a digest may get wrong. It transitively pulls
+    es6numberserializer (RFC 8785 §3.2.2.3 ECMAScript number formatting).
+
+    That number formatting was load-bearing while these packages targeted netstandard2.0, whose
+    in-box `double` formatting is not guaranteed shortest-round-trip. On net10.0 it is, so
+    es6numberserializer is now belt-and-braces rather than the thing standing between us and a
+    digest that differs by runtime. Kept anyway: the canonicalizer is the reference
+    implementation of the spec the digest cites, and replacing it with hand-rolled formatting to
+    save a transitive package would trade a citation for a maintenance liability.
+
+    YamlDotNet reads the source format for Utos.Workflow.Source, and only its node graph
+    (YamlStream / YamlDocument) is used — never its reflection-based object deserializer, which
+    would not survive trimming in the NativeAOT `utos` binary that links this. Kept at the same
+    version the CLI pinned, since the CLI is where this mapping came from.
 
     JsonSchema.Net evaluates JSON Schema 2020-12 for Utos.Workflow.Validation's UTOS-H008 —
     a schema's `default` validating against the schema that declares it. That schema is not
@@ -37,6 +48,7 @@
     <PackageVersion Include="Google.Protobuf" Version="3.36.2" />
     <PackageVersion Include="Grpc.Core.Api" Version="2.83.0" />
     <PackageVersion Include="JsonSchema.Net" Version="9.4.0" />
+    <PackageVersion Include="YamlDotNet" Version="18.1.0" />
     <PackageVersion Include="jsoncanonicalizer" Version="1.0.0" />
   </ItemGroup>
 

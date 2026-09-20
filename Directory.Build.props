@@ -2,8 +2,36 @@
 
   <!-- Shared settings for all SDK packages. -->
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <!--
+      net10.0, not netstandard2.0.
+
+      .NET Standard is a specification rather than a runtime: a list of APIs a library promises to
+      stick to, so it can run on any implementation of that list. It existed to bridge a split —
+      .NET Framework, .NET Core, Mono, Xamarin — that .NET 5 ended. Microsoft stopped evolving it
+      at 2.1 and says to target a concrete framework unless you need .NET Framework.
+
+      netstandard2.0 buys exactly one thing: consumers on .NET Framework 4.x. Nothing else — every
+      modern runtime reads net10.0 happily. We have no such consumer: the daemon, the CLI and the
+      hub are all .NET 10, and a Framework app could not use Utos.Daemon.Client anyway, since the
+      gRPC transport needs .NET Core 3.0 or later.
+
+      What it cost while it lasted: its API surface is frozen at roughly 2017, so hand-written code
+      here needed shims for `record`/`init`, KeyValuePair deconstruction, [GeneratedRegex],
+      IReadOnlySet, index-from-end, and System.Text.Json as a package. Worse, IsAotCompatible does
+      not work on netstandard2.0 (NETSDK1210) — so the AOT analyzer could not run on the very
+      assemblies the NativeAOT `utos` binary links, and an AOT regression was only discoverable by
+      publishing the CLI. It runs here now.
+    -->
+    <TargetFramework>net10.0</TargetFramework>
     <LangVersion>latest</LangVersion>
+
+    <!--
+      The CLI publishes NativeAOT and links these packages, so a dependency that resolves types by
+      reflection at run time breaks it. Enabled here rather than per-project so the analyzer covers
+      every package, and a regression is a build warning rather than something the CLI discovers
+      at publish time.
+    -->
+    <IsAotCompatible>true</IsAotCompatible>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
 
