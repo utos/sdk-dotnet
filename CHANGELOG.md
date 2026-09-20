@@ -15,7 +15,33 @@ does not release, and its latest `0.19.x` stays current. Releasing is
 deliberate: the version is read from the dated heading below, not computed from
 whatever `utos/api` last published.
 
-## [Unreleased]
+## [0.19.1] - 2026-09-20
+
+Documentation and CI only. The five packages' code is byte-identical to `0.19.0` —
+but the README is packed into every one of them, so a wrong package list only
+stops being wrong on nuget.org when a version carries the corrected file.
+
+### Added
+
+- **The minor-version parity is enforced in CI rather than documented and hoped for.**
+  `SPEC_VERSION` names the spec this repo implements, and `scripts/check-version-parity.sh` runs
+  first in the build: the minor of the top `CHANGELOG.md` version must equal it, and every
+  `Utos.*` pin must be on that same minor. Until now the invariant was one typo away from being
+  silently false — a heading naming `0.20.0` against a spec still at `0.19` would have published
+  without a word, which is the same class of mistake that put `Utos.Workflow.Validation 0.0.18` on
+  nuget.org implementing none of spec 0.0.18's rules. `sync-spec.yml` writes `SPEC_VERSION` in the
+  PR it opens, so the bump arrives together with the protos the implementation will be written
+  against
+
+### Fixed
+
+- **The README listed four packages and there are five.** `Utos.Workflow.Source` shipped in
+  `0.19.0` and appeared nowhere — the same omission [#36](https://github.com/utos/sdk-dotnet/pull/36)
+  fixed for `Utos.Workflow.Validation`, recurring for the next package added. The table also still
+  said `Utos.Workflow.Validation` depends on `Utos.Workflow` and `Acornima`, which stopped being
+  true when `JsonSchema.Net` arrived for `UTOS-H008`. And the subtitle called every package
+  *generated*, when two of the five are hand-written. A package list is the first thing a tool
+  author reads, and a wrong one tells them a package has no published home
 
 ## [0.19.0] - 2026-09-20
 
