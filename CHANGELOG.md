@@ -6,10 +6,42 @@ spec tag and commit it was generated from, and adds any SDK-only notes (tooling
 bumps, packaging changes).
 
 The format follows [Keep a Changelog](https://keepachangelog.com), and these
-packages adhere to [Semantic Versioning](https://semver.org) with the version
-mirroring the spec version (a fourth field marks SDK-only rebuilds).
+packages adhere to [Semantic Versioning](https://semver.org).
+
+**Version parity across the Utos repos: the minor is the contract, the patch is
+this repo's own.** `0.19.x` here means *implements spec 0.19*, the same way it
+does in `utos/dapr-daemon` and `utos/cli`. A repo with nothing to change simply
+does not release, and its latest `0.19.x` stays current. Releasing is
+deliberate: the version is read from the dated heading below, not computed from
+whatever `utos/api` last published.
 
 ## [Unreleased]
+
+### Changed
+
+- **Regenerating the spec and releasing are now separate.** A `spec-released`
+  dispatch used to regenerate *and publish*, straight off `main`. That is how
+  `Utos.Workflow.Validation 0.0.18` reached nuget.org without implementing a
+  single rule of spec 0.0.18 — its version named a spec it had not been taught.
+  It is not an accident of the pipeline; it is what "publish when the spec is
+  tagged" means, because at that instant nothing implements the new spec. The
+  dispatch now opens a **pull request against `dev`** (`sync-spec.yml`)
+  carrying the vendored protos, the corpus and the regenerated source. It is
+  input to work. The new corpus is expected to fail, and the PR body says how
+  many cases and why, rather than treating it as an obstacle to landing the
+  protos the fix will be written against
+- **The release version is read from `CHANGELOG.md`**, as `utos/api` has always
+  done it: the first heading carrying a date. Nothing is derived from the spec
+  tag, and the `mode=spec|rebuild` version arithmetic is gone along with the
+  fourth version field. A number a person dated cannot claim a spec the repo
+  has not implemented
+- **`main` only ever contains released state.** It previously received commits
+  from the dispatch — sometimes red ones — for work that had not been released
+- The release still runs the corpus, and here it is a **hard gate** rather than
+  the advisory one `sync-spec.yml` uses. A release asserts that this repo
+  implements the spec it names; the corpus is what decides whether that is
+  true. Failing costs a re-run, while publishing a package that fails its own
+  corpus costs a version that cannot be unpublished
 
 ## [0.0.18.2] - 2026-09-20
 
