@@ -1,6 +1,10 @@
 # Utos .NET SDK
 
-Source-bearing .NET packages generated from the [Utos API specification](https://github.com/utos/api).
+Source-bearing .NET packages for the [Utos API specification](https://github.com/utos/api).
+
+Three are generated from the `.proto`; `Utos.Workflow.Source` and `Utos.Workflow.Validation` are
+hand-written, and implement rules the spec defines normatively so that every tool enforces the
+same ones.
 
 Unlike a typical generated SDK, this repository **commits the generated C# source**
 alongside the `.proto` it came from, so every release is diffable in git and every
@@ -11,15 +15,24 @@ package ships with SourceLink + symbols for step-into debugging.
 | Package | Use it when you… | Contains | Depends on |
 |---------|------------------|----------|------------|
 | [`Utos.Workflow`](https://www.nuget.org/packages/Utos.Workflow) | define or represent Utos workflows | `Utos.Workflows.V1` message types (`Workflow`, `WorkflowBundle`, activities) | `Google.Protobuf` |
-| [`Utos.Workflow.Validation`](https://www.nuget.org/packages/Utos.Workflow.Validation) | check a bundle against the spec before acting on it | `WorkflowBundleValidator`, `ValidationCodes` | `Utos.Workflow`, `Acornima` |
+| [`Utos.Workflow.Source`](https://www.nuget.org/packages/Utos.Workflow.Source) | read the source format people author | `WorkflowLoader`, the schema short-form compiler, `SourceCodes` | `Utos.Workflow`, `YamlDotNet` |
+| [`Utos.Workflow.Validation`](https://www.nuget.org/packages/Utos.Workflow.Validation) | check a bundle against the spec before acting on it | `WorkflowBundleValidator`, `ValidationCodes` | `Utos.Workflow`, `Acornima`, `JsonSchema.Net` |
 | [`Utos.Daemon.Client`](https://www.nuget.org/packages/Utos.Daemon.Client) | call a Utos daemon | `utos.daemon.v1` messages + gRPC **client** stubs | `Grpc.Core.Api`, `Utos.Workflow` |
 | [`Utos.Daemon.Server`](https://www.nuget.org/packages/Utos.Daemon.Server) | implement a Utos daemon | `utos.daemon.v1` messages + gRPC **server** base classes | `Grpc.Core.Api`, `Utos.Workflow` |
 
 ```bash
 dotnet add package Utos.Daemon.Client       # caller / client
 dotnet add package Utos.Daemon.Server       # daemon implementer
+dotnet add package Utos.Workflow.Source     # read authored YAML into a Workflow
 dotnet add package Utos.Workflow.Validation # either role, to check a bundle first
 ```
+
+> **Reading a document and judging a bundle are different jobs**, which is why they are different
+> packages. `Utos.Workflow.Source` turns what an author wrote into a `Workflow` and reports what
+> only a *document* can get wrong (`UTOS-S###`); `Utos.Workflow.Validation` judges the resulting
+> bundle (`UTOS-B/D/M/A/T/C/H###`). A front end — a CLI, a registry's upload path — wants both, and
+> references both. Sharing them is what keeps a workflow one tool accepts from being one another
+> rejects.
 
 No custom NuGet source or registry auth required — these install from nuget.org.
 
