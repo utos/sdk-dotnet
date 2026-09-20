@@ -76,7 +76,13 @@ public static class WorkflowLoader
                 // Rules first, while onEmitted is still an activity-level key; the type transform
                 // then nests it under the call configuration.
                 var withRules = RuleTransform.Rewrite(activity, name, file, issues);
-                rewrittenActivities.Add(key, ActivityTransform.Rewrite(withRules, name, file, issues));
+
+                // Then the schema, while `schema` is still an activity-level key — it is a field
+                // of WorkflowActivity outside the config oneof, so the type transform leaves it
+                // alone, but its *contents* are the short form until this runs.
+                var withSchema = RewriteActivitySchema(withRules, name, file, issues);
+
+                rewrittenActivities.Add(key, ActivityTransform.Rewrite(withSchema, name, file, issues));
             }
             else
             {
@@ -85,7 +91,38 @@ public static class WorkflowLoader
             }
         }
 
-        return Replace(root, "spec", Replace(spec, "activities", rewrittenActivities));
+        var rewrittenSpec = Replace(spec, "activities", rewrittenActivities);
+        rewrittenSpec = RewriteSlot(rewrittenSpec, "output", SchemaSlot.Output, file, issues);
+        rewrittenSpec = RewriteSlot(rewrittenSpec, "emits", SchemaSlot.Emits, file, issues);
+        rewrittenSpec = RewriteSlot(rewrittenSpec, "env", SchemaSlot.Env, file, issues);
+
+        return Replace(root, "spec", rewrittenSpec);
+    }
+
+    /// <summary>
+    /// Compiles an activity's <c>schema.input</c>, where it declares one. An absent schema stays
+    /// absent: that is the empty schema, which anything satisfies, and is what every workflow
+    /// written before schemas existed relies on.
+    /// </summary>
+    private static YamlMappingNode RewriteActivitySchema(
+        YamlMappingNode activity, string name, string file, List<SourceIssue> issues)
+    {
+        if (Child(activity, "schema") is not YamlMappingNode schema) return activity;
+        if (Child(schema, "input") is not { } input) return activity;
+
+        var compiled = SchemaCompiler.Compile(
+            input, SchemaSlot.Input, $"activity '{name}' schema.input", file, issues);
+
+        return Replace(activity, "schema", Replace(schema, "input", compiled));
+    }
+
+    /// <summary>Compiles one of the workflow-level slots, where the document declares it.</summary>
+    private static YamlMappingNode RewriteSlot(
+        YamlMappingNode spec, string key, SchemaSlot kind, string file, List<SourceIssue> issues)
+    {
+        if (Child(spec, key) is not { } slot) return spec;
+
+        return Replace(spec, key, SchemaCompiler.Compile(slot, kind, "spec." + key, file, issues));
     }
 
     private static YamlNode? Child(YamlMappingNode mapping, string key)

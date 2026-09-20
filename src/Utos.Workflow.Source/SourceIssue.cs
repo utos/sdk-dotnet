@@ -73,6 +73,33 @@ public static class SourceCodes
 
     /// <summary><c>self</c> is used anywhere other than a promise branch's <c>workflow</c>.</summary>
     public const string SelfNotAllowedHere = "UTOS-S011";
+
+    // The schema short form, which exists only in this format: a bundle carries plain JSON
+    // Schema, so these are defects a bundle can no longer express. Everything a bundle *can*
+    // still get wrong about a schema is UTOS-H0##, checked on the built form by
+    // Utos.Workflow.Validation.
+
+    /// <summary>
+    /// One property is declared twice, once required and once optional — <c>x</c> alongside
+    /// <c>x?</c>. They differ as text, so no duplicate-key check objects, and they mean one
+    /// property.
+    /// </summary>
+    public const string SchemaDuplicateProperty = "UTOS-S012";
+
+    /// <summary>A declaration names a <c>type</c> that is not in the type registry.</summary>
+    public const string SchemaTypeUnknown = "UTOS-S013";
+
+    /// <summary>
+    /// A constraint key is unknown, or does not apply to the declared type — <c>minLength</c> on
+    /// an integer is not a shorter way of saying something else, it is a mistake.
+    /// </summary>
+    public const string SchemaConstraintUnknown = "UTOS-S014";
+
+    /// <summary>
+    /// A schema slot is malformed in a way no more specific code covers: not a mapping, or a
+    /// <c>$schema</c> naming a dialect this spec does not define.
+    /// </summary>
+    public const string SchemaMalformed = "UTOS-S009";
 }
 
 /// <summary>Thrown when authored source cannot be turned into a workflow.</summary>
