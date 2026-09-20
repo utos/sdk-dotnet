@@ -85,6 +85,13 @@ jobs:
       - name: Vendor proto + conformance, regenerate
         run: |
           set -euo pipefail
+
+          # The spec this repo implements, recorded where CI can check it. Written here because
+          # this is the moment it changes, so the bump travels in the same PR as the protos the
+          # implementation will be written against — and scripts/check-version-parity.sh then
+          # refuses a release whose version names a different minor.
+          echo "${{ steps.spec.outputs.version }}" > SPEC_VERSION
+
           rm -rf proto && mkdir proto
           cp -r _api/workflow _api/daemon proto/
           # The corpus is vendored beside the protos so the tests run the same cases every other
@@ -128,10 +135,10 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           BRANCH="spec/${TAG}"
-          git add proto conformance src/**/Generated
+          git add SPEC_VERSION proto conformance src/**/Generated
 
           if git diff --cached --quiet; then
-            echo "::notice::${TAG} brings no change to protos, corpus or generated source; nothing to open."
+            echo "::notice::${TAG} brings no change to SPEC_VERSION, protos, corpus or generated source; nothing to open."
             exit 0
           fi
 
