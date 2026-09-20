@@ -20,6 +20,11 @@
     digest byte-stable across runtimes — important since netstandard2.0's in-box double
     formatting is not guaranteed shortest-round-trip.
 
+    YamlDotNet reads the source format for Utos.Workflow.Source, and only its node graph
+    (YamlStream / YamlDocument) is used — never its reflection-based object deserializer, which
+    would not survive trimming in the NativeAOT `utos` binary that links this. Kept at the same
+    version the CLI pinned, since the CLI is where this mapping came from.
+
     JsonSchema.Net evaluates JSON Schema 2020-12 for Utos.Workflow.Validation's UTOS-H008 —
     a schema's `default` validating against the schema that declares it. That schema is not
     known until a bundle is read, so a generate-ahead approach cannot serve it. Parse schemas
@@ -37,6 +42,8 @@
     <PackageVersion Include="Google.Protobuf" Version="3.36.2" />
     <PackageVersion Include="Grpc.Core.Api" Version="2.83.0" />
     <PackageVersion Include="JsonSchema.Net" Version="9.4.0" />
+    <PackageVersion Include="System.Text.Json" Version="9.0.9" />
+    <PackageVersion Include="YamlDotNet" Version="18.1.0" />
     <PackageVersion Include="jsoncanonicalizer" Version="1.0.0" />
   </ItemGroup>
 

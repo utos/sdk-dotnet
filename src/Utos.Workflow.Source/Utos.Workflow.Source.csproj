@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Utos.Workflow.Source</PackageId>
+    <RootNamespace>Utos.Workflows.V1.Source</RootNamespace>
+    <Description>Reads the Utos workflow source format — what authors write — and maps it onto utos.workflow.v1.Workflow, as specified by api/docs/workflow-source-format.md and api/docs/workflow-schemas.md. Shared so that every front end reads a document the same way: a workflow one tool accepts cannot be one another rejects. Reports defects as coded, path-addressed UTOS-S### issues.</Description>
+    <PackageTags>utos;workflow;yaml;source;protobuf</PackageTags>
+
+    <!--
+      Enabled here and nowhere else in this repo, which is deliberate rather than drift. The other
+      packages are generated protobuf, where the annotations would be the generator's to make;
+      this is hand-written code that arrived from the CLI already written against it, and turning
+      it off would mean deleting real information about what a mapping may return.
+    -->
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!--
+    The normative mapping, and the reason it is a package rather than a detail of the CLI: the
+    hub's upload path reads the same documents, and two implementations of a mapping the spec
+    calls normative is exactly what api/conformance/source/ exists to prevent. It lived in
+    utos/cli until this package existed.
+
+    YamlDotNet is the one dependency, and only its representation model is used — never the
+    reflection-based object deserializer, which would not survive trimming in the NativeAOT `utos`
+    binary that links this. That constraint is the CLI's, and it reaches here because the CLI is a
+    consumer; see YamlJson.
+
+    Deliberately NOT referenced: Utos.Workflow.Validation. Reading a document and judging a bundle
+    are separate jobs with separate code ranges — UTOS-S### for a defect only a source document can
+    have, UTOS-B/D/M/A/T/C/H### for one a bundle can. A caller that wants both references both.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\Utos.Workflow\Utos.Workflow.csproj" />
+    <PackageReference Include="YamlDotNet" />
+    <!-- netstandard2.0 has no in-box System.Text.Json; the mapping produces a JsonNode graph
+         for protobuf's proto3-JSON parser to read. -->
+    <PackageReference Include="System.Text.Json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Utos.Workflow.Source.Tests" />
+  </ItemGroup>
+
+  <!-- All source here is hand-written; EnableDefaultCompileItems=false (see Directory.Build.props). -->
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="bin\**\*.cs;obj\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\CHANGELOG.md" Pack="true" PackagePath="docs\" Visible="false" />
+  </ItemGroup>
+
+</Project>
