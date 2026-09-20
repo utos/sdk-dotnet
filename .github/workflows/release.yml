@@ -1,67 +1,33 @@
 name: Release
 
-# Event-driven push model: utos/api fires a `spec-released` repository_dispatch on every
-# release; this repo regenerates and publishes from the payload. No polling.
+# The deliberate half. `sync-spec.yml` brings a new spec in as a pull request; this publishes,
+# and only when a person has said the repo is ready by dating a version in CHANGELOG.md.
 #
-# Regenerating and publishing are separate outcomes, and the conformance corpus decides
-# which one happens. The corpus is vendored from the spec tag, so it can assert rules this
-# repo has not implemented yet — that is normal, because the fixtures arrive with the spec
-# and the implementation follows them. When it does not pass, the regenerated protos and
-# fixtures are still committed (the implementation has to be written against them) but
-# nothing is tagged and nothing reaches nuget.org, and the job ends red. The absent tag is
-# what makes the retry correct: the next push resolves to the same version and releases it.
+# Branches: `dev` integrates, `main` releases. The `dev` -> `main` merge IS the release, so a
+# week of work costs one version rather than one per merge. `main` only ever contains released
+# state.
 #
-# Branches: `dev` integrates, `main` releases. Nothing is published from `dev` — feature
-# branches and Dependabot bumps land there and accumulate, and the dev -> main merge is
-# the release. That merge is a single push to `main`, so a week of bumps and fixes costs
-# one version instead of one per merge. When a release finishes, `main` carries a commit
-# this job wrote (regenerated source + CHANGELOG), so the last step fast-forwards `dev`
-# back onto it; the two branches are equal between releases and diverge only forward.
+# The version is read from CHANGELOG.md, exactly as utos/api does it — the first heading carrying
+# a date. Nothing is derived from the spec tag any more. That indirection is what let a package
+# claim a spec version it had not implemented: the number was computed from what utos/api had
+# published rather than from what this repo could actually do. A heading a human dated cannot
+# make that mistake.
 #
-# Triggers:
-#   - repository_dispatch (spec-released): utos/api published a new spec version.
-#       client_payload = { version, sha, tag }. Independent of the branch flow — a spec
-#       release publishes off `main` whether or not `dev` has anything waiting.
-#   - workflow_dispatch: build a specific api tag now (or the latest) — manual fallback;
-#     with `rebuild` set, republish it under a new 4th-field version instead.
-#   - push to main touching Directory.Packages.props or hand-written source under src/:
-#     in practice the dev -> main merge carrying a tooling bump (e.g. Dependabot raising
-#     Grpc.Tools / Google.Protobuf) or a change to the validator or a spec primitive ->
-#     rebuild the latest spec with a new 4th-field version (X.Y.Z.N). Generated/ is
-#     excluded: only this job writes it, and its own push (GITHUB_TOKEN) never triggers a
-#     workflow anyway.
+# Version parity across the Utos repos: the MINOR is the contract and the PATCH is this repo's
+# own. 0.19.x in any repo means "implements spec 0.19". A repo with nothing to change simply does
+# not release, and its latest 0.19.x stays current — which is now true rather than papered over.
 
 on:
-  repository_dispatch:
-    types: [spec-released]
-  workflow_dispatch:
-    inputs:
-      api_ref:
-        description: 'utos/api tag to build, e.g. v0.0.7 (empty = latest released tag)'
-        required: false
-        default: ''
-      rebuild:
-        description: 'Republish that spec under a new 4th-field version (X.Y.Z.N) — for a source or packaging change that arrived after the spec build'
-        type: boolean
-        required: false
-        default: false
   push:
     branches: [main]
-    paths:
-      - 'Directory.Packages.props'
-      - 'src/**'
-      - '!src/**/Generated/**'
 
 permissions:
-  contents: write   # commit regenerated source + push tags to this repo
+  contents: write   # commit the changelog date + push the tag
   id-token: write   # OIDC token for nuget.org Trusted Publishing
 
 concurrency:
   group: release
   cancel-in-progress: false
-
-env:
-  API_REPO: utos/api
 
 jobs:
   release:
@@ -69,238 +35,85 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 0   # need all tags to derive the version
+          fetch-depth: 0   # need all tags to tell a re-run from a new release
 
       - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '10.0.x'
 
-      # --- Decide what (if anything) to build, and the resulting version ----------
-      - name: Resolve target spec + SDK version
-        id: r
+      - name: Read the version from CHANGELOG.md
+        id: version
         run: |
           set -euo pipefail
-          API_URL="https://github.com/${API_REPO}.git"
 
-          EVENT="${{ github.event_name }}"
-          if [ "$EVENT" = "repository_dispatch" ]; then
-            # utos/api told us exactly what to build — no lookup needed.
-            MODE=spec
-            SPEC_VER="${{ github.event.client_payload.version }}"
-            SPEC_TAG="v${SPEC_VER}"
-            SPEC_SHA="${{ github.event.client_payload.sha }}"
-          else
-            # Mode: 'rebuild' for a push (tooling bump or source change) or an explicit
-            # request, else 'spec'.
-            if [ "$EVENT" = "push" ] || [ "${{ github.event.inputs.rebuild }}" = "true" ]; then
-              MODE=rebuild
-            else
-              MODE=spec
-            fi
+          # The first heading with a date. An undated one is still being written; `Unreleased` is
+          # where notes accumulate. Dating a heading is how this repo says "ship this".
+          LINE=$(grep -m1 '^\#\# \[.*\] - [0-9]' CHANGELOG.md || true)
 
-            # Target spec tag: explicit input, else the highest vX.Y.Z on utos/api.
-            REF_INPUT="${{ github.event.inputs.api_ref }}"
-            if [ -n "$REF_INPUT" ]; then
-              SPEC_TAG="$REF_INPUT"
-            else
-              SPEC_TAG=$(git ls-remote --tags --refs "$API_URL" 'v[0-9]*.[0-9]*.[0-9]*' \
-                | awk -F/ '{print $NF}' | sort -V | tail -1)
-            fi
-            if [ -z "$SPEC_TAG" ]; then echo "::error::No spec tag found on ${API_REPO}"; exit 1; fi
-            SPEC_VER="${SPEC_TAG#v}"
-            SPEC_SHA=$(git ls-remote "$API_URL" "refs/tags/${SPEC_TAG}" | cut -f1)
+          if [ -z "$LINE" ]; then
+            echo "::error::No dated version in CHANGELOG.md. Add a date to the version heading you intend to release (e.g. '## [0.19.0] - 2026-09-20')."
+            exit 1
           fi
 
-          # Fall back to a base (spec) build if a tooling bump arrives before the
-          # spec has ever been released.
-          if [ "$MODE" = "rebuild" ] && ! git rev-parse "refs/tags/v${SPEC_VER}" >/dev/null 2>&1; then
-            MODE=spec
-          fi
+          VERSION=$(echo "$LINE" | sed 's/.*\[\(.*\)\].*/\1/')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "::notice::releasing ${VERSION}"
 
-          SHOULD_BUILD=true
-          if [ "$MODE" = "spec" ]; then
-            if git rev-parse "refs/tags/v${SPEC_VER}" >/dev/null 2>&1; then
-              SHOULD_BUILD=false            # this spec is already published
-              SDK_VERSION="$SPEC_VER"
-            else
-              SDK_VERSION="$SPEC_VER"       # first build of this spec
-            fi
-          else
-            # rebuild: increment the 4th field for this spec version
-            LAST=$(git tag --list "v${SPEC_VER}.*" | sed "s/^v${SPEC_VER}\.//" | sort -n | tail -1 || true)
-            NEXT=$(( ${LAST:-0} + 1 ))
-            SDK_VERSION="${SPEC_VER}.${NEXT}"
-          fi
-
-          echo "mode=$MODE"                 >> "$GITHUB_OUTPUT"
-          echo "spec_tag=$SPEC_TAG"         >> "$GITHUB_OUTPUT"
-          echo "spec_ver=$SPEC_VER"         >> "$GITHUB_OUTPUT"
-          echo "spec_sha=$SPEC_SHA"         >> "$GITHUB_OUTPUT"
-          echo "sdk_version=$SDK_VERSION"   >> "$GITHUB_OUTPUT"
-          echo "should_build=$SHOULD_BUILD" >> "$GITHUB_OUTPUT"
-          echo "::notice::mode=$MODE spec=$SPEC_TAG sdk=$SDK_VERSION build=$SHOULD_BUILD"
-
-      # --- Everything below is gated on should_build == true -----------------------
-      - name: Check out utos/api at the spec tag
-        if: steps.r.outputs.should_build == 'true'
-        uses: actions/checkout@v7
-        with:
-          repository: ${{ env.API_REPO }}
-          ref: ${{ steps.r.outputs.spec_tag }}
-          path: _api
-
-      - name: Vendor proto + conformance, regenerate (dotnet build)
-        if: steps.r.outputs.should_build == 'true'
+      - name: Skip if this version is already released
+        id: gate
         run: |
           set -euo pipefail
-          rm -rf proto && mkdir proto
-          cp -r _api/workflow _api/daemon proto/
-          # Conformance fixtures are vendored alongside the protos so the validation tests run the
-          # same corpus every other SDK does, rather than a local copy free to drift.
-          rm -rf conformance
-          cp -r _api/conformance conformance
-          rm -rf _api
-          dotnet build Utos.slnx -c Release
+          if git rev-parse "refs/tags/v${{ steps.version.outputs.version }}" >/dev/null 2>&1; then
+            echo "::notice::v${{ steps.version.outputs.version }} is already tagged; nothing to do."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
 
-      # The corpus this job just vendored is the whole point of vendoring it, and until now
-      # nothing here ran it: CI gates PRs against the corpus the repo *already had*, while this
-      # job replaces that corpus and then packs. So a spec release that adds rules shipped green —
-      # 0.0.18 published while failing 14 of its own fixtures.
-      #
-      # `continue-on-error` is deliberate, and what it buys is spelled out on the commit step
-      # below: a corpus failure must stop the *publish* without stopping the *regeneration*.
-      # Blocking both would deadlock, because the fixtures arrive with the spec and the
-      # implementation that satisfies them needs the protos this job is what delivers.
-      #
-      # The job still ends red — see the last step — so the failure is not something to scroll
-      # past.
-      - name: Test against the vendored corpus
-        id: corpus
-        if: steps.r.outputs.should_build == 'true'
-        continue-on-error: true
+      - name: Build
+        if: steps.gate.outputs.publish == 'true'
+        run: dotnet build Utos.slnx -c Release
+
+      # A hard gate here, unlike in sync-spec.yml. A release says the repo implements the spec it
+      # names, and the corpus is what decides whether that is true. Failing here costs a re-run;
+      # publishing a package that fails its own corpus costs a version that cannot be unpublished.
+      - name: Test
+        if: steps.gate.outputs.publish == 'true'
         run: dotnet test Utos.slnx -c Release --no-build
 
-      # Only for a release that will actually publish. A changelog entry for a version that never
-      # reached nuget.org would be a lie in the one file people read to find out what shipped.
-      - name: Update CHANGELOG
-        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome == 'success'
-        env:
-          MODE: ${{ steps.r.outputs.mode }}
-          SDK_VERSION: ${{ steps.r.outputs.sdk_version }}
-          SPEC_TAG: ${{ steps.r.outputs.spec_tag }}
-          SPEC_SHA: ${{ steps.r.outputs.spec_sha }}
+      - name: Verify the committed generated source is in sync
+        if: steps.gate.outputs.publish == 'true'
         run: |
-          set -euo pipefail
-          DATE=$(date -u +%Y-%m-%d)
-          API_LINK="https://github.com/${API_REPO}/releases/tag/${SPEC_TAG}"
-          if [ "$MODE" = "spec" ]; then
-            BODY="Generated from [\`${SPEC_TAG}\`](${API_LINK}) (\`${SPEC_SHA}\`). See the [spec changelog](https://github.com/${API_REPO}/blob/${SPEC_TAG}/CHANGELOG.md)."
-          else
-            BODY="SDK-only rebuild against [\`${SPEC_TAG}\`](${API_LINK}) (\`${SPEC_SHA}\`): codegen/runtime tooling bump, no spec change."
+          if ! git diff --exit-code -- 'src/**/Generated/**/*.cs'; then
+            echo "::error::Committed generated source is out of date. Run 'dotnet build' and commit the changes under src/**/Generated/."
+            exit 1
           fi
-          # `## [Unreleased]` on `dev` is the hand-written half of the release notes: it is
-          # what accumulated since the last dev -> main merge. Drain it into the new version's
-          # section under the generated provenance line and leave the heading empty, so notes
-          # are attached to the version that shipped them instead of piling up unreleased.
-          if ! grep -q '^## \[Unreleased\]' CHANGELOG.md; then
-            echo "::error::CHANGELOG.md has no '## [Unreleased]' heading to release from"; exit 1
-          fi
-          awk -v ver="$SDK_VERSION" -v date="$DATE" -v body="$BODY" '
-            function flush(  i, first, last) {
-              if (flushed) return
-              flushed = 1
-              first = 0; last = 0
-              for (i = 1; i <= n; i++) if (notes[i] ~ /[^ \t]/) { if (!first) first = i; last = i }
-              if (!first) return
-              for (i = first; i <= last; i++) print notes[i]
-              print ""
-            }
-            /^## \[Unreleased\]/ && !seen {
-              seen = 1
-              print; print ""
-              print "## [" ver "] - " date
-              print ""; print body; print ""
-              next
-            }
-            seen && !flushed && /^## \[/ { flush() }
-            seen && !flushed { notes[++n] = $0; next }
-            { print }
-            END { flush() }
-          ' CHANGELOG.md > CHANGELOG.tmp && mv CHANGELOG.tmp CHANGELOG.md
 
-      # Two outcomes, and the split is the whole point of running the corpus here.
-      #
-      # Corpus passed: this is a release. Commit the regenerated source and the changelog, tag it,
-      # push both.
-      #
-      # Corpus failed: this is not a release, but the regenerated source still has to land. The
-      # protos and the fixtures this job vendored are exactly what the implementation that will
-      # satisfy them is written against — refusing to commit them would leave the only route open
-      # to vendoring `utos/api` by hand, which is precisely the manual step this workflow exists
-      # to remove. So: commit, do not tag, do not publish.
-      #
-      # Leaving the tag off is also what makes the retry correct. `v${SDK_VERSION}` absent is how
-      # "Resolve target spec" already decides a spec has not been published, so the next push —
-      # the one carrying the implementation — resolves to this same version and releases it, with
-      # no bookkeeping to undo.
-      - name: Commit regenerated source, and tag only if the corpus passed
-        if: steps.r.outputs.should_build == 'true'
-        env:
-          SDK_VERSION: ${{ steps.r.outputs.sdk_version }}
-          SPEC_TAG: ${{ steps.r.outputs.spec_tag }}
-          SPEC_SHA: ${{ steps.r.outputs.spec_sha }}
-          RELEASING: ${{ steps.corpus.outcome == 'success' }}
+      - name: Pack
+        if: steps.gate.outputs.publish == 'true'
+        run: dotnet pack Utos.slnx -c Release -p:Version=${{ steps.version.outputs.version }} -o artifacts
+
+      - name: Tag
+        if: steps.gate.outputs.publish == 'true'
         run: |
           set -euo pipefail
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add proto conformance src/**/Generated CHANGELOG.md
+          git tag "v${{ steps.version.outputs.version }}"
+          git push origin "v${{ steps.version.outputs.version }}"
 
-          if [ "$RELEASING" = "true" ]; then
-            if git diff --cached --quiet; then
-              echo "::notice::No content changes; tagging existing tree."
-            fi
-            git commit --allow-empty -m "release: ${SDK_VERSION}
-
-          Generated from ${API_REPO}@${SPEC_TAG}
-          Utos-api-sha: ${SPEC_SHA}"
-            git tag "v${SDK_VERSION}"
-            git push origin HEAD:main
-            git push origin "v${SDK_VERSION}"
-            exit 0
-          fi
-
-          if git diff --cached --quiet; then
-            echo "::notice::Corpus failed and there is nothing to vendor; leaving main alone."
-            exit 0
-          fi
-
-          git commit -m "chore: vendor ${SPEC_TAG}
-
-          The conformance corpus from ${API_REPO}@${SPEC_TAG} does not pass yet, so nothing was
-          tagged or published. The protos and fixtures land here so the implementation that
-          satisfies them can be written against exactly what it must satisfy.
-
-          Utos-api-sha: ${SPEC_SHA}"
-          git push origin HEAD:main
-          echo "::warning::Vendored ${SPEC_TAG} without releasing: the corpus does not pass."
-
-      - name: Pack
-        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome == 'success'
-        run: dotnet pack Utos.slnx -c Release -p:Version=${{ steps.r.outputs.sdk_version }} -o artifacts
-
-      # Trusted Publishing: exchange the GitHub OIDC token for a short-lived nuget.org
-      # API key (no stored secret). Requires a trusted-publishing policy on nuget.org
-      # bound to repo utos/sdk-dotnet + workflow release.yml, owner = Utos.
+      # Trusted Publishing: exchange the GitHub OIDC token for a short-lived nuget.org API key
+      # (no stored secret). Requires a trusted-publishing policy on nuget.org bound to repo
+      # utos/sdk-dotnet + workflow release.yml, owner = Utos.
       - name: Authenticate to nuget.org (Trusted Publishing)
-        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome == 'success'
+        if: steps.gate.outputs.publish == 'true'
         id: nuget-login
         uses: NuGet/login@v1
         with:
           user: ${{ vars.NUGET_USER }}
 
       - name: Push to nuget.org
-        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome == 'success'
+        if: steps.gate.outputs.publish == 'true'
         run: |
           set -euo pipefail
           dotnet nuget push 'artifacts/*.nupkg' \
@@ -308,15 +121,10 @@ jobs:
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
 
-      # The commit this job wrote — a release, or a bare vendor of a corpus that does not pass
-      # yet — exists only on `main`. Leave it there and `dev` is behind by a commit it will
-      # conflict with on the next merge, so fast-forward `dev` onto it. This runs either way:
-      # a vendored corpus is exactly what the branch that implements it starts from. If somebody
-      # merged into `dev` while this job ran the
-      # fast-forward is not available — say so rather than force anything; `git merge main`
-      # on `dev` resolves it.
-      - name: Fast-forward dev to the release commit
-        if: steps.r.outputs.should_build == 'true'
+      # `main` moved and `dev` did not, so the next merge would carry a needless conflict. Last,
+      # and only after the push to nuget.org: `dev` moving means the release landed.
+      - name: Fast-forward dev to the released commit
+        if: steps.gate.outputs.publish == 'true'
         run: |
           set -euo pipefail
           if ! git fetch --quiet origin dev; then
@@ -325,19 +133,7 @@ jobs:
           fi
           if git merge-base --is-ancestor FETCH_HEAD HEAD; then
             git push origin HEAD:dev
-            echo "::notice::dev fast-forwarded to v${{ steps.r.outputs.sdk_version }}"
+            echo "::notice::dev fast-forwarded to v${{ steps.version.outputs.version }}"
           else
-            echo "::warning::dev has commits that are not on main, so it could not be fast-forwarded. Run 'git checkout dev && git merge main && git push' to bring the release commit across."
+            echo "::warning::dev has commits that are not on main, so it could not be fast-forwarded. Run 'git checkout dev && git merge main && git push' to bring it across."
           fi
-
-      # `continue-on-error` on the corpus step keeps the job running so the regenerated source
-      # still lands; it also makes the job green by default, which would hide exactly the failure
-      # this step was added to surface. Fail here instead, after everything that had to happen has.
-      - name: Fail if the corpus did not pass
-        if: steps.r.outputs.should_build == 'true' && steps.corpus.outcome != 'success'
-        run: |
-          echo "::error::The conformance corpus vendored from ${API_REPO}@${{ steps.r.outputs.spec_tag }} does not pass."
-          echo "Nothing was tagged and nothing was published. The protos and fixtures were committed"
-          echo "to main (and fast-forwarded to dev) so the implementation can be written against them."
-          echo "Land that implementation and the next push to main releases ${{ steps.r.outputs.sdk_version }}."
-          exit 1
