@@ -17,8 +17,18 @@ whatever `utos/api` last published.
 
 ## [Unreleased]
 
+## [0.19.0] - 2026-09-20
+
+Generated from [`v0.19.0`](https://github.com/utos/api/releases/tag/v0.19.0). The protos and the
+conformance corpus are byte-identical to `0.0.18`: spec `0.19.0` is documentation only.
+
 ### Changed
 
+- **Version parity: `0.0.18.2` → `0.19.0`.** These packages tracked the spec version with a fourth
+  field for SDK-only rebuilds, while `utos/dapr-daemon` was at `0.1.0` and `utos/cli` at `0.3.0` —
+  so no version number said which spec an implementation spoke. From here the minor is the contract
+  and the patch is this repo's own, which is also what the fourth field was for. `0.19.1` is an SDK
+  fix against the same spec; `0.20.0` follows a spec that moved
 - **Regenerating the spec and releasing are now separate.** A `spec-released`
   dispatch used to regenerate *and publish*, straight off `main`. That is how
   `Utos.Workflow.Validation 0.0.18` reached nuget.org without implementing a
