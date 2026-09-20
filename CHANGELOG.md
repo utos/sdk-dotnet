@@ -17,6 +17,16 @@ whatever `utos/api` last published.
 
 ## [Unreleased]
 
+### Fixed
+
+- **The README listed four packages and there are five.** `Utos.Workflow.Source` shipped in
+  `0.19.0` and appeared nowhere — the same omission [#36](https://github.com/utos/sdk-dotnet/pull/36)
+  fixed for `Utos.Workflow.Validation`, recurring for the next package added. The table also still
+  said `Utos.Workflow.Validation` depends on `Utos.Workflow` and `Acornima`, which stopped being
+  true when `JsonSchema.Net` arrived for `UTOS-H008`. And the subtitle called every package
+  *generated*, when two of the five are hand-written. A package list is the first thing a tool
+  author reads, and a wrong one tells them a package has no published home
+
 ## [0.19.0] - 2026-09-20
 
 Generated from [`v0.19.0`](https://github.com/utos/api/releases/tag/v0.19.0). The protos and the
