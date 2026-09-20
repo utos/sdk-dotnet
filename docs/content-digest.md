@@ -34,8 +34,11 @@ string canonical = ContentDigest.CanonicalJson(bundle);  // the pre-hash canonic
 - **Implementation.** proto3 JSON via `Google.Protobuf`'s `JsonFormatter` (default settings —
   lowerCamelCase field names, defaults/unset-optionals/empty maps omitted, `Duration` as `"5s"`),
   then RFC 8785 canonicalization via the `jsoncanonicalizer` package (which pulls
-  `es6numberserializer` for spec-exact ECMAScript number formatting — the reason the digest is
-  byte-stable across runtimes despite netstandard2.0's non-shortest-round-trip `double` formatting).
+  `es6numberserializer` for spec-exact ECMAScript number formatting). That was what kept the
+  digest byte-stable while these packages targeted netstandard2.0, whose in-box `double`
+  formatting is not guaranteed shortest-round-trip; on `net10.0` it is, so the canonicalizer is
+  now used for being the reference implementation of the scheme the digest cites rather than to
+  paper over a runtime difference.
 - **Non-finite numbers.** `NaN` / `±Infinity` in a `Struct` value are rejected (`ArgumentException`),
   per the spec.
 

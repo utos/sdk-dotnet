@@ -18,7 +18,7 @@ namespace Utos.Workflows.V1.Source;
 /// deserializer, which would not survive trimming in a NativeAOT binary.
 /// </para>
 /// </summary>
-internal static class YamlJson
+internal static partial class YamlJson
 {
     /// <summary>
     /// Loads a YAML document, rejecting duplicate mapping keys.
@@ -165,16 +165,9 @@ internal static class YamlJson
         }
     }
 
-    // A plain static Regex rather than [GeneratedRegex]: the source generator is .NET 7+ and
-    // these packages target netstandard2.0. Compiled once, as the bundle validator does.
-    private static readonly Regex Integer =
-        new Regex(@"^[-+]?[0-9]+$", RegexOptions.Compiled | RegexOptions.CultureInvariant);
+    [GeneratedRegex(@"^[-+]?[0-9]+$")]
+    private static partial Regex IntegerPattern();
 
-    private static Regex IntegerPattern() => Integer;
-
-    private static readonly Regex Float = new Regex(
-        @"^[-+]?(.[0-9]+|[0-9]+(.[0-9]*)?)([eE][-+]?[0-9]+)?$",
-        RegexOptions.Compiled | RegexOptions.CultureInvariant);
-
-    private static Regex FloatPattern() => Float;
+    [GeneratedRegex(@"^[-+]?(\.[0-9]+|[0-9]+(\.[0-9]*)?)([eE][-+]?[0-9]+)?$")]
+    private static partial Regex FloatPattern();
 }

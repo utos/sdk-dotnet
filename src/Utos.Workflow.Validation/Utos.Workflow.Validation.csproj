@@ -30,14 +30,12 @@
     raises IL2026/IL3050, verified with `dotnet publish -p:PublishAot=true` on a probe consuming
     this package.
 
-    The AOT analyzer cannot enforce that here: it does not run on netstandard2.0, which is what
-    these packages target (NETSDK1210). The property below is written the way the SDK's own message
-    prescribes, so it is inert today and arms itself if this project ever multi-targets net8.0+.
-    Until then the real check lives in the CLI's publish, which is the thing that would break.
+    The AOT analyzer enforces that, and does so from here rather than only at the CLI's publish.
+    It is enabled tree-wide in Directory.Build.props, which it could not be while these packages
+    targeted netstandard2.0 — the analyzer does not run there (NETSDK1210), so the one check that
+    would have caught a reflective JsonSchema parse was unavailable on the assembly the NativeAOT
+    binary links.
   -->
-  <PropertyGroup>
-    <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">true</IsAotCompatible>
-  </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Utos.Workflow\Utos.Workflow.csproj" />

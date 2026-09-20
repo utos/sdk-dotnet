@@ -7,10 +7,10 @@
     <PackageTags>utos;workflow;yaml;source;protobuf</PackageTags>
 
     <!--
-      Enabled here and nowhere else in this repo, which is deliberate rather than drift. The other
-      packages are generated protobuf, where the annotations would be the generator's to make;
-      this is hand-written code that arrived from the CLI already written against it, and turning
-      it off would mean deleting real information about what a mapping may return.
+      Enabled here and nowhere else in this repo. The other packages are generated protobuf, where
+      the annotations would be the generator's to make; this is hand-written code that arrived
+      from the CLI already written against it, and turning it off would delete real information
+      about what a mapping may return.
     -->
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -33,9 +33,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Utos.Workflow\Utos.Workflow.csproj" />
     <PackageReference Include="YamlDotNet" />
-    <!-- netstandard2.0 has no in-box System.Text.Json; the mapping produces a JsonNode graph
-         for protobuf's proto3-JSON parser to read. -->
-    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>

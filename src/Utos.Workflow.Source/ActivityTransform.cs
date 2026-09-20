@@ -52,16 +52,14 @@ internal static class ActivityTransform
     /// everything on <see cref="WorkflowActivity"/> outside the oneof, in both spellings proto3
     /// JSON accepts.
     /// </summary>
-    // HashSet rather than IReadOnlySet: the interface is .NET 5+ and these packages target
-    // netstandard2.0. Exposed read-only by being private either way.
-    private static readonly HashSet<string> ActivityLevelKeys = BuildActivityLevelKeys();
+    private static readonly IReadOnlySet<string> ActivityLevelKeys = BuildActivityLevelKeys();
 
     /// <summary>The key carrying the activity kind.</summary>
     public const string TypeKey = "type";
 
     /// <summary>Legal <c>type</c> values in canonical spelling, sorted, for error messages.</summary>
     public static IReadOnlyList<string> KnownTypes { get; } = ConfigKinds.Values
-        .Select(k => string.Join(".", k.Segments))
+        .Select(k => string.Join('.', k.Segments))
         .Distinct(StringComparer.Ordinal)
         .OrderBy(n => n, StringComparer.Ordinal)
         .ToArray();
@@ -123,7 +121,7 @@ internal static class ActivityTransform
                 // Belongs to no message on the path. Left on the innermost one deliberately:
                 // proto3-JSON parsing rejects it as an unknown field, which is a better error than
                 // anything invented at this layer.
-                buckets[buckets.Length - 1].Add(key, value);
+                buckets[^1].Add(key, value);
             }
         }
 
