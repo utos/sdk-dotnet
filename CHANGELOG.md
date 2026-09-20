@@ -11,6 +11,60 @@ mirroring the spec version (a fourth field marks SDK-only rebuilds).
 
 ## [Unreleased]
 
+### Added
+
+- **`Utos.Workflow.Source`, a new package: the source format, read once and shared.** The mapping
+  from what authors write onto `utos.workflow.v1.Workflow` is normative —
+  `api/docs/workflow-source-format.md` defines it and `api/conformance/source/` exists to prove two
+  front ends agree on it — and it lived inside one front end, `utos/cli`. The hub's upload path
+  reads the same documents, so the alternative was a second implementation, which is exactly what
+  that corpus exists to prevent. Moved with no behaviour change: the 9 pre-existing corpus cases
+  pass untouched, which is what says so. Recorded in `plans/backlog.md` and in the corpus README,
+  which says the reference implementation "is to move into the shared SDK"
+- **The schema short form compiles to plain JSON Schema** (spec `0.0.18`), and **only here** — a
+  bundle carries the standard form, so `?`, `min`/`max` and the closed-by-default rule are resolved
+  at this edge and nothing downstream learns our spelling. Three forms, discriminated mechanically:
+  a `$schema` key means raw JSON Schema (copied through with `$schema` removed, since the dialect
+  is pinned by the spec), a `type` key whose value is the *string* `object` means the long form,
+  anything else is a field map. A field genuinely named `type` carries a mapping, which is what
+  makes that total. `required` is emitted sorted rather than in declaration order: `properties` is
+  a JSON object whose keys the content digest sorts anyway, so an order-sensitive `required` would
+  be the one place reordering unrelated keys changed a workflow's identity
+- **`spec.env` compiles to the one object that is never closed**, and a null value to a required
+  string — `API_BASE:` with nothing after it. `env` is ambient, shared across a run tree and
+  inherited by every sub-workflow, so closing it would mean a child rejecting every variable its
+  parent needed and it did not
+- `UTOS-S012`–`UTOS-S014`, for what only a source document can get wrong: one property declared
+  both required and optional (`x` alongside `x?`, which differ as text so no duplicate-key check
+  objects), a `type` outside the registry, a constraint that does not apply to the declared type
+
+### Changed
+
+- **The SDK packages target `net10.0` instead of `netstandard2.0`.** .NET Standard is a
+  specification rather than a runtime, bridging a split that .NET 5 ended; Microsoft stopped
+  evolving it at 2.1. It bought exactly one thing here — consumers on .NET Framework 4.x — and
+  there are none: the daemon, the CLI and the hub are all .NET 10, and a Framework app could not
+  use `Utos.Daemon.Client` anyway, since the gRPC transport needs .NET Core 3.0 or later. There
+  was no recorded rationale for the target in a repo that comments nearly every deliberate choice.
+  **This removes a TFM from published packages**, so a consumer on an older framework would need
+  to pin an earlier version
+- **The AOT analyzer now runs on every package**, which it could not before: `IsAotCompatible` does
+  not work on netstandard2.0 (`NETSDK1210`), so the one check that would catch a reflective
+  `JsonSchema` parse was unavailable on the very assemblies the NativeAOT `utos` binary links — an
+  AOT regression was only discoverable by publishing the CLI. The solution builds with zero
+  warnings with it on. The retarget also deleted six shims the moved mapping needed:
+  `IsExternalInit`, a `KeyValuePair.Deconstruct` extension, static `Regex` fields standing in for
+  `[GeneratedRegex]`, `HashSet` for `IReadOnlySet`, index-from-end, and `System.Text.Json` as a
+  package
+- **The content digest is unchanged** — the pinned worked-example value
+  (`sha256:a3d13ee0…`) still matches, which is what says so. What changed is only the *reason* the
+  `jsoncanonicalizer` dependency is there. Its `es6numberserializer` was what made number
+  formatting byte-stable across runtimes, because netstandard2.0's in-box `double` formatting is
+  not guaranteed shortest-round-trip; on `net10.0` the runtime does that itself. The canonicalizer
+  stays, for being the reference implementation of the scheme the digest cites, and the rationale
+  is corrected in `Directory.Packages.props` and `docs/content-digest.md` rather than left saying
+  something that stopped being true
+
 ### Fixed
 
 - **A release runs the corpus it just vendored, and will not publish a package that fails it.**
