@@ -15,6 +15,48 @@ does not release, and its latest `0.19.x` stays current. Releasing is
 deliberate: the version is read from the dated heading below, not computed from
 whatever `utos/api` last published.
 
+## [0.20.0] - 2026-09-23
+
+Implements spec **0.20.0** — binary data, a typed value, and the rule shape it forced.
+Vendored from [`v0.20.0`](https://github.com/utos/api/releases/tag/v0.20.0); the whole
+conformance corpus passes.
+
+### Added
+- **`WorkflowDuration`** in `Utos.Workflow` — the one parser for the duration syntax a timer now
+  takes (`90s`, `8h`, `1h30m`). One implementation, because three things have to agree about what
+  `1h30m` means: the front end reading a document, the validator checking a literal, and the
+  daemon entering a timer with a rendered one
+- **`blob`, `file` and `duration` in the short form** (`Utos.Workflow.Source`), compiling to a
+  `$ref` to the type the spec publishes, with `mediaType` and `maxSize` beside it. `maxSize` takes
+  a unit — `10MiB`, `1.5 KB` — resolved to bytes here, so a bundle carries only bytes; a unit that
+  is not one, or that does not come to a whole number of bytes, is `UTOS-S015`
+- **`UTOS-H015`** (`Utos.Workflow.Validation`) — `mediaType` and `maxSize` are assertions rather
+  than the annotations 2020-12 would treat an unknown keyword as, so a malformed one is refused
+  rather than ignored
+- **`UTOS-E070`** — a retired member of a scope name, today `response.bodyText`. Refused at load by
+  every spelling a parser sees: `response.bodyText`, `response?.bodyText`, `response['bodyText']`,
+  and `const { bodyText } = response`
+- **`WorkflowValues`** in `Utos.Workflow` — JSON ↔ `WorkflowValue`, and the `UTOS-V101` / `V102`
+  well-formedness check. One implementation, because a CLI reading `--input` and a daemon
+  checking what was scheduled have to agree — about numbers, and about the fact that an object
+  holding the key `$blob` is a map. JSON → value is total and never produces a blob; value →
+  JSON is lossless unless the value holds one, which has no plain-JSON form. No reflection, so
+  the NativeAOT CLI can link it
+
+### Changed
+- **A rule is an effect and an exit.** `EmissionRule` is gone and `onEmitted` carries the same
+  `TransitionRule` every other list does; the validator walks one rule type with one question per
+  list — whether an exit is required. `UTOS-T001` is reworded to match, and `UTOS-T004` and
+  `UTOS-C504` are retired
+- **A timer's `duration` is a string.** A literal is checked at load (`UTOS-C202` for positive,
+  new `UTOS-C203` for the syntax); a whole-field template is left to the executor, the same
+  division `UTOS-C102` draws for a templated URL
+- **The grammar admits `await`, `async` arrows and `instanceof`**, and `new Blob` / `new File`.
+  Programs parse with `AllowAwaitOutsideFunction`, which is what the spec means by "await is
+  permitted at a program's top level". `UTOS-E031` and `UTOS-E051` are retired
+- **`$ref` resolves the published types** `utos:blob`, `utos:file` and `utos:duration`, which the
+  implementation ships rather than fetches
+
 ## [0.19.1] - 2026-09-20
 
 Documentation and CI only. The five packages' code is byte-identical to `0.19.0` —

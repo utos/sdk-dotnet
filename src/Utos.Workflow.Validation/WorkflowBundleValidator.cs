@@ -256,12 +256,12 @@ namespace Utos.Workflows.V1.Validation
             }
 
             for (int i = 0; i < activity.OnSuccess.Count; i++)
-                ValidateTransitionRule(activity.OnSuccess[i], Index(Field(path, "onSuccess"), i),
-                    activityNames, issues, failureInScope: false);
+                ValidateRule(activity.OnSuccess[i], Index(Field(path, "onSuccess"), i),
+                    activityNames, bundle, issues, failureInScope: false, exitRequired: true);
 
             for (int i = 0; i < activity.OnFailure.Count; i++)
-                ValidateTransitionRule(activity.OnFailure[i], Index(Field(path, "onFailure"), i),
-                    activityNames, issues, failureInScope: true);
+                ValidateRule(activity.OnFailure[i], Index(Field(path, "onFailure"), i),
+                    activityNames, bundle, issues, failureInScope: true, exitRequired: true);
         }
 
         private static void ValidateActivityName(string name, string path, List<ValidationIssue> issues)
@@ -293,32 +293,93 @@ namespace Utos.Workflows.V1.Validation
             }
         }
 
-        private static void ValidateTransitionRule(TransitionRule rule, string path,
-            HashSet<string> activityNames, List<ValidationIssue> issues, bool failureInScope)
+        /// <summary>
+        /// UTOS-T001, over the one rule type every list carries since spec 0.20.0: an optional
+        /// condition, at most one <b>effect</b> — what happens — and at most one <b>exit</b> —
+        /// where the run goes next.
+        /// <para>
+        /// "At most one" needs no check: each is a proto <c>oneof</c>, so a second one cannot be
+        /// expressed. What is left is a rule with <em>neither</em>, which matched a condition and
+        /// then did nothing — a dead end rather than a skip — and, where the rules end the
+        /// activity, a rule with an effect and no exit, which would strand the execution.
+        /// </para>
+        /// <para>
+        /// <paramref name="exitRequired"/> is what separates the lists: <c>onSuccess</c> and
+        /// <c>onFailure</c> run when the activity is over, so the run has to go somewhere, while
+        /// an <c>onEmitted</c> rule runs once per value and an exit is what <em>stops</em> the
+        /// consuming loop.
+        /// </para>
+        /// </summary>
+        private static void ValidateRule(TransitionRule rule, string path,
+            HashSet<string> activityNames, WorkflowBundle bundle, List<ValidationIssue> issues,
+            bool failureInScope, bool exitRequired)
         {
             if (rule == null) return;
 
             if (rule.HasCondition)
                 ExpressionRules.ValidateCondition(rule.Condition, Field(path, "condition"), issues);
 
-            switch (rule.ActionCase)
+            switch (rule.EffectCase)
             {
-                case TransitionRule.ActionOneofCase.Transition:
+                case TransitionRule.EffectOneofCase.Emit:
+                    // An empty struct is a value: a rule may emit {} deliberately.
+                    if (rule.Emit != null) ValidateStruct(rule.Emit, Field(path, "emit"), issues);
+                    break;
+                case TransitionRule.EffectOneofCase.Workflow:
+                    ValidateDispatchEffect(rule.Workflow, Field(path, "workflow"), bundle, issues);
+                    break;
+            }
+
+            switch (rule.ExitCase)
+            {
+                case TransitionRule.ExitOneofCase.Transition:
                     ValidateTarget(rule.Transition, Field(path, "transition"), activityNames, issues);
                     break;
-                case TransitionRule.ActionOneofCase.Emit:
-                    ValidateEmit(rule.Emit, Field(path, "emit"), activityNames, issues);
-                    break;
-                case TransitionRule.ActionOneofCase.Result:
-                    // An empty struct is a complete action: it ends the path with no value.
+                case TransitionRule.ExitOneofCase.Result:
+                    // An empty struct is a complete exit: it ends the path with no value.
                     if (rule.Result != null) ValidateStruct(rule.Result, Field(path, "result"), issues);
                     break;
-                case TransitionRule.ActionOneofCase.Error:
+                case TransitionRule.ExitOneofCase.Error:
                     ValidateError(rule.Error, Field(path, "error"), issues, failureInScope);
                     break;
                 default:
-                    Add(issues, ValidationCodes.TransitionActionRequired, path,
-                        "Transition rule must carry an action (transition, result, emit or error).");
+                    if (rule.EffectCase == TransitionRule.EffectOneofCase.None)
+                    {
+                        Add(issues, ValidationCodes.RuleEffectOrExitRequired, path,
+                            "A rule must carry an effect (emit, workflow.call) or an exit "
+                            + "(transition, result, error); one that carries neither matches and "
+                            + "then does nothing.");
+                    }
+                    else if (exitRequired)
+                    {
+                        Add(issues, ValidationCodes.RuleEffectOrExitRequired, path,
+                            "A rule in this list needs an exit (transition, result, error): the "
+                            + "activity is over, so the run has to go somewhere.");
+                    }
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// A rule's dispatch effect: run a document, in the mode the key named. The modes are a
+        /// nested oneof, so <c>workflow.call</c> in a document is <c>effect</c> -> <c>workflow</c>
+        /// -> <c>mode</c> -> <c>call</c>, and an unset mode is the same defect an activity with no
+        /// configuration has.
+        /// </summary>
+        private static void ValidateDispatchEffect(DispatchEffect effect, string path,
+            WorkflowBundle bundle, List<ValidationIssue> issues)
+        {
+            if (effect == null) return;
+
+            switch (effect.ModeCase)
+            {
+                case DispatchEffect.ModeOneofCase.Call:
+                    ValidateDispatch(effect.Call.Workflow, effect.Call.StartActivity, effect.Call.Input,
+                        Field(path, "call"), bundle, issues);
+                    break;
+                default:
+                    Add(issues, ValidationCodes.ActivityConfigRequired, path,
+                        "A dispatch effect must name its mode: workflow.call.");
                     break;
             }
         }
@@ -354,27 +415,6 @@ namespace Utos.Workflows.V1.Validation
 
             ExpressionRules.ValidateTemplate(error.Message, Field(path, "message"), issues);
             if (error.Details != null) ValidateStruct(error.Details, Field(path, "details"), issues);
-        }
-
-        private static void ValidateEmit(EmitAction emit, string path,
-            HashSet<string> activityNames, List<ValidationIssue> issues)
-        {
-            if (emit == null) return;
-
-            // `emit` is the one non-terminal action: it appends a value and carries on. A rule that
-            // emits without saying where to go next is a dead end rather than a return, so unlike
-            // `result` it needs a target.
-            if (emit.Transition == null)
-            {
-                Add(issues, ValidationCodes.EmitTransitionRequired, Field(path, "transition"),
-                    "An emit action requires a transition; emit appends a value and continues.");
-            }
-            else
-            {
-                ValidateTarget(emit.Transition, Field(path, "transition"), activityNames, issues);
-            }
-
-            if (emit.Value != null) ValidateStruct(emit.Value, Field(path, "value"), issues);
         }
 
         private static void ValidateTarget(TransitionTarget target, string path,
@@ -436,18 +476,38 @@ namespace Utos.Workflows.V1.Validation
         {
             if (config == null) return;
 
-            Duration duration = config.Duration;
-            if (duration == null)
+            string duration = config.Duration;
+            if (string.IsNullOrEmpty(duration))
             {
                 Add(issues, ValidationCodes.TimerDurationRequired, Field(path, "duration"),
                     "Timer activity requires a duration.");
+                return;
             }
-            else if (!(duration.Seconds > 0 || (duration.Seconds == 0 && duration.Nanos > 0)))
+
+            // A whole-field template stands in for the literal, and no load-time rule can
+            // evaluate it: what it renders to is checked when the activity is entered
+            // (UTOS-E106). The same division UTOS-C102 draws for a templated URL.
+            if (ExpressionRules.IsWholeFieldTemplate(duration))
             {
-                // No maximum: a long wait is legitimate. Only a non-positive one is malformed, and
-                // it would otherwise surface mid-run rather than at validation time.
-                Add(issues, ValidationCodes.TimerDurationNotPositive, Field(path, "duration"),
-                    "Timer duration must be positive.");
+                ExpressionRules.ValidateTemplate(duration, Field(path, "duration"), issues);
+                return;
+            }
+
+            if (!WorkflowDuration.TryParse(duration, out _, out WorkflowDuration.Failure failure))
+            {
+                if (failure == WorkflowDuration.Failure.NotPositive)
+                {
+                    // No maximum: a long wait is legitimate. Only a non-positive one is
+                    // malformed, and it would otherwise surface mid-run rather than here.
+                    Add(issues, ValidationCodes.TimerDurationNotPositive, Field(path, "duration"),
+                        "Timer duration must be positive.");
+                }
+                else
+                {
+                    Add(issues, ValidationCodes.TimerDurationSyntax, Field(path, "duration"),
+                        "Timer duration must be a duration string — 90s, 8h, 1h30m — with whole "
+                        + "numbers, units largest first and no spaces.");
+                }
             }
         }
 
@@ -579,13 +639,13 @@ namespace Utos.Workflows.V1.Validation
         }
 
         /// <summary>
-        /// An emission rule is a guard plus exactly one action, and which action decides what is
-        /// checked: a dispatch names another document, a transition names an activity here.
+        /// The <c>onEmitted</c> list, which since spec 0.20.0 carries the same rule every other
+        /// list carries. The only difference is that an exit is optional here: a rule with an
+        /// effect and no exit handles the value and comes back for the next, and any exit stops
+        /// consuming.
         /// <para>
-        /// Only the missing case needs a rule of its own. The actions are a proto <c>oneof</c>, so
-        /// two of them cannot be expressed and there is nothing to check; a rule with none is a
-        /// value that matched a condition and then did nothing, which is a dead end rather than a
-        /// skip — an unmatched rule list already means "take the next value".
+        /// A value arrived rather than a failure, so there is nothing in scope to re-raise and a
+        /// bare <c>error</c> is still UTOS-T005.
         /// </para>
         /// </summary>
         private static void ValidateOnEmitted(CallActivityConfig call, string path,
@@ -595,42 +655,8 @@ namespace Utos.Workflows.V1.Validation
 
             for (int i = 0; i < call.OnEmitted.Count; i++)
             {
-                EmissionRule rule = call.OnEmitted[i];
-                string rulePath = Index(path, i);
-                if (rule == null) continue;
-
-                if (rule.HasCondition)
-                    ExpressionRules.ValidateCondition(rule.Condition, Field(rulePath, "condition"), issues);
-
-                switch (rule.ActionCase)
-                {
-                    case EmissionRule.ActionOneofCase.Handle:
-                        ValidateDispatch(rule.Handle.Workflow, rule.Handle.StartActivity,
-                            rule.Handle.Input, Field(rulePath, "handle"), bundle, issues);
-                        break;
-
-                    // A transition site like any other. The rule is evaluated by the consumer, in
-                    // the consumer's own execution, so its target is an activity in this workflow
-                    // — unlike the handler a dispatch names, which is another document entirely.
-                    case EmissionRule.ActionOneofCase.Transition:
-                        ValidateTarget(rule.Transition, Field(rulePath, "transition"),
-                            activityNames, issues);
-                        break;
-
-                    case EmissionRule.ActionOneofCase.Result:
-                        ValidateStruct(rule.Result, Field(rulePath, "result"), issues);
-                        break;
-
-                    case EmissionRule.ActionOneofCase.Error:
-                        // A value arrived, not a failure: there is nothing in scope to re-raise.
-                        ValidateError(rule.Error, Field(rulePath, "error"), issues, failureInScope: false);
-                        break;
-
-                    default:
-                        Add(issues, ValidationCodes.EmissionRuleActionRequired, rulePath,
-                            "An onEmitted rule must carry an action: handle, transition, result or error.");
-                        break;
-                }
+                ValidateRule(call.OnEmitted[i], Index(path, i), activityNames, bundle, issues,
+                    failureInScope: false, exitRequired: false);
             }
         }
 

@@ -42,7 +42,7 @@ public class ErrorReraiseTests
             {
                 Workflow = Key,
                 StartActivity = "say-hello",
-                Call = new CallActivityConfig { OnEmitted = { new EmissionRule { Error = new WorkflowError() } } },
+                Call = new CallActivityConfig { OnEmitted = { new TransitionRule { Error = new WorkflowError() } } },
             };
         });
 

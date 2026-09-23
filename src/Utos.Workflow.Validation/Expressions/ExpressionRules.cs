@@ -91,6 +91,23 @@ namespace Utos.Workflows.V1.Validation
             }
         }
 
+        /// <summary>
+        /// True when the text is one whole-field template — a single {{ }} and nothing else
+        /// but whitespace. A duration takes a literal or one of these, never interpolation:
+        /// half a duration is not a shorter wait.
+        /// </summary>
+        public static bool IsWholeFieldTemplate(string text)
+        {
+            if (string.IsNullOrEmpty(text) || text.IndexOf(Open, StringComparison.Ordinal) < 0)
+                return false;
+
+            List<TemplateSegment> segments;
+            string code, message;
+            if (!TemplateSplitter.TryScan(text, out segments, out code, out message)) return false;
+
+            return IsWholeField(segments);
+        }
+
         private static bool IsWholeField(List<TemplateSegment> segments)
         {
             int expressions = 0;

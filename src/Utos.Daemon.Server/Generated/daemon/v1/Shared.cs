@@ -24,38 +24,38 @@ namespace Utos.Daemon.V1 {
     static SharedReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZkYWVtb24vdjEvc2hhcmVkLnByb3RvEg51dG9zLmRhZW1vbi52MRocZ29v",
-            "Z2xlL3Byb3RvYnVmL3N0cnVjdC5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3Rp",
-            "bWVzdGFtcC5wcm90bxoYd29ya2Zsb3cvdjEvY29tbW9uLnByb3RvIq0BChFX",
-            "b3JrZmxvd1JlZmVyZW5jZRIVCghyZWdpc3RyeRgBIAEoCUgAiAEBEhYKCW5h",
-            "bWVzcGFjZRgCIAEoCUgBiAEBEgwKBG5hbWUYAyABKAkSFAoHdmVyc2lvbhgE",
-            "IAEoCUgCiAEBEhMKBmRpZ2VzdBgFIAEoCUgDiAEBQgsKCV9yZWdpc3RyeUIM",
-            "CgpfbmFtZXNwYWNlQgoKCF92ZXJzaW9uQgkKB19kaWdlc3QikQEKEEV4ZWN1",
-            "dGlvblBheWxvYWQSOAoEZGF0YRgBIAMoCzIqLnV0b3MuZGFlbW9uLnYxLkV4",
-            "ZWN1dGlvblBheWxvYWQuRGF0YUVudHJ5GkMKCURhdGFFbnRyeRILCgNrZXkY",
-            "ASABKAkSJQoFdmFsdWUYAiABKAsyFi5nb29nbGUucHJvdG9idWYuVmFsdWU6",
-            "AjgBIt8EChBFeGVjdXRpb25TdW1tYXJ5EgoKAmlkGAEgASgJEi8KBnN0YXR1",
-            "cxgCIAEoDjIfLnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblN0YXR1cxIzCgh3",
-            "b3JrZmxvdxgDIAEoCzIhLnV0b3MuZGFlbW9uLnYxLldvcmtmbG93UmVmZXJl",
-            "bmNlEi4KCmNyZWF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
-            "ZXN0YW1wEjUKDHNjaGVkdWxlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXBIAIgBARIzCgpzdGFydGVkX2F0GAcgASgLMhouZ29vZ2xl",
-            "LnByb3RvYnVmLlRpbWVzdGFtcEgBiAEBEjQKC2ZpbmlzaGVkX2F0GAggASgL",
-            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgCiAEBEjMKBWVycm9yGAwg",
-            "ASgLMh8udXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0Vycm9ySAOIAQESIAoT",
-            "Y2FuY2VsbGF0aW9uX3JlYXNvbhgNIAEoCUgEiAEBQg8KDV9zY2hlZHVsZWRf",
-            "YXRCDQoLX3N0YXJ0ZWRfYXRCDgoMX2ZpbmlzaGVkX2F0QggKBl9lcnJvckIW",
-            "ChRfY2FuY2VsbGF0aW9uX3JlYXNvbkoECAQQBUoECAoQC0oECAsQDEoECAkQ",
-            "ClIQd29ya2Zsb3dfdmVyc2lvblISd29ya2Zsb3dfbmFtZXNwYWNlUhF3b3Jr",
-            "Zmxvd19yZWdpc3RyeVINZXJyb3JfbWVzc2FnZSrvAQoPRXhlY3V0aW9uU3Rh",
-            "dHVzEiAKHEVYRUNVVElPTl9TVEFUVVNfVU5TUEVDSUZJRUQQABIeChpFWEVD",
-            "VVRJT05fU1RBVFVTX1NDSEVEVUxFRBABEhsKF0VYRUNVVElPTl9TVEFUVVNf",
-            "QUNUSVZFEAISHgoaRVhFQ1VUSU9OX1NUQVRVU19DT01QTEVURUQQChIbChdF",
-            "WEVDVVRJT05fU1RBVFVTX0ZBSUxFRBALEh4KGkVYRUNVVElPTl9TVEFUVVNf",
-            "Q0FOQ0VMTEVEEAwiBAgDEAMqGkVYRUNVVElPTl9TVEFUVVNfU1VTUEVOREVE",
-            "QhGqAg5VdG9zLkRhZW1vbi5WMWIGcHJvdG8z"));
+            "ChZkYWVtb24vdjEvc2hhcmVkLnByb3RvEg51dG9zLmRhZW1vbi52MRofZ29v",
+            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90bxoYd29ya2Zsb3cvdjEvY29t",
+            "bW9uLnByb3RvGhd3b3JrZmxvdy92MS92YWx1ZS5wcm90byKtAQoRV29ya2Zs",
+            "b3dSZWZlcmVuY2USFQoIcmVnaXN0cnkYASABKAlIAIgBARIWCgluYW1lc3Bh",
+            "Y2UYAiABKAlIAYgBARIMCgRuYW1lGAMgASgJEhQKB3ZlcnNpb24YBCABKAlI",
+            "AogBARITCgZkaWdlc3QYBSABKAlIA4gBAUILCglfcmVnaXN0cnlCDAoKX25h",
+            "bWVzcGFjZUIKCghfdmVyc2lvbkIJCgdfZGlnZXN0IqABChBFeGVjdXRpb25Q",
+            "YXlsb2FkEjgKBGRhdGEYAiADKAsyKi51dG9zLmRhZW1vbi52MS5FeGVjdXRp",
+            "b25QYXlsb2FkLkRhdGFFbnRyeRpMCglEYXRhRW50cnkSCwoDa2V5GAEgASgJ",
+            "Ei4KBXZhbHVlGAIgASgLMh8udXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd1Zh",
+            "bHVlOgI4AUoECAEQAiLfBAoQRXhlY3V0aW9uU3VtbWFyeRIKCgJpZBgBIAEo",
+            "CRIvCgZzdGF0dXMYAiABKA4yHy51dG9zLmRhZW1vbi52MS5FeGVjdXRpb25T",
+            "dGF0dXMSMwoId29ya2Zsb3cYAyABKAsyIS51dG9zLmRhZW1vbi52MS5Xb3Jr",
+            "Zmxvd1JlZmVyZW5jZRIuCgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnBy",
+            "b3RvYnVmLlRpbWVzdGFtcBI1CgxzY2hlZHVsZWRfYXQYBiABKAsyGi5nb29n",
+            "bGUucHJvdG9idWYuVGltZXN0YW1wSACIAQESMwoKc3RhcnRlZF9hdBgHIAEo",
+            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAYgBARI0CgtmaW5pc2hl",
+            "ZF9hdBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIAogBARIz",
+            "CgVlcnJvchgMIAEoCzIfLnV0b3Mud29ya2Zsb3cudjEuV29ya2Zsb3dFcnJv",
+            "ckgDiAEBEiAKE2NhbmNlbGxhdGlvbl9yZWFzb24YDSABKAlIBIgBAUIPCg1f",
+            "c2NoZWR1bGVkX2F0Qg0KC19zdGFydGVkX2F0Qg4KDF9maW5pc2hlZF9hdEII",
+            "CgZfZXJyb3JCFgoUX2NhbmNlbGxhdGlvbl9yZWFzb25KBAgEEAVKBAgKEAtK",
+            "BAgLEAxKBAgJEApSEHdvcmtmbG93X3ZlcnNpb25SEndvcmtmbG93X25hbWVz",
+            "cGFjZVIRd29ya2Zsb3dfcmVnaXN0cnlSDWVycm9yX21lc3NhZ2Uq7wEKD0V4",
+            "ZWN1dGlvblN0YXR1cxIgChxFWEVDVVRJT05fU1RBVFVTX1VOU1BFQ0lGSUVE",
+            "EAASHgoaRVhFQ1VUSU9OX1NUQVRVU19TQ0hFRFVMRUQQARIbChdFWEVDVVRJ",
+            "T05fU1RBVFVTX0FDVElWRRACEh4KGkVYRUNVVElPTl9TVEFUVVNfQ09NUExF",
+            "VEVEEAoSGwoXRVhFQ1VUSU9OX1NUQVRVU19GQUlMRUQQCxIeChpFWEVDVVRJ",
+            "T05fU1RBVFVTX0NBTkNFTExFRBAMIgQIAxADKhpFWEVDVVRJT05fU1RBVFVT",
+            "X1NVU1BFTkRFREIRqgIOVXRvcy5EYWVtb24uVjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, global::Utos.Workflows.V1.ValueReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Utos.Daemon.V1.ExecutionStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.WorkflowReference), global::Utos.Daemon.V1.WorkflowReference.Parser, new[]{ "Registry", "Namespace", "Name", "Version", "Digest" }, new[]{ "Registry", "Namespace", "Version", "Digest" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ExecutionPayload), global::Utos.Daemon.V1.ExecutionPayload.Parser, new[]{ "Data" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
@@ -536,6 +536,10 @@ namespace Utos.Daemon.V1 {
 
   }
 
+  /// <summary>
+  /// A run's input: an object at the top level, whose values are anything a
+  /// WorkflowValue can hold, blobs included. See docs/workflow-values.md.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExecutionPayload : pb::IMessage<ExecutionPayload>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -582,17 +586,13 @@ namespace Utos.Daemon.V1 {
     }
 
     /// <summary>Field number for the "data" field.</summary>
-    public const int DataFieldNumber = 1;
-    private static readonly pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value>.Codec _map_data_codec
-        = new pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Google.Protobuf.WellKnownTypes.Value.Parser), 10);
-    private readonly pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value> data_ = new pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value>();
-    /// <summary>
-    /// Input data supporting JSON-like recursive structures
-    /// Values can be strings, numbers, booleans, arrays, or nested objects
-    /// </summary>
+    public const int DataFieldNumber = 2;
+    private static readonly pbc::MapField<string, global::Utos.Workflows.V1.WorkflowValue>.Codec _map_data_codec
+        = new pbc::MapField<string, global::Utos.Workflows.V1.WorkflowValue>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Utos.Workflows.V1.WorkflowValue.Parser), 18);
+    private readonly pbc::MapField<string, global::Utos.Workflows.V1.WorkflowValue> data_ = new pbc::MapField<string, global::Utos.Workflows.V1.WorkflowValue>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value> Data {
+    public pbc::MapField<string, global::Utos.Workflows.V1.WorkflowValue> Data {
       get { return data_; }
     }
 
@@ -693,7 +693,7 @@ namespace Utos.Daemon.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 18: {
             data_.AddEntriesFrom(input, _map_data_codec);
             break;
           }
@@ -716,7 +716,7 @@ namespace Utos.Daemon.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 18: {
             data_.AddEntriesFrom(ref input, _map_data_codec);
             break;
           }

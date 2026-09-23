@@ -71,20 +71,8 @@ namespace Utos.Workflows.V1.Validation.Schemas
 
                         for (int i = 0; i < call.OnEmitted.Count; i++)
                         {
-                            EmissionRule rule = call.OnEmitted[i];
-                            string rulePath = Paths.Index(emittedPath, i);
-
-                            if (rule.ActionCase == EmissionRule.ActionOneofCase.Handle)
-                            {
-                                ValidateInvocation(rule.Handle.Workflow, rule.Handle.StartActivity,
-                                    rule.Handle.Input,
-                                    Paths.Field(Paths.Field(rulePath, "handle"), "input"), bundle, issues);
-                            }
-                            else if (rule.ActionCase == EmissionRule.ActionOneofCase.Transition)
-                            {
-                                ValidateTransition(rule.Transition,
-                                    Paths.Field(rulePath, "transition"), workflow, issues);
-                            }
+                            ValidateRule(call.OnEmitted[i], Paths.Index(emittedPath, i),
+                                workflow, bundle, issues);
                         }
                     }
 
@@ -106,14 +94,22 @@ namespace Utos.Workflows.V1.Validation.Schemas
         private static void ValidateRule(TransitionRule rule, string path, Workflow workflow,
             WorkflowBundle bundle, List<ValidationIssue> issues)
         {
-            if (rule.ActionCase == TransitionRule.ActionOneofCase.Transition)
+            if (rule == null) return;
+
+            // The effect supplies a document with an input, which is UTOS-H014.
+            if (rule.EffectCase == TransitionRule.EffectOneofCase.Workflow
+                && rule.Workflow.ModeCase == DispatchEffect.ModeOneofCase.Call)
+            {
+                HandlerDispatch call = rule.Workflow.Call;
+                ValidateInvocation(call.Workflow, call.StartActivity, call.Input,
+                    Paths.Field(Paths.Field(Paths.Field(path, "workflow"), "call"), "input"),
+                    bundle, issues);
+            }
+
+            // The exit supplies an activity in this workflow, which is UTOS-H013.
+            if (rule.ExitCase == TransitionRule.ExitOneofCase.Transition)
             {
                 ValidateTransition(rule.Transition, Paths.Field(path, "transition"), workflow, issues);
-            }
-            else if (rule.ActionCase == TransitionRule.ActionOneofCase.Emit && rule.Emit.Transition != null)
-            {
-                ValidateTransition(rule.Emit.Transition,
-                    Paths.Field(Paths.Field(path, "emit"), "transition"), workflow, issues);
             }
         }
 

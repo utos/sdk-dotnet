@@ -42,9 +42,9 @@ namespace Utos.Workflows.V1 {
   }
   #region Messages
   /// <summary>
-  /// A fully-resolved workflow bundle ready for execution.
-  /// Created by CLI after resolving all dependencies.
-  /// This is the "built" format - all workflows are included, no external references.
+  /// A fully-resolved workflow bundle, ready to execute: the built format a front
+  /// end produces from source documents. Every workflow it needs is inside it, so
+  /// it carries no external reference and the daemon resolves nothing.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WorkflowBundle : pb::IMessage<WorkflowBundle>
@@ -119,15 +119,17 @@ namespace Utos.Workflows.V1 {
     ///
     /// The key is the identity string defined on WorkflowMetadata:
     ///   [registry/][namespace/]name:version
-    /// Examples: "registry.example.com/acme/send-email:v1.0.0",
-    /// "acme/send-email:v1.0.0", "send-email:1.0.0" (a local/unpublished workflow).
+    /// Examples: "registry.example.com/acme/send-email:1.0.0",
+    /// "acme/send-email:1.0.0", "send-email:1.0.0" (a local/unpublished workflow).
+    /// A version carries no "v" prefix (UTOS-M005).
     ///
     /// Each key MUST equal the canonical identity of its value, derived from that
     /// workflow's WorkflowMetadata; a bundle whose key and metadata disagree is
     /// invalid and may be rejected.
     ///
-    /// Each WorkflowActivityConfig.workflow in the bundle is one of these keys,
-    /// naming the sub-workflow that activity invokes.
+    /// Every place the bundle names a document is one of these keys: a
+    /// WorkflowActivityConfig.workflow, a PromiseBranch.workflow, and the
+    /// HandlerDispatch a rule's `workflow.call` effect carries (UTOS-B006).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

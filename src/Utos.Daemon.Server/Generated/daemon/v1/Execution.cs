@@ -25,64 +25,65 @@ namespace Utos.Daemon.V1 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlkYWVtb24vdjEvZXhlY3V0aW9uLnByb3RvEg51dG9zLmRhZW1vbi52MRoW",
-            "ZGFlbW9uL3YxL3NoYXJlZC5wcm90bxocZ29vZ2xlL3Byb3RvYnVmL3N0cnVj",
-            "dC5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90bxoYd29y",
-            "a2Zsb3cvdjEvYnVuZGxlLnByb3RvGhh3b3JrZmxvdy92MS9jb21tb24ucHJv",
-            "dG8ihAIKGFNjaGVkdWxlRXhlY3V0aW9uUmVxdWVzdBIzCgh3b3JrZmxvdxgB",
-            "IAEoCzIhLnV0b3MuZGFlbW9uLnYxLldvcmtmbG93UmVmZXJlbmNlEi8KBWlu",
-            "cHV0GAIgASgLMiAudXRvcy5kYWVtb24udjEuRXhlY3V0aW9uUGF5bG9hZBIW",
-            "Cg5zdGFydF9hY3Rpdml0eRgDIAEoCRI+CgNlbnYYBCADKAsyMS51dG9zLmRh",
-            "ZW1vbi52MS5TY2hlZHVsZUV4ZWN1dGlvblJlcXVlc3QuRW52RW50cnkaKgoI",
-            "RW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJYChlT",
-            "Y2hlZHVsZUV4ZWN1dGlvblJlc3BvbnNlEgoKAmlkGAEgASgJEi8KBnN0YXR1",
-            "cxgCIAEoDjIfLnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblN0YXR1cyIrChNH",
-            "ZXRFeGVjdXRpb25SZXF1ZXN0EhQKDGV4ZWN1dGlvbl9pZBgBIAEoCSLOBAoU",
-            "R2V0RXhlY3V0aW9uUmVzcG9uc2USMQoHc3VtbWFyeRgRIAEoCzIgLnV0b3Mu",
-            "ZGFlbW9uLnYxLkV4ZWN1dGlvblN1bW1hcnkSMAoGYnVuZGxlGAUgASgLMiAu",
-            "dXRvcy53b3JrZmxvdy52MS5Xb3JrZmxvd0J1bmRsZRI0CgVpbnB1dBgGIAEo",
-            "CzIgLnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblBheWxvYWRIAIgBARI6CgNl",
-            "bnYYDyADKAsyLS51dG9zLmRhZW1vbi52MS5HZXRFeGVjdXRpb25SZXNwb25z",
-            "ZS5FbnZFbnRyeRIsCgZyZXN1bHQYEiABKAsyFy5nb29nbGUucHJvdG9idWYu",
-            "U3RydWN0SAGIAQEaKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVl",
-            "GAIgASgJOgI4AUIICgZfaW5wdXRCCQoHX3Jlc3VsdEoECAEQAkoECAIQA0oE",
-            "CAMQBEoECAQQBUoECAcQCEoECAgQCUoECAkQCkoECAoQC0oECAsQDEoECAwQ",
-            "DUoECA0QDkoECA4QD0oECBAQEVICaWRSBnN0YXR1c1IId29ya2Zsb3dSCmNy",
-            "ZWF0ZWRfYXRSDHNjaGVkdWxlZF9hdFIKc3RhcnRlZF9hdFIMY29tcGxldGVk",
-            "X2F0UglmYWlsZWRfYXRSBWVycm9yUhB3b3JrZmxvd192ZXJzaW9uUhJ3b3Jr",
-            "Zmxvd19uYW1lc3BhY2VSEXdvcmtmbG93X3JlZ2lzdHJ5Ug1lcnJvcl9tZXNz",
-            "YWdlIlcKEldhdGNoT3V0cHV0UmVxdWVzdBIUCgxleGVjdXRpb25faWQYASAB",
-            "KAkSDgoEdGFpbBgCIAEoA0gAEg8KBWFmdGVyGAMgASgDSABCCgoIcG9zaXRp",
-            "b24i5gEKE1dhdGNoT3V0cHV0UmVzcG9uc2USEAoIc2VxdWVuY2UYASABKAMS",
-            "LQoJdGltZXN0YW1wGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt",
-            "cBIoCgV2YWx1ZRgDIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIABIp",
-            "CgZyZXN1bHQYBCABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SAASMAoF",
-            "ZXJyb3IYBSABKAsyHy51dG9zLndvcmtmbG93LnYxLldvcmtmbG93RXJyb3JI",
-            "AEIHCgVlbnRyeSJeChVMaXN0RXhlY3V0aW9uc1JlcXVlc3QSOAoId29ya2Zs",
-            "b3cYASABKAsyIS51dG9zLmRhZW1vbi52MS5Xb3JrZmxvd1JlZmVyZW5jZUgA",
-            "iAEBQgsKCV93b3JrZmxvdyJOChZMaXN0RXhlY3V0aW9uc1Jlc3BvbnNlEjQK",
-            "CmV4ZWN1dGlvbnMYASADKAsyIC51dG9zLmRhZW1vbi52MS5FeGVjdXRpb25T",
-            "dW1tYXJ5Ik4KFkNhbmNlbEV4ZWN1dGlvblJlcXVlc3QSFAoMZXhlY3V0aW9u",
-            "X2lkGAEgASgJEhMKBnJlYXNvbhgCIAEoCUgAiAEBQgkKB19yZWFzb24iSgoX",
-            "Q2FuY2VsRXhlY3V0aW9uUmVzcG9uc2USLwoGc3RhdHVzGAEgASgOMh8udXRv",
-            "cy5kYWVtb24udjEuRXhlY3V0aW9uU3RhdHVzIi4KFkRlbGV0ZUV4ZWN1dGlv",
-            "blJlcXVlc3QSFAoMZXhlY3V0aW9uX2lkGAEgASgJIhkKF0RlbGV0ZUV4ZWN1",
-            "dGlvblJlc3BvbnNlMtoEChBFeGVjdXRpb25TZXJ2aWNlEmgKEVNjaGVkdWxl",
-            "RXhlY3V0aW9uEigudXRvcy5kYWVtb24udjEuU2NoZWR1bGVFeGVjdXRpb25S",
-            "ZXF1ZXN0GikudXRvcy5kYWVtb24udjEuU2NoZWR1bGVFeGVjdXRpb25SZXNw",
-            "b25zZRJZCgxHZXRFeGVjdXRpb24SIy51dG9zLmRhZW1vbi52MS5HZXRFeGVj",
-            "dXRpb25SZXF1ZXN0GiQudXRvcy5kYWVtb24udjEuR2V0RXhlY3V0aW9uUmVz",
-            "cG9uc2USXwoOTGlzdEV4ZWN1dGlvbnMSJS51dG9zLmRhZW1vbi52MS5MaXN0",
-            "RXhlY3V0aW9uc1JlcXVlc3QaJi51dG9zLmRhZW1vbi52MS5MaXN0RXhlY3V0",
-            "aW9uc1Jlc3BvbnNlElgKC1dhdGNoT3V0cHV0EiIudXRvcy5kYWVtb24udjEu",
-            "V2F0Y2hPdXRwdXRSZXF1ZXN0GiMudXRvcy5kYWVtb24udjEuV2F0Y2hPdXRw",
-            "dXRSZXNwb25zZTABEmIKD0NhbmNlbEV4ZWN1dGlvbhImLnV0b3MuZGFlbW9u",
-            "LnYxLkNhbmNlbEV4ZWN1dGlvblJlcXVlc3QaJy51dG9zLmRhZW1vbi52MS5D",
-            "YW5jZWxFeGVjdXRpb25SZXNwb25zZRJiCg9EZWxldGVFeGVjdXRpb24SJi51",
-            "dG9zLmRhZW1vbi52MS5EZWxldGVFeGVjdXRpb25SZXF1ZXN0GicudXRvcy5k",
-            "YWVtb24udjEuRGVsZXRlRXhlY3V0aW9uUmVzcG9uc2VCEaoCDlV0b3MuRGFl",
-            "bW9uLlYxYgZwcm90bzM="));
+            "ZGFlbW9uL3YxL3NoYXJlZC5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVz",
+            "dGFtcC5wcm90bxoYd29ya2Zsb3cvdjEvYnVuZGxlLnByb3RvGhh3b3JrZmxv",
+            "dy92MS9jb21tb24ucHJvdG8aF3dvcmtmbG93L3YxL3ZhbHVlLnByb3RvIoQC",
+            "ChhTY2hlZHVsZUV4ZWN1dGlvblJlcXVlc3QSMwoId29ya2Zsb3cYASABKAsy",
+            "IS51dG9zLmRhZW1vbi52MS5Xb3JrZmxvd1JlZmVyZW5jZRIvCgVpbnB1dBgC",
+            "IAEoCzIgLnV0b3MuZGFlbW9uLnYxLkV4ZWN1dGlvblBheWxvYWQSFgoOc3Rh",
+            "cnRfYWN0aXZpdHkYAyABKAkSPgoDZW52GAQgAygLMjEudXRvcy5kYWVtb24u",
+            "djEuU2NoZWR1bGVFeGVjdXRpb25SZXF1ZXN0LkVudkVudHJ5GioKCEVudkVu",
+            "dHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiWAoZU2NoZWR1",
+            "bGVFeGVjdXRpb25SZXNwb25zZRIKCgJpZBgBIAEoCRIvCgZzdGF0dXMYAiAB",
+            "KA4yHy51dG9zLmRhZW1vbi52MS5FeGVjdXRpb25TdGF0dXMiKwoTR2V0RXhl",
+            "Y3V0aW9uUmVxdWVzdBIUCgxleGVjdXRpb25faWQYASABKAki2gQKFEdldEV4",
+            "ZWN1dGlvblJlc3BvbnNlEjEKB3N1bW1hcnkYESABKAsyIC51dG9zLmRhZW1v",
+            "bi52MS5FeGVjdXRpb25TdW1tYXJ5EjAKBmJ1bmRsZRgFIAEoCzIgLnV0b3Mu",
+            "d29ya2Zsb3cudjEuV29ya2Zsb3dCdW5kbGUSNAoFaW5wdXQYBiABKAsyIC51",
+            "dG9zLmRhZW1vbi52MS5FeGVjdXRpb25QYXlsb2FkSACIAQESOgoDZW52GA8g",
+            "AygLMi0udXRvcy5kYWVtb24udjEuR2V0RXhlY3V0aW9uUmVzcG9uc2UuRW52",
+            "RW50cnkSMgoGcmVzdWx0GBMgASgLMh0udXRvcy53b3JrZmxvdy52MS5Xb3Jr",
+            "Zmxvd01hcEgBiAEBGioKCEVudkVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1",
+            "ZRgCIAEoCToCOAFCCAoGX2lucHV0QgkKB19yZXN1bHRKBAgBEAJKBAgCEANK",
+            "BAgDEARKBAgEEAVKBAgHEAhKBAgIEAlKBAgJEApKBAgKEAtKBAgLEAxKBAgM",
+            "EA1KBAgNEA5KBAgOEA9KBAgQEBFKBAgSEBNSAmlkUgZzdGF0dXNSCHdvcmtm",
+            "bG93UgpjcmVhdGVkX2F0UgxzY2hlZHVsZWRfYXRSCnN0YXJ0ZWRfYXRSDGNv",
+            "bXBsZXRlZF9hdFIJZmFpbGVkX2F0UgVlcnJvclIQd29ya2Zsb3dfdmVyc2lv",
+            "blISd29ya2Zsb3dfbmFtZXNwYWNlUhF3b3JrZmxvd19yZWdpc3RyeVINZXJy",
+            "b3JfbWVzc2FnZSJXChJXYXRjaE91dHB1dFJlcXVlc3QSFAoMZXhlY3V0aW9u",
+            "X2lkGAEgASgJEg4KBHRhaWwYAiABKANIABIPCgVhZnRlchgDIAEoA0gAQgoK",
+            "CHBvc2l0aW9uIv4BChNXYXRjaE91dHB1dFJlc3BvbnNlEhAKCHNlcXVlbmNl",
+            "GAEgASgDEi0KCXRpbWVzdGFtcBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
+            "aW1lc3RhbXASLgoFdmFsdWUYBiABKAsyHS51dG9zLndvcmtmbG93LnYxLldv",
+            "cmtmbG93TWFwSAASLwoGcmVzdWx0GAcgASgLMh0udXRvcy53b3JrZmxvdy52",
+            "MS5Xb3JrZmxvd01hcEgAEjAKBWVycm9yGAUgASgLMh8udXRvcy53b3JrZmxv",
+            "dy52MS5Xb3JrZmxvd0Vycm9ySABCBwoFZW50cnlKBAgDEARKBAgEEAUiXgoV",
+            "TGlzdEV4ZWN1dGlvbnNSZXF1ZXN0EjgKCHdvcmtmbG93GAEgASgLMiEudXRv",
+            "cy5kYWVtb24udjEuV29ya2Zsb3dSZWZlcmVuY2VIAIgBAUILCglfd29ya2Zs",
+            "b3ciTgoWTGlzdEV4ZWN1dGlvbnNSZXNwb25zZRI0CgpleGVjdXRpb25zGAEg",
+            "AygLMiAudXRvcy5kYWVtb24udjEuRXhlY3V0aW9uU3VtbWFyeSJOChZDYW5j",
+            "ZWxFeGVjdXRpb25SZXF1ZXN0EhQKDGV4ZWN1dGlvbl9pZBgBIAEoCRITCgZy",
+            "ZWFzb24YAiABKAlIAIgBAUIJCgdfcmVhc29uIkoKF0NhbmNlbEV4ZWN1dGlv",
+            "blJlc3BvbnNlEi8KBnN0YXR1cxgBIAEoDjIfLnV0b3MuZGFlbW9uLnYxLkV4",
+            "ZWN1dGlvblN0YXR1cyJEChZEZWxldGVFeGVjdXRpb25SZXF1ZXN0EhQKDGV4",
+            "ZWN1dGlvbl9pZBgBIAEoCRIUCgxkZWxldGVfYmxvYnMYAiABKAgiGQoXRGVs",
+            "ZXRlRXhlY3V0aW9uUmVzcG9uc2Uy2gQKEEV4ZWN1dGlvblNlcnZpY2USaAoR",
+            "U2NoZWR1bGVFeGVjdXRpb24SKC51dG9zLmRhZW1vbi52MS5TY2hlZHVsZUV4",
+            "ZWN1dGlvblJlcXVlc3QaKS51dG9zLmRhZW1vbi52MS5TY2hlZHVsZUV4ZWN1",
+            "dGlvblJlc3BvbnNlElkKDEdldEV4ZWN1dGlvbhIjLnV0b3MuZGFlbW9uLnYx",
+            "LkdldEV4ZWN1dGlvblJlcXVlc3QaJC51dG9zLmRhZW1vbi52MS5HZXRFeGVj",
+            "dXRpb25SZXNwb25zZRJfCg5MaXN0RXhlY3V0aW9ucxIlLnV0b3MuZGFlbW9u",
+            "LnYxLkxpc3RFeGVjdXRpb25zUmVxdWVzdBomLnV0b3MuZGFlbW9uLnYxLkxp",
+            "c3RFeGVjdXRpb25zUmVzcG9uc2USWAoLV2F0Y2hPdXRwdXQSIi51dG9zLmRh",
+            "ZW1vbi52MS5XYXRjaE91dHB1dFJlcXVlc3QaIy51dG9zLmRhZW1vbi52MS5X",
+            "YXRjaE91dHB1dFJlc3BvbnNlMAESYgoPQ2FuY2VsRXhlY3V0aW9uEiYudXRv",
+            "cy5kYWVtb24udjEuQ2FuY2VsRXhlY3V0aW9uUmVxdWVzdBonLnV0b3MuZGFl",
+            "bW9uLnYxLkNhbmNlbEV4ZWN1dGlvblJlc3BvbnNlEmIKD0RlbGV0ZUV4ZWN1",
+            "dGlvbhImLnV0b3MuZGFlbW9uLnYxLkRlbGV0ZUV4ZWN1dGlvblJlcXVlc3Qa",
+            "Jy51dG9zLmRhZW1vbi52MS5EZWxldGVFeGVjdXRpb25SZXNwb25zZUIRqgIO",
+            "VXRvcy5EYWVtb24uVjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Utos.Workflows.V1.BundleReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Utos.Daemon.V1.SharedReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Utos.Workflows.V1.BundleReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, global::Utos.Workflows.V1.ValueReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ScheduleExecutionRequest), global::Utos.Daemon.V1.ScheduleExecutionRequest.Parser, new[]{ "Workflow", "Input", "StartActivity", "Env" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ScheduleExecutionResponse), global::Utos.Daemon.V1.ScheduleExecutionResponse.Parser, new[]{ "Id", "Status" }, null, null, null, null),
@@ -94,7 +95,7 @@ namespace Utos.Daemon.V1 {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.ListExecutionsResponse), global::Utos.Daemon.V1.ListExecutionsResponse.Parser, new[]{ "Executions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.CancelExecutionRequest), global::Utos.Daemon.V1.CancelExecutionRequest.Parser, new[]{ "ExecutionId", "Reason" }, new[]{ "Reason" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.CancelExecutionResponse), global::Utos.Daemon.V1.CancelExecutionResponse.Parser, new[]{ "Status" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.DeleteExecutionRequest), global::Utos.Daemon.V1.DeleteExecutionRequest.Parser, new[]{ "ExecutionId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.DeleteExecutionRequest), global::Utos.Daemon.V1.DeleteExecutionRequest.Parser, new[]{ "ExecutionId", "DeleteBlobs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Daemon.V1.DeleteExecutionResponse), global::Utos.Daemon.V1.DeleteExecutionResponse.Parser, null, null, null, null, null)
           }));
     }
@@ -1004,8 +1005,8 @@ namespace Utos.Daemon.V1 {
     }
 
     /// <summary>Field number for the "result" field.</summary>
-    public const int ResultFieldNumber = 18;
-    private global::Google.Protobuf.WellKnownTypes.Struct result_;
+    public const int ResultFieldNumber = 19;
+    private global::Utos.Workflows.V1.WorkflowMap result_;
     /// <summary>
     /// What the execution returned — the `result` terminal entry of its output
     /// stream. Set only once the execution has completed successfully; a failed or
@@ -1017,7 +1018,7 @@ namespace Utos.Daemon.V1 {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Struct Result {
+    public global::Utos.Workflows.V1.WorkflowMap Result {
       get { return result_; }
       set {
         result_ = value;
@@ -1088,7 +1089,7 @@ namespace Utos.Daemon.V1 {
         output.WriteMessage(Summary);
       }
       if (result_ != null) {
-        output.WriteRawTag(146, 1);
+        output.WriteRawTag(154, 1);
         output.WriteMessage(Result);
       }
       if (_unknownFields != null) {
@@ -1115,7 +1116,7 @@ namespace Utos.Daemon.V1 {
         output.WriteMessage(Summary);
       }
       if (result_ != null) {
-        output.WriteRawTag(146, 1);
+        output.WriteRawTag(154, 1);
         output.WriteMessage(Result);
       }
       if (_unknownFields != null) {
@@ -1174,7 +1175,7 @@ namespace Utos.Daemon.V1 {
       env_.MergeFrom(other.env_);
       if (other.result_ != null) {
         if (result_ == null) {
-          Result = new global::Google.Protobuf.WellKnownTypes.Struct();
+          Result = new global::Utos.Workflows.V1.WorkflowMap();
         }
         Result.MergeFrom(other.Result);
       }
@@ -1222,9 +1223,9 @@ namespace Utos.Daemon.V1 {
             input.ReadMessage(Summary);
             break;
           }
-          case 146: {
+          case 154: {
             if (result_ == null) {
-              Result = new global::Google.Protobuf.WellKnownTypes.Struct();
+              Result = new global::Utos.Workflows.V1.WorkflowMap();
             }
             input.ReadMessage(Result);
             break;
@@ -1273,9 +1274,9 @@ namespace Utos.Daemon.V1 {
             input.ReadMessage(Summary);
             break;
           }
-          case 146: {
+          case 154: {
             if (result_ == null) {
-              Result = new global::Google.Protobuf.WellKnownTypes.Struct();
+              Result = new global::Utos.Workflows.V1.WorkflowMap();
             }
             input.ReadMessage(Result);
             break;
@@ -1724,14 +1725,14 @@ namespace Utos.Daemon.V1 {
     }
 
     /// <summary>Field number for the "value" field.</summary>
-    public const int ValueFieldNumber = 3;
+    public const int ValueFieldNumber = 6;
     /// <summary>
     /// A value the workflow emitted with a TransitionRule `emit` action.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Struct Value {
-      get { return entryCase_ == EntryOneofCase.Value ? (global::Google.Protobuf.WellKnownTypes.Struct) entry_ : null; }
+    public global::Utos.Workflows.V1.WorkflowMap Value {
+      get { return entryCase_ == EntryOneofCase.Value ? (global::Utos.Workflows.V1.WorkflowMap) entry_ : null; }
       set {
         entry_ = value;
         entryCase_ = value == null ? EntryOneofCase.None : EntryOneofCase.Value;
@@ -1739,16 +1740,16 @@ namespace Utos.Daemon.V1 {
     }
 
     /// <summary>Field number for the "result" field.</summary>
-    public const int ResultFieldNumber = 4;
+    public const int ResultFieldNumber = 7;
     /// <summary>
     /// Terminal: the workflow returned this via a `result` action. Absent
-    /// structure (a path that ended without returning) is an empty Struct, not a
+    /// structure (a path that ended without returning) is an empty map, not a
     /// missing entry — the stream always terminates.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Struct Result {
-      get { return entryCase_ == EntryOneofCase.Result ? (global::Google.Protobuf.WellKnownTypes.Struct) entry_ : null; }
+    public global::Utos.Workflows.V1.WorkflowMap Result {
+      get { return entryCase_ == EntryOneofCase.Result ? (global::Utos.Workflows.V1.WorkflowMap) entry_ : null; }
       set {
         entry_ = value;
         entryCase_ = value == null ? EntryOneofCase.None : EntryOneofCase.Result;
@@ -1774,8 +1775,8 @@ namespace Utos.Daemon.V1 {
     /// <summary>Enum of possible cases for the "entry" oneof.</summary>
     public enum EntryOneofCase {
       None = 0,
-      Value = 3,
-      Result = 4,
+      Value = 6,
+      Result = 7,
       Error = 5,
     }
     private EntryOneofCase entryCase_ = EntryOneofCase.None;
@@ -1852,17 +1853,17 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(18);
         output.WriteMessage(Timestamp);
       }
-      if (entryCase_ == EntryOneofCase.Value) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Value);
-      }
-      if (entryCase_ == EntryOneofCase.Result) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Result);
-      }
       if (entryCase_ == EntryOneofCase.Error) {
         output.WriteRawTag(42);
         output.WriteMessage(Error);
+      }
+      if (entryCase_ == EntryOneofCase.Value) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Value);
+      }
+      if (entryCase_ == EntryOneofCase.Result) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Result);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1882,17 +1883,17 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(18);
         output.WriteMessage(Timestamp);
       }
-      if (entryCase_ == EntryOneofCase.Value) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Value);
-      }
-      if (entryCase_ == EntryOneofCase.Result) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Result);
-      }
       if (entryCase_ == EntryOneofCase.Error) {
         output.WriteRawTag(42);
         output.WriteMessage(Error);
+      }
+      if (entryCase_ == EntryOneofCase.Value) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Value);
+      }
+      if (entryCase_ == EntryOneofCase.Result) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Result);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1943,13 +1944,13 @@ namespace Utos.Daemon.V1 {
       switch (other.EntryCase) {
         case EntryOneofCase.Value:
           if (Value == null) {
-            Value = new global::Google.Protobuf.WellKnownTypes.Struct();
+            Value = new global::Utos.Workflows.V1.WorkflowMap();
           }
           Value.MergeFrom(other.Value);
           break;
         case EntryOneofCase.Result:
           if (Result == null) {
-            Result = new global::Google.Protobuf.WellKnownTypes.Struct();
+            Result = new global::Utos.Workflows.V1.WorkflowMap();
           }
           Result.MergeFrom(other.Result);
           break;
@@ -1991,24 +1992,6 @@ namespace Utos.Daemon.V1 {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 26: {
-            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (entryCase_ == EntryOneofCase.Value) {
-              subBuilder.MergeFrom(Value);
-            }
-            input.ReadMessage(subBuilder);
-            Value = subBuilder;
-            break;
-          }
-          case 34: {
-            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (entryCase_ == EntryOneofCase.Result) {
-              subBuilder.MergeFrom(Result);
-            }
-            input.ReadMessage(subBuilder);
-            Result = subBuilder;
-            break;
-          }
           case 42: {
             global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
             if (entryCase_ == EntryOneofCase.Error) {
@@ -2016,6 +1999,24 @@ namespace Utos.Daemon.V1 {
             }
             input.ReadMessage(subBuilder);
             Error = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Utos.Workflows.V1.WorkflowMap subBuilder = new global::Utos.Workflows.V1.WorkflowMap();
+            if (entryCase_ == EntryOneofCase.Value) {
+              subBuilder.MergeFrom(Value);
+            }
+            input.ReadMessage(subBuilder);
+            Value = subBuilder;
+            break;
+          }
+          case 58: {
+            global::Utos.Workflows.V1.WorkflowMap subBuilder = new global::Utos.Workflows.V1.WorkflowMap();
+            if (entryCase_ == EntryOneofCase.Result) {
+              subBuilder.MergeFrom(Result);
+            }
+            input.ReadMessage(subBuilder);
+            Result = subBuilder;
             break;
           }
         }
@@ -2048,24 +2049,6 @@ namespace Utos.Daemon.V1 {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 26: {
-            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (entryCase_ == EntryOneofCase.Value) {
-              subBuilder.MergeFrom(Value);
-            }
-            input.ReadMessage(subBuilder);
-            Value = subBuilder;
-            break;
-          }
-          case 34: {
-            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (entryCase_ == EntryOneofCase.Result) {
-              subBuilder.MergeFrom(Result);
-            }
-            input.ReadMessage(subBuilder);
-            Result = subBuilder;
-            break;
-          }
           case 42: {
             global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
             if (entryCase_ == EntryOneofCase.Error) {
@@ -2073,6 +2056,24 @@ namespace Utos.Daemon.V1 {
             }
             input.ReadMessage(subBuilder);
             Error = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Utos.Workflows.V1.WorkflowMap subBuilder = new global::Utos.Workflows.V1.WorkflowMap();
+            if (entryCase_ == EntryOneofCase.Value) {
+              subBuilder.MergeFrom(Value);
+            }
+            input.ReadMessage(subBuilder);
+            Value = subBuilder;
+            break;
+          }
+          case 58: {
+            global::Utos.Workflows.V1.WorkflowMap subBuilder = new global::Utos.Workflows.V1.WorkflowMap();
+            if (entryCase_ == EntryOneofCase.Result) {
+              subBuilder.MergeFrom(Result);
+            }
+            input.ReadMessage(subBuilder);
+            Result = subBuilder;
             break;
           }
         }
@@ -2979,6 +2980,7 @@ namespace Utos.Daemon.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DeleteExecutionRequest(DeleteExecutionRequest other) : this() {
       executionId_ = other.executionId_;
+      deleteBlobs_ = other.deleteBlobs_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3003,6 +3005,24 @@ namespace Utos.Daemon.V1 {
       }
     }
 
+    /// <summary>Field number for the "delete_blobs" field.</summary>
+    public const int DeleteBlobsFieldNumber = 2;
+    private bool deleteBlobs_;
+    /// <summary>
+    /// Also delete the durable blobs this run tree produced — what it returned or
+    /// emitted. Never a client's upload, which may have started other runs and is
+    /// deleted with BlobService.DeleteBlob. A blob a non-terminal execution can
+    /// still reference is skipped, not deleted.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool DeleteBlobs {
+      get { return deleteBlobs_; }
+      set {
+        deleteBlobs_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3019,6 +3039,7 @@ namespace Utos.Daemon.V1 {
         return true;
       }
       if (ExecutionId != other.ExecutionId) return false;
+      if (DeleteBlobs != other.DeleteBlobs) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3027,6 +3048,7 @@ namespace Utos.Daemon.V1 {
     public override int GetHashCode() {
       int hash = 1;
       if (ExecutionId.Length != 0) hash ^= ExecutionId.GetHashCode();
+      if (DeleteBlobs != false) hash ^= DeleteBlobs.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3049,6 +3071,10 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(10);
         output.WriteString(ExecutionId);
       }
+      if (DeleteBlobs != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(DeleteBlobs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3063,6 +3089,10 @@ namespace Utos.Daemon.V1 {
         output.WriteRawTag(10);
         output.WriteString(ExecutionId);
       }
+      if (DeleteBlobs != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(DeleteBlobs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3075,6 +3105,9 @@ namespace Utos.Daemon.V1 {
       int size = 0;
       if (ExecutionId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ExecutionId);
+      }
+      if (DeleteBlobs != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3090,6 +3123,9 @@ namespace Utos.Daemon.V1 {
       }
       if (other.ExecutionId.Length != 0) {
         ExecutionId = other.ExecutionId;
+      }
+      if (other.DeleteBlobs != false) {
+        DeleteBlobs = other.DeleteBlobs;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3114,6 +3150,10 @@ namespace Utos.Daemon.V1 {
             ExecutionId = input.ReadString();
             break;
           }
+          case 16: {
+            DeleteBlobs = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -3135,6 +3175,10 @@ namespace Utos.Daemon.V1 {
             break;
           case 10: {
             ExecutionId = input.ReadString();
+            break;
+          }
+          case 16: {
+            DeleteBlobs = input.ReadBool();
             break;
           }
         }

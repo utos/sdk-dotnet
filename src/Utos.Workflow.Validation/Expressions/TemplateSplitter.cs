@@ -117,6 +117,14 @@ namespace Utos.Workflows.V1.Validation
     internal static class ExpressionParser
     {
         /// <summary>Parses a program as a strict-mode script — the same parse the engine performs.</summary>
-        public static Program Parse(string source) => new Parser().ParseScript(source, strict: true);
+        /// <remarks>
+        /// <c>AllowAwaitOutsideFunction</c> is what spec 0.20.0 means by "await is permitted at a
+        /// program's top level, as the body of an async arrow is": a program is not a module, so a
+        /// stock script parse would refuse the one place a blob's bytes are read. The engine parses
+        /// with the same option, so the grammar is checked on the tree the engine runs.
+        /// </remarks>
+        public static Program Parse(string source) =>
+            new Parser(new ParserOptions { AllowAwaitOutsideFunction = true })
+                .ParseScript(source, strict: true);
     }
 }

@@ -96,6 +96,13 @@ public static class SourceCodes
     public const string SchemaConstraintUnknown = "UTOS-S014";
 
     /// <summary>
+    /// A <c>maxSize</c> that is neither a non-negative integer nor a size with a recognised
+    /// unit. Units are case-sensitive, because Mb and MB mean different things elsewhere and
+    /// guessing between them is how a limit ends up eight times what was meant.
+    /// </summary>
+    public const string SchemaSizeMalformed = "UTOS-S015";
+
+    /// <summary>
     /// A schema slot is malformed in a way no more specific code covers: not a mapping, or a
     /// <c>$schema</c> naming a dialect this spec does not define.
     /// </summary>

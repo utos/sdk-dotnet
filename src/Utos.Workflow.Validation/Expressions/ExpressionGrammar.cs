@@ -48,6 +48,7 @@ namespace Utos.Workflows.V1.Validation
                         Reject(v, ValidationCodes.ExpressionVar, "use const or let", node);
                     foreach (VariableDeclarator declarator in declaration.Declarations)
                     {
+                        CheckRetiredDestructuring(declarator, v);
                         CheckPattern(declarator.Id, inArrowBody, v);
                         if (declarator.Init != null) CheckExpression(declarator.Init, inArrowBody, v);
                     }
@@ -222,6 +223,7 @@ namespace Utos.Workflows.V1.Validation
                     break;
 
                 case MemberExpression member:
+                    CheckRetiredMember(member, v);
                     CheckExpression(member.Object, inArrowBody, v);
                     if (member.Computed) CheckExpression(member.Property, inArrowBody, v);
                     else if (!(member.Property is Identifier))
@@ -241,7 +243,7 @@ namespace Utos.Workflows.V1.Validation
 
                 case NewExpression newExpression:
                     if (!(newExpression.Callee is Identifier newCallee && IsConstructible(newCallee.Name)))
-                        Reject(v, ValidationCodes.ExpressionNew, "`new` is limited to Set, Map, Date, URL and URLSearchParams", node);
+                        Reject(v, ValidationCodes.ExpressionNew, "`new` is limited to Set, Map, Date, URL, URLSearchParams, Blob and File", node);
                     CheckArguments(newExpression.Arguments, inArrowBody, v);
                     break;
 
@@ -283,9 +285,9 @@ namespace Utos.Workflows.V1.Validation
                     CheckExpression(unary.Argument, inArrowBody, v);
                     break;
 
+                // `async` arrows are in the language since spec 0.20.0: reading a blob's bytes is
+                // asynchronous, as it is in Node, and an arrow is the only function form there is.
                 case ArrowFunctionExpression arrow:
-                    if (arrow.Async)
-                        Reject(v, ValidationCodes.ExpressionAsync, "async arrow functions are not part of the language", node);
                     foreach (Node parameter in arrow.Params) CheckPattern(parameter, true, v);
                     if (arrow.Body is BlockStatement block)
                         foreach (Statement statement in block.Body) CheckStatement(statement, true, v);
@@ -304,9 +306,17 @@ namespace Utos.Workflows.V1.Validation
                 case ThisExpression:
                     Reject(v, ValidationCodes.ExpressionThis, "`this` is not part of the language", node);
                     break;
+                // Awaiting is syntax, not concurrency: a blob read happens when the member is
+                // called and the promise it returns is already settled (spec 0.20.0 § Awaiting).
+                case AwaitExpression await_:
+                    CheckExpression(await_.Argument, inArrowBody, v);
+                    break;
+
+                // A generator cannot be written without `function*` or a method, both refused
+                // before this, so `yield` is only reachable as a parse error. Refused here for
+                // completeness rather than because a document can arrive carrying one.
                 case YieldExpression:
-                case AwaitExpression:
-                    Reject(v, ValidationCodes.ExpressionAsync, "async and generator constructs are not part of the language", node);
+                    Reject(v, ValidationCodes.ExpressionUnknownNode, "generators are not part of the language", node);
                     break;
                 case ImportExpression:
                 case MetaProperty:
@@ -334,13 +344,73 @@ namespace Utos.Workflows.V1.Validation
         private static bool IsForbiddenCallee(string name) =>
             name == "Array" || name == "Object" || name == "Function" || name == "eval";
 
-        // The five constructible globals of the surface: the two collections, and the three
-        // Node globals whose value is an object rather than a function call.
+        // The constructible globals of the surface: the two collections, the three Node globals
+        // whose value is an object rather than a function call, and since spec 0.20.0 the two
+        // byte types — `new Blob([buf], { type })` is how bytes leave an expression.
         private static bool IsConstructible(string name) =>
-            name == "Set" || name == "Map" || name == "Date" || name == "URL" || name == "URLSearchParams";
+            name == "Set" || name == "Map" || name == "Date" || name == "URL"
+            || name == "URLSearchParams" || name == "Blob" || name == "File";
 
-        // Everything but `instanceof`: it reads the prototype chain, which the language has no
-        // other way to observe. Bitwise and shift operators are pure integer arithmetic.
+        /// <summary>
+        /// Members a scope name used to have. Reading one is UTOS-E070 rather than the
+        /// `undefined` any other missing member reads as, because a document written against
+        /// the older spec would otherwise keep running and quietly mean something else.
+        /// </summary>
+        private static readonly (string Scope, string Member, string Instead)[] RetiredMembers =
+        {
+            // Retired in 0.20.0: a body may be larger than memory, so it is a Blob whose bytes
+            // are read on demand rather than text decoded in advance.
+            ("response", "bodyText", "await response.body.text()"),
+        };
+
+        private static void CheckRetiredMember(MemberExpression member, List<GrammarViolation> v)
+        {
+            // Only where the object is the scope name itself. A local that shadows it is a
+            // different thing with the same spelling, and the rule says nothing about it.
+            if (!(member.Object is Identifier scope)) return;
+
+            string name = member.Computed
+                ? (member.Property as StringLiteral)?.Value
+                : (member.Property as Identifier)?.Name;
+            if (name == null) return;
+
+            foreach (var retired in RetiredMembers)
+            {
+                if (scope.Name != retired.Scope || name != retired.Member) continue;
+                Reject(v, ValidationCodes.ExpressionRetiredMember,
+                    "`" + retired.Scope + "." + retired.Member + "` was retired; use `"
+                    + retired.Instead + "`", member);
+            }
+        }
+
+        private static void CheckRetiredDestructuring(VariableDeclarator declarator, List<GrammarViolation> v)
+        {
+            if (!(declarator.Init is Identifier scope)) return;
+            if (!(declarator.Id is ObjectPattern pattern)) return;
+
+            foreach (Node item in pattern.Properties)
+            {
+                if (!(item is AssignmentProperty property)) continue;
+
+                string name = property.Computed
+                    ? (property.Key as StringLiteral)?.Value
+                    : (property.Key as Identifier)?.Name;
+                if (name == null) continue;
+
+                foreach (var retired in RetiredMembers)
+                {
+                    if (scope.Name != retired.Scope || name != retired.Member) continue;
+                    Reject(v, ValidationCodes.ExpressionRetiredMember,
+                        "`" + retired.Scope + "." + retired.Member + "` was retired; use `"
+                        + retired.Instead + "`", property);
+                }
+            }
+        }
+
+        // Including `instanceof` since spec 0.20.0: `value instanceof Blob` is how Node recognises
+        // a blob, and reading a prototype chain is something `Object.getPrototypeOf` already does.
+        // "No prototypes" is about building or changing one. Bitwise and shift operators are pure
+        // integer arithmetic.
         private static bool IsAllowedBinary(Operator op)
         {
             switch (op)
@@ -366,6 +436,7 @@ namespace Utos.Workflows.V1.Validation
                 case Operator.RightShift:
                 case Operator.UnsignedRightShift:
                 case Operator.In:
+                case Operator.InstanceOf:
                     return true;
                 default:
                     return false;
