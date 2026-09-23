@@ -179,7 +179,7 @@ namespace Utos.Workflows.V1 {
 
     private string namespace_;
     /// <summary>
-    /// Namespace qualifier (e.g., "google" in "google/gmail:v1.0.0"). Omitted for
+    /// Namespace qualifier (e.g., "google" in "google/gmail:1.0.0"). Omitted for
     /// local/unpublished workflows.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -900,10 +900,9 @@ namespace Utos.Workflows.V1 {
     /// Map of activity name to activity definition. Activity names (the keys) are
     /// referenced by TransitionTarget.name.
     ///
-    /// No name is reserved. Until 0.0.16 "end" and "error" were terminal keywords
-    /// a transition could target; ending a path is now a `result` action and
-    /// failing it an `error` action, so a target is always an activity and the
-    /// comparison is ordinal everywhere (UTOS-A003 is retired).
+    /// No name is reserved: ending a path is a `result` action and failing it an
+    /// `error` action, so a transition target is always an activity, compared
+    /// ordinally (UTOS-T003).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

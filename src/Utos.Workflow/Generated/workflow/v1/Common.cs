@@ -128,6 +128,11 @@ namespace Utos.Workflows.V1 {
     private global::Google.Protobuf.WellKnownTypes.Struct details_;
     /// <summary>
     /// Additional structured details. As an authored action, a struct template.
+    ///
+    /// Stays a Struct, unlike the other values a run reports, because this
+    /// message is also the authored action and a bundle carries templates. Details
+    /// are therefore plain JSON: a blob rendered into them is UTOS-E103. An error
+    /// explains a failure; it does not carry a payload.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

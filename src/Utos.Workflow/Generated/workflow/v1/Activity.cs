@@ -25,76 +25,69 @@ namespace Utos.Workflows.V1 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Chp3b3JrZmxvdy92MS9hY3Rpdml0eS5wcm90bxIQdXRvcy53b3JrZmxvdy52",
-            "MRoeZ29vZ2xlL3Byb3RvYnVmL2R1cmF0aW9uLnByb3RvGhxnb29nbGUvcHJv",
-            "dG9idWYvc3RydWN0LnByb3RvGhh3b3JrZmxvdy92MS9jb21tb24ucHJvdG8i",
-            "ogMKEFdvcmtmbG93QWN0aXZpdHkSNAoKb25fc3VjY2VzcxgBIAMoCzIgLnV0",
-            "b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblJ1bGUSNAoKb25fZmFpbHVyZRgC",
-            "IAMoCzIgLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblJ1bGUSMAoGc2No",
-            "ZW1hGAMgASgLMiAudXRvcy53b3JrZmxvdy52MS5BY3Rpdml0eVNjaGVtYRI0",
-            "CgRodHRwGAogASgLMiQudXRvcy53b3JrZmxvdy52MS5IdHRwQWN0aXZpdHlD",
-            "b25maWdIABI8Cgh3b3JrZmxvdxgLIAEoCzIoLnV0b3Mud29ya2Zsb3cudjEu",
-            "V29ya2Zsb3dBY3Rpdml0eUNvbmZpZ0gAEjoKB3Byb21pc2UYDCABKAsyJy51",
-            "dG9zLndvcmtmbG93LnYxLlByb21pc2VBY3Rpdml0eUNvbmZpZ0gAEjYKBXRp",
-            "bWVyGA0gASgLMiUudXRvcy53b3JrZmxvdy52MS5UaW1lckFjdGl2aXR5Q29u",
-            "ZmlnSABCCAoGY29uZmlnIjgKDkFjdGl2aXR5U2NoZW1hEiYKBWlucHV0GAEg",
-            "ASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdCKFAgoOVHJhbnNpdGlvblJ1",
-            "bGUSFgoJY29uZGl0aW9uGAEgASgJSAGIAQESOAoKdHJhbnNpdGlvbhgCIAEo",
-            "CzIiLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNpdGlvblRhcmdldEgAEikKBnJl",
-            "c3VsdBgDIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIABIsCgRlbWl0",
-            "GAQgASgLMhwudXRvcy53b3JrZmxvdy52MS5FbWl0QWN0aW9uSAASMAoFZXJy",
-            "b3IYBSABKAsyHy51dG9zLndvcmtmbG93LnYxLldvcmtmbG93RXJyb3JIAEII",
-            "CgZhY3Rpb25CDAoKX2NvbmRpdGlvbiJsCgpFbWl0QWN0aW9uEiYKBXZhbHVl",
-            "GAEgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdBI2Cgp0cmFuc2l0aW9u",
-            "GAIgASgLMiIudXRvcy53b3JrZmxvdy52MS5UcmFuc2l0aW9uVGFyZ2V0IlcK",
-            "EFRyYW5zaXRpb25UYXJnZXQSDAoEbmFtZRgBIAEoCRIrCgVpbnB1dBgCIAEo",
-            "CzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RIAIgBAUIICgZfaW5wdXQiwQEK",
-            "Ekh0dHBBY3Rpdml0eUNvbmZpZxIOCgZtZXRob2QYASABKAkSCwoDdXJsGAIg",
-            "ASgJEkIKB2hlYWRlcnMYAyADKAsyMS51dG9zLndvcmtmbG93LnYxLkh0dHBB",
-            "Y3Rpdml0eUNvbmZpZy5IZWFkZXJzRW50cnkSEQoEYm9keRgEIAEoCUgAiAEB",
-            "Gi4KDEhlYWRlcnNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6",
-            "AjgBQgcKBV9ib2R5IkIKE1RpbWVyQWN0aXZpdHlDb25maWcSKwoIZHVyYXRp",
-            "b24YASABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb24i8AEKFldvcmtm",
-            "bG93QWN0aXZpdHlDb25maWcSEAoId29ya2Zsb3cYASABKAkSFgoOc3RhcnRf",
-            "YWN0aXZpdHkYAiABKAkSJgoFaW5wdXQYAyABKAsyFy5nb29nbGUucHJvdG9i",
-            "dWYuU3RydWN0EjQKBGNhbGwYBSABKAsyJC51dG9zLndvcmtmbG93LnYxLkNh",
-            "bGxBY3Rpdml0eUNvbmZpZ0gAEjYKBXNwYXduGAYgASgLMiUudXRvcy53b3Jr",
-            "Zmxvdy52MS5TcGF3bkFjdGl2aXR5Q29uZmlnSABCBgoEbW9kZUoECAQQBVII",
-            "ZGV0YWNoZWQiSAoSQ2FsbEFjdGl2aXR5Q29uZmlnEjIKCm9uX2VtaXR0ZWQY",
-            "ASADKAsyHi51dG9zLndvcmtmbG93LnYxLkVtaXNzaW9uUnVsZSIVChNTcGF3",
-            "bkFjdGl2aXR5Q29uZmlnIswCChVQcm9taXNlQWN0aXZpdHlDb25maWcSMQoI",
-            "YnJhbmNoZXMYAyADKAsyHy51dG9zLndvcmtmbG93LnYxLlByb21pc2VCcmFu",
-            "Y2gSMQoDYWxsGAQgASgLMiIudXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQWxs",
-            "Q29uZmlnSAASMQoDYW55GAUgASgLMiIudXRvcy53b3JrZmxvdy52MS5Qcm9t",
-            "aXNlQW55Q29uZmlnSAASMwoEcmFjZRgGIAEoCzIjLnV0b3Mud29ya2Zsb3cu",
-            "djEuUHJvbWlzZVJhY2VDb25maWdIABI1CgVjb3VudBgHIAEoCzIkLnV0b3Mu",
-            "d29ya2Zsb3cudjEuUHJvbWlzZUNvdW50Q29uZmlnSABCDAoKY29tcGxldGlv",
-            "bkoECAEQAkoECAIQA1IEbW9kZVIOcmVxdWlyZWRfY291bnQiEgoQUHJvbWlz",
-            "ZUFsbENvbmZpZyISChBQcm9taXNlQW55Q29uZmlnIhMKEVByb21pc2VSYWNl",
-            "Q29uZmlnIiwKElByb21pc2VDb3VudENvbmZpZxIWCg5yZXF1aXJlZF9jb3Vu",
-            "dBgBIAEoBSL3AQoNUHJvbWlzZUJyYW5jaBIMCgRuYW1lGAEgASgJEjYKCGZv",
-            "cl9lYWNoGAIgASgLMh8udXRvcy53b3JrZmxvdy52MS5Gb3JFYWNoQ29uZmln",
-            "SACIAQESFgoJY29uZGl0aW9uGAMgASgJSAGIAQESEAoId29ya2Zsb3cYBSAB",
-            "KAkSFgoOc3RhcnRfYWN0aXZpdHkYBiABKAkSKwoFaW5wdXQYByABKAsyFy5n",
-            "b29nbGUucHJvdG9idWYuU3RydWN0SAKIAQFCCwoJX2Zvcl9lYWNoQgwKCl9j",
-            "b25kaXRpb25CCAoGX2lucHV0SgQIBBAFUgZ0YXJnZXQiigIKDEVtaXNzaW9u",
-            "UnVsZRIWCgljb25kaXRpb24YASABKAlIAYgBARIzCgZoYW5kbGUYAiABKAsy",
-            "IS51dG9zLndvcmtmbG93LnYxLkhhbmRsZXJEaXNwYXRjaEgAEjgKCnRyYW5z",
-            "aXRpb24YAyABKAsyIi51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25UYXJn",
-            "ZXRIABIpCgZyZXN1bHQYBCABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0",
-            "SAASMAoFZXJyb3IYBSABKAsyHy51dG9zLndvcmtmbG93LnYxLldvcmtmbG93",
-            "RXJyb3JIAEIICgZhY3Rpb25CDAoKX2NvbmRpdGlvbiJyCg9IYW5kbGVyRGlz",
-            "cGF0Y2gSEAoId29ya2Zsb3cYASABKAkSFgoOc3RhcnRfYWN0aXZpdHkYAiAB",
-            "KAkSKwoFaW5wdXQYAyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SACI",
-            "AQFCCAoGX2lucHV0IjIKDUZvckVhY2hDb25maWcSEgoKY29sbGVjdGlvbhgB",
-            "IAEoCRINCgVhbGlhcxgCIAEoCUIUqgIRVXRvcy5Xb3JrZmxvd3MuVjFiBnBy",
-            "b3RvMw=="));
+            "MRocZ29vZ2xlL3Byb3RvYnVmL3N0cnVjdC5wcm90bxoYd29ya2Zsb3cvdjEv",
+            "Y29tbW9uLnByb3RvIqIDChBXb3JrZmxvd0FjdGl2aXR5EjQKCm9uX3N1Y2Nl",
+            "c3MYASADKAsyIC51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRpb25SdWxlEjQK",
+            "Cm9uX2ZhaWx1cmUYAiADKAsyIC51dG9zLndvcmtmbG93LnYxLlRyYW5zaXRp",
+            "b25SdWxlEjAKBnNjaGVtYRgDIAEoCzIgLnV0b3Mud29ya2Zsb3cudjEuQWN0",
+            "aXZpdHlTY2hlbWESNAoEaHR0cBgKIAEoCzIkLnV0b3Mud29ya2Zsb3cudjEu",
+            "SHR0cEFjdGl2aXR5Q29uZmlnSAASPAoId29ya2Zsb3cYCyABKAsyKC51dG9z",
+            "LndvcmtmbG93LnYxLldvcmtmbG93QWN0aXZpdHlDb25maWdIABI6Cgdwcm9t",
+            "aXNlGAwgASgLMicudXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQWN0aXZpdHlD",
+            "b25maWdIABI2CgV0aW1lchgNIAEoCzIlLnV0b3Mud29ya2Zsb3cudjEuVGlt",
+            "ZXJBY3Rpdml0eUNvbmZpZ0gAQggKBmNvbmZpZyI4Cg5BY3Rpdml0eVNjaGVt",
+            "YRImCgVpbnB1dBgBIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3QixAIK",
+            "DlRyYW5zaXRpb25SdWxlEhYKCWNvbmRpdGlvbhgBIAEoCUgCiAEBEicKBGVt",
+            "aXQYBiABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0SAASNAoId29ya2Zs",
+            "b3cYByABKAsyIC51dG9zLndvcmtmbG93LnYxLkRpc3BhdGNoRWZmZWN0SAAS",
+            "OAoKdHJhbnNpdGlvbhgCIAEoCzIiLnV0b3Mud29ya2Zsb3cudjEuVHJhbnNp",
+            "dGlvblRhcmdldEgBEikKBnJlc3VsdBgDIAEoCzIXLmdvb2dsZS5wcm90b2J1",
+            "Zi5TdHJ1Y3RIARIwCgVlcnJvchgFIAEoCzIfLnV0b3Mud29ya2Zsb3cudjEu",
+            "V29ya2Zsb3dFcnJvckgBQggKBmVmZmVjdEIGCgRleGl0QgwKCl9jb25kaXRp",
+            "b25KBAgEEAUiSwoORGlzcGF0Y2hFZmZlY3QSMQoEY2FsbBgBIAEoCzIhLnV0",
+            "b3Mud29ya2Zsb3cudjEuSGFuZGxlckRpc3BhdGNoSABCBgoEbW9kZSJXChBU",
+            "cmFuc2l0aW9uVGFyZ2V0EgwKBG5hbWUYASABKAkSKwoFaW5wdXQYAiABKAsy",
+            "Fy5nb29nbGUucHJvdG9idWYuU3RydWN0SACIAQFCCAoGX2lucHV0IsEBChJI",
+            "dHRwQWN0aXZpdHlDb25maWcSDgoGbWV0aG9kGAEgASgJEgsKA3VybBgCIAEo",
+            "CRJCCgdoZWFkZXJzGAMgAygLMjEudXRvcy53b3JrZmxvdy52MS5IdHRwQWN0",
+            "aXZpdHlDb25maWcuSGVhZGVyc0VudHJ5EhEKBGJvZHkYBCABKAlIAIgBARou",
+            "CgxIZWFkZXJzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4",
+            "AUIHCgVfYm9keSItChNUaW1lckFjdGl2aXR5Q29uZmlnEhAKCGR1cmF0aW9u",
+            "GAIgASgJSgQIARACIvABChZXb3JrZmxvd0FjdGl2aXR5Q29uZmlnEhAKCHdv",
+            "cmtmbG93GAEgASgJEhYKDnN0YXJ0X2FjdGl2aXR5GAIgASgJEiYKBWlucHV0",
+            "GAMgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdBI0CgRjYWxsGAUgASgL",
+            "MiQudXRvcy53b3JrZmxvdy52MS5DYWxsQWN0aXZpdHlDb25maWdIABI2CgVz",
+            "cGF3bhgGIAEoCzIlLnV0b3Mud29ya2Zsb3cudjEuU3Bhd25BY3Rpdml0eUNv",
+            "bmZpZ0gAQgYKBG1vZGVKBAgEEAVSCGRldGFjaGVkIlAKEkNhbGxBY3Rpdml0",
+            "eUNvbmZpZxI0Cgpvbl9lbWl0dGVkGAIgAygLMiAudXRvcy53b3JrZmxvdy52",
+            "MS5UcmFuc2l0aW9uUnVsZUoECAEQAiIVChNTcGF3bkFjdGl2aXR5Q29uZmln",
+            "IswCChVQcm9taXNlQWN0aXZpdHlDb25maWcSMQoIYnJhbmNoZXMYAyADKAsy",
+            "Hy51dG9zLndvcmtmbG93LnYxLlByb21pc2VCcmFuY2gSMQoDYWxsGAQgASgL",
+            "MiIudXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQWxsQ29uZmlnSAASMQoDYW55",
+            "GAUgASgLMiIudXRvcy53b3JrZmxvdy52MS5Qcm9taXNlQW55Q29uZmlnSAAS",
+            "MwoEcmFjZRgGIAEoCzIjLnV0b3Mud29ya2Zsb3cudjEuUHJvbWlzZVJhY2VD",
+            "b25maWdIABI1CgVjb3VudBgHIAEoCzIkLnV0b3Mud29ya2Zsb3cudjEuUHJv",
+            "bWlzZUNvdW50Q29uZmlnSABCDAoKY29tcGxldGlvbkoECAEQAkoECAIQA1IE",
+            "bW9kZVIOcmVxdWlyZWRfY291bnQiEgoQUHJvbWlzZUFsbENvbmZpZyISChBQ",
+            "cm9taXNlQW55Q29uZmlnIhMKEVByb21pc2VSYWNlQ29uZmlnIiwKElByb21p",
+            "c2VDb3VudENvbmZpZxIWCg5yZXF1aXJlZF9jb3VudBgBIAEoBSL3AQoNUHJv",
+            "bWlzZUJyYW5jaBIMCgRuYW1lGAEgASgJEjYKCGZvcl9lYWNoGAIgASgLMh8u",
+            "dXRvcy53b3JrZmxvdy52MS5Gb3JFYWNoQ29uZmlnSACIAQESFgoJY29uZGl0",
+            "aW9uGAMgASgJSAGIAQESEAoId29ya2Zsb3cYBSABKAkSFgoOc3RhcnRfYWN0",
+            "aXZpdHkYBiABKAkSKwoFaW5wdXQYByABKAsyFy5nb29nbGUucHJvdG9idWYu",
+            "U3RydWN0SAKIAQFCCwoJX2Zvcl9lYWNoQgwKCl9jb25kaXRpb25CCAoGX2lu",
+            "cHV0SgQIBBAFUgZ0YXJnZXQicgoPSGFuZGxlckRpc3BhdGNoEhAKCHdvcmtm",
+            "bG93GAEgASgJEhYKDnN0YXJ0X2FjdGl2aXR5GAIgASgJEisKBWlucHV0GAMg",
+            "ASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdEgAiAEBQggKBl9pbnB1dCIy",
+            "Cg1Gb3JFYWNoQ29uZmlnEhIKCmNvbGxlY3Rpb24YASABKAkSDQoFYWxpYXMY",
+            "AiABKAlCFKoCEVV0b3MuV29ya2Zsb3dzLlYxYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Utos.Workflows.V1.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.WorkflowActivity), global::Utos.Workflows.V1.WorkflowActivity.Parser, new[]{ "OnSuccess", "OnFailure", "Schema", "Http", "Workflow", "Promise", "Timer" }, new[]{ "Config" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.ActivitySchema), global::Utos.Workflows.V1.ActivitySchema.Parser, new[]{ "Input" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionRule), global::Utos.Workflows.V1.TransitionRule.Parser, new[]{ "Condition", "Transition", "Result", "Emit", "Error" }, new[]{ "Action", "Condition" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.EmitAction), global::Utos.Workflows.V1.EmitAction.Parser, new[]{ "Value", "Transition" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionRule), global::Utos.Workflows.V1.TransitionRule.Parser, new[]{ "Condition", "Emit", "Workflow", "Transition", "Result", "Error" }, new[]{ "Effect", "Exit", "Condition" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.DispatchEffect), global::Utos.Workflows.V1.DispatchEffect.Parser, new[]{ "Call" }, new[]{ "Mode" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TransitionTarget), global::Utos.Workflows.V1.TransitionTarget.Parser, new[]{ "Name", "Input" }, new[]{ "Input" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.HttpActivityConfig), global::Utos.Workflows.V1.HttpActivityConfig.Parser, new[]{ "Method", "Url", "Headers", "Body" }, new[]{ "Body" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.TimerActivityConfig), global::Utos.Workflows.V1.TimerActivityConfig.Parser, new[]{ "Duration" }, null, null, null, null),
@@ -107,7 +100,6 @@ namespace Utos.Workflows.V1 {
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseRaceConfig), global::Utos.Workflows.V1.PromiseRaceConfig.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseCountConfig), global::Utos.Workflows.V1.PromiseCountConfig.Parser, new[]{ "RequiredCount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.PromiseBranch), global::Utos.Workflows.V1.PromiseBranch.Parser, new[]{ "Name", "ForEach", "Condition", "Workflow", "StartActivity", "Input" }, new[]{ "ForEach", "Condition", "Input" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.EmissionRule), global::Utos.Workflows.V1.EmissionRule.Parser, new[]{ "Condition", "Handle", "Transition", "Result", "Error" }, new[]{ "Action", "Condition" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.HandlerDispatch), global::Utos.Workflows.V1.HandlerDispatch.Parser, new[]{ "Workflow", "StartActivity", "Input" }, new[]{ "Input" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Utos.Workflows.V1.ForEachConfig), global::Utos.Workflows.V1.ForEachConfig.Parser, new[]{ "Collection", "Alias" }, null, null, null, null)
           }));
@@ -880,7 +872,15 @@ namespace Utos.Workflows.V1 {
   }
 
   /// <summary>
-  /// Defines a conditional transition rule with an action (transition, result, or emit)
+  /// One rule, in any list: an optional condition, at most one **effect** — what
+  /// happens — and at most one **exit** — where the run goes next. A rule with
+  /// neither is rejected (UTOS-T001).
+  ///
+  /// The same message serves every list, so a rule reads the same wherever it
+  /// appears. The lists differ only in whether an exit is required: `on_success`
+  /// and `on_failure` end the activity, so the run must go somewhere, while an
+  /// `on_emitted` rule runs once per value and an exit is what stops consuming.
+  /// See docs/workflow-source-format.md § Transitions.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class TransitionRule : pb::IMessage<TransitionRule>
@@ -918,17 +918,23 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TransitionRule(TransitionRule other) : this() {
       condition_ = other.condition_;
-      switch (other.ActionCase) {
-        case ActionOneofCase.Transition:
-          Transition = other.Transition.Clone();
-          break;
-        case ActionOneofCase.Result:
-          Result = other.Result.Clone();
-          break;
-        case ActionOneofCase.Emit:
+      switch (other.EffectCase) {
+        case EffectOneofCase.Emit:
           Emit = other.Emit.Clone();
           break;
-        case ActionOneofCase.Error:
+        case EffectOneofCase.Workflow:
+          Workflow = other.Workflow.Clone();
+          break;
+      }
+
+      switch (other.ExitCase) {
+        case ExitOneofCase.Transition:
+          Transition = other.Transition.Clone();
+          break;
+        case ExitOneofCase.Result:
+          Result = other.Result.Clone();
+          break;
+        case ExitOneofCase.Error:
           Error = other.Error.Clone();
           break;
       }
@@ -952,8 +958,8 @@ namespace Utos.Workflows.V1 {
     /// `output.count > 10` — as docs/template-expressions.md defines. Not `{{ }}`-
     /// wrapped (UTOS-E061). If empty/omitted, the rule always matches (a fallback).
     /// Available context: `input` (data the source activity received),
-    /// `output` (raw output from the source activity's execution),
-    /// `env` (the run's ambient environment map, available to every activity),
+    /// `output` (raw output from the source activity's execution, or the emitted
+    /// value in an `on_emitted` rule), `env` (the run's ambient environment map),
     /// `response` and `error` — always defined, null where they do not apply.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -977,20 +983,60 @@ namespace Utos.Workflows.V1 {
       condition_ = null;
     }
 
+    /// <summary>Field number for the "emit" field.</summary>
+    public const int EmitFieldNumber = 6;
+    /// <summary>
+    /// Append this value to the execution's output stream and carry on. Leaf
+    /// string values may contain {{ }} template expressions, resolved in the
+    /// same context as this rule's condition.
+    ///
+    /// A caller that invoked this workflow with `workflow.call` and declared
+    /// `on_emitted` is a privileged consumer: the emit does not complete until
+    /// that consumer's cursor advances past the entry, which bounds the
+    /// unconsumed buffer to one entry. With no privileged consumer the emit
+    /// completes as soon as the entry is durable. See
+    /// docs/execution-output-stream.md.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Emit {
+      get { return effectCase_ == EffectOneofCase.Emit ? (global::Google.Protobuf.WellKnownTypes.Struct) effect_ : null; }
+      set {
+        effect_ = value;
+        effectCase_ = value == null ? EffectOneofCase.None : EffectOneofCase.Emit;
+      }
+    }
+
+    /// <summary>Field number for the "workflow" field.</summary>
+    public const int WorkflowFieldNumber = 7;
+    /// <summary>
+    /// Run a document. In the source format the mode is part of the key, as it
+    /// is in an activity's `type`: `workflow.call`.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Utos.Workflows.V1.DispatchEffect Workflow {
+      get { return effectCase_ == EffectOneofCase.Workflow ? (global::Utos.Workflows.V1.DispatchEffect) effect_ : null; }
+      set {
+        effect_ = value;
+        effectCase_ = value == null ? EffectOneofCase.None : EffectOneofCase.Workflow;
+      }
+    }
+
     /// <summary>Field number for the "transition" field.</summary>
     public const int TransitionFieldNumber = 2;
     /// <summary>
-    /// Transition to another activity in this workflow. Since 0.0.16 a target is
-    /// always an activity: the former `end` and `error` keywords are `result`
-    /// and `error` below, so a name is never ambiguous.
+    /// Transition to another activity in this workflow (UTOS-T003). A target is
+    /// always an activity: ending a path is `result` and failing it is `error`,
+    /// so a name is never ambiguous.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Utos.Workflows.V1.TransitionTarget Transition {
-      get { return actionCase_ == ActionOneofCase.Transition ? (global::Utos.Workflows.V1.TransitionTarget) action_ : null; }
+      get { return exitCase_ == ExitOneofCase.Transition ? (global::Utos.Workflows.V1.TransitionTarget) exit_ : null; }
       set {
-        action_ = value;
-        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Transition;
+        exit_ = value;
+        exitCase_ = value == null ? ExitOneofCase.None : ExitOneofCase.Transition;
       }
     }
 
@@ -1005,25 +1051,10 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Struct Result {
-      get { return actionCase_ == ActionOneofCase.Result ? (global::Google.Protobuf.WellKnownTypes.Struct) action_ : null; }
+      get { return exitCase_ == ExitOneofCase.Result ? (global::Google.Protobuf.WellKnownTypes.Struct) exit_ : null; }
       set {
-        action_ = value;
-        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Result;
-      }
-    }
-
-    /// <summary>Field number for the "emit" field.</summary>
-    public const int EmitFieldNumber = 4;
-    /// <summary>
-    /// Append a value to this execution's output stream and keep going.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflows.V1.EmitAction Emit {
-      get { return actionCase_ == ActionOneofCase.Emit ? (global::Utos.Workflows.V1.EmitAction) action_ : null; }
-      set {
-        action_ = value;
-        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Emit;
+        exit_ = value;
+        exitCase_ = value == null ? ExitOneofCase.None : ExitOneofCase.Result;
       }
     }
 
@@ -1033,8 +1064,7 @@ namespace Utos.Workflows.V1 {
     /// End this execution path as a failure, with this error. The run reports
     /// exactly what the author wrote: `code` is a literal identifier (required,
     /// UTOS-T005); `message` is a text template and `details` a struct template,
-    /// rendered in the same context as the condition. Replaces the former
-    /// `transition: { name: error }`, which could carry no reason.
+    /// rendered in the same context as the condition.
     ///
     /// An EMPTY WorkflowError in an `on_failure` rule re-raises the failure being
     /// handled, as it is — its `code`, `message` and `details` — and is legal
@@ -1043,34 +1073,54 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Utos.Workflows.V1.WorkflowError Error {
-      get { return actionCase_ == ActionOneofCase.Error ? (global::Utos.Workflows.V1.WorkflowError) action_ : null; }
+      get { return exitCase_ == ExitOneofCase.Error ? (global::Utos.Workflows.V1.WorkflowError) exit_ : null; }
       set {
-        action_ = value;
-        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Error;
+        exit_ = value;
+        exitCase_ = value == null ? ExitOneofCase.None : ExitOneofCase.Error;
       }
     }
 
-    private object action_;
-    /// <summary>Enum of possible cases for the "action" oneof.</summary>
-    public enum ActionOneofCase {
+    private object effect_;
+    /// <summary>Enum of possible cases for the "effect" oneof.</summary>
+    public enum EffectOneofCase {
       None = 0,
-      Transition = 2,
-      Result = 3,
-      Emit = 4,
-      Error = 5,
+      Emit = 6,
+      Workflow = 7,
     }
-    private ActionOneofCase actionCase_ = ActionOneofCase.None;
+    private EffectOneofCase effectCase_ = EffectOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ActionOneofCase ActionCase {
-      get { return actionCase_; }
+    public EffectOneofCase EffectCase {
+      get { return effectCase_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAction() {
-      actionCase_ = ActionOneofCase.None;
-      action_ = null;
+    public void ClearEffect() {
+      effectCase_ = EffectOneofCase.None;
+      effect_ = null;
+    }
+
+    private object exit_;
+    /// <summary>Enum of possible cases for the "exit" oneof.</summary>
+    public enum ExitOneofCase {
+      None = 0,
+      Transition = 2,
+      Result = 3,
+      Error = 5,
+    }
+    private ExitOneofCase exitCase_ = ExitOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExitOneofCase ExitCase {
+      get { return exitCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearExit() {
+      exitCase_ = ExitOneofCase.None;
+      exit_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1089,11 +1139,13 @@ namespace Utos.Workflows.V1 {
         return true;
       }
       if (Condition != other.Condition) return false;
+      if (!object.Equals(Emit, other.Emit)) return false;
+      if (!object.Equals(Workflow, other.Workflow)) return false;
       if (!object.Equals(Transition, other.Transition)) return false;
       if (!object.Equals(Result, other.Result)) return false;
-      if (!object.Equals(Emit, other.Emit)) return false;
       if (!object.Equals(Error, other.Error)) return false;
-      if (ActionCase != other.ActionCase) return false;
+      if (EffectCase != other.EffectCase) return false;
+      if (ExitCase != other.ExitCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1102,11 +1154,13 @@ namespace Utos.Workflows.V1 {
     public override int GetHashCode() {
       int hash = 1;
       if (HasCondition) hash ^= Condition.GetHashCode();
-      if (actionCase_ == ActionOneofCase.Transition) hash ^= Transition.GetHashCode();
-      if (actionCase_ == ActionOneofCase.Result) hash ^= Result.GetHashCode();
-      if (actionCase_ == ActionOneofCase.Emit) hash ^= Emit.GetHashCode();
-      if (actionCase_ == ActionOneofCase.Error) hash ^= Error.GetHashCode();
-      hash ^= (int) actionCase_;
+      if (effectCase_ == EffectOneofCase.Emit) hash ^= Emit.GetHashCode();
+      if (effectCase_ == EffectOneofCase.Workflow) hash ^= Workflow.GetHashCode();
+      if (exitCase_ == ExitOneofCase.Transition) hash ^= Transition.GetHashCode();
+      if (exitCase_ == ExitOneofCase.Result) hash ^= Result.GetHashCode();
+      if (exitCase_ == ExitOneofCase.Error) hash ^= Error.GetHashCode();
+      hash ^= (int) effectCase_;
+      hash ^= (int) exitCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1129,21 +1183,25 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(10);
         output.WriteString(Condition);
       }
-      if (actionCase_ == ActionOneofCase.Transition) {
+      if (exitCase_ == ExitOneofCase.Transition) {
         output.WriteRawTag(18);
         output.WriteMessage(Transition);
       }
-      if (actionCase_ == ActionOneofCase.Result) {
+      if (exitCase_ == ExitOneofCase.Result) {
         output.WriteRawTag(26);
         output.WriteMessage(Result);
       }
-      if (actionCase_ == ActionOneofCase.Emit) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Emit);
-      }
-      if (actionCase_ == ActionOneofCase.Error) {
+      if (exitCase_ == ExitOneofCase.Error) {
         output.WriteRawTag(42);
         output.WriteMessage(Error);
+      }
+      if (effectCase_ == EffectOneofCase.Emit) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Emit);
+      }
+      if (effectCase_ == EffectOneofCase.Workflow) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Workflow);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1159,21 +1217,25 @@ namespace Utos.Workflows.V1 {
         output.WriteRawTag(10);
         output.WriteString(Condition);
       }
-      if (actionCase_ == ActionOneofCase.Transition) {
+      if (exitCase_ == ExitOneofCase.Transition) {
         output.WriteRawTag(18);
         output.WriteMessage(Transition);
       }
-      if (actionCase_ == ActionOneofCase.Result) {
+      if (exitCase_ == ExitOneofCase.Result) {
         output.WriteRawTag(26);
         output.WriteMessage(Result);
       }
-      if (actionCase_ == ActionOneofCase.Emit) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Emit);
-      }
-      if (actionCase_ == ActionOneofCase.Error) {
+      if (exitCase_ == ExitOneofCase.Error) {
         output.WriteRawTag(42);
         output.WriteMessage(Error);
+      }
+      if (effectCase_ == EffectOneofCase.Emit) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Emit);
+      }
+      if (effectCase_ == EffectOneofCase.Workflow) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Workflow);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1188,16 +1250,19 @@ namespace Utos.Workflows.V1 {
       if (HasCondition) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Condition);
       }
-      if (actionCase_ == ActionOneofCase.Transition) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Transition);
-      }
-      if (actionCase_ == ActionOneofCase.Result) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Result);
-      }
-      if (actionCase_ == ActionOneofCase.Emit) {
+      if (effectCase_ == EffectOneofCase.Emit) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Emit);
       }
-      if (actionCase_ == ActionOneofCase.Error) {
+      if (effectCase_ == EffectOneofCase.Workflow) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Workflow);
+      }
+      if (exitCase_ == ExitOneofCase.Transition) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Transition);
+      }
+      if (exitCase_ == ExitOneofCase.Result) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Result);
+      }
+      if (exitCase_ == ExitOneofCase.Error) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
       }
       if (_unknownFields != null) {
@@ -1215,26 +1280,35 @@ namespace Utos.Workflows.V1 {
       if (other.HasCondition) {
         Condition = other.Condition;
       }
-      switch (other.ActionCase) {
-        case ActionOneofCase.Transition:
+      switch (other.EffectCase) {
+        case EffectOneofCase.Emit:
+          if (Emit == null) {
+            Emit = new global::Google.Protobuf.WellKnownTypes.Struct();
+          }
+          Emit.MergeFrom(other.Emit);
+          break;
+        case EffectOneofCase.Workflow:
+          if (Workflow == null) {
+            Workflow = new global::Utos.Workflows.V1.DispatchEffect();
+          }
+          Workflow.MergeFrom(other.Workflow);
+          break;
+      }
+
+      switch (other.ExitCase) {
+        case ExitOneofCase.Transition:
           if (Transition == null) {
             Transition = new global::Utos.Workflows.V1.TransitionTarget();
           }
           Transition.MergeFrom(other.Transition);
           break;
-        case ActionOneofCase.Result:
+        case ExitOneofCase.Result:
           if (Result == null) {
             Result = new global::Google.Protobuf.WellKnownTypes.Struct();
           }
           Result.MergeFrom(other.Result);
           break;
-        case ActionOneofCase.Emit:
-          if (Emit == null) {
-            Emit = new global::Utos.Workflows.V1.EmitAction();
-          }
-          Emit.MergeFrom(other.Emit);
-          break;
-        case ActionOneofCase.Error:
+        case ExitOneofCase.Error:
           if (Error == null) {
             Error = new global::Utos.Workflows.V1.WorkflowError();
           }
@@ -1267,7 +1341,7 @@ namespace Utos.Workflows.V1 {
           }
           case 18: {
             global::Utos.Workflows.V1.TransitionTarget subBuilder = new global::Utos.Workflows.V1.TransitionTarget();
-            if (actionCase_ == ActionOneofCase.Transition) {
+            if (exitCase_ == ExitOneofCase.Transition) {
               subBuilder.MergeFrom(Transition);
             }
             input.ReadMessage(subBuilder);
@@ -1276,29 +1350,38 @@ namespace Utos.Workflows.V1 {
           }
           case 26: {
             global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (actionCase_ == ActionOneofCase.Result) {
+            if (exitCase_ == ExitOneofCase.Result) {
               subBuilder.MergeFrom(Result);
             }
             input.ReadMessage(subBuilder);
             Result = subBuilder;
             break;
           }
-          case 34: {
-            global::Utos.Workflows.V1.EmitAction subBuilder = new global::Utos.Workflows.V1.EmitAction();
-            if (actionCase_ == ActionOneofCase.Emit) {
+          case 42: {
+            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
+            if (exitCase_ == ExitOneofCase.Error) {
+              subBuilder.MergeFrom(Error);
+            }
+            input.ReadMessage(subBuilder);
+            Error = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
+            if (effectCase_ == EffectOneofCase.Emit) {
               subBuilder.MergeFrom(Emit);
             }
             input.ReadMessage(subBuilder);
             Emit = subBuilder;
             break;
           }
-          case 42: {
-            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
-            if (actionCase_ == ActionOneofCase.Error) {
-              subBuilder.MergeFrom(Error);
+          case 58: {
+            global::Utos.Workflows.V1.DispatchEffect subBuilder = new global::Utos.Workflows.V1.DispatchEffect();
+            if (effectCase_ == EffectOneofCase.Workflow) {
+              subBuilder.MergeFrom(Workflow);
             }
             input.ReadMessage(subBuilder);
-            Error = subBuilder;
+            Workflow = subBuilder;
             break;
           }
         }
@@ -1326,7 +1409,7 @@ namespace Utos.Workflows.V1 {
           }
           case 18: {
             global::Utos.Workflows.V1.TransitionTarget subBuilder = new global::Utos.Workflows.V1.TransitionTarget();
-            if (actionCase_ == ActionOneofCase.Transition) {
+            if (exitCase_ == ExitOneofCase.Transition) {
               subBuilder.MergeFrom(Transition);
             }
             input.ReadMessage(subBuilder);
@@ -1335,29 +1418,38 @@ namespace Utos.Workflows.V1 {
           }
           case 26: {
             global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (actionCase_ == ActionOneofCase.Result) {
+            if (exitCase_ == ExitOneofCase.Result) {
               subBuilder.MergeFrom(Result);
             }
             input.ReadMessage(subBuilder);
             Result = subBuilder;
             break;
           }
-          case 34: {
-            global::Utos.Workflows.V1.EmitAction subBuilder = new global::Utos.Workflows.V1.EmitAction();
-            if (actionCase_ == ActionOneofCase.Emit) {
+          case 42: {
+            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
+            if (exitCase_ == ExitOneofCase.Error) {
+              subBuilder.MergeFrom(Error);
+            }
+            input.ReadMessage(subBuilder);
+            Error = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
+            if (effectCase_ == EffectOneofCase.Emit) {
               subBuilder.MergeFrom(Emit);
             }
             input.ReadMessage(subBuilder);
             Emit = subBuilder;
             break;
           }
-          case 42: {
-            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
-            if (actionCase_ == ActionOneofCase.Error) {
-              subBuilder.MergeFrom(Error);
+          case 58: {
+            global::Utos.Workflows.V1.DispatchEffect subBuilder = new global::Utos.Workflows.V1.DispatchEffect();
+            if (effectCase_ == EffectOneofCase.Workflow) {
+              subBuilder.MergeFrom(Workflow);
             }
             input.ReadMessage(subBuilder);
-            Error = subBuilder;
+            Workflow = subBuilder;
             break;
           }
         }
@@ -1368,31 +1460,24 @@ namespace Utos.Workflows.V1 {
   }
 
   /// <summary>
-  /// Appends a value to this execution's output stream, then transitions.
+  /// Running a document as an effect: the same behaviours the sub-workflow
+  /// activity kinds have, available inside a rule.
   ///
-  /// `result` is emit-and-terminate; `emit` is emit-and-continue. A workflow that
-  /// emits N times and then returns produces a stream of N value entries followed
-  /// by one terminal entry, which is what lets a caller consume values in order
-  /// and still observe the final result — see docs/execution-output-stream.md.
-  ///
-  /// A caller that invoked this workflow with `workflow.call` and declared
-  /// `on_emitted` is a privileged consumer: the emit does not complete until that
-  /// consumer's cursor advances past the entry. That bounds the unconsumed buffer
-  /// to one entry, so a producer faster than its consumer cannot grow the durable
-  /// stream without limit. With no privileged consumer the emit completes as soon
-  /// as the entry is durable.
+  /// A rule that ends an activity could transition to a `workflow.call` activity
+  /// instead; a rule that does not end one — `on_emitted` — has nowhere to
+  /// transition to, which is why dispatch exists here at all.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class EmitAction : pb::IMessage<EmitAction>
+  public sealed partial class DispatchEffect : pb::IMessage<DispatchEffect>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<EmitAction> _parser = new pb::MessageParser<EmitAction>(() => new EmitAction());
+    private static readonly pb::MessageParser<DispatchEffect> _parser = new pb::MessageParser<DispatchEffect>(() => new DispatchEffect());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<EmitAction> Parser { get { return _parser; } }
+    public static pb::MessageParser<DispatchEffect> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1408,7 +1493,7 @@ namespace Utos.Workflows.V1 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EmitAction() {
+    public DispatchEffect() {
       OnConstruction();
     }
 
@@ -1416,67 +1501,77 @@ namespace Utos.Workflows.V1 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EmitAction(EmitAction other) : this() {
-      value_ = other.value_ != null ? other.value_.Clone() : null;
-      transition_ = other.transition_ != null ? other.transition_.Clone() : null;
+    public DispatchEffect(DispatchEffect other) : this() {
+      switch (other.ModeCase) {
+        case ModeOneofCase.Call:
+          Call = other.Call.Clone();
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EmitAction Clone() {
-      return new EmitAction(this);
+    public DispatchEffect Clone() {
+      return new DispatchEffect(this);
     }
 
-    /// <summary>Field number for the "value" field.</summary>
-    public const int ValueFieldNumber = 1;
-    private global::Google.Protobuf.WellKnownTypes.Struct value_;
+    /// <summary>Field number for the "call" field.</summary>
+    public const int CallFieldNumber = 1;
     /// <summary>
-    /// The value to append. Leaf string values may contain {{ }} template
-    /// expressions, resolved in the same context as a TransitionRule condition.
+    /// Run the document and wait for it to finish, then carry on with this rule's
+    /// exit, if it has one. In an `on_emitted` rule this is the body of the
+    /// consuming loop: the call finishes one iteration and the next value is
+    /// taken. Formerly spelled `handle`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Struct Value {
-      get { return value_; }
+    public global::Utos.Workflows.V1.HandlerDispatch Call {
+      get { return modeCase_ == ModeOneofCase.Call ? (global::Utos.Workflows.V1.HandlerDispatch) mode_ : null; }
       set {
-        value_ = value;
+        mode_ = value;
+        modeCase_ = value == null ? ModeOneofCase.None : ModeOneofCase.Call;
       }
     }
 
-    /// <summary>Field number for the "transition" field.</summary>
-    public const int TransitionFieldNumber = 2;
-    private global::Utos.Workflows.V1.TransitionTarget transition_;
-    /// <summary>
-    /// Where to go after emitting. Required — an emit is not a terminal action, so
-    /// a rule that emits and goes nowhere is a dead end rather than a return.
-    /// </summary>
+    private object mode_;
+    /// <summary>Enum of possible cases for the "mode" oneof.</summary>
+    public enum ModeOneofCase {
+      None = 0,
+      Call = 1,
+    }
+    private ModeOneofCase modeCase_ = ModeOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflows.V1.TransitionTarget Transition {
-      get { return transition_; }
-      set {
-        transition_ = value;
-      }
+    public ModeOneofCase ModeCase {
+      get { return modeCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMode() {
+      modeCase_ = ModeOneofCase.None;
+      mode_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as EmitAction);
+      return Equals(other as DispatchEffect);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(EmitAction other) {
+    public bool Equals(DispatchEffect other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Value, other.Value)) return false;
-      if (!object.Equals(Transition, other.Transition)) return false;
+      if (!object.Equals(Call, other.Call)) return false;
+      if (ModeCase != other.ModeCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1484,8 +1579,8 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (value_ != null) hash ^= Value.GetHashCode();
-      if (transition_ != null) hash ^= Transition.GetHashCode();
+      if (modeCase_ == ModeOneofCase.Call) hash ^= Call.GetHashCode();
+      hash ^= (int) modeCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1504,13 +1599,9 @@ namespace Utos.Workflows.V1 {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (value_ != null) {
+      if (modeCase_ == ModeOneofCase.Call) {
         output.WriteRawTag(10);
-        output.WriteMessage(Value);
-      }
-      if (transition_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Transition);
+        output.WriteMessage(Call);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1522,13 +1613,9 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (value_ != null) {
+      if (modeCase_ == ModeOneofCase.Call) {
         output.WriteRawTag(10);
-        output.WriteMessage(Value);
-      }
-      if (transition_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Transition);
+        output.WriteMessage(Call);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1540,11 +1627,8 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (value_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Value);
-      }
-      if (transition_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Transition);
+      if (modeCase_ == ModeOneofCase.Call) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Call);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1554,22 +1638,19 @@ namespace Utos.Workflows.V1 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(EmitAction other) {
+    public void MergeFrom(DispatchEffect other) {
       if (other == null) {
         return;
       }
-      if (other.value_ != null) {
-        if (value_ == null) {
-          Value = new global::Google.Protobuf.WellKnownTypes.Struct();
-        }
-        Value.MergeFrom(other.Value);
+      switch (other.ModeCase) {
+        case ModeOneofCase.Call:
+          if (Call == null) {
+            Call = new global::Utos.Workflows.V1.HandlerDispatch();
+          }
+          Call.MergeFrom(other.Call);
+          break;
       }
-      if (other.transition_ != null) {
-        if (transition_ == null) {
-          Transition = new global::Utos.Workflows.V1.TransitionTarget();
-        }
-        Transition.MergeFrom(other.Transition);
-      }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1590,17 +1671,12 @@ namespace Utos.Workflows.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (value_ == null) {
-              Value = new global::Google.Protobuf.WellKnownTypes.Struct();
+            global::Utos.Workflows.V1.HandlerDispatch subBuilder = new global::Utos.Workflows.V1.HandlerDispatch();
+            if (modeCase_ == ModeOneofCase.Call) {
+              subBuilder.MergeFrom(Call);
             }
-            input.ReadMessage(Value);
-            break;
-          }
-          case 18: {
-            if (transition_ == null) {
-              Transition = new global::Utos.Workflows.V1.TransitionTarget();
-            }
-            input.ReadMessage(Transition);
+            input.ReadMessage(subBuilder);
+            Call = subBuilder;
             break;
           }
         }
@@ -1623,17 +1699,12 @@ namespace Utos.Workflows.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            if (value_ == null) {
-              Value = new global::Google.Protobuf.WellKnownTypes.Struct();
+            global::Utos.Workflows.V1.HandlerDispatch subBuilder = new global::Utos.Workflows.V1.HandlerDispatch();
+            if (modeCase_ == ModeOneofCase.Call) {
+              subBuilder.MergeFrom(Call);
             }
-            input.ReadMessage(Value);
-            break;
-          }
-          case 18: {
-            if (transition_ == null) {
-              Transition = new global::Utos.Workflows.V1.TransitionTarget();
-            }
-            input.ReadMessage(Transition);
+            input.ReadMessage(subBuilder);
+            Call = subBuilder;
             break;
           }
         }
@@ -1697,8 +1768,8 @@ namespace Utos.Workflows.V1 {
     private string name_ = "";
     /// <summary>
     /// The name of an activity in the same workflow (UTOS-T003). Nothing else:
-    /// ending a path is a `result` action and failing it is an `error` action, so
-    /// there are no keywords and no name is reserved.
+    /// ending a path is a `result` exit and failing it an `error` exit, so there
+    /// are no keywords and no name is reserved.
     /// The name may reference an already-visited activity — a back-edge — which
     /// forms a loop (e.g. poll-inbox -> wait -> poll-inbox). A loop with no rule
     /// carrying a `result` runs until the execution is cancelled, expressing an
@@ -1921,12 +1992,13 @@ namespace Utos.Workflows.V1 {
   /// and {{ env.x }} to reference the run's ambient environment (e.g. a base URL).
   ///
   /// An http activity surfaces its result twice, on different axes: `output` is
-  /// the parsed JSON body, in common with every other activity kind, while
-  /// `response` carries the transport facts — status, headers (names lowercased),
-  /// body (the raw bytes, as a Buffer) and bodyText — that have no analogue on the
-  /// other kinds. `response` is available on the failure
-  /// path as well, which is what lets an on_failure rule tell a 429 from a 401
-  /// without an error-code taxonomy. A non-2xx is a failure.
+  /// the parsed JSON body when the response declared a JSON media type, and null
+  /// otherwise, in common with every other activity kind, while `response`
+  /// carries the transport facts — status, headers (names lowercased) and body, a
+  /// Blob holding the bytes as received — that have no analogue on the other
+  /// kinds. `response` is available on the failure path as well, which is what
+  /// lets an on_failure rule tell a 429 from a 401 without an error-code taxonomy.
+  /// A non-2xx is a failure. See docs/binary-data.md § The HTTP activity.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class HttpActivityConfig : pb::IMessage<HttpActivityConfig>
@@ -2032,7 +2104,10 @@ namespace Utos.Workflows.V1 {
 
     private string body_;
     /// <summary>
-    /// Request body (ignored for GET/DELETE) — supports {{ input.x }} templates
+    /// Request body (ignored for GET/DELETE) — supports {{ input.x }} templates.
+    /// Rendered as text, except that a whole-field template evaluating to a Blob
+    /// sends that blob's bytes, and its media type when no `content-type` header
+    /// is declared.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2303,7 +2378,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TimerActivityConfig(TimerActivityConfig other) : this() {
-      duration_ = other.duration_ != null ? other.duration_.Clone() : null;
+      duration_ = other.duration_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2314,17 +2389,25 @@ namespace Utos.Workflows.V1 {
     }
 
     /// <summary>Field number for the "duration" field.</summary>
-    public const int DurationFieldNumber = 1;
-    private global::Google.Protobuf.WellKnownTypes.Duration duration_;
+    public const int DurationFieldNumber = 2;
+    private string duration_ = "";
     /// <summary>
-    /// How long to pause before this activity's transitions are evaluated.
+    /// How long to pause before this activity's transitions are evaluated, in the
+    /// unit shorthand: `90s`, `8h`, `1h30m`, `3d` — units largest first, each at
+    /// most once, whole numbers, and positive (UTOS-C201, UTOS-C202, UTOS-C203).
+    ///
+    /// A whole-field {{ }} template may stand in for the literal, and must render
+    /// to a string in the same syntax (UTOS-E106); a number is refused, since `8`
+    /// says neither seconds nor hours. The rendered value is recorded in history
+    /// when the activity is entered, so a replay reads the same deadline.
+    /// See docs/workflow-source-format.md § Durations.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Duration Duration {
+    public string Duration {
       get { return duration_; }
       set {
-        duration_ = value;
+        duration_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -2343,7 +2426,7 @@ namespace Utos.Workflows.V1 {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Duration, other.Duration)) return false;
+      if (Duration != other.Duration) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2351,7 +2434,7 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (duration_ != null) hash ^= Duration.GetHashCode();
+      if (Duration.Length != 0) hash ^= Duration.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2370,9 +2453,9 @@ namespace Utos.Workflows.V1 {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (duration_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Duration);
+      if (Duration.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Duration);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2384,9 +2467,9 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (duration_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Duration);
+      if (Duration.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Duration);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2398,8 +2481,8 @@ namespace Utos.Workflows.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (duration_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Duration);
+      if (Duration.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Duration);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2413,11 +2496,8 @@ namespace Utos.Workflows.V1 {
       if (other == null) {
         return;
       }
-      if (other.duration_ != null) {
-        if (duration_ == null) {
-          Duration = new global::Google.Protobuf.WellKnownTypes.Duration();
-        }
-        Duration.MergeFrom(other.Duration);
+      if (other.Duration.Length != 0) {
+        Duration = other.Duration;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2438,11 +2518,8 @@ namespace Utos.Workflows.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (duration_ == null) {
-              Duration = new global::Google.Protobuf.WellKnownTypes.Duration();
-            }
-            input.ReadMessage(Duration);
+          case 18: {
+            Duration = input.ReadString();
             break;
           }
         }
@@ -2464,11 +2541,8 @@ namespace Utos.Workflows.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            if (duration_ == null) {
-              Duration = new global::Google.Protobuf.WellKnownTypes.Duration();
-            }
-            input.ReadMessage(Duration);
+          case 18: {
+            Duration = input.ReadString();
             break;
           }
         }
@@ -2550,7 +2624,7 @@ namespace Utos.Workflows.V1 {
     /// In the source format: a dependency alias — a key in this workflow's
     /// WorkflowSpec.dependencies map (e.g. "emailer").
     /// In the built bundle: the sub-workflow's canonical identity — a key in
-    /// WorkflowBundle.workflows (e.g. "registry.example.com/acme/send-email:v1.0.0").
+    /// WorkflowBundle.workflows (e.g. "registry.example.com/acme/send-email:1.0.0").
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2970,10 +3044,10 @@ namespace Utos.Workflows.V1 {
     }
 
     /// <summary>Field number for the "on_emitted" field.</summary>
-    public const int OnEmittedFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Utos.Workflows.V1.EmissionRule> _repeated_onEmitted_codec
-        = pb::FieldCodec.ForMessage(10, global::Utos.Workflows.V1.EmissionRule.Parser);
-    private readonly pbc::RepeatedField<global::Utos.Workflows.V1.EmissionRule> onEmitted_ = new pbc::RepeatedField<global::Utos.Workflows.V1.EmissionRule>();
+    public const int OnEmittedFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::Utos.Workflows.V1.TransitionRule> _repeated_onEmitted_codec
+        = pb::FieldCodec.ForMessage(18, global::Utos.Workflows.V1.TransitionRule.Parser);
+    private readonly pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule> onEmitted_ = new pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule>();
     /// <summary>
     /// Subscribes this activity to the sub-workflow's output stream: evaluated
     /// once per value the child emits, in stream order, before the child's
@@ -3004,7 +3078,7 @@ namespace Utos.Workflows.V1 {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Utos.Workflows.V1.EmissionRule> OnEmitted {
+    public pbc::RepeatedField<global::Utos.Workflows.V1.TransitionRule> OnEmitted {
       get { return onEmitted_; }
     }
 
@@ -3105,7 +3179,7 @@ namespace Utos.Workflows.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 18: {
             onEmitted_.AddEntriesFrom(input, _repeated_onEmitted_codec);
             break;
           }
@@ -3128,7 +3202,7 @@ namespace Utos.Workflows.V1 {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 18: {
             onEmitted_.AddEntriesFrom(ref input, _repeated_onEmitted_codec);
             break;
           }
@@ -4459,7 +4533,7 @@ namespace Utos.Workflows.V1 {
   ///
   /// A branch dispatches a *document*, not an activity: the same `workflow` /
   /// `start_activity` / `input` triple a HandlerDispatch carries, declared flat
-  /// here because a branch has no alternative action to disambiguate from. See
+  /// here because a branch has no alternative to disambiguate from. See
   /// HandlerDispatch for what a dispatch means and why both constructs agree on
   /// its content.
   /// </summary>
@@ -4597,8 +4671,10 @@ namespace Utos.Workflows.V1 {
     public const int WorkflowFieldNumber = 5;
     private string workflow_ = "";
     /// <summary>
-    /// The document this branch runs — a `spec.dependencies` alias, or `self` for
-    /// the document the promise is declared in. Required (UTOS-C501).
+    /// The document this branch runs. In the source format, a `spec.dependencies`
+    /// alias, or `self` for the document the promise is declared in; in the built
+    /// bundle, its canonical identity — a key in WorkflowBundle.workflows
+    /// (UTOS-B006). Required (UTOS-C501).
     ///
     /// This is the one place `self` is legal, and the reason it exists: recursive
     /// fan-out is otherwise inexpressible, because a document reaching itself
@@ -4929,525 +5005,6 @@ namespace Utos.Workflows.V1 {
   }
 
   /// <summary>
-  /// A dispatch: run a document, starting from one of its activities.
-  ///
-  /// The same shape a PromiseBranch carries, minus the fan-out parts, and that
-  /// sameness is deliberate — dispatching work is one thing to learn, whether a
-  /// promise is fanning out over it or an emission handler is processing a value
-  /// with it. Neither names an activity in the dispatching document; both name a
-  /// document and where to enter it.
-  ///
-  /// Requiring a document is what keeps `spec.activities` honest. An activity that
-  /// existed only to serve a branch or a handler used to sit in the same flat map
-  /// as the main flow with nothing to mark it, and what it meant depended on where
-  /// it was used — running out of transitions ends a run on the main path but
-  /// finishes one iteration inside a handler. A reader who opens a dispatched
-  /// document now finds only that work.
-  ///
-  /// `workflow: self` covers the case the indirection existed to serve: dispatching
-  /// the current document, including recursively.
-  /// </summary>
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class EmissionRule : pb::IMessage<EmissionRule>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<EmissionRule> _parser = new pb::MessageParser<EmissionRule>(() => new EmissionRule());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<EmissionRule> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[16]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EmissionRule() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EmissionRule(EmissionRule other) : this() {
-      condition_ = other.condition_;
-      switch (other.ActionCase) {
-        case ActionOneofCase.Handle:
-          Handle = other.Handle.Clone();
-          break;
-        case ActionOneofCase.Transition:
-          Transition = other.Transition.Clone();
-          break;
-        case ActionOneofCase.Result:
-          Result = other.Result.Clone();
-          break;
-        case ActionOneofCase.Error:
-          Error = other.Error.Clone();
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EmissionRule Clone() {
-      return new EmissionRule(this);
-    }
-
-    /// <summary>Field number for the "condition" field.</summary>
-    public const int ConditionFieldNumber = 1;
-    private readonly static string ConditionDefaultValue = "";
-
-    private string condition_;
-    /// <summary>
-    /// Optional; skip this rule if the condition evaluates to false. Rules are
-    /// evaluated in order and the first match wins, as elsewhere. A list where
-    /// nothing matches skips that value and takes the next — a filtering consumer,
-    /// not an abandoned loop.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Condition {
-      get { return condition_ ?? ConditionDefaultValue; }
-      set {
-        condition_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "condition" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasCondition {
-      get { return condition_ != null; }
-    }
-    /// <summary>Clears the value of the "condition" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearCondition() {
-      condition_ = null;
-    }
-
-    /// <summary>Field number for the "handle" field.</summary>
-    public const int HandleFieldNumber = 2;
-    /// <summary>
-    /// Run a document for this value, wait for it to finish, then come back for
-    /// the next one. The loop body, and the only action that continues
-    /// consuming.
-    ///
-    /// The producer stays parked for the duration, so values are handled one at
-    /// a time and cannot pile up — the back-pressure described in
-    /// docs/execution-output-stream.md is a consequence of this waiting, not a
-    /// separate mechanism.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflows.V1.HandlerDispatch Handle {
-      get { return actionCase_ == ActionOneofCase.Handle ? (global::Utos.Workflows.V1.HandlerDispatch) action_ : null; }
-      set {
-        action_ = value;
-        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Handle;
-      }
-    }
-
-    /// <summary>Field number for the "transition" field.</summary>
-    public const int TransitionFieldNumber = 3;
-    /// <summary>
-    /// Stop consuming and continue at this activity, in the *consuming*
-    /// workflow. The subscription ends and the producer is cancelled at that
-    /// point — not when this workflow eventually terminates, which may be much
-    /// later — since nothing will observe it again.
-    ///
-    /// Safe where a handler transitioning here would not be, and the difference
-    /// is which execution evaluates it. This rule is evaluated by the consumer,
-    /// in the consumer's own execution, so the target is an ordinary activity in
-    /// the consumer's own graph (UTOS-T003). A dispatched handler runs in an
-    /// execution of its own that holds no subscription, which is why it cannot
-    /// name the consumer's flow at all — see UTOS-S011.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflows.V1.TransitionTarget Transition {
-      get { return actionCase_ == ActionOneofCase.Transition ? (global::Utos.Workflows.V1.TransitionTarget) action_ : null; }
-      set {
-        action_ = value;
-        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Transition;
-      }
-    }
-
-    /// <summary>Field number for the "result" field.</summary>
-    public const int ResultFieldNumber = 4;
-    /// <summary>
-    /// Stop consuming and end the consumer with this value as its result. The
-    /// subscription ends and the producer is cancelled, as above.
-    ///
-    /// The same action `on_success` carries, and it means the same thing there;
-    /// what differs is when the list is evaluated. This one fires on a value
-    /// while the producer is still running, that one only once it has finished.
-    ///
-    /// This is how "find one thing and return it" is written. Without it the
-    /// only way to stop early was to make a handler fail, which ends the run as
-    /// an error and loses the distinction between finishing early on purpose and
-    /// breaking. An empty struct stops consuming and ends with no value.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Struct Result {
-      get { return actionCase_ == ActionOneofCase.Result ? (global::Google.Protobuf.WellKnownTypes.Struct) action_ : null; }
-      set {
-        action_ = value;
-        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Result;
-      }
-    }
-
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 5;
-    /// <summary>
-    /// Stop consuming and end the consumer as a failure, with this error — the
-    /// same action `on_success` carries, with the same shape and rules
-    /// (UTOS-T005). The subscription ends and the producer is cancelled. There is
-    /// no failure in scope when a value arrives, so the empty re-raise form of
-    /// `on_failure` is not legal here.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Utos.Workflows.V1.WorkflowError Error {
-      get { return actionCase_ == ActionOneofCase.Error ? (global::Utos.Workflows.V1.WorkflowError) action_ : null; }
-      set {
-        action_ = value;
-        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Error;
-      }
-    }
-
-    private object action_;
-    /// <summary>Enum of possible cases for the "action" oneof.</summary>
-    public enum ActionOneofCase {
-      None = 0,
-      Handle = 2,
-      Transition = 3,
-      Result = 4,
-      Error = 5,
-    }
-    private ActionOneofCase actionCase_ = ActionOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ActionOneofCase ActionCase {
-      get { return actionCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAction() {
-      actionCase_ = ActionOneofCase.None;
-      action_ = null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as EmissionRule);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(EmissionRule other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Condition != other.Condition) return false;
-      if (!object.Equals(Handle, other.Handle)) return false;
-      if (!object.Equals(Transition, other.Transition)) return false;
-      if (!object.Equals(Result, other.Result)) return false;
-      if (!object.Equals(Error, other.Error)) return false;
-      if (ActionCase != other.ActionCase) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasCondition) hash ^= Condition.GetHashCode();
-      if (actionCase_ == ActionOneofCase.Handle) hash ^= Handle.GetHashCode();
-      if (actionCase_ == ActionOneofCase.Transition) hash ^= Transition.GetHashCode();
-      if (actionCase_ == ActionOneofCase.Result) hash ^= Result.GetHashCode();
-      if (actionCase_ == ActionOneofCase.Error) hash ^= Error.GetHashCode();
-      hash ^= (int) actionCase_;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasCondition) {
-        output.WriteRawTag(10);
-        output.WriteString(Condition);
-      }
-      if (actionCase_ == ActionOneofCase.Handle) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Handle);
-      }
-      if (actionCase_ == ActionOneofCase.Transition) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Transition);
-      }
-      if (actionCase_ == ActionOneofCase.Result) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Result);
-      }
-      if (actionCase_ == ActionOneofCase.Error) {
-        output.WriteRawTag(42);
-        output.WriteMessage(Error);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasCondition) {
-        output.WriteRawTag(10);
-        output.WriteString(Condition);
-      }
-      if (actionCase_ == ActionOneofCase.Handle) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Handle);
-      }
-      if (actionCase_ == ActionOneofCase.Transition) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Transition);
-      }
-      if (actionCase_ == ActionOneofCase.Result) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Result);
-      }
-      if (actionCase_ == ActionOneofCase.Error) {
-        output.WriteRawTag(42);
-        output.WriteMessage(Error);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasCondition) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Condition);
-      }
-      if (actionCase_ == ActionOneofCase.Handle) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Handle);
-      }
-      if (actionCase_ == ActionOneofCase.Transition) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Transition);
-      }
-      if (actionCase_ == ActionOneofCase.Result) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Result);
-      }
-      if (actionCase_ == ActionOneofCase.Error) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(EmissionRule other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasCondition) {
-        Condition = other.Condition;
-      }
-      switch (other.ActionCase) {
-        case ActionOneofCase.Handle:
-          if (Handle == null) {
-            Handle = new global::Utos.Workflows.V1.HandlerDispatch();
-          }
-          Handle.MergeFrom(other.Handle);
-          break;
-        case ActionOneofCase.Transition:
-          if (Transition == null) {
-            Transition = new global::Utos.Workflows.V1.TransitionTarget();
-          }
-          Transition.MergeFrom(other.Transition);
-          break;
-        case ActionOneofCase.Result:
-          if (Result == null) {
-            Result = new global::Google.Protobuf.WellKnownTypes.Struct();
-          }
-          Result.MergeFrom(other.Result);
-          break;
-        case ActionOneofCase.Error:
-          if (Error == null) {
-            Error = new global::Utos.Workflows.V1.WorkflowError();
-          }
-          Error.MergeFrom(other.Error);
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Condition = input.ReadString();
-            break;
-          }
-          case 18: {
-            global::Utos.Workflows.V1.HandlerDispatch subBuilder = new global::Utos.Workflows.V1.HandlerDispatch();
-            if (actionCase_ == ActionOneofCase.Handle) {
-              subBuilder.MergeFrom(Handle);
-            }
-            input.ReadMessage(subBuilder);
-            Handle = subBuilder;
-            break;
-          }
-          case 26: {
-            global::Utos.Workflows.V1.TransitionTarget subBuilder = new global::Utos.Workflows.V1.TransitionTarget();
-            if (actionCase_ == ActionOneofCase.Transition) {
-              subBuilder.MergeFrom(Transition);
-            }
-            input.ReadMessage(subBuilder);
-            Transition = subBuilder;
-            break;
-          }
-          case 34: {
-            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (actionCase_ == ActionOneofCase.Result) {
-              subBuilder.MergeFrom(Result);
-            }
-            input.ReadMessage(subBuilder);
-            Result = subBuilder;
-            break;
-          }
-          case 42: {
-            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
-            if (actionCase_ == ActionOneofCase.Error) {
-              subBuilder.MergeFrom(Error);
-            }
-            input.ReadMessage(subBuilder);
-            Error = subBuilder;
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            Condition = input.ReadString();
-            break;
-          }
-          case 18: {
-            global::Utos.Workflows.V1.HandlerDispatch subBuilder = new global::Utos.Workflows.V1.HandlerDispatch();
-            if (actionCase_ == ActionOneofCase.Handle) {
-              subBuilder.MergeFrom(Handle);
-            }
-            input.ReadMessage(subBuilder);
-            Handle = subBuilder;
-            break;
-          }
-          case 26: {
-            global::Utos.Workflows.V1.TransitionTarget subBuilder = new global::Utos.Workflows.V1.TransitionTarget();
-            if (actionCase_ == ActionOneofCase.Transition) {
-              subBuilder.MergeFrom(Transition);
-            }
-            input.ReadMessage(subBuilder);
-            Transition = subBuilder;
-            break;
-          }
-          case 34: {
-            global::Google.Protobuf.WellKnownTypes.Struct subBuilder = new global::Google.Protobuf.WellKnownTypes.Struct();
-            if (actionCase_ == ActionOneofCase.Result) {
-              subBuilder.MergeFrom(Result);
-            }
-            input.ReadMessage(subBuilder);
-            Result = subBuilder;
-            break;
-          }
-          case 42: {
-            global::Utos.Workflows.V1.WorkflowError subBuilder = new global::Utos.Workflows.V1.WorkflowError();
-            if (actionCase_ == ActionOneofCase.Error) {
-              subBuilder.MergeFrom(Error);
-            }
-            input.ReadMessage(subBuilder);
-            Error = subBuilder;
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
   /// Run a document, starting from one of its activities.
   ///
   /// The same triple a PromiseBranch carries, and deliberately so: dispatching
@@ -5455,17 +5012,16 @@ namespace Utos.Workflows.V1 {
   /// emission handler is processing a value with it. Neither names an activity in
   /// the dispatching document; both name a document and where to enter it.
   ///
-  /// A branch carries these fields flat while an emission rule nests them under
-  /// `handle`, which is the one asymmetry. A branch has no alternative actions, so
-  /// there is nothing for a wrapper to disambiguate; an emission rule has three,
-  /// and the block is what makes the choice visible rather than something the
-  /// author has to know from the field names.
+  /// A branch carries these fields flat while a rule nests them under its effect
+  /// key, which is the one asymmetry. A branch has no alternative actions, so there
+  /// is nothing for a wrapper to disambiguate; a rule has an effect and an exit,
+  /// and the key is what makes the choice visible rather than something the author
+  /// has to know from the field names.
   ///
-  /// Requiring a document is what keeps `spec.activities` honest. An activity that
-  /// existed only to serve a branch or a handler used to sit in the same flat map
-  /// as the main flow with nothing to mark it, and what it meant depended on where
-  /// it was used. A reader who opens a dispatched document now finds only that
-  /// work.
+  /// Requiring a document keeps each `spec.activities` map to one flow. Work that
+  /// exists only to serve a branch or a handler lives in a document of its own,
+  /// where running out of transitions finishes one iteration rather than ending a
+  /// run, and a reader of the main flow never mistakes it for a step.
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class HandlerDispatch : pb::IMessage<HandlerDispatch>
@@ -5482,7 +5038,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5518,17 +5074,15 @@ namespace Utos.Workflows.V1 {
     public const int WorkflowFieldNumber = 1;
     private string workflow_ = "";
     /// <summary>
-    /// The document to dispatch — a `spec.dependencies` alias. Required
+    /// The document to dispatch. In the source format, a `spec.dependencies`
+    /// alias; in the built bundle, its canonical identity (UTOS-B006). Required
     /// (UTOS-C501).
     ///
     /// `self` is **not** legal here (UTOS-S011). A handler in another document
     /// cannot transition into the dispatching flow, because transitions do not
     /// cross documents; a handler in the *same* document can, and re-entering the
     /// call activity that dispatched it starts a second producer rather than
-    /// resuming the first — once per value, without bound. That was the shape
-    /// `on_emitted` handlers were written in before they became documents, so it
-    /// is a mistake authors arrive at by leaving old text alone rather than by
-    /// writing something new.
+    /// resuming the first — once per value, without bound.
     ///
     /// A consumer that wants to reach its own flow says so with `transition`,
     /// which is evaluated in its own execution and carries none of that risk.
@@ -5791,7 +5345,7 @@ namespace Utos.Workflows.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Utos.Workflows.V1.ActivityReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

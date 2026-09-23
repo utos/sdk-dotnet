@@ -160,6 +160,12 @@ namespace Utos.Daemon.V1 {
       /// A violation is INVALID_ARGUMENT carrying every failing location, not the
       /// first — see docs/workflow-schemas.md. Nothing is scheduled, so there is no
       /// run to inspect and no partial work to undo.
+      ///
+      /// Every blob in `input` is checked first: a stored one must exist, be READY
+      /// and be durable; an inline one must be well-formed and within the daemon's
+      /// inline threshold. Each accepted stored blob is attached to the new run
+      /// tree, which may then read it. A failure is INVALID_ARGUMENT with
+      /// UTOS-F104 — see docs/binary-data.md § Into a run.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -180,6 +186,12 @@ namespace Utos.Daemon.V1 {
       /// A violation is INVALID_ARGUMENT carrying every failing location, not the
       /// first — see docs/workflow-schemas.md. Nothing is scheduled, so there is no
       /// run to inspect and no partial work to undo.
+      ///
+      /// Every blob in `input` is checked first: a stored one must exist, be READY
+      /// and be durable; an inline one must be well-formed and within the daemon's
+      /// inline threshold. Each accepted stored blob is attached to the new run
+      /// tree, which may then read it. A failure is INVALID_ARGUMENT with
+      /// UTOS-F104 — see docs/binary-data.md § Into a run.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -198,6 +210,12 @@ namespace Utos.Daemon.V1 {
       /// A violation is INVALID_ARGUMENT carrying every failing location, not the
       /// first — see docs/workflow-schemas.md. Nothing is scheduled, so there is no
       /// run to inspect and no partial work to undo.
+      ///
+      /// Every blob in `input` is checked first: a stored one must exist, be READY
+      /// and be durable; an inline one must be well-formed and within the daemon's
+      /// inline threshold. Each accepted stored blob is attached to the new run
+      /// tree, which may then read it. A failure is INVALID_ARGUMENT with
+      /// UTOS-F104 — see docs/binary-data.md § Into a run.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -218,6 +236,12 @@ namespace Utos.Daemon.V1 {
       /// A violation is INVALID_ARGUMENT carrying every failing location, not the
       /// first — see docs/workflow-schemas.md. Nothing is scheduled, so there is no
       /// run to inspect and no partial work to undo.
+      ///
+      /// Every blob in `input` is checked first: a stored one must exist, be READY
+      /// and be durable; an inline one must be well-formed and within the daemon's
+      /// inline threshold. Each accepted stored blob is attached to the new run
+      /// tree, which may then read it. A failure is INVALID_ARGUMENT with
+      /// UTOS-F104 — see docs/binary-data.md § Into a run.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -485,6 +509,9 @@ namespace Utos.Daemon.V1 {
       /// Unknown execution_id returns NOT_FOUND. Does not affect any sub-workflow
       /// executions this run started with `workflow.spawn` — those are independent
       /// top-level executions with their own records.
+      ///
+      /// The run tree's intermediate blobs go with it. Durable blobs stay unless
+      /// `delete_blobs` is set — see docs/binary-data.md § Retention.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -504,6 +531,9 @@ namespace Utos.Daemon.V1 {
       /// Unknown execution_id returns NOT_FOUND. Does not affect any sub-workflow
       /// executions this run started with `workflow.spawn` — those are independent
       /// top-level executions with their own records.
+      ///
+      /// The run tree's intermediate blobs go with it. Durable blobs stay unless
+      /// `delete_blobs` is set — see docs/binary-data.md § Retention.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -521,6 +551,9 @@ namespace Utos.Daemon.V1 {
       /// Unknown execution_id returns NOT_FOUND. Does not affect any sub-workflow
       /// executions this run started with `workflow.spawn` — those are independent
       /// top-level executions with their own records.
+      ///
+      /// The run tree's intermediate blobs go with it. Durable blobs stay unless
+      /// `delete_blobs` is set — see docs/binary-data.md § Retention.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -540,6 +573,9 @@ namespace Utos.Daemon.V1 {
       /// Unknown execution_id returns NOT_FOUND. Does not affect any sub-workflow
       /// executions this run started with `workflow.spawn` — those are independent
       /// top-level executions with their own records.
+      ///
+      /// The run tree's intermediate blobs go with it. Durable blobs stay unless
+      /// `delete_blobs` is set — see docs/binary-data.md § Retention.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
