@@ -42,6 +42,25 @@ No custom NuGet source or registry auth required — these install from nuget.or
 > pull in the shared `Utos.Workflow` types. Neither pulls a gRPC transport: choose
 > your own (`Grpc.Net.Client` for callers, `Grpc.AspNetCore` for daemons).
 
+## Values
+
+A run carries `WorkflowValue`s — the JSON data model plus blobs, with every node's type in its
+structure rather than inferred from its content. `Utos.Workflow` ships the two conversions the
+spec defines, so a CLI reading `--input` and a daemon checking what was scheduled agree:
+
+```csharp
+WorkflowMap input = WorkflowValues.MapFromJson("""{"tenant":"acme","width":640}""");
+
+// Lossless — unless the value holds a blob, which has no plain-JSON form.
+if (WorkflowValues.TryToJson(result, out string json)) Console.WriteLine(json);
+
+// UTOS-V101 / V102, every failure rather than the first.
+foreach (ValueIssue issue in WorkflowValues.Validate(input)) Console.WriteLine(issue);
+```
+
+JSON → value is total and **never produces a blob**: an object holding the key `$blob`, or any
+other key, is a map. A blob reaches a run as a handle a client was given by `CreateBlob`.
+
 ## Content digest
 
 `Utos.Workflow` can compute the canonical `sha256:<hex>` content digest of a `WorkflowBundle`

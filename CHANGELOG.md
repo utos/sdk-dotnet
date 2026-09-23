@@ -36,6 +36,12 @@ conformance corpus passes.
 - **`UTOS-E070`** — a retired member of a scope name, today `response.bodyText`. Refused at load by
   every spelling a parser sees: `response.bodyText`, `response?.bodyText`, `response['bodyText']`,
   and `const { bodyText } = response`
+- **`WorkflowValues`** in `Utos.Workflow` — JSON ↔ `WorkflowValue`, and the `UTOS-V101` / `V102`
+  well-formedness check. One implementation, because a CLI reading `--input` and a daemon
+  checking what was scheduled have to agree — about numbers, and about the fact that an object
+  holding the key `$blob` is a map. JSON → value is total and never produces a blob; value →
+  JSON is lossless unless the value holds one, which has no plain-JSON form. No reflection, so
+  the NativeAOT CLI can link it
 
 ### Changed
 - **A rule is an effect and an exit.** `EmissionRule` is gone and `onEmitted` carries the same
