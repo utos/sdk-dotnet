@@ -15,7 +15,7 @@ does not release, and its latest `0.19.x` stays current. Releasing is
 deliberate: the version is read from the dated heading below, not computed from
 whatever `utos/api` last published.
 
-## [0.20.0]
+## [0.20.0] - 2026-09-23
 
 Implements spec **0.20.0** — binary data, a typed value, and the rule shape it forced.
 Vendored from [`v0.20.0`](https://github.com/utos/api/releases/tag/v0.20.0); the whole
