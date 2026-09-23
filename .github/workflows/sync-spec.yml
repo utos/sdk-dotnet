@@ -99,31 +99,48 @@ jobs:
           rm -rf conformance
           cp -r _api/conformance conformance
           rm -rf _api
-          dotnet build Utos.slnx -c Release
 
-      # Reported, never gated. The new corpus is expected to fail here — that is what the PR is
-      # asking someone to fix — so the result goes in the PR body as a to-do rather than as an
-      # obstacle to landing the protos the fix will be written against.
-      - name: Run the corpus, for the record
-        id: corpus
+      # Reported, never gated — including the build. A spec release that changes the protos in a
+      # breaking way CANNOT compile here: the implementation that answers it is what this PR is
+      # asking someone to write. 0.20.0 was the first such release, and because the build sat in
+      # the vendoring step above, the job died before opening a PR — so the protos the fix had to
+      # be written against never arrived. Whatever happens here is a to-do in the PR body.
+      - name: Build and run the corpus, for the record
+        id: check
         continue-on-error: true
         run: |
           set -o pipefail
+          dotnet build Utos.slnx -c Release 2>&1 | tee build.log
           dotnet test Utos.slnx -c Release --no-build 2>&1 | tee corpus.log
           echo "passed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Summarise the corpus result
+      - name: Summarise the result
         id: summary
         if: always()
         run: |
-          set -euo pipefail
-          if [ "${{ steps.corpus.outputs.passed }}" = "true" ]; then
-            echo "body=All tests pass against the new corpus. Nothing here needs implementing." >> "$GITHUB_OUTPUT"
+          set -uo pipefail
+          count() { grep -cE "$1" "$2" 2>/dev/null | tr -d "[:space:]" || true; }
+
+          if [ "${{ steps.check.outputs.passed }}" = "true" ]; then
+            BODY="All tests pass against the new corpus. Nothing here needs implementing."
+          elif ! grep -q "Build succeeded" build.log 2>/dev/null; then
+            ERRORS=$(count "error [A-Z]+[0-9]+" build.log)
+            ERRS=$(grep -oE "error [A-Z]+[0-9]+.*" build.log 2>/dev/null | sort -u | head -10)
+            HEAD="**The source does not compile against the new protos** (${ERRORS:-0} compiler error(s)). That is what a breaking spec release looks like from here: the types changed and the implementation has not caught up. The first few:"
+            TAIL="Merging this lands the protos and the corpus so the implementation can be written against exactly what it must satisfy."
+            BODY=$(printf "%s\n\n\`\`\`\n%s\n\`\`\`\n\n%s" "$HEAD" "$ERRS" "$TAIL")
           else
-            FAILURES=$(grep -oE '\[FAIL\]' corpus.log | wc -l || echo 0)
-            echo "body=**${FAILURES} test(s) fail against the new corpus.** That is expected for a spec that adds rules: the fixtures arrive with the spec and the implementation follows them. Merging this lands the protos and the corpus so that implementation can be written against exactly what it must satisfy." >> "$GITHUB_OUTPUT"
+            FAILURES=$(count "\[FAIL\]" corpus.log)
+            BODY="**${FAILURES:-0} test(s) fail against the new corpus.** That is expected for a spec that adds rules: the fixtures arrive with the spec and the implementation follows them. Merging this lands the protos and the corpus so that implementation can be written against exactly what it must satisfy."
           fi
 
+          # A multi-line value needs the delimiter form. Plain `body=...` stops at the first
+          # newline, which is the second way this step failed on 0.20.0.
+          {
+            echo "body<<SYNC_EOF"
+            echo "$BODY"
+            echo "SYNC_EOF"
+          } >> "$GITHUB_OUTPUT"
       - name: Open a pull request
         env:
           GH_TOKEN: ${{ github.token }}
@@ -135,7 +152,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           BRANCH="spec/${TAG}"
-          git add SPEC_VERSION proto conformance src/**/Generated
+          git add SPEC_VERSION proto conformance
+          git add src/**/Generated 2>/dev/null || true
 
           if git diff --cached --quiet; then
             echo "::notice::${TAG} brings no change to SPEC_VERSION, protos, corpus or generated source; nothing to open."
