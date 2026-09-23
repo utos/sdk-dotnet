@@ -146,6 +146,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.spec.outputs.tag }}
           SHA: ${{ steps.spec.outputs.sha }}
+          # Through the environment, never interpolated into the script: the summary carries
+          # backticks and a fenced block, and a `${{ }}` inside double quotes would hand them to
+          # the shell, which ate the whole block on 0.20.0.
+          SUMMARY: ${{ steps.summary.outputs.body }}
         run: |
           set -euo pipefail
           git config user.name  "github-actions[bot]"
@@ -168,14 +172,18 @@ jobs:
 
           git push --force-with-lease origin "$BRANCH"
 
-          # Reopen rather than duplicate if a sync for this tag is already waiting.
-          if gh pr list --head "$BRANCH" --state open --json number --jq 'length' | grep -q '^0$'; then
-            gh pr create --base dev --head "$BRANCH" \
-              --title "chore: vendor spec ${TAG}" \
-              --body "$(printf '%s\n\n%s\n\n%s\n' \
-                "Regenerated from [\`${TAG}\`](https://github.com/${API_REPO}/releases/tag/${TAG}) (\`${SHA}\`): protos, conformance corpus, generated source." \
-                "${{ steps.summary.outputs.body }}" \
-                "Opened automatically by \`sync-spec.yml\`. This is input to work, not a release — nothing is published until a \`dev\` -> \`main\` merge with a dated version in CHANGELOG.md.")"
+          {
+            printf "Regenerated from [\`%s\`](https://github.com/%s/releases/tag/%s) (\`%s\`): protos, conformance corpus, generated source.\n\n" "$TAG" "$API_REPO" "$TAG" "$SHA"
+            printf "%s\n\n" "$SUMMARY"
+            printf "Opened automatically by \`sync-spec.yml\`. This is input to work, not a release — nothing is published until a \`dev\` -> \`main\` merge with a dated version in CHANGELOG.md.\n"
+          } > pr-body.md
+
+          # Reopen rather than duplicate if a sync for this tag is already waiting, and keep its
+          # body current either way.
+          NUM=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -z "$NUM" ]; then
+            gh pr create --base dev --head "$BRANCH" --title "chore: vendor spec ${TAG}" --body-file pr-body.md
           else
+            gh pr edit "$NUM" --body-file pr-body.md
             echo "::notice::a PR for ${BRANCH} is already open; updated it."
           fi
