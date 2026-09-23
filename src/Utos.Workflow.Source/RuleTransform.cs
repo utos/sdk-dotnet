@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Google.Protobuf.Reflection;
 using YamlDotNet.RepresentationModel;
 
 namespace Utos.Workflows.V1.Source;
@@ -30,6 +31,75 @@ internal static class RuleTransform
     private const string SourceKey = "return";
     private const string WireKey = "result";
     private const string ErrorKey = "error";
+
+    /// <summary>
+    /// A rule's effect key may be dotted — <c>workflow.call</c> — and resolves by the same
+    /// walk an activity's <c>type</c> does: each segment names a field in the oneof the
+    /// message currently reached declares, starting at <see cref="TransitionRule"/>'s
+    /// <c>effect</c>. Derived from the descriptor rather than listed here, so an effect added
+    /// to the proto becomes authorable with no change to this mapping.
+    /// </summary>
+    private static readonly IReadOnlyDictionary<string, IReadOnlyList<string>> EffectPaths =
+        BuildEffectPaths();
+
+    private static Dictionary<string, IReadOnlyList<string>> BuildEffectPaths()
+    {
+        var paths = new Dictionary<string, IReadOnlyList<string>>(StringComparer.Ordinal);
+        foreach (var oneof in TransitionRule.Descriptor.Oneofs)
+        {
+            if (oneof.IsSynthetic || oneof.Name != "effect") continue;
+
+            foreach (var field in oneof.Fields) Walk(field, [], paths);
+        }
+
+        return paths;
+
+        // A segment that lands on a message declaring a oneof of its own continues; one that
+        // does not is a complete key. `emit` ends immediately (its value is a Struct), while
+        // `workflow` continues into call.
+        static void Walk(FieldDescriptor field, List<FieldDescriptor> prefix,
+            Dictionary<string, IReadOnlyList<string>> into)
+        {
+            prefix.Add(field);
+
+            var nested = field.FieldType == FieldType.Message
+                ? field.MessageType.Oneofs.Where(o => !o.IsSynthetic).ToList()
+                : [];
+
+            if (nested.Count == 0)
+            {
+                var segments = prefix.Select(p => p.JsonName).ToArray();
+                foreach (var spelling in Spellings(prefix, 0)) into[spelling] = segments;
+            }
+            else
+            {
+                foreach (var oneof in nested)
+                    foreach (var inner in oneof.Fields)
+                        Walk(inner, prefix, into);
+            }
+
+            prefix.RemoveAt(prefix.Count - 1);
+        }
+
+        // Both spellings proto3 JSON accepts, per segment, as the parser requirements ask.
+        static IEnumerable<string> Spellings(List<FieldDescriptor> path, int index)
+        {
+            var field = path[index];
+            string[] names = field.Name == field.JsonName
+                ? [field.JsonName]
+                : [field.Name, field.JsonName];
+
+            if (index == path.Count - 1)
+            {
+                foreach (var name in names) yield return name;
+                yield break;
+            }
+
+            foreach (var name in names)
+                foreach (var rest in Spellings(path, index + 1))
+                    yield return name + "." + rest;
+        }
+    }
 
     /// <summary>The activity-level keys whose values are rule lists, in both spellings proto3 JSON accepts.</summary>
     private static readonly IReadOnlyDictionary<string, string> RuleLists = new Dictionary<string, string>(StringComparer.Ordinal)
@@ -113,6 +183,26 @@ internal static class RuleTransform
                     break;
 
                 default:
+                    // A dotted effect key nests under the oneof fields that reach it, the
+                    // way an activity's `type` path does: `workflow.call: {...}` becomes
+                    // `workflow: { call: {...} }`. An unknown dotted key is left alone and
+                    // surfaces as the unknown field it is when proto3 JSON reads the result.
+                    if (EffectPaths.TryGetValue(YamlJson.Key(key), out var segments)
+                        && segments.Count > 1)
+                    {
+                        YamlNode nested = value;
+                        for (var level = segments.Count - 1; level >= 1; level--)
+                        {
+                            nested = new YamlMappingNode
+                            {
+                                { new YamlScalarNode(segments[level]), nested },
+                            };
+                        }
+
+                        rewritten.Add(new YamlScalarNode(segments[0]), nested);
+                        break;
+                    }
+
                     rewritten.Add(key, value);
                     break;
             }

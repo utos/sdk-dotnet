@@ -52,7 +52,7 @@ public class ContentDigestTests
 
         var done = new WorkflowActivity
         {
-            Timer = new TimerActivityConfig { Duration = Duration.FromTimeSpan(TimeSpan.FromSeconds(5)) },
+            Timer = new TimerActivityConfig { Duration = "5s" },
         };
 
         var spec = new WorkflowSpec();
