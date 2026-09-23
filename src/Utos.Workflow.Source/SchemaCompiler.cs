@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using YamlDotNet.Core;
@@ -31,7 +32,20 @@ internal static class SchemaCompiler
     /// <summary>What a declaration may say <c>type</c> is. The spec owns this list.</summary>
     private static readonly HashSet<string> RegistryTypes = new(StringComparer.Ordinal)
     {
-        "string", "number", "integer", "boolean", "object", "array", "null"
+        "string", "number", "integer", "boolean", "object", "array", "null",
+        "blob", "file", "duration"
+    };
+
+    /// <summary>
+    /// The three types that are not JSON types, and the built-in each compiles to. A
+    /// published type is addressed <c>utos:&lt;name&gt;</c> and never fetched: an
+    /// implementation ships it, so a schema is evaluated without I/O.
+    /// </summary>
+    private static readonly Dictionary<string, string> PublishedTypes = new(StringComparer.Ordinal)
+    {
+        ["blob"] = "utos:blob",
+        ["file"] = "utos:file",
+        ["duration"] = "utos:duration",
     };
 
     /// <summary>Constraints that apply whatever the declared type is.</summary>
@@ -67,7 +81,13 @@ internal static class SchemaCompiler
             ["maxProperties"] = "maxProperties"
         },
         ["boolean"] = new(StringComparer.Ordinal),
-        ["null"] = new(StringComparer.Ordinal)
+        ["null"] = new(StringComparer.Ordinal),
+
+        // Both judge metadata a value carries, never its bytes, so a check costs the same
+        // whether a blob is ten bytes or ten gigabytes.
+        ["blob"] = new(StringComparer.Ordinal) { ["mediaType"] = "mediaType", ["maxSize"] = "maxSize" },
+        ["file"] = new(StringComparer.Ordinal) { ["mediaType"] = "mediaType", ["maxSize"] = "maxSize" },
+        ["duration"] = new(StringComparer.Ordinal)
     };
 
     /// <summary>
@@ -244,8 +264,16 @@ internal static class SchemaCompiler
 
         var result = new YamlMappingNode();
         var nullable = Scalar(Find(mapping, "nullable")) is "true";
+        var published = type is not null && PublishedTypes.TryGetValue(type, out var builtIn);
 
-        if (type is not null)
+        if (published)
+        {
+            // Not a JSON type: it compiles to a reference to what the spec publishes, and the
+            // constraints below sit beside it, which 2020-12 allows and is the other reason a
+            // closed object means `unevaluatedProperties`.
+            result.Add(new YamlScalarNode("$ref"), new YamlScalarNode(PublishedTypes[type!]));
+        }
+        else if (type is not null)
         {
             // `nullable` is separate from `?`: a property may be absent or hold null, and the
             // system distinguishes them — undefined omits a field, null is carried.
@@ -281,12 +309,43 @@ internal static class SchemaCompiler
 
             if (Common.Contains(name))
             {
+                // A bundle contains no blobs, so none of these could ever name one: a default
+                // could not validate, and a const or enum would accept nothing.
+                if (published && type != "duration" && name is "default" or "const" or "enum")
+                {
+                    issues.Add(Issue(SourceCodes.SchemaConstraintUnknown,
+                        $"{path} declares '{name}', which does not apply to type '{type}': a "
+                        + "bundle contains no blobs, so it could never name one.", file, key));
+                    continue;
+                }
+
                 result.Add(new YamlScalarNode(name), value);
                 continue;
             }
 
             if (applicable.TryGetValue(name, out var keyword))
             {
+                // A bundle carries bytes. The unit shorthand is a feature of the short form,
+                // resolved here so nothing downstream learns it.
+                if (keyword == "maxSize")
+                {
+                    var size = Scalar(value);
+                    if (size is null || !TryParseSize(size, out var bytes))
+                    {
+                        issues.Add(Issue(SourceCodes.SchemaSizeMalformed,
+                            $"{path} declares maxSize '{Scalar(value) ?? "?"}', which is neither a "
+                            + "non-negative integer nor a size with a recognised unit (B, KB, MB, "
+                            + "GB, TB, KiB, MiB, GiB, TiB) coming to a whole number of bytes.",
+                            file, key));
+                        continue;
+                    }
+
+                    result.Add(new YamlScalarNode(keyword),
+                        new YamlScalarNode(bytes.ToString(CultureInfo.InvariantCulture))
+                        { Style = ScalarStyle.Plain });
+                    continue;
+                }
+
                 result.Add(new YamlScalarNode(keyword), value);
                 continue;
             }
@@ -294,6 +353,22 @@ internal static class SchemaCompiler
             issues.Add(Issue(SourceCodes.SchemaConstraintUnknown,
                 $"{path} declares '{name}', which is not a constraint of type '{type}'.",
                 file, key));
+        }
+
+        if (published && nullable)
+        {
+            // `nullable` wraps the reference rather than widening a type, and the constraints
+            // stay inside the branch that is the reference. Beside the anyOf they would still
+            // hold — they ignore null — but the compiled form should say what it means.
+            var branches = new YamlSequenceNode();
+            branches.Add(result);
+            var nullBranch = new YamlMappingNode();
+            nullBranch.Add(new YamlScalarNode("type"), new YamlScalarNode("null"));
+            branches.Add(nullBranch);
+
+            var wrapped = new YamlMappingNode();
+            wrapped.Add(new YamlScalarNode("anyOf"), branches);
+            return wrapped;
         }
 
         if (type == "object")
@@ -309,6 +384,53 @@ internal static class SchemaCompiler
         }
 
         return result;
+    }
+
+    /// <summary>
+    /// A size in the short form: bytes as a number, or a number with a unit — <c>10MiB</c>,
+    /// <c>1.5 KB</c>. Decimal units are powers of 1000 and binary units powers of 1024, and
+    /// a fractional amount is accepted only when it comes to a whole number of bytes, so
+    /// <c>1.5KiB</c> is 1536 and <c>1.3B</c> is refused. Units are case-sensitive.
+    /// </summary>
+    private static bool TryParseSize(string text, out long bytes)
+    {
+        bytes = 0;
+        if (string.IsNullOrWhiteSpace(text)) return false;
+
+        text = text.Trim();
+
+        int i = 0;
+        while (i < text.Length && (char.IsDigit(text[i]) || text[i] == '.')) i++;
+        if (i == 0) return false;
+
+        string number = text.Substring(0, i);
+        string unit = text.Substring(i).TrimStart();
+
+        if (!decimal.TryParse(number, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture,
+                out decimal amount) || amount < 0)
+            return false;
+
+        decimal multiplier = unit switch
+        {
+            "" or "B" => 1m,
+            "KB" => 1000m,
+            "MB" => 1000m * 1000m,
+            "GB" => 1000m * 1000m * 1000m,
+            "TB" => 1000m * 1000m * 1000m * 1000m,
+            "KiB" => 1024m,
+            "MiB" => 1024m * 1024m,
+            "GiB" => 1024m * 1024m * 1024m,
+            "TiB" => 1024m * 1024m * 1024m * 1024m,
+            _ => -1m,
+        };
+        if (multiplier < 0) return false;
+
+        decimal product = amount * multiplier;
+        if (product != decimal.Truncate(product)) return false;      // not a whole byte count
+        if (product > long.MaxValue) return false;
+
+        bytes = (long)product;
+        return true;
     }
 
     /// <summary>

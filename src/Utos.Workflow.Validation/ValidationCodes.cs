@@ -46,11 +46,20 @@ namespace Utos.Workflows.V1.Validation
         public const string ActivityNameBadEnd = "UTOS-A006";
         public const string ActivityConfigRequired = "UTOS-A007";
 
-        // Transitions
-        public const string TransitionActionRequired = "UTOS-T001";
+        // Rules — one shape in every list since spec 0.20.0: a condition, an effect, an exit.
+
+        /// <summary>
+        /// A rule carries neither an effect nor an exit, or carries no exit where the list
+        /// requires one. "At most one of each" needs no code: both are proto oneofs, so a
+        /// second one cannot be expressed.
+        /// </summary>
+        public const string RuleEffectOrExitRequired = "UTOS-T001";
+
         public const string TransitionTargetRequired = "UTOS-T002";
         public const string TransitionTargetUnresolved = "UTOS-T003";
-        public const string EmitTransitionRequired = "UTOS-T004";
+
+        // UTOS-T004 is retired and not reused (spec 0.20.0). It required the transition that
+        // an emit action carried inside itself, before a rule stated its exit separately.
 
         /// <summary>
         /// An <c>error</c> action carries no <c>code</c>. The code is what a consumer or an
@@ -66,7 +75,16 @@ namespace Utos.Workflows.V1.Validation
 
         // Timer configuration
         public const string TimerDurationRequired = "UTOS-C201";
+
+        /// <summary>A literal duration that parses and is zero, or is too large to hold.</summary>
         public const string TimerDurationNotPositive = "UTOS-C202";
+
+        /// <summary>
+        /// A literal duration that is not the unit shorthand at all — 1.5h, PT8H, "8 hours".
+        /// A whole-field template is not checked here: what it renders to is the executor's
+        /// business (UTOS-E106).
+        /// </summary>
+        public const string TimerDurationSyntax = "UTOS-C203";
 
         // Promise configuration.
         // UTOS-C301 (promise mode must be one of all/any/race/count) is RETIRED: the completion
@@ -100,12 +118,9 @@ namespace Utos.Workflows.V1.Validation
         public const string DispatchStartActivityRequired = "UTOS-C502";
         public const string DispatchStartActivityUnresolved = "UTOS-C503";
 
-        /// <summary>
-        /// An onEmitted rule carries no action. Weak by design: the actions are a proto oneof, so
-        /// two cannot be expressed and only "none" is left to check — the same thing UTOS-T001
-        /// checks for a transition rule.
-        /// </summary>
-        public const string EmissionRuleActionRequired = "UTOS-C504";
+        // UTOS-C504 is retired and not reused (spec 0.20.0). It required an action on an
+        // onEmitted rule, when such a rule was a message of its own; one rule type now serves
+        // every list, and UTOS-T001 says it for all of them.
 
         // Struct values
         public const string NonFiniteNumber = "UTOS-V001";
@@ -126,6 +141,15 @@ namespace Utos.Workflows.V1.Validation
         public const string SchemaRefUnknown = "UTOS-H005";
         public const string SchemaRefUnresolved = "UTOS-H006";
         public const string SchemaFormatUnknown = "UTOS-H007";
+
+        /// <summary>
+        /// A malformed <c>mediaType</c> or <c>maxSize</c>. Both are this spec's own keywords
+        /// beside a published type's <c>$ref</c>, and both are assertions rather than the
+        /// annotations 2020-12 would treat an unknown keyword as — so a malformed one has to
+        /// be refused rather than ignored, which is the same position the dialect takes on
+        /// <c>format</c>.
+        /// </summary>
+        public const string SchemaBlobKeywordMalformed = "UTOS-H015";
         public const string SchemaDefaultInvalid = "UTOS-H008";
         public const string SchemaDefaultOnRequired = "UTOS-H009";
         public const string SchemaPatternInvalid = "UTOS-H010";
@@ -175,6 +199,14 @@ namespace Utos.Workflows.V1.Validation
         public const string ExpressionUnclosed = "UTOS-E062";
         public const string ExpressionNoValue = "UTOS-E063";
         public const string ExpressionUnknownNode = "UTOS-E099";
+
+        /// <summary>
+        /// A member removed from a scope name is retired, not merely absent: reading it is an
+        /// error, where reading any other missing member is undefined. The difference matters
+        /// exactly where a member used to exist — response.bodyText ?? '' would otherwise keep
+        /// evaluating, to the empty string, and quietly change what a condition decides.
+        /// </summary>
+        public const string ExpressionRetiredMember = "UTOS-E070";
 
 #pragma warning restore CS1591
     }

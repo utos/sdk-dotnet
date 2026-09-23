@@ -32,6 +32,18 @@ namespace Utos.Workflows.V1.Validation.Schemas
         /// ignored: 2020-12 treats <c>format</c> as an annotation unless a validator opts in, so
         /// a typo'd <c>date-tim</c> would otherwise silently check nothing.
         /// </summary>
+        /// <summary>
+        /// The types this spec publishes, addressed <c>utos:&lt;name&gt;</c> and never fetched:
+        /// an implementation ships them, so a schema is evaluated without I/O and a registry
+        /// outage cannot stop a workflow loading. A published type is not a JSON Schema
+        /// document — a blob is not JSON, and no set of keywords could tell one from a map
+        /// shaped like a handle — so each is evaluated natively, as a check of the value's kind.
+        /// </summary>
+        private static readonly HashSet<string> PublishedTypes = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "utos:blob", "utos:file", "utos:duration",
+        };
+
         private static readonly HashSet<string> KnownFormats = new HashSet<string>(StringComparer.Ordinal)
         {
             "date-time", "date", "time", "duration", "uuid", "email", "uri", "hostname",
@@ -188,6 +200,12 @@ namespace Utos.Workflows.V1.Validation.Schemas
                 ValidateRef(value, Field(path, "$ref"), state, issues);
             }
 
+            if (node.Fields.TryGetValue("mediaType", out value))
+                ValidateMediaType(value, Field(path, "mediaType"), issues);
+
+            if (node.Fields.TryGetValue("maxSize", out value))
+                ValidateMaxSize(value, Field(path, "maxSize"), issues);
+
             if (node.Fields.TryGetValue("format", out value))
             {
                 string format = AsString(value);
@@ -286,13 +304,107 @@ namespace Utos.Workflows.V1.Validation.Schemas
         }
 
         /// <summary>
+        /// <c>UTOS-H015</c> — a media type pattern is <c>type/subtype</c> or <c>type/*</c>,
+        /// compared case-insensitively and ignoring the parameters a blob's own media type may
+        /// carry. <c>*/*</c> is not a pattern: to accept any media type, omit the keyword.
+        /// </summary>
+        private static void ValidateMediaType(Value value, string path, List<ValidationIssue> issues)
+        {
+            if (value.KindCase == Value.KindOneofCase.StringValue)
+            {
+                if (!IsMediaTypePattern(value.StringValue))
+                {
+                    Add(issues, ValidationCodes.SchemaBlobKeywordMalformed, path,
+                        "mediaType '" + value.StringValue + "' is not a media type pattern: "
+                        + "write type/subtype or type/*.");
+                }
+
+                return;
+            }
+
+            if (value.KindCase == Value.KindOneofCase.ListValue)
+            {
+                var list = value.ListValue.Values;
+                if (list.Count == 0)
+                {
+                    // A list that accepts nothing is never what was meant, and unlike an
+                    // absent keyword it is not a way to say "any".
+                    Add(issues, ValidationCodes.SchemaBlobKeywordMalformed, path,
+                        "mediaType must name at least one media type pattern.");
+                    return;
+                }
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].KindCase != Value.KindOneofCase.StringValue
+                        || !IsMediaTypePattern(list[i].StringValue))
+                    {
+                        Add(issues, ValidationCodes.SchemaBlobKeywordMalformed, Index(path, i),
+                            "Each mediaType must be a media type pattern: type/subtype or type/*.");
+                    }
+                }
+
+                return;
+            }
+
+            Add(issues, ValidationCodes.SchemaBlobKeywordMalformed, path,
+                "mediaType must be a media type pattern, or a list of them.");
+        }
+
+        private static bool IsMediaTypePattern(string pattern)
+        {
+            if (string.IsNullOrEmpty(pattern)) return false;
+
+            int slash = pattern.IndexOf('/');
+            if (slash <= 0 || slash == pattern.Length - 1) return false;
+
+            string type = pattern.Substring(0, slash);
+            string subtype = pattern.Substring(slash + 1);
+            if (type == "*") return false;                      // */* accepts nothing extra
+            if (subtype.IndexOf('/') >= 0) return false;
+
+            return IsToken(type) && (subtype == "*" || IsToken(subtype));
+        }
+
+        private static bool IsToken(string text)
+        {
+            foreach (char c in text)
+            {
+                bool ok = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+                    || (c >= '0' && c <= '9') || c == '.' || c == '-' || c == '+' || c == '_';
+                if (!ok) return false;
+            }
+
+            return text.Length > 0;
+        }
+
+        /// <summary>
+        /// <c>UTOS-H015</c> — a <c>maxSize</c> is bytes in a bundle. The unit shorthand is a
+        /// feature of the short form, resolved by the front end, so anything but a non-negative
+        /// whole number here is a bundle that was not compiled by one.
+        /// </summary>
+        private static void ValidateMaxSize(Value value, string path, List<ValidationIssue> issues)
+        {
+            bool ok = value.KindCase == Value.KindOneofCase.NumberValue
+                && value.NumberValue >= 0
+                && value.NumberValue == System.Math.Floor(value.NumberValue);
+
+            if (!ok)
+            {
+                Add(issues, ValidationCodes.SchemaBlobKeywordMalformed, path,
+                    "maxSize must be a non-negative whole number of bytes; a unit such as 10MiB "
+                    + "is a short-form spelling the front end resolves.");
+            }
+        }
+
+        /// <summary>
         /// <c>UTOS-H005</c> — a <c>$ref</c> reaches this schema's own <c>$defs</c> and the types
         /// the spec publishes, and nothing else. Keeping evaluation offline is the point: a
         /// workflow's meaning must not depend on what some host served at build time, and a
         /// registry outage cannot be allowed to stop one loading.
         /// <para>
-        /// The published registry is <em>empty</em> in this version — <c>blob</c> and <c>file</c>
-        /// arrive with binary data — so a <c>utos:</c> name is currently unknown too.
+        /// The published names are in <see cref="PublishedTypes"/>; a <c>utos:</c> name outside
+        /// that set is as unknown as a URL.
         /// </para>
         /// </summary>
         private static void ValidateRef(Value value, string path, WalkState state,
@@ -311,8 +423,13 @@ namespace Utos.Workflows.V1.Validation.Schemas
                 return;
             }
 
+            // A published type resolves to something the implementation ships, so there is no
+            // site to resolve later and nothing to check for termination.
+            if (PublishedTypes.Contains(reference)) return;
+
             Add(issues, ValidationCodes.SchemaRefUnknown, path,
-                "$ref '" + reference + "' must be a JSON Pointer into this schema's own $defs. "
+                "$ref '" + reference + "' must be a JSON Pointer into this schema's own $defs, "
+                + "or one of " + string.Join(", ", Sorted(PublishedTypes)) + ". "
                 + "The spec publishes no types in this version, and nothing is ever fetched.");
         }
 

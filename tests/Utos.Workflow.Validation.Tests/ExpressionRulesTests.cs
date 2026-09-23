@@ -115,6 +115,15 @@ public class ExpressionRulesTests
             "-input.count",
             "JSON.stringify({ ...input.user, [input.key]: 1 })",
             "/<(.+)>/.exec(input.from)[1]",
+
+            // Spec 0.20.0: reading a blob is asynchronous as it is in Node, `instanceof` is how
+            // Node recognises one, and `new Blob` is how bytes leave an expression.
+            "await response.body.text()",
+            "(await response.body.bytes()).toString('base64')",
+            "response.body instanceof Blob && new Date() instanceof Date",
+            "new Blob([Buffer.from(input.data, 'base64')], { type: 'image/png' })",
+            "new File([input.text], 'notes.txt', { type: 'text/plain' })",
+            "await input.files.reduce(async (acc, f) => [...await acc, await f.text()], [])",
         ];
 
         foreach (var program in programs)
@@ -127,7 +136,6 @@ public class ExpressionRulesTests
 
     [Theory]
     [InlineData("new Proxy({}, {})", ValidationCodes.ExpressionNew)]
-    [InlineData("new Date() instanceof Date", ValidationCodes.ExpressionBinaryOperator)]
     [InlineData("void input.x", ValidationCodes.ExpressionUnaryOperator)]
     public void What_0_0_16_still_refuses(string program, string code)
     {
