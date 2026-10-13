@@ -93,30 +93,13 @@ is made about what a workflow will do at run time. The conformance fixtures are 
 `utos/api` at the spec tag each release is built from, so this package is checked against the same
 corpus as every other SDK rather than a local copy free to drift.
 
-## Versioning
+## Versioning and releases
 
-The package version mirrors the Utos spec version it was generated from
-(`utos/api` tag `vX.Y.Z` → package `X.Y.Z`). SDK-only rebuilds against the same
-spec (e.g. a `Grpc.Tools` bump) increment a fourth field (`X.Y.Z.N`). Each release
-records the exact `utos/api` tag and commit it was generated from.
-
-## Branches and releases
-
-`dev` is the integration branch; `main` is the release branch. Feature branches and
-Dependabot bumps target `dev` and merge there freely — nothing is published from `dev`.
-The `dev` → `main` merge **is** the release: it arrives as one push, so a run of bumps
-and fixes costs one version rather than one per merge.
-
-Two things then happen on `main` without further help. `release.yml` regenerates from
-the current `utos/api` spec tag, drains `## [Unreleased]` in `CHANGELOG.md` into the new
-version's section, commits, tags and pushes to nuget.org — then fast-forwards `dev` onto
-that release commit, so the two branches are equal between releases. A spec release in
-`utos/api` reaches `main` the same way, through a `spec-released` `repository_dispatch`,
-independently of whatever is waiting on `dev`.
-
-A push to `main` releases only when it touches `Directory.Packages.props` or `src/`
-(excluding `Generated/`): a docs- or test-only merge changes nothing a consumer installs,
-so it publishes nothing and its notes wait under `## [Unreleased]` for the next release.
+The Utos spec, this SDK, `utos/daemon-dapr` and `utos/cli` share one version, and its minor is
+the spec: `0.20.x` means *implements spec 0.20*. A release gives its version only to the
+components it changed, so this package's versions may skip numbers, and a release that changed
+nothing here publishes nothing. Each version is a dated heading in [`CHANGELOG.md`](CHANGELOG.md),
+and the packages go to nuget.org with it.
 
 ## License
 

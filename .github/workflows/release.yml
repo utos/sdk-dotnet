@@ -1,29 +1,20 @@
 name: Release
 
-# The deliberate half. `sync-spec.yml` brings a new spec in as a pull request; this publishes,
-# and only when a person has said the repo is ready by dating a version in CHANGELOG.md.
+# Builds and publishes the packages for a release tag, from this repository's own source, so the
+# run that produced them is public and the packages carry a signed provenance attestation that
+# names it.
 #
-# Branches: `dev` integrates, `main` releases. The `dev` -> `main` merge IS the release, so a
-# week of work costs one version rather than one per merge. `main` only ever contains released
-# state.
-#
-# The version is read from CHANGELOG.md, exactly as utos/api does it — the first heading carrying
-# a date. Nothing is derived from the spec tag any more. That indirection is what let a package
-# claim a spec version it had not implemented: the number was computed from what utos/api had
-# published rather than from what this repo could actually do. A heading a human dated cannot
-# make that mistake.
-#
-# One version line across the spec and its implementations: the MINOR is the spec, so 0.20.x
-# means "implements spec 0.20", and a release gives its version only to the components that
-# changed. A component with nothing new does not release.
+# Only a tag starts it, and the tag is created by the Utos release, which decides the version and
+# which components carry it. A push to a branch never publishes.
 
 on:
   push:
-    branches: [main]
+    tags: ['v*']
 
 permissions:
-  contents: write   # commit the changelog date + push the tag
-  id-token: write   # OIDC token for nuget.org Trusted Publishing
+  contents: write       # the GitHub release
+  id-token: write       # nuget.org Trusted Publishing, and signing the attestation
+  attestations: write
 
 concurrency:
   group: release
@@ -34,106 +25,53 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0   # need all tags to tell a re-run from a new release
-
       - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '10.0.x'
 
-      - name: Read the version from CHANGELOG.md
+      - name: The version this tag releases
         id: version
         run: |
           set -euo pipefail
-
-          # The first heading with a date. An undated one is still being written; `Unreleased` is
-          # where notes accumulate. Dating a heading is how this repo says "ship this".
-          LINE=$(grep -m1 '^\#\# \[.*\] - [0-9]' CHANGELOG.md || true)
-
-          if [ -z "$LINE" ]; then
-            echo "::error::No dated version in CHANGELOG.md. Add a date to the version heading you intend to release (e.g. '## [0.19.0] - 2026-09-20')."
-            exit 1
-          fi
-
-          VERSION=$(echo "$LINE" | sed 's/.*\[\(.*\)\].*/\1/')
+          VERSION="${GITHUB_REF_NAME#v}"
+          grep -qE "^## \[${VERSION//./\\.}\] - [0-9]{4}-[0-9]{2}-[0-9]{2}" CHANGELOG.md \
+            || { echo "::error::CHANGELOG.md has no dated heading for $VERSION"; exit 1; }
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "::notice::releasing ${VERSION}"
 
-      - name: Skip if this version is already released
-        id: gate
+      # A hard gate: a package that fails its own corpus is a version that cannot be unpublished.
+      - name: Build and test
         run: |
-          set -euo pipefail
-          if git rev-parse "refs/tags/v${{ steps.version.outputs.version }}" >/dev/null 2>&1; then
-            echo "::notice::v${{ steps.version.outputs.version }} is already tagged; nothing to do."
-            echo "publish=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "publish=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Build
-        if: steps.gate.outputs.publish == 'true'
-        run: dotnet build Utos.slnx -c Release
-
-      # A hard gate here, unlike in sync-spec.yml. A release says the repo implements the spec it
-      # names, and the corpus is what decides whether that is true. Failing here costs a re-run;
-      # publishing a package that fails its own corpus costs a version that cannot be unpublished.
-      - name: Test
-        if: steps.gate.outputs.publish == 'true'
-        run: dotnet test Utos.slnx -c Release --no-build
-
-      - name: Verify the committed generated source is in sync
-        if: steps.gate.outputs.publish == 'true'
-        run: |
-          if ! git diff --exit-code -- 'src/**/Generated/**/*.cs'; then
-            echo "::error::Committed generated source is out of date. Run 'dotnet build' and commit the changes under src/**/Generated/."
-            exit 1
-          fi
-
+          dotnet build Utos.slnx -c Release
+          dotnet test Utos.slnx -c Release --no-build
       - name: Pack
-        if: steps.gate.outputs.publish == 'true'
-        run: dotnet pack Utos.slnx -c Release -p:Version=${{ steps.version.outputs.version }} -o artifacts
+        run: dotnet pack Utos.slnx -c Release --no-build -p:Version=${{ steps.version.outputs.version }} -o artifacts
 
-      - name: Tag
-        if: steps.gate.outputs.publish == 'true'
-        run: |
-          set -euo pipefail
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag "v${{ steps.version.outputs.version }}"
-          git push origin "v${{ steps.version.outputs.version }}"
+      - name: Attest provenance
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: artifacts/*.nupkg
 
-      # Trusted Publishing: exchange the GitHub OIDC token for a short-lived nuget.org API key
-      # (no stored secret). Requires a trusted-publishing policy on nuget.org bound to repo
-      # utos/sdk-dotnet + workflow release.yml, owner = Utos.
-      - name: Authenticate to nuget.org (Trusted Publishing)
-        if: steps.gate.outputs.publish == 'true'
-        id: nuget-login
+      - name: Authenticate to nuget.org
+        id: nuget
         uses: NuGet/login@v1
         with:
           user: ${{ vars.NUGET_USER }}
-
-      - name: Push to nuget.org
-        if: steps.gate.outputs.publish == 'true'
+      - name: Push
         run: |
-          set -euo pipefail
           dotnet nuget push 'artifacts/*.nupkg' \
-            --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
+            --api-key "${{ steps.nuget.outputs.NUGET_API_KEY }}" \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
 
-      # `main` moved and `dev` did not, so the next merge would carry a needless conflict. Last,
-      # and only after the push to nuget.org: `dev` moving means the release landed.
-      - name: Fast-forward dev to the released commit
-        if: steps.gate.outputs.publish == 'true'
+      - name: GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
         run: |
           set -euo pipefail
-          if ! git fetch --quiet origin dev; then
-            echo "::notice::no dev branch on origin; nothing to fast-forward"
-            exit 0
-          fi
-          if git merge-base --is-ancestor FETCH_HEAD HEAD; then
-            git push origin HEAD:dev
-            echo "::notice::dev fast-forwarded to v${{ steps.version.outputs.version }}"
+          awk -v v="## [$VERSION]" 'index($0, v) == 1 { grab = 1; next } /^## \[/ && grab { exit } grab { print }' CHANGELOG.md > notes.md
+          if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
+            gh release edit "$GITHUB_REF_NAME" --notes-file notes.md
           else
-            echo "::warning::dev has commits that are not on main, so it could not be fast-forwarded. Run 'git checkout dev && git merge main && git push' to bring it across."
+            gh release create "$GITHUB_REF_NAME" --verify-tag --title "$GITHUB_REF_NAME" --notes-file notes.md
           fi
