@@ -13,9 +13,9 @@ name: Release
 # published rather than from what this repo could actually do. A heading a human dated cannot
 # make that mistake.
 #
-# Version parity across the Utos repos: the MINOR is the contract and the PATCH is this repo's
-# own. 0.19.x in any repo means "implements spec 0.19". A repo with nothing to change simply does
-# not release, and its latest 0.19.x stays current — which is now true rather than papered over.
+# One version line across the spec and its implementations: the MINOR is the spec, so 0.20.x
+# means "implements spec 0.20", and a release gives its version only to the components that
+# changed. A component with nothing new does not release.
 
 on:
   push:

@@ -8,12 +8,11 @@ bumps, packaging changes).
 The format follows [Keep a Changelog](https://keepachangelog.com), and these
 packages adhere to [Semantic Versioning](https://semver.org).
 
-**Version parity across the Utos repos: the minor is the contract, the patch is
-this repo's own.** `0.19.x` here means *implements spec 0.19*, the same way it
-does in `utos/dapr-daemon` and `utos/cli`. A repo with nothing to change simply
-does not release, and its latest `0.19.x` stays current. Releasing is
-deliberate: the version is read from the dated heading below, not computed from
-whatever `utos/api` last published.
+**One version line across the spec and its implementations.** The spec
+(`utos/api`), `utos/sdk-dotnet`, `utos/dapr-daemon` and `utos/cli` share one
+version, and its minor is the spec: `0.20.x` in any of them means *implements
+spec 0.20*. A release gives its version only to the components that changed, so
+the numbers below may skip; a component with nothing new does not release.
 
 ## [0.20.0] - 2026-09-23
 
